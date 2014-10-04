@@ -1,0 +1,72 @@
+<div class="live-data">
+
+    <div class="col-md-4">
+		<div class="live-stats live-points">
+			<div class="top-preformer top-points">
+			    <div class="points-leader">
+			        <div class="col-md-3">
+				        <div class="dummy-img" style="background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{maxPointFormat}}.png)"></div>
+                        <div class="dummy-border"></div>
+			        </div>
+			        <div class="col-md-9">
+			            <h4>Leading Points</h4>
+			            <div class="leader-name">
+			                {{maxPoints.attributes.player_name}}
+			            </div>
+			            <div class="leader-stats">
+			                <div class="main-stat leader-stat">{{maxPoints.attributes.points}} pts</div>
+			                <div class="extra-stat leader-stat">{{maxPoints.attributes.rebounds}} rbs</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>  
+	</div>
+
+	<div class="col-md-4">
+		<div class="live-stats live-rebounds">
+			<div class="top-preformer top-rebounds">
+			    <div class="rebounds-leader">
+			        <div class="col-md-3">
+			            <div class="dummy-img" style="background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{maxReboundFormat}}.png)"></div>
+                        <div class="dummy-border"></div>
+			        </div>
+			        <div class="col-md-9">
+			            <h4>Leading Rebounds</h4>
+			            <div class="leader-name">
+			                {{maxRebounds.attributes.player_name}}
+			            </div>
+			            <div class="leader-stats">
+			                <div class="main-stat leader-stat">{{maxRebounds.attributes.rebounds}} rbs</div>
+			                <div class="extra-stat leader-stat">{{maxRebounds.attributes.points}} pts</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>  
+	</div>
+
+	<div class="col-md-4">
+		<div class="live-stats live-steals">
+			<div class="top-preformer top-steals">
+			    <div class="steals-leader">
+			        <div class="col-md-3">
+			            <div class="dummy-img" style="background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{maxStealsFormat}}.png)"></div>
+                        <div class="dummy-border"></div>
+			        </div>
+			        <div class="col-md-9">
+			            <h4>Leading Steals</h4>
+			            <div class="leader-name">
+			                {{maxSteals.attributes.player_name}}
+			            </div>
+			            <div class="leader-stats">
+			                <div class="main-stat leader-stat">{{maxSteals.attributes.steals}} stl</div>
+			                <div class="extra-stat leader-stat">{{maxSteals.attributes.points}} pts</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>  
+	</div>
+
+</div>

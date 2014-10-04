@@ -1,0 +1,76 @@
+.hover .player-image {
+    box-shadow: 0px 0px 0px 3px #00C8D7;
+}
+.hover-clicked .player-image {
+    box-shadow: 0px 0px 0px 3px #00C8D7;
+}
+.clicked-data-open .player-image { 
+	box-shadow: 0px 0px 0px 3px #00C8D7;
+}
+.player-image {
+	background-position: center center;
+    background-size: cover;
+    border-radius: 100em;
+    bottom: 0;
+    box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.4) inset, -1px -1px 0 0 rgba(255, 255, 255, 0.4) inset;
+    height: 70px;
+    left: -21px;
+    margin: auto;
+    max-width: 110px;
+    position: absolute;
+    top: 0;
+}
+.clicked-data-open .player-image:before {
+    background-color: rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.player-data .player-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 100em;
+    bottom: 0;
+    box-shadow: none;
+    cursor: pointer;
+    height: 80px;
+    left: 0;
+    margin: auto;
+    max-height: 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+
+    span {
+    	display: none;
+    }
+}
+.player-data .player-image.image-hover:before {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 100em;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.player-data .player-image.image-hover {
+    span {
+    	color: #FFFFFF;
+	    display: block;
+	    line-height: 65px;
+	    position: relative;
+	    text-align: center;
+    }
+}

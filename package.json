@@ -1,0 +1,81 @@
+{
+  "name": "stat-tracker-demo",
+  "description": "Demo stat tracking app",
+  "version": "0.0.1",
+  "author": "Michael Aubry",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "~3.8.3",
+    "handlebars-runtime": "~1.0.12",
+    "express3-handlebars": "~0.5.0",
+    "MD5": "~1.2.0",
+    "socket.io": "~0.9.16",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6",
+    "passport-facebook": "~1.0.3",
+    "passport-twitter": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "connect-flash": "latest",
+    "bcrypt-nodejs": "latest",
+    "easy-session": "latest",
+    "body-parser": "~1.0.2",
+    "cookie-session": "~1.0.1",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "express-session": "~1.0.4",
+    "method-override": "~1.0.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "browserify": "~3.19.1",
+    "browserify-shim": "~3.1.4",
+    "express-livereload": "0.0.24",
+    "gulp": "~3.3.0",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-browserify": "~0.2.4",
+    "gulp-clean": "~0.2.2",
+    "gulp-concat": "~2.1.7",
+    "gulp-csslint": "~0.1.3",
+    "gulp-exec": "~1.0.3",
+    "gulp-jscs": "~0.1.3",
+    "gulp-jshint": "~1.3.4",
+    "gulp-karma": "0.0.1",
+    "gulp-load-plugins": "*",
+    "gulp-minify-css": "~0.1.0",
+    "gulp-nodemon": "0.0.3",
+    "gulp-sass": "~0.7.1",
+    "gulp-spawn": "~0.2.1",
+    "gulp-uglify": "~0.1.0",
+    "gulp-util": "~2.2.9",
+    "gulp-watch": "~0.4.1",
+    "handlebars": "~1.0.12",
+    "hbsfy": "~1.0.0",
+    "vinyl-source-stream": "0.0.0"
+  },
+  "browser": {
+    "jquery": "./bower_components/jquery/jquery.js",
+    "bootstrap": "./client/requires/bootstrap/js/all.js",
+    "jquery.stellar": "./bower_components/jquery.stellar/src/jquery.stellar.js",
+    "snapjs": "./bower_components/snapjs/snap.js",
+    "underscore": "./bower_components/underscore/underscore.js",
+    "backbone": "./client/requires/backbone/js/backbone.js",
+    "backbone.wreqr": "./bower_components/backbone.marionette/public/javascripts/backbone.wreqr.js",
+    "backbone.babysitter": "./bower_components/backbone.marionette/public/javascripts/backbone.babysitter.js",
+    "backbone.nested": "./bower_components/backbone-nested-model/backbone-nested.js",
+    "backbone.dualStorage": "./bower_components/Backbone.dualStorage/backbone.dualstorage.js",
+    "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "hbsfy"
+    ]
+  },
+  "browserify-shim": "./config/shim.js"
+}

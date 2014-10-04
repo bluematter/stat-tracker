@@ -1,0 +1,175 @@
+#basketball {
+
+	.column {
+		overflow: hidden;
+	}
+
+	.col-xs-3 {
+	    width: 22%; // change col-xs-3 for more room
+	}
+    
+    h6 {
+	    color: #fff;
+	}
+
+	.choose-team {
+		position: fixed;
+		left: 0;
+
+		li {display: block}
+	}
+    
+    .team:before {
+	    background-size: cover;
+	    color: #AFAFAF; 
+	    content: "";
+	    display: block;
+	    height: 530px;
+	    left: 50%;
+	    opacity: 0.34;
+	    position: absolute; 
+	    top: 45px;
+	    width: 690px;
+	    z-index: 4;
+	}
+	.team{
+	    background-color: #FEFEFE;
+	    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.28);
+	    margin: 30px 0;
+	    text-align: center;
+
+	    .the-players {
+		    padding: 0;
+            overflow: hidden;
+	    }
+
+	    li {display: inline-block}
+
+        .players-wrap.go {
+        	.player:before {
+        		background-color: rgba(221, 107, 79, 0.8);
+			    bottom: 0;
+			    content: "";
+			    display: block;
+			    left: 0;
+			    position: absolute;
+			    right: 0;
+			    top: 0;
+        	}
+        }
+        &.subbing {
+        	.players-wrap {
+	        	display: block !important;
+            }
+        }
+
+        .players-wrap {
+            position: relative;
+            z-index: 0;
+            &.hover, &.hover-clicked {
+                z-index: 9; 
+            }
+        }
+        .players-wrap.hover .player  {
+        	cursor: pointer;     	
+        	.column.stat.data {
+            	color: $brand-primary;
+            }
+            .column.stat.name {
+            	background-color: #FEFEFE;
+                box-shadow: -20px 13px 6px -8px #F0F0F0, 150px 13px 6px -8px #F0F0F0;
+                span.face {
+                    box-shadow: 0 0 0 3px #00C8D7;
+                }
+            }
+        }
+        .players-wrap.hover-clicked .player  {
+        	cursor: pointer;       	
+        	.column.stat.data {
+            	color: $brand-primary;
+            }
+            .column.stat.name {
+            	background-color: #FEFEFE;
+                box-shadow: -20px 13px 6px -8px #F0F0F0, 150px 13px 6px -8px #F0F0F0;
+                span.face {
+                    box-shadow: 0 0 0 3px #00C8D7;
+                }
+            }
+        }
+	    .player { 
+			position: relative;
+			opacity: 1;
+			z-index: 9;
+            .column.stat {
+			    color: #202020;
+			    font-size: 18px;
+			    height: 103px;
+			    line-height: 103px;
+            }
+            .column.stat.name {
+            	background-color: #F7F7F7;
+            	text-align: left;
+                span.face {
+                    background-color: #E3E3E3;
+                    border-radius: 100em;
+                    display: block;
+                    height: 49px;
+                    overflow: hidden;
+                    position: relative;
+                    top: 15px;
+                    width: 49px;
+                }
+            }
+            .column.stat.makes-misses {
+            	background-color: #F1F2F4;
+			    color: #444;
+            }
+            .column.stat.data {
+            	color: #222;
+			    font-size: 18px;
+			    font-weight: 400;
+                font-family: brandon-grotesque;
+			    text-align: center;
+			    text-shadow: 0 0 1px #fff;
+			    text-transform: uppercase;         	
+            }
+            .column.stat.data.fouls {
+            	font-size: 10px;
+            	padding: 0;
+            	text-shadow: none;
+            }
+            .column.stat.filler {
+            	background-color: #fff;
+            }
+            .column.points.make:first-child, .column.points.miss:first-child {
+            	border-right: 0 none;
+            	border-radius: 5px 0 0 5px;
+            }
+            .column.points.make, .column.points.miss {
+            	border: 1px solid #CCCCCC;
+            	box-shadow: -1px 1px 1px 0 rgba(255, 255, 255, 0.8) inset, 1px -1px 1px 0 rgba(255, 255, 255, 0.8) inset;
+			    color: #2C6DC5;
+			    cursor: pointer;
+			    font-size: 7px;
+			    height: 34px;
+			    line-height: 35px;
+			    position: relative;
+			    text-transform: uppercase;
+			    top: 21px;		    
+            }
+            .column.points.make:last-child, .column.points.miss:last-child {
+            	border-left: 0 none;
+            	border-radius: 0 5px 5px 0;
+            }
+            .column.points.make:hover {
+                color: #009855;
+            }
+            .column.points.miss:hover {
+                color: #da4632;
+            }
+
+	    }
+
+	}
+	
+}

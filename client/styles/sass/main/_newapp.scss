@@ -1,0 +1,122 @@
+.new-app {
+	padding: 0;
+
+	.team-flow {
+		background-color: #DFDFDF;
+	    border-bottom: 1px solid #CDCDCD;
+	    font-family: brandon_grotesquebold;
+	    font-size: 19px;
+	    height: 101px;
+	    line-height: 100px;
+	    padding-left: 50px;
+	    text-transform: uppercase;
+	    span {
+	    	color: #FEFEFE;
+            font-size: 12px;
+	    }
+	    .flow-status {
+
+	    }
+	    .flow-action {
+	    	background-color: #CECECE;
+		    border-left: 1px solid #C0C0C0;
+		    height: 100px;
+		    text-align: center;
+	    }
+	}
+
+	.col-md-6.no-teams.players:before {
+	    background-color: rgba(20, 20, 20, 0.5);
+	    bottom: 0;
+	    content: "";
+	    display: block;
+	    left: 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    z-index: 999999;
+	}
+	.players.active {
+	    width: 60%;
+    }
+    .players.not-active {
+	    width: 40%;
+    }
+    .teams.active {
+	    width: 60%;
+    }
+    .teams.not-active {
+	    width: 40%;
+    }
+    .players {
+        height: 800px;
+        padding: 0;
+	    border-right: 1px solid #DDDDDD;
+	    transition: 1s all ease;
+	    .loaded.players-list {
+	    	opacity: 1;
+	    	transition: 2s opacity ease;
+	    }
+	    .players-list {
+	    	height: 600px;
+	    	opacity: 0;
+		    margin: 0 ;
+		    overflow: auto;
+		    padding: 0 0 0 16px;
+	    }
+	    .facebook-item-placeholder {
+	    	background-color: #eee;
+	    }
+        li {
+		    font-family: brandon_grotesquebold;
+		    font-size: 16px;
+		    text-transform: uppercase;
+        	background-color: #FFFFFF;
+		    border-bottom: 1px solid #D7D7D7;
+		    color: #222222;
+		    display: block;
+		    padding: 25px;
+		    &:hover {
+		    	cursor: pointer;
+		    	background-color: #eee;
+		    }
+		    img {
+		    	border-radius: 100em;
+                margin-right: 20px;
+		    }
+        }
+    }
+    .teams{
+    	background-color: #eee;
+    	height: 600px;
+    	position: relative;
+    	transition: 1s all ease;
+    	.team-creator {
+    		cursor: pointer;
+    		background-color: #E0E0E0;
+		    border: 1px solid #DFDFDF;
+		    border-radius: 5px;
+		    bottom: 0;
+		    color: #777777;
+		    font-family: brandon_grotesquebold;
+		    font-size: 16px;
+		    height: 100px;
+		    left: 0;
+		    line-height: 100px;
+		    margin: auto;
+		    padding: 0;
+		    position: absolute;
+		    right: 80px;
+		    text-align: center;
+		    text-transform: uppercase;
+		    top: -15px;
+		    width: 425px;
+    	}
+    	.name-step {
+            display: none;
+    	}
+    	.color-step {
+            display: none;
+    	}
+    }
+}

@@ -1,0 +1,90 @@
+.choose-team {
+	height: 100%;
+	font-family: open_sansregular;
+	z-index: 0;
+
+	div.setting-item {
+		background: none repeat scroll 0 0 #2F323A;
+		border-bottom: 1px solid #202228;
+		box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.1) inset, 0 1px 0 0 rgba(255, 255, 255, 0.1) inset, 1px 0px 0 0 rgba(255, 255, 255, 0.1) inset;
+		color: #fff;
+	    height: 61px;
+	    padding: 10px 0;
+	    position: relative;
+	    font-size: 15px;
+	    z-index: 2;
+	    -webkit-transition-duration: .25s;
+	    transition-duration: .25s;
+	    ul {
+	    	padding: 0;
+	    }
+		li {
+			color: #989dac;
+		    display: block;
+		    font-family: open_sansregular,FontAwesome;
+		    font-weight: 500;
+		    text-align: center;
+		    line-height: 30px;
+		}
+		li.fa-dribbble {
+			font-size: 18px;
+            margin-right: 10px;
+		}
+		ul.homeAway {
+			display: none;
+			opacity: 0;
+			margin: 0;
+			-webkit-transition-duration: .35s;
+	        transition-duration: .35s;
+			li {
+				background-color: #25282E;
+				border-top: 1px solid #202228;
+			    display: inline-block;
+			    padding: 9px 40px;
+			    position: relative;
+			    width: 58.8%;
+			    z-index: 1;
+			} 
+			li:first-child {
+				border-right: 1px solid #202228;
+				margin-left: -40px;
+			}
+			li:last-child {
+				margin-left: -4px;
+                right: 0;
+			}
+		}
+	}
+	div.setting-item.choose-side {
+	    height: 100px;
+	    position: relative;
+	    z-index: 1;
+        -webkit-transition-duration: .15s;
+	    transition-duration: .15s;
+	    ul.homeAway {
+	    	display: block;
+			opacity: 1;
+			-webkit-transition-duration: .35s;
+	        transition-duration: .35s;
+	        li:hover {
+	        	background-color: #333;
+	        } 
+		}
+	}
+	div.setting-item:last-child {
+		border-bottom: 0 none;
+	}
+	div.setting-item:hover {
+		background-color: #3a3a3a;
+	}
+
+	div.setting-item.active {
+		background-color: #25282E;
+		border-bottom: none;
+		box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.05) inset, 0 0 0 0 rgba(255, 255, 255, 0.05) inset, 3px 0 0 0 #5C9DF5 inset, 0px -1px 0 0 #202228 inset;
+	    li {
+	    	color: #fff;
+	    	position: relative;
+	    }
+	}
+}

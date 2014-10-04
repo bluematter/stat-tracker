@@ -1,0 +1,50 @@
+<div class="player col-xs-12">
+
+    <div class="col-xs-3 column stat name">
+        <span class="column face" style="display: block; overflow: hidden; position: relative; border-radius: 100em; width: 49px; height: 49px; background-color: rgb(227, 227, 227); top: 15px;">
+            <img src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{name_format}}.png" class="player-image img-responsive"/>
+        </span> 
+        <span class="column" style="position: absolute; top: 0px; left: 102px;">
+            <span> {{player_name}} </span>
+        </span>    
+    </div>
+
+    <div class="col-xs-2 column stat data makes-misses">
+        {{points}}
+        <div class="row clearfix" style="display: none;">
+            <div class="col-xs-4 column points miss one" data-stat="missed_one" data-missedone="{{missed_one}}">
+                <span class=""></span>
+            </div>
+            <div class="col-xs-4 column points miss two" data-stat="missed_two" data-missedtwo="{{missed_two}}">
+                <span class=""></span>
+            </div>
+            <div class="col-xs-4 column points miss three" data-stat="missed_three" data-missedthree="{{missed_three}}">
+                <span class=""></span>
+            </div>
+        </div>
+        <div class="row clearfix" style="display: none;">
+            <div class="col-xs-4 column points make one" data-stat="made_one" data-madeone="{{made_one}}">
+                <span class="fa-circle-o"></span>
+            </div>
+            <div class="col-xs-4 column points make two" data-stat="made_two" data-madetwo="{{made_two}}">
+                <span class="fa-circle-o"></span>
+            </div>
+            <div class="col-xs-4 column points make three" data-stat="made_three" data-madethree="{{made_three}}">
+                <span class="fa-circle-o"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-2 column stat data rebounds" data-stat="rebounds">
+        <span class="rebounds">{{rebounds}}</span>
+    </div>
+    <div class="col-xs-2 column stat data steals" data-stat="steals">
+        <span class="steals">{{steals}}</span>
+    </div>
+    <div class="col-xs-2 column stat data blocks" data-stat="blocks">
+        <span class="blocks">{{blocks}}</span>
+    </div>
+    <div class="col-xs-1 column stat data fouls" data-stat="fouls">
+        {{fouls}}
+    </div>
+</div>    

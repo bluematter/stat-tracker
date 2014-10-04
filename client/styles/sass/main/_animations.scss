@@ -1,0 +1,32 @@
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translatey(0);
+    opacity: 0.3;
+  }
+
+  50% {
+    -webkit-transform: translatey(-14em);
+    opacity: 0.05;
+  }
+
+  100% {
+    -webkit-transform: translatey(0);
+    opacity: 0.3;
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translatey(0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translatey(-14em);
+    opacity: 0.05;
+  }
+
+  100% {
+    transform: translatey(0);
+    opacity: 0.3;
+  }
+}

@@ -1,0 +1,628 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+// Bootstrap
+@import "bootstrap/variables"; 
+@import "bootstrap/mixins";
+
+@import "main/variables";
+@import "main/mixins";
+
+@import "main/header";
+
+@import "main/windowsApp";
+@import "main/animations";
+@import "main/livedata";
+
+@import "main/newapp";
+
+@import "main/chooseteam";
+
+@import "main/playerImage";
+@import "main/playerData";
+
+@import "main/basketballTeamPlayers";
+
+body {
+    overflow: hidden;
+}
+
+#wrap {
+    //background: url("http://sarasoueidan.com/demos/windows8-animations/images/1.png") no-repeat scroll left -200px / 100% 100% rgba(0, 0, 0, 0);
+    background-color: #d6d7f5;
+    position: relative;
+}
+
+.playing {
+    height: 674px;
+    left: 34px;
+    overflow: scroll;
+    position: relative;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.scroll-helper {
+    bottom: 0;
+    height: 110px;
+    left: 20px;
+    margin: auto;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    .home-boost,.away-boost {
+        border: 3px solid #BBBBBB;
+        border-radius: 100em;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+    }
+    .line {
+        border: 1px solid #BBBBBB;
+        height: 50px;
+        margin: auto;
+        position: relative;
+        width: 1px;
+    }
+}
+
+.appView {
+    height: 1010px
+}
+
+.settings {
+    background-color: #3E3E3E;
+    color: #FFFFFF;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    width: 266px;
+    z-index: 0;
+    .navbar-collapse {
+        padding:0;
+    }
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        border-bottom: 1px solid #303030;
+        float: none;
+        li {
+            list-style: none outside none;
+        }
+        li > a {
+            text-decoration: none;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            outline: 0 none;
+        }
+        li > a {
+            line-height: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            display: block;
+            padding: 10px 15px;
+            position: relative;
+        }
+        .choose-teams li {
+            cursor: pointer;
+            padding: 15px 25px;
+        }      
+    }
+    .nav > li > a:hover, .nav > li > a:focus {
+        background-color: transparent;
+        color: #fff;
+        text-decoration: none;
+        outline: 0 none;
+    }
+}
+
+
+.stellar:first-child {
+    top: 0;
+}
+.stellar {
+    display: block;
+    left: 0 !important;
+    position: relative;
+    top: -100px;
+}
+.stellar:last-child {
+    top: -200px;
+}
+
+.left-box, .right-box {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    height: 300px;
+    left: -50px;
+    overflow: hidden;
+    position: relative;
+    width: 700px;
+    .base {
+        bottom: -20px;
+        position: absolute;
+    }
+    h1 {
+        color: #FFFFFF;
+        font-family: brandon-grotesque;
+        position: relative;
+        text-transform: uppercase;
+    }
+}
+
+.left-box { 
+    border-bottom: 1px solid #000;
+    transform: rotate(10deg);
+    .base {
+        bottom: 20px;
+        left: 150px;
+        transform: rotate(-10deg);
+        width: 100%;
+    }
+    h1 { 
+        font-size: 22px;
+        left: -60px;
+        top: 10px;
+    }
+}
+
+.right-box { 
+    transform: rotate(-10deg); 
+    .base {
+        transform: rotate(10deg);
+    }
+    h1 {
+        font-size: 21px;
+        left: 70px;
+        top: 15px;
+    }
+}
+
+
+.last-guy {
+    background-size: 590px auto; 
+    background-color: rgb(57, 63, 79);
+    .base {
+        right: -80px;
+        bottom: -80px;
+    }
+}
+
+
+.feed {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);
+    height: 594px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 1s ease 0s;
+    #feed-items {
+        height: 620px;
+        left: -20px;
+        overflow: scroll;
+        position: relative;
+        width: 313px;
+    }
+}
+
+.absolute-center {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	margin: auto;
+	width: 200px;
+	text-align: center;
+}
+.bg-lay {
+	background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+.hovering-show-data {
+	background-color: #fff;
+    box-shadow: 0 0 3px 0 #444444;
+    color: #222222;
+    left: 55px;
+    padding: 10px;
+    position: absolute;
+    width: 125px;
+    z-index: 9;
+}
+.add-player-modal {
+	background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    display: block;
+    height: 100%;
+    left: 0;
+    padding: 35px 100px 0 35px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.information-module:before {
+    background-image: url("./img/mj.jpg");
+    background-position: 0 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 1s ease 0s;
+    width: 100%;
+    z-index: -1;
+}
+.information-module {
+	background-color: #F5F5F5;
+    border-radius: 20em;
+    height: 500px;
+    left: 35%;
+    overflow: hidden;
+    position: fixed;
+    top: 100px;
+    width: 500px;
+    z-index: 9;
+}
+.created-teams {
+	height: 100%;
+	.team-list-item {
+		padding: 0;
+		.team-name {
+			color: #fff;
+			font-family: brandon_grotesquebold;
+	        font-size: 16px;
+		}
+	}
+}
+
+
+
+
+.rsOverflow {
+    width: 100% !important;
+}
+.fb-player {
+	cursor: pointer;
+}
+.fb-player:hover {
+	background-color: #eee;
+}
+.start-up.freshApp .scoreboard {
+	bottom: 0;
+}
+.freshApp .scoreboard {
+	bottom: -56px;
+}
+
+.scoreboard {    
+    background-color: #F5F5F5;
+    bottom: 87px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.18);
+    height: 75px;
+    position: absolute;
+    width: 100%;
+    z-index: 2147483647;
+}
+
+
+
+.home-points, .away-points {
+    color: #FFFFFF;
+    font-family: arial;
+    font-weight: bold;
+}
+
+
+.darklayer {
+	background-image: url(../img/darklayer.jpg);
+	height: 35px;
+}
+
+.top-bar {
+	background: #0075c7;
+    border-bottom: 1px solid #111;
+    height: 51px;
+    padding: 0 96px 0 30px;
+    position: relative;
+    z-index: 9;
+
+    .week {
+    	color: #fff;
+    	line-height: 50px;
+    	span {
+    		background-color: rgba(255, 255, 255, 0.2);
+		    border-radius: 100em;
+		    margin: 10px;
+		    font-size: 10px;
+		    padding: 6px 10px;
+    	}
+    	span.finished {
+    		background-color: rgba(255, 255, 255, 1);
+		    border-radius: 100em;
+		    color: #444;
+		    margin: 10px;
+		    position: relative;
+    	}
+    	span.finished:before {
+		    background-color: rgba(255,255,255,0.5);
+		    bottom: 0;
+		    content: "";
+		    display: inline-block;
+		    height: 1px;
+		    left: 24px;
+		    margin: auto;
+		    position: absolute;
+		    top: 0;
+		    width: 22px;
+		}
+    }
+}
+
+.open {
+	background-color: $brand-primary;
+    border-bottom: 1px solid #202228;
+    box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;
+    height: 51px;
+    width: 65px;
+    line-height: 51px;
+    padding: 0 15px;
+    text-align: center;
+}
+.opened {
+	margin-left: 244px;
+	-webkit-transition-duration: .25s;
+	transition-duration: .25s;
+}
+.start-up.freshApp .closed {
+    margin-left: 66px;
+}
+.freshApp .closed {
+    margin-left: 0;
+}
+.closed {
+    margin-left: 66px;
+	-webkit-transition-duration: .25s;
+	transition-duration: .25s;
+}
+.start-up.freshApp .settings-panel {
+    left: 0;
+}
+.freshApp .settings-panel {
+    left: -66px;
+}
+.settings-panel {
+	background: none repeat scroll 0 0 #2F323A;
+	box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.1) inset, 0 0 0 1px #18191D;
+    height: 100%;
+    width: 65px;
+    position: fixed;
+	transition-duration: .25s;
+    z-index: 4; 
+}
+.settings-panel {
+	.team-item {
+		display: none;
+	}
+	.fa-dribbble {
+		left: 18px;
+        position: relative;
+	}
+	.active .fa-dribbble {
+		left: 13px;
+	}
+}
+.settings-display {
+	background-color: #26282F;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1) inset;
+    height: 100%;
+    left: 66px;
+    position: absolute;
+    width: 178px;
+    z-index: 0;
+    h2 {
+    	color: #fff;
+	    font-family: open_sanslight;
+	    font-size: 20px;
+	    margin: 15px 0 0;
+	    padding: 0 20px;
+	    position: relative;
+    }
+    .pick-a-team {
+    	margin-top: 50px;
+        padding: 0 25px;
+    }
+    li {
+    	color: #fff;
+    	display: block;
+    }
+}
+
+
+
+
+
+
+.rsSlide {
+	opacity: 0.7;
+}
+.rsSlide.rsActiveSlide {
+	opacity: 1;
+}
+
+.wrap {
+	background-attachment: fixed;
+    background-color: #E7EBEF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    z-index: 1;
+}
+
+.main {
+	background-color: #e7ebef;
+	height: 100%;
+	position: fixed;
+	padding: 0;
+}
+
+.wrap.right {
+    -webkit-transform: translate3d(230px, 0, 0);
+    transform: translate3d(230px, 0, 0);
+}
+ 
+.wrap.transition {
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+}
+
+.options {
+    background-color: #1b1b1b;
+    display: none; 
+    height: 40px;
+    margin-left: -35px;
+    margin-right: -35px;
+
+    .team-options {
+    	cursor: pointer;
+    	padding: 10px 0;
+    }
+}
+.statisticals {
+    background: linear-gradient(to bottom, #F4F4F4 0%, #E4E4E4 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #C2C2C2;
+    color: #4D4D4D;
+    font-family: brandon-grotesque;
+    font-size: 11px;
+    height: 45px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    z-index: 10;
+    .column {
+        .short { display: none; }
+        .long  { display: block;}
+    }
+}
+
+
+@media(max-width: $screen-md-max) { 
+
+    .statisticals {
+        .column {
+            .short { display: none; }
+            .long  { display: block;}
+        }
+    }    
+
+}
+
+@media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+    .statisticals {
+        .column {
+            .short { display: block; }
+            .long  { display: none;}
+        }
+    }  
+
+} 
+
+@media(max-width: $screen-xs-max) { 
+    
+    #basketball .team .player .column.stat.data {
+        font-size: 12px;
+    }
+
+    .statisticals {
+        font-size: 8px;
+        .column {
+            .short { display: block; }
+            .long  { display: none;}
+        }
+    } 
+
+}
+
+
+
+#teamTree {
+	.team{
+		display: none;
+    }
+}
+
+.start-up #basketball {
+	top: 765px;
+}
+
+
+
+
+
+
+
+
+
+// $unit-of-speed: 50ms; // crazy fast
+$unit-of-speed: 500ms; // normal
+// $unit-of-speed: 1000ms; // boring
+
+@mixin digit-styling() {
+    background: none repeat scroll 0 0 #EEEEEE;
+    color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    font-weight: 900;
+    height: 30px;
+    overflow: hidden;
+    padding: 10px;
+    text-shadow: 0 -1px #000000;
+    width: 50px;
+  &:first-child {
+    border-left: none;
+  }
+}
+
+@mixin animation($single-animation) {
+  animation: $single-animation;
+}
+
+@mixin animation-duration($duration) {
+  animation-duration: $duration;
+}
+
+.odometer {
+    bottom: 0;
+	height: 35px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 8px;
+}
+
+.digit {
+  display: inline-block;
+  height: 30px;
+  width: 20px;
+  overflow: hidden;
+  
+  @include digit-styling();
+}

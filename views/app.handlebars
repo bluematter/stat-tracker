@@ -1,0 +1,49 @@
+<div class="settings">
+	
+	<div class="navbar-collapse collapse sidebar-navbar-collapse">
+		<ul class="nav navbar-nav" id="sidenav01">
+
+			<li class="active">
+				<h4>Settings</h4>
+			</li>
+
+			<li>
+				<a href="#" data-toggle="collapse" data-target="#Dashboard" data-parent="#sidenav01" class="collapsed">
+					<span class="glyphicon glyphicon-cloud"></span> Dashboard
+				</a>
+			</li>
+
+			<li>
+				<a href="#stats" data-toggle="collapse" data-target="#chooseSide" data-parent="#sidenav01" class="collapsed">
+					<span class="glyphicon glyphicon-cloud"></span> Choose Teams <span class="caret pull-right"></span>
+				</a>
+				<div class="collapse" id="chooseSide" style="height: 0px;">
+					<ul>
+						<li class="home">
+							<a href="#stats" data-toggle="collapse" data-target="#chooseHome" data-parent="#sidenav01" class="collapsed">
+								<span class="glyphicon glyphicon-cloud"></span> Home <span class="caret pull-right"></span>
+							</a>
+							<div class="collapse choose-teams home" id="chooseHome" style="height: 0px;"></div>
+						</li>
+						<li class="away">
+							<a href="#stats" data-toggle="collapse" data-target="#chooseAway" data-parent="#sidenav01" class="collapsed">
+								<span class="glyphicon glyphicon-cloud"></span> Away <span class="caret pull-right"></span>
+							</a>
+							<div class="collapse choose-teams away" id="chooseAway" style="height: 0px;"></div>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+		</ul>
+	</div><!--/.nav-collapse -->
+
+</div>
+
+<div id="wrap" class="transition">
+
+    {{> header}}
+
+	<div id="basketball" data-home="" data-away="" class="from-server"></div>  
+
+</div>

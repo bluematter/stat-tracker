@@ -1,0 +1,116 @@
+.player-data {
+	background-color: #FFFFFF;
+    border-left: 1px solid #F5F5F5;
+    box-shadow: 0 0 13px 0 #232323;
+    height: 100%;
+    opacity: 0.95;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translate3d(400px, 0px, 0px);
+    transition-duration: 0.75s;
+    z-index: 99;
+    &:hover {
+    	opacity: 0.9;
+    }
+    .player-profile:before {
+	    content: "";
+	    display: block;
+	    height: 100%;
+	    left: 0;
+	    opacity: 0.9;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    width: 100%;
+	}
+    .player-profile {
+	    background-position: -90px -40px;
+        -webkit-transition: all 0.5s ease 0s; 
+	    transition: all 0.5s ease 0s; 
+	    height: 183px;
+	    position: relative;
+	}
+	.player-name {
+		color: #fff;
+	    font-family: brandon_grotesquebold;
+	    font-size: 36px;
+	    letter-spacing: 1.5px;
+	    line-height: 11.5;
+	    position: relative;
+	    text-align: center;
+	    text-transform: uppercase;
+	}
+
+	.player-stats, .live-percent {
+		color: #FFFFFF;
+	    font-family: brandon_grotesquebold;
+	    font-size: 130px;
+	}
+    
+    .dynamic-feed {
+    	background-color: #f3f5f5;
+    	bottom: 96px;
+    	display: none;
+	    height: 300px;
+	    overflow-x: hidden;
+	    position: absolute;
+	    width: 100%;
+    }
+    
+    .player-editor {
+    	background: none repeat scroll 0 0 #FFFFFF;
+	    border: 20px solid #EEEEEE;
+	    height: 500px;
+	    left: -870px;
+	    margin: auto;
+	    position: absolute;
+	    top: 50px;
+	    width: 800px;
+    }
+
+    li {
+    	color: #F5F5F5;
+        display: block;
+
+    	img {
+    		-webkit-border-radius: 100em;
+    		border-radius: 100em;
+		    margin: 20px;
+		    width: 50px;
+    	}
+    }
+}
+.show-player-data, .show-player-data-clicked {
+    transform: translate3d(0, 0, 0);
+    transition-duration: .75s;
+}
+.show-confirmed,.show-confirmed-clicked {
+    transform: translate3d(0, 0, 0);
+    transition-duration: .75s;
+}
+
+
+@media(max-width: $screen-md-max) {   
+
+	.player-data {
+		width: 20%;
+	}
+
+}
+
+@media(min-width: $screen-sm) and (max-width: $screen-sm-max) { 
+    
+    .player-data {
+		width: 20%;
+	}
+
+} 
+
+@media(max-width: $screen-xs-max) { 
+    
+    .player-data {
+		width: 60%;
+	}
+
+}

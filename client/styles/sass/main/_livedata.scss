@@ -1,0 +1,209 @@
+.start-up .live-data {
+	height: 729px;
+}
+.start-up.freshApp .live-data {
+	height: 729px;
+}
+.freshApp .live-data {
+	background-color: #191C1E;
+    height: 250px;
+    padding: 0; 
+}
+
+.dummy-img {
+    background-position: -20px 0;
+    background-repeat: no-repeat;
+    background-size: 115px 89px;
+    border-radius: 10em;
+    content: "";
+    display: block;
+    height: 75px;
+    left: 15px;
+    position: absolute;
+    top: 5px;
+    width: 75px;
+    z-index: -1;
+}
+.dummy-border {
+    background-size: cover;
+    border-radius: 100em;
+    height: 75px;
+    margin: 4px 10px 0 0;
+    width: 75px;
+}
+// .dummy-border {
+//     background-size: cover;
+//     border-radius: 100em;
+//     box-shadow: 0 0 0 6px #2EA7FF, 0 0 50px 0 #5ED7EF;
+//     height: 75px;
+//     margin: 4px 10px 0 0;
+//     width: 75px;
+// }
+
+.live-data:before {
+    background-color: rgba(0, 0, 0, 0.04);
+    background-image: url("../img/ty.png");
+    background-position: right -230px;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    opacity: 0.24;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.live-data {
+    /* background-image: linear-gradient(to right, #6B2534, #355F6B); */
+    background-color: #2E5072;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid #AFAFAF;
+    height: 200px;
+    margin-bottom: 0;
+    opacity: 0.92;
+    padding: 77px 50px 0;
+    position: relative;
+    transition: all 1s ease 0s;
+    z-index: 9; }
+ .live-data:after {
+    background-position: 0 -30px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    bottom: 0;
+    content: "";
+    display: block;
+    opacity: 0.425;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(180deg);
+    width: 100%;
+    z-index: -5; }   
+  .live-data .points-leader, .live-data .steals-leader, .live-data .rebounds-leader {
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase; }
+  .live-data .leader-name {
+    font: 17px brandon-grotesque;
+    text-align: left;
+    text-shadow: 1px 1px 6px #BBBBBB; }
+  .live-data .leader-stats {
+    font-size: 12px;
+    text-align: left; }
+  .live-data .leader-stat {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 2px;
+    color: #EFEFEF;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 6px;
+    padding: 3px 5px; }
+  .live-data .chart-players {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #7d7d7d;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.85);
+    padding: 10px 3px;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+    .live-data .chart-players li {
+      display: inline-block;
+      width: 20%;
+      text-align: center; }
+
+.live-stats, .live-feed, .live-chart {
+  background-color: #0163ac;
+  border-radius: 3px;
+  color: #FFFFFF;
+  height: 100%;
+  padding: 20px 30px; }
+  .live-stats img, .live-feed img, .live-chart img {
+    border-radius: 100em;
+    height: 45px;
+    margin-right: 10px;
+    width: 45px; }
+
+.live-feed {
+  padding: 0;
+  overflow: auto; }
+
+.live-feed ul {
+  padding: 0; }
+
+.live-feed li {
+  border-bottom: 1px solid #DDDDDD;
+  display: block;
+  padding: 20px; }
+
+.live-stats:first-child {
+  margin-left: 0; }
+
+.live-points:before {
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%; }
+
+.live-steals:before {
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%; }
+
+.live-rebounds:before {
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%; }
+
+
+.live-stats {
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; }
+  .live-stats h4 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin: 0;
+    opacity: 1;
+    position: relative;
+    text-align: left; }
+  .live-stats .top-preformer {
+    margin: 0 40px;
+    opacity: 1;
+    position: relative; }
+    .live-stats .top-preformer.new-leader {
+      position: relative;
+      opacity: 0 !important; }
+    .live-stats .top-preformer.transition {
+      -webkit-transition-duration: .25s;
+      transition-duration: .25s; }
+    .live-stats .top-preformer img {
+      border-radius: 100em;
+      box-shadow: 0 0 0 6px #2EA7FF, 0 0 50px 0 #5ED7EF;
+      height: 50px;
+      margin: 4px 10px 0 0;
+      width: 50px; }
