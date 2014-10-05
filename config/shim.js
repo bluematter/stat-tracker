@@ -29,27 +29,12 @@ module.exports = {
             "underscore":"_"
         }
     },
-    "backbone.nested": {
-        "exports": "Backbone.Nested",
-        "depends": {
-            "backbone":"Backbone",
-            "underscore":"_"
-        }
-    },
-    "backbone.dualStorage": {
-        "exports": "Backbone.DualStorage",
-        "depends": {
-            "backbone":"Backbone",
-            "underscore":"_"
-        }
-    },
     "backbone.marionette": {
         "exports": "Marionette",
         "depends": {
             "backbone":"Backbone",
             "backbone.wreqr":"Backbone.Wreqr",
-            "backbone.babysitter":"Backbone.BabySitter",
-            "backbone.nested":"Backbone.Nested"
+            "backbone.babysitter":"Backbone.BabySitter"
         }
     }
 };

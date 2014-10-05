@@ -10,36 +10,60 @@ var Marionette   = require('backbone.marionette'),
 
 module.exports = appView = Marionette.ItemView.extend({
     className: 'appView',
-    template: require('../../templates/app.hbs'),
+    template: require('../../templates/statsView.hbs'),
     events: {
         'mouseenter .home-boost': 'homeBoost',
         'mouseenter .away-boost': 'awayBoost'
     },
     initialize: function() {
+
         var self = this;
+
+        // intialize third party stuff
         this.snapMenu();
         this.facebook();
+
+        // listen for changes 
         App.vent.on('home-team-change', function(data) { self.changeHomeTeam(data); self.render(); });
         App.vent.on('away-team-change', function(data) { self.changeAwayTeam(data); self.render(); });
+    
     },
     playing: function (value) {
+        
+        // determine who is playing by looking for the team models
+        // that have "playing" set to true
         var models = this.collection.where({playing: true});
         return new TeamsCollection(models);
+
     },
     notPlaying: function (value) {
+
+        // determine who is NOT playing by looking for the team models
+        // that have "playing" set to false
         var models = this.collection.where({playing: false});
         return new TeamsCollection(models);
+
     },
     onRender: function() {
+
+        // make a collection for the teams that are playing
         this.playingCollection  = this.playing();
+
+        // make a collection for the teams that are inactive
         this.sidelineCollection = this.notPlaying();
+        
+        // grab the playing teams ID's assuming there should be 2 teams only
         var team_id1 = this.playingCollection.pluck('_id')[0];
         var team_id2 = this.playingCollection.pluck('_id')[1];
+        
+        // initialize some views
         window.App.views.leaderView   = new LeaderView({ collection: this.playingCollection, id1: team_id1, id2: team_id2 }); 
         window.App.views.teamsView    = new TeamsView({ collection: this.playingCollection });
         window.App.views.dataView     = new DataView({ collection: this.playingCollection });
         window.App.views.settingsView = new SettingsView({ collection: this.sidelineCollection });
         window.App.views.feedView     = new FeedView({ collection: this.playingCollection });
+        
+        // append the view's to the DOM
         $('.settings .choose-teams').html(App.views.settingsView.render().el); // settings view
         this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
         this.$el.find('.app').prepend(App.views.dataView.render().el); // data view

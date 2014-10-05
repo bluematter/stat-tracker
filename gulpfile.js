@@ -4,7 +4,7 @@ var gulp       = require('gulp'),
     bower      = require('bower'),
     source     = require('vinyl-source-stream'),
     watch      = require('gulp-watch'),
-    connect    = require('gulp-connect'),
+    //connect    = require('gulp-connect'),
     tasks      = require("gulp-load-plugins")(),
     demo       = require('./package.json');
 
@@ -104,12 +104,12 @@ gulp.task('sass', function () {
 */
 
 
-gulp.task('connect', connect.server({
-    root: ['public'],
-    port: 8300,
-    open: { browser: "firefox" },
-    livereload: true
-}));
+// gulp.task('connect', connect.server({
+//     root: ['public'],
+//     port: 8300,
+//     open: { browser: "firefox" },
+//     livereload: true
+// }));
 
 
 /*

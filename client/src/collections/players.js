@@ -3,7 +3,6 @@ var Backbone = require('backbone'),
 
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
-    local: true,
     initialize: function(models, options) {
     	this.options = options || {};
         this.team = this.options.team;

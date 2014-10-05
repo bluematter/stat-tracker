@@ -12,6 +12,8 @@ var teamView = Marionette.CompositeView.extend({
         this.listenTo(this.model, 'change', this.render);
         this.collection = this.model.players;
         this.teamIdentity(this.model.get('team_name'));
+
+        console.log(this.model.players);
     },
     teamIdentity: function(name) {
         this.$el.addClass(name);

@@ -1,12 +1,12 @@
 var Marionette = require('backbone.marionette'),
     HomeView   = require('./views/home'),
-    AppView    = require('./views/app');
+    StatsView    = require('./views/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
     initialize: function(options) {
         App.core.vent.trigger('app:log', 'Controller: Initializing');
         window.App.views.homeView = new HomeView();
-        window.App.views.appView  = new AppView({ collection: window.App.data.teams });
+        window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
     },
 
     home: function() {
@@ -18,7 +18,7 @@ module.exports = Controller = Marionette.Controller.extend({
 
     stats: function() {
         App.core.vent.trigger('app:log', 'Controller: "Stats" route hit.');
-        var view = window.App.views.appView;
+        var view = window.App.views.statsView;
         this.renderView(view);
         window.App.router.navigate('#stats');
     },

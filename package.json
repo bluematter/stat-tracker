@@ -67,7 +67,6 @@
     "backbone": "./client/requires/backbone/js/backbone.js",
     "backbone.wreqr": "./bower_components/backbone.marionette/public/javascripts/backbone.wreqr.js",
     "backbone.babysitter": "./bower_components/backbone.marionette/public/javascripts/backbone.babysitter.js",
-    "backbone.nested": "./bower_components/backbone-nested-model/backbone-nested.js",
     "backbone.dualStorage": "./bower_components/Backbone.dualStorage/backbone.dualstorage.js",
     "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js"
   },

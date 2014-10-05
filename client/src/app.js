@@ -50,7 +50,7 @@ App.prototype.start = function(){
             }
         });
         
-        // playing with the espn api
+        // playing with the espn api (depreciated)
         var nba = new NBACollection();
         nba.fetch({
             reset: true,

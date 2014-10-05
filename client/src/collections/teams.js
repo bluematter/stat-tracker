@@ -5,7 +5,6 @@ var Backbone = require('backbone'),
 module.exports = TeamsCollection = Backbone.Collection.extend({
     model:  TeamModel,
     url: '/api/teams',
-    local: true,
     initialize:function() {
     	this.on('reset', this.getPlayers, this);
     },
