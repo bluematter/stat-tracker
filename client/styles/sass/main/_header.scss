@@ -31,6 +31,9 @@ $button-size : 3rem;
   &:active {
     transition: 0;
   }
+  &:focus {
+    outline: 0 none;
+  }
 }
 //common to all three-liners
 @mixin line {

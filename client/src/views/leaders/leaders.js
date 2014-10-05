@@ -21,24 +21,23 @@ module.exports = LeadersView = Marionette.CompositeView.extend({
     },
     gameLeader:function(stat) {
         teams = App.data.teams
-        // var home = teams.get(this.options.id1).players.models;
-        // var away = teams.get(this.options.id2).players.models;
+        var home = teams.get(this.options.id1).players.models;
+        var away = teams.get(this.options.id2).players.models;
 
-        // all = home.concat(away);
-        // leaders = new PlayersCollection(all)
-        // return leaders.max(function(leader) {
-        //     return leader.get(stat);
-        // });
+        all = home.concat(away);
+        leaders = new PlayersCollection(all)
+        return leaders.max(function(leader) {
+            return leader.get(stat);
+        });
     },
     templateHelpers:function(){
-        console.log({maxRebounds: this.gameLeader()})
         return {
-            // maxPoints: this.gameLeader('points'),
-            // maxRebounds: this.gameLeader('rebounds'),
-            // maxSteals: this.gameLeader('steals'),
-            // maxPointFormat: this.gameLeader('points').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
-            // maxReboundFormat: this.gameLeader('rebounds').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
-            // maxStealsFormat: this.gameLeader('steals').attributes.player_name.replace(/\s+/g, '_').toLowerCase()
+            maxPoints: this.gameLeader('points'),
+            maxRebounds: this.gameLeader('rebounds'),
+            maxSteals: this.gameLeader('steals'),
+            maxPointFormat: this.gameLeader('points').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
+            maxReboundFormat: this.gameLeader('rebounds').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
+            maxStealsFormat: this.gameLeader('steals').attributes.player_name.replace(/\s+/g, '_').toLowerCase()
         }
     },
     itemView: leaderView

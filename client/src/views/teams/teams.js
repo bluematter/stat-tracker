@@ -32,7 +32,7 @@ var teamView = Marionette.CompositeView.extend({
 });
 
 module.exports = CollectionView = Marionette.CollectionView.extend({
-    className: 'col-md-9 playing',
+    className: 'playing',
     template: require('../../../templates/teams/basketball.hbs'),
     events: {
         'submit #AddTeam': 'addTeam'

@@ -97,12 +97,12 @@ module.exports = appView = Marionette.ItemView.extend({
     homeBoost:function(e) {
         $('.away-boost').removeClass('active');
         $(e.currentTarget).addClass('active');
-        $(".col-md-9.playing").animate({ scrollTop: 0 }, 800);
+        $(".playing").css({ 'transform': 'translateY(0)' });
     },
     awayBoost:function(e) {
         $('.home-boost').removeClass('active');
         $(e.currentTarget).addClass('active');
-        $(".col-md-9.playing").animate({ scrollTop: 674 }, 800);
+        $(".playing").css({ 'transform': 'translateY(-200px)' });
     },
     facebook: function() {
         $(document).on('fbStatusChange', function (event, data) {

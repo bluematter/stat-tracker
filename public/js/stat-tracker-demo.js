@@ -18196,24 +18196,23 @@ module.exports = LeadersView = Marionette.CompositeView.extend({
     },
     gameLeader:function(stat) {
         teams = App.data.teams
-        // var home = teams.get(this.options.id1).players.models;
-        // var away = teams.get(this.options.id2).players.models;
+        var home = teams.get(this.options.id1).players.models;
+        var away = teams.get(this.options.id2).players.models;
 
-        // all = home.concat(away);
-        // leaders = new PlayersCollection(all)
-        // return leaders.max(function(leader) {
-        //     return leader.get(stat);
-        // });
+        all = home.concat(away);
+        leaders = new PlayersCollection(all)
+        return leaders.max(function(leader) {
+            return leader.get(stat);
+        });
     },
     templateHelpers:function(){
-        console.log({maxRebounds: this.gameLeader()})
         return {
-            // maxPoints: this.gameLeader('points'),
-            // maxRebounds: this.gameLeader('rebounds'),
-            // maxSteals: this.gameLeader('steals'),
-            // maxPointFormat: this.gameLeader('points').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
-            // maxReboundFormat: this.gameLeader('rebounds').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
-            // maxStealsFormat: this.gameLeader('steals').attributes.player_name.replace(/\s+/g, '_').toLowerCase()
+            maxPoints: this.gameLeader('points'),
+            maxRebounds: this.gameLeader('rebounds'),
+            maxSteals: this.gameLeader('steals'),
+            maxPointFormat: this.gameLeader('points').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
+            maxReboundFormat: this.gameLeader('rebounds').attributes.player_name.replace(/\s+/g, '_').toLowerCase(),
+            maxStealsFormat: this.gameLeader('steals').attributes.player_name.replace(/\s+/g, '_').toLowerCase()
         }
     },
     itemView: leaderView
@@ -18347,12 +18346,12 @@ module.exports = appView = Marionette.ItemView.extend({
     homeBoost:function(e) {
         $('.away-boost').removeClass('active');
         $(e.currentTarget).addClass('active');
-        $(".col-md-9.playing").animate({ scrollTop: 0 }, 800);
+        $(".playing").css({ 'transform': 'translateY(0)' });
     },
     awayBoost:function(e) {
         $('.home-boost').removeClass('active');
         $(e.currentTarget).addClass('active');
-        $(".col-md-9.playing").animate({ scrollTop: 674 }, 800);
+        $(".playing").css({ 'transform': 'translateY(-200px)' });
     },
     facebook: function() {
         $(document).on('fbStatusChange', function (event, data) {
@@ -18474,7 +18473,7 @@ var teamView = Marionette.CompositeView.extend({
 });
 
 module.exports = CollectionView = Marionette.CollectionView.extend({
-    className: 'col-md-9 playing',
+    className: 'playing',
     template: require('../../../templates/teams/basketball.hbs'),
     events: {
         'submit #AddTeam': 'addTeam'
@@ -18585,37 +18584,37 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"live-data\">\r\n\r\n    <div class=\"col-md-4\">\r\n		<div class=\"live-stats live-points\">\r\n			<div class=\"top-preformer top-points\">\r\n			    <div class=\"points-leader\">\r\n			        <div class=\"col-md-3\">\r\n				        <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
+  buffer += "<div class=\"live-data\">\r\n    <div class=\"data-positioner\">\r\n	    <div class=\"col-md-4\">\r\n			<div class=\"live-stats live-points\">\r\n				<div class=\"top-preformer top-points\">\r\n				    <div class=\"points-leader\">\r\n\r\n				        <div class=\"leader-picture\">\r\n					        <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
   if (stack1 = helpers.maxPointFormat) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.maxPointFormat; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + ".png)\"></div>\r\n                        <div class=\"dummy-border\"></div>\r\n			        </div>\r\n			        <div class=\"col-md-9\">\r\n			            <h4>Leading Points</h4>\r\n			            <div class=\"leader-name\">\r\n			                "
+    + ".png)\"></div>\r\n				        </div>\r\n				        <div class=\"leader-data\">\r\n				            <h4>Leading Points</h4>\r\n				            <div class=\"leader-name\">\r\n				                "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\r\n			            </div>\r\n			            <div class=\"leader-stats\">\r\n			                <div class=\"main-stat leader-stat\">"
+    + "\r\n				            </div>\r\n				            <div class=\"leader-stats\">\r\n				                <div class=\"main-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " pts</div>\r\n			                <div class=\"extra-stat leader-stat\">"
+    + " pts</div>\r\n				                <div class=\"extra-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.rebounds)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " rbs</div>\r\n			            </div>\r\n			        </div>\r\n			    </div>\r\n			</div>\r\n		</div>  \r\n	</div>\r\n\r\n	<div class=\"col-md-4\">\r\n		<div class=\"live-stats live-rebounds\">\r\n			<div class=\"top-preformer top-rebounds\">\r\n			    <div class=\"rebounds-leader\">\r\n			        <div class=\"col-md-3\">\r\n			            <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
+    + " rbs</div>\r\n				            </div>\r\n				        </div>\r\n\r\n				    </div>\r\n				</div>\r\n			</div>  \r\n		</div>\r\n\r\n		<div class=\"col-md-4\">\r\n			<div class=\"live-stats live-rebounds\">\r\n				<div class=\"top-preformer top-rebounds\">\r\n				    <div class=\"rebounds-leader\">\r\n\r\n				        <div class=\"leader-picture\">\r\n				            <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
   if (stack2 = helpers.maxReboundFormat) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = depth0.maxReboundFormat; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
   buffer += escapeExpression(stack2)
-    + ".png)\"></div>\r\n                        <div class=\"dummy-border\"></div>\r\n			        </div>\r\n			        <div class=\"col-md-9\">\r\n			            <h4>Leading Rebounds</h4>\r\n			            <div class=\"leader-name\">\r\n			                "
+    + ".png)\"></div>\r\n				        </div>\r\n				        <div class=\"leader-data\">\r\n				            <h4>Leading Rebounds</h4>\r\n				            <div class=\"leader-name\">\r\n				                "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\r\n			            </div>\r\n			            <div class=\"leader-stats\">\r\n			                <div class=\"main-stat leader-stat\">"
+    + "\r\n				            </div>\r\n				            <div class=\"leader-stats\">\r\n				                <div class=\"main-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.rebounds)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " rbs</div>\r\n			                <div class=\"extra-stat leader-stat\">"
+    + " rbs</div>\r\n				                <div class=\"extra-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " pts</div>\r\n			            </div>\r\n			        </div>\r\n			    </div>\r\n			</div>\r\n		</div>  \r\n	</div>\r\n\r\n	<div class=\"col-md-4\">\r\n		<div class=\"live-stats live-steals\">\r\n			<div class=\"top-preformer top-steals\">\r\n			    <div class=\"steals-leader\">\r\n			        <div class=\"col-md-3\">\r\n			            <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
+    + " pts</div>\r\n				            </div>\r\n				        </div>\r\n\r\n				    </div>\r\n				</div>\r\n			</div>  \r\n		</div>\r\n\r\n		<div class=\"col-md-4\">\r\n			<div class=\"live-stats live-steals\">\r\n				<div class=\"top-preformer top-steals\">\r\n				    <div class=\"steals-leader\">\r\n\r\n				        <div class=\"leader-picture\">\r\n				            <div class=\"dummy-img\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
   if (stack2 = helpers.maxStealsFormat) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = depth0.maxStealsFormat; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
   buffer += escapeExpression(stack2)
-    + ".png)\"></div>\r\n                        <div class=\"dummy-border\"></div>\r\n			        </div>\r\n			        <div class=\"col-md-9\">\r\n			            <h4>Leading Steals</h4>\r\n			            <div class=\"leader-name\">\r\n			                "
+    + ".png)\"></div>\r\n				        </div>\r\n				        <div class=\"leader-data\">\r\n				            <h4>Leading Steals</h4>\r\n				            <div class=\"leader-name\">\r\n				                "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\r\n			            </div>\r\n			            <div class=\"leader-stats\">\r\n			                <div class=\"main-stat leader-stat\">"
+    + "\r\n				            </div>\r\n				            <div class=\"leader-stats\">\r\n				                <div class=\"main-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.steals)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " stl</div>\r\n			                <div class=\"extra-stat leader-stat\">"
+    + " stl</div>\r\n				                <div class=\"extra-stat leader-stat\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " pts</div>\r\n			            </div>\r\n			        </div>\r\n			    </div>\r\n			</div>\r\n		</div>  \r\n	</div>\r\n\r\n</div>";
+    + " pts</div>\r\n				            </div>\r\n				        </div>\r\n\r\n				    </div>\r\n				</div>\r\n			</div>  \r\n		</div>\r\n    </div>\r\n</div>";
   return buffer;
   });
 
@@ -18628,7 +18627,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"app container\">\r\n\r\n    <div class=\"scroll-helper\">\r\n		<div class=\"home-boost\"></div>\r\n		<div class=\"line\"></div>\r\n		<div class=\"away-boost\"></div>\r\n	</div>\r\n\r\n    <div class=\"col-md-10 teams-box\" style=\"height: 674px; overflow: hidden;\"></div>\r\n	<div class=\"col-md-2 feed\"></div>\r\n\r\n</div>\r\n\r\n<div class=\"scoreboard\"></div>\r\n";
+  return "<div class=\"app container\">\r\n\r\n	<div class=\"col-md-1\" style=\"position: relative; height: 674px;\">\r\n	    <div class=\" scroll-helper\">\r\n			<div class=\"home-boost\"></div>\r\n			<div class=\"line\"></div>\r\n			<div class=\"away-boost active\"></div>\r\n		</div>\r\n	</div>\r\n\r\n    <div class=\"col-md-9 teams-box\" style=\"height: 674px;\"></div>\r\n	<div class=\"col-md-2 feed\"></div>\r\n\r\n</div>\r\n\r\n<div class=\"scoreboard\"></div>\r\n";
   });
 
 },{"hbsfy/runtime":45}],38:[function(require,module,exports){

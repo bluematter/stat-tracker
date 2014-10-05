@@ -133,6 +133,18 @@
 			    text-shadow: 0 0 1px #fff;
 			    text-transform: uppercase;         	
             }
+            .column.stat.data:before {
+                // position: absolute;
+                // height: 25%;
+                // content: "";
+                // top: 0;
+                // margin: auto;
+                // right: 0;
+                // bottom: 0;
+                // width: 1px;
+                // background-color: #aaa;
+                // display: block;
+            }
             .column.stat.data.fouls {
             	font-size: 10px;
             	padding: 0;
