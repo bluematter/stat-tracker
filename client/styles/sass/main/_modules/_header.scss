@@ -10,7 +10,7 @@ button{
   }
 }
 
-$color : #ecf0f1;
+$color : #333;
 $transition: .3s;// increase this to see the transformations happen in slow motion
 
 
@@ -45,22 +45,37 @@ $button-size : 3rem;
 }
 //common to all three-liners
 .lines {
-  @include line;
+  //@include line;
   position: relative; 
+  display: inline-block;
+  width: 3rem;
+  height: 2px;
+  background: #333;
+  transition: 0.3s;
 
   &:before, &:after {
-   @include line;
-    position: absolute;
-    left:0;
+   // @include line;
+   //  position: absolute;
+   //  left:0;
     content: '';
     -webkit-transform-origin: $button-size/14 center;
             transform-origin: $button-size/14 center;
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #333;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    position: absolute;
+    left: 0;
   }
   &:before { 
-    top: $button-size/4; 
+    //top: $button-size/4;
+    top:6px; 
   }
   &:after { 
-    top: -$button-size/4; 
+    //top: -$button-size/4; 
+    top:-6px; 
   }
 }
 

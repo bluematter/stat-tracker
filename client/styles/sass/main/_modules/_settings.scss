@@ -1,0 +1,47 @@
+.settings {
+    background-color: #3E3E3E;
+    color: #FFFFFF;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    width: 266px;
+    z-index: 0;
+    .navbar-collapse {
+        padding:0;
+    }
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        border-bottom: 1px solid #303030;
+        float: none;
+        li {
+            list-style: none outside none;
+        }
+        li > a {
+            text-decoration: none;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            outline: 0 none;
+        }
+        li > a {
+            line-height: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            display: block;
+            padding: 10px 15px;
+            position: relative;
+        }
+        .choose-teams li {
+            cursor: pointer;
+            padding: 15px 25px;
+        }      
+    }
+    .nav > li > a:hover, .nav > li > a:focus {
+        background-color: transparent;
+        color: #fff;
+        text-decoration: none;
+        outline: 0 none;
+    }
+}

@@ -6,18 +6,26 @@ var teamView = Marionette.CompositeView.extend({
 	className: 'team row',
     template: require('../../../templates/teams/team.hbs'),
     events: {
-        'submit #AddPlayer': 'addPlayer'
+        'submit #AddPlayer': 'addPlayer',
+        'click .team-changes': 'teamChanges'
     },
     initialize: function() {
+        // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
-        this.collection = this.model.players;
-        this.teamIdentity(this.model.get('team_name'));
 
-        console.log(this.model.players);
+        // define this collection (its a model with an array) as a collection of players
+        this.collection = this.model.players;
+
+        // pass the team name from the model to teamIdenity function
+        this.teamIdentity(this.model.get('team_name'));
     },
-    teamIdentity: function(name) {
-        this.$el.addClass(name);
-        this.$el.attr('data-team', name);
+    teamIdentity: function(teamName) {
+        // add the team name to DOM
+        this.$el.addClass(teamName);
+        this.$el.attr('data-team', teamName);
+    },
+    teamChanges:function() {
+         this.$el.find('.team-editor').addClass('edit');
     },
     addPlayer: function(e) {
         e.preventDefault();

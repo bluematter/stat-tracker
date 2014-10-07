@@ -1,8 +1,10 @@
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var RememberMeStrategy = require('passport-remember-me').Strategy;
 var User             = require('../app/passport/User');
 var configAuth       = require('./auth');
 var md5              = require('MD5');
+var uid = require('uid2');
 
 module.exports = function(passport) {
     
@@ -24,6 +26,68 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
+
+    // passport.serializeUser(function(user, done) {
+    //   done(null, user.local.email);
+    // });
+
+    // passport.deserializeUser(function(email, done) {
+    //   User.findOne( { 'local.email': email } , function (err, user) {
+    //     done(err, user);
+    //   });
+    // });
+    
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Remember me
+    // |--------------------------------------------------------------------------
+    // |
+    // |
+    // */
+
+    // /* Fake, in-memory database of remember me tokens */
+
+    // var tokens = {}
+
+    // function consumeRememberMeToken(token, fn) {
+    //   var uid = tokens[token];
+    //   // invalidate the single-use token
+    //   delete tokens[token];
+    //   return fn(null, uid);
+    // }
+
+    // function saveRememberMeToken(token, uid, fn) {
+    //   tokens[token] = uid;
+    //   return fn();
+    // }
+
+    // passport.use(new RememberMeStrategy(
+
+    //     function(token, done) {
+    //         consumeRememberMeToken(token, function(err, uid) {
+    //             if (err) { return done(err); }
+    //             if (!uid) { return done(null, false); }
+
+    //             User.findById(id, function(err, user) {
+    //                 if (err) { return done(err); }
+    //                 if (!user) { return done(null, false); }
+    //                 return done(null, user);
+    //             });
+
+    //         });
+    //     },
+
+    //     issueToken
+
+    // ));
+
+    // function issueToken(user, done) {
+    //     var token = utils.randomString(64);
+    //     saveRememberMeToken(token, user.id, function(err) {
+    //         if (err) { return done(err); }
+    //         return done(null, token);
+    //     });
+    // }
 
     /*
     |--------------------------------------------------------------------------

@@ -68,6 +68,7 @@ if ('development' == env) {
     // required for passport
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
+    app.use(passport.authenticate('remember-me'));
     app.use(flash()); // use connect-flash for flash messages stored in session
 
 }
@@ -84,7 +85,7 @@ if ('development' == env) {
 
 
 // Connect to the db server:
-mongoose.set('debug', true);
+//mongoose.set('debug', true);
 mongoose.connect(configDB.url); 
 require('./config/passport')(passport); // pass passport for configuration
 

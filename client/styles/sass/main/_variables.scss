@@ -262,8 +262,8 @@
 // $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 
 // $navbar-default-color:             #777 !default;
-   $navbar-default-bg:                rgba(47,47,47,0.98) !default;
-   $navbar-default-border:            darken($navbar-default-bg, 8.5%) !default;
+   $navbar-default-bg:                rgba(255,255,255,0.98) !default;
+   $navbar-default-border:            darken($navbar-default-bg, 12.5%) !default;
 
 // // Navbar links
    $navbar-default-link-color:                #777 !default;

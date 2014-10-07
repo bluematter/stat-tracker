@@ -1,33 +1,38 @@
-<div class="container">
+<div id="fullBg" />
 
-<div class="col-sm-6 col-sm-offset-3">
+<div class="center-login">
+    <div class="container">
+      
+        <!-- show any messages that come back with authentication -->
+        {{#if message.length}}
+            <div class="alert alert-danger">{{message}}</div>
+        {{/if}} 
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+        <form class="form-signin" action="/login" method="post"> 
+          
+          <h1 class="form-signin-heading"> Sign in </h1>
 
-    <!-- show any messages that come back with authentication -->
-    {{#if message.length}}
-        <div class="alert alert-danger">{{message}}</div>
-    {{/if}} 
+          <img class="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="">
 
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
+          <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" value="{{user}}"/>
+          <input type="password" class="form-control" name="password" placeholder="Password" required=""/>  
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button> 
+          
+          <div class="remember">
+            {{#if user}}
+              <input type="checkbox" name="remember_me" checked/>
+            {{else}}
+              <input type="checkbox" name="remember_me"/>
+            {{/if}}
+            <span>Remember Me</span>
+          </div>
 
-    <hr>
+          <button class="btn fb btn-lg btn-primary btn-block" type="submit">Sign in via Facebook</button> 
 
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+        </form>
 
-</div>
+        <p class="text-center sign-up"><strong>Sign up</strong> for a new account</p>
 
+    </div>
 </div>

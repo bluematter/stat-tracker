@@ -86,7 +86,6 @@ gulp.task('browserify', function() {
 
 gulp.task('sass', function () {
     return gulp.src([
-        'client/styles/sass/bootstrap.scss', 
         'client/styles/sass/main.scss' ])
         .pipe(tasks.sass())
         .pipe(tasks.autoprefixer())

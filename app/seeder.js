@@ -9,6 +9,7 @@ module.exports = {
                 console.log('no teams found, seeding...');
                 var newTeam = new models.Team({
                     team_name:   'Bulls',
+                    playing: true,
                     players: [
                         {
                             player_name:  'Taj Gibson',
@@ -68,6 +69,7 @@ module.exports = {
 
                 var newTeam = new models.Team({
                     team_name:   'Wizards',
+                    playing: true,
                     players: [
                         {
                             player_name:  'John Wall',

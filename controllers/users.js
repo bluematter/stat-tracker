@@ -11,14 +11,15 @@ module.exports = {
                     if(err)
                         console.log('error');
                     else 
-                        res.render('app', { user: req.user }); 
+                        res.render('app', { user: req.user });
                 });
 
             });
 
         }
         else
-            res.render('login'); 
+            res.render('login', { user: req.cookies.RMME }); 
+            console.log(req)
     },
     login: function(req, res) {
         res.render('login');
@@ -36,6 +37,7 @@ module.exports = {
                         console.log('error')
                     else
                         console.log('success')
+                        res.clearCookie('remember_me');
                         req.logout();
                         res.redirect('/');
                 });

@@ -1,7 +1,9 @@
 var home   = require('../controllers/home'),
     user   = require('../controllers/users'),
     team   = require('../controllers/teams'),
-    player = require('../controllers/players');
+    player = require('../controllers/players'),
+    RememberMeStrategy = require('passport-remember-me').Strategy,
+    utils  = require('utils');
 
 module.exports.initialize = function(app, router, passport) {
 
@@ -12,11 +14,88 @@ module.exports.initialize = function(app, router, passport) {
     router.get('/signup', user.signup);
     router.get('/logout', user.logout);
     
-    router.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/',
-        failureRedirect : '/failure',
-        failureFlash : false
-    }));
+    // app.post('/login', passport.authenticate('local-login', {
+    //     successRedirect : '/',
+    //     failureRedirect : '/failure',
+    //     failureFlash : false
+    // }));
+
+    /*
+    |--------------------------------------------------------------------------
+    | Remember me
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    /* Fake, in-memory database of remember me tokens */
+
+    var tokens = {}
+
+    function consumeRememberMeToken(token, fn) {
+      var uid = tokens[token];
+      // invalidate the single-use token
+      delete tokens[token];
+      return fn(null, uid);
+    }
+
+    function saveRememberMeToken(token, uid, fn) {
+      tokens[token] = uid;
+      return fn();
+    }
+
+    passport.use(new RememberMeStrategy(
+
+        function(token, done) {
+            consumeRememberMeToken(token, function(err, uid) {
+                if (err) { return done(err); }
+                if (!uid) { return done(null, false); }
+
+                User.findById(id, function(err, user) {
+                    if (err) { return done(err); }
+                    if (!user) { return done(null, false); }
+                    return done(null, user);
+                });
+
+            });
+        },
+
+        issueToken
+
+    ));
+
+    function issueToken(user, done) {
+        var token = utils.randomString(64);
+        saveRememberMeToken(token, user.id, function(err) {
+            if (err) { return done(err); }
+            return done(null, token);
+        });
+    }
+    
+    app.post('/login', 
+        passport.authenticate('local-login', { failureRedirect: '/login', failureFlash: true }),
+        
+        function(req, res, next) {
+            // Issue a remember me cookie if the option was checked
+            if (!req.body.remember_me) { 
+                res.clearCookie('RMME');
+                return next(); 
+            }
+
+            issueToken(req.user, function(err, token) {
+                if (err) { return next(err); }
+                res.cookie('RMME', req.user.local.email, { maxAge: 900000, httpOnly: true });
+                res.cookie('remember_me', token, { path: '/', httpOnly: true, maxAge: 604800000 });
+                return next();
+            });
+        },
+
+        function(req, res) {
+            res.redirect('/');
+        }
+
+    );
+
     router.post('/signup', passport.authenticate('local-signup', { 
         successRedirect: '/',
         failureRedirect: '/login',
