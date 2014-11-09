@@ -1,11 +1,19 @@
 .scoreboard {
-    background-color: #1e2224;
+    background-color: #03070e;
     bottom: 0;
-    /* -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.18); */
-    /* box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.18); */
-    height: 70px;
     position: fixed;
     width: 100%;
     opacity: 0.9;
     z-index: 2147483647;
+    -webkit-backface-visibility: hidden;
+    .sb.row {
+		max-width: 1270px;
+		margin: 0 auto;
+		padding: 23px 0;
+	}
+    .scores {
+		color: #fff;
+		margin: auto;
+		max-width: 0;
+	}
 }

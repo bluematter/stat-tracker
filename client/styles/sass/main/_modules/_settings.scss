@@ -1,6 +1,6 @@
 .settings {
-    background-color: #3E3E3E;
-    color: #FFFFFF;
+    background-color: #fff;
+    color: #555;
     height: 100%;
     padding: 0;
     position: absolute;
@@ -12,14 +12,19 @@
     .navbar-nav {
         float: none;
         margin: 0;
+        li {
+            a {
+                color: #555;
+            }
+        }
     }
     .navbar-nav > li {
-        border-bottom: 1px solid #303030;
         float: none;
         li {
             list-style: none outside none;
         }
         li > a {
+            color: #555;
             text-decoration: none;
             padding-bottom: 15px;
             padding-top: 15px;
@@ -40,7 +45,7 @@
     }
     .nav > li > a:hover, .nav > li > a:focus {
         background-color: transparent;
-        color: #fff;
+        color: #333;
         text-decoration: none;
         outline: 0 none;
     }

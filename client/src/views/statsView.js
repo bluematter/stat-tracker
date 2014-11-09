@@ -1,7 +1,7 @@
 var Marionette   = require('backbone.marionette'),
     Stellar      = require('jquery.stellar'),
     Snap         = require('snapjs'),
-    LeaderView   = require('./leaders/leaders'),
+    //LeaderView   = require('./leaders/leaders'),
     TeamsView    = require('./teams/teams'),
     DataView     = require('./data/teamData'),
     SettingsView = require('./settings/setTeams'), 
@@ -28,7 +28,33 @@ module.exports = appView = Marionette.ItemView.extend({
         App.vent.on('away-team-change', function(data) { self.changeAwayTeam(data); self.render(); });
     
     },
-    playing: function (value) {
+    onRender: function() {
+
+        // make a collection for the teams that are playing
+        this.playingCollection  = this.playingTeam();
+
+        // make a collection for the teams that are inactive
+        this.sidelineCollection = this.notPlayingTeam();
+        
+        // grab the playing teams ID's assuming there should be 2 teams only
+        var team_id1 = this.playingCollection.pluck('_id')[0];
+        var team_id2 = this.playingCollection.pluck('_id')[1];
+        
+        // initialize some views
+        //window.App.views.leaderView   = new LeaderView({ collection: this.playingCollection, id1: team_id1, id2: team_id2 }); 
+        window.App.views.teamsView    = new TeamsView({ collection: this.playingCollection });
+        window.App.views.dataView     = new DataView({ collection: App.data.players });
+        window.App.views.settingsView = new SettingsView({ collection: this.sidelineCollection });
+        //window.App.views.feedView     = new FeedView({ collection: this.playingCollection });
+        
+        // append the view's to the DOM
+        $('.settings .choose-teams').html(App.views.settingsView.render().el); // settings view
+        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
+        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
+        //this.$el.prepend(App.views.leaderView.render().el); // leader view
+        //this.$el.find('.app .feed').html(App.views.feedView.render().el); // feed view
+    },
+    playingTeam: function (value) {
         
         // determine who is playing by looking for the team models
         // that have "playing" set to true
@@ -36,39 +62,13 @@ module.exports = appView = Marionette.ItemView.extend({
         return new TeamsCollection(models);
 
     },
-    notPlaying: function (value) {
+    notPlayingTeam: function (value) {
 
         // determine who is NOT playing by looking for the team models
         // that have "playing" set to false
         var models = this.collection.where({playing: false});
         return new TeamsCollection(models);
 
-    },
-    onRender: function() {
-
-        // make a collection for the teams that are playing
-        this.playingCollection  = this.playing();
-
-        // make a collection for the teams that are inactive
-        this.sidelineCollection = this.notPlaying();
-        
-        // grab the playing teams ID's assuming there should be 2 teams only
-        var team_id1 = this.playingCollection.pluck('_id')[0];
-        var team_id2 = this.playingCollection.pluck('_id')[1];
-        
-        // initialize some views
-        window.App.views.leaderView   = new LeaderView({ collection: this.playingCollection, id1: team_id1, id2: team_id2 }); 
-        window.App.views.teamsView    = new TeamsView({ collection: this.playingCollection });
-        window.App.views.dataView     = new DataView({ collection: this.playingCollection });
-        window.App.views.settingsView = new SettingsView({ collection: this.sidelineCollection });
-        window.App.views.feedView     = new FeedView({ collection: this.playingCollection });
-        
-        // append the view's to the DOM
-        $('.settings .choose-teams').html(App.views.settingsView.render().el); // settings view
-        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
-        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
-        this.$el.prepend(App.views.leaderView.render().el); // leader view
-        this.$el.find('.app .feed').html(App.views.feedView.render().el); // feed view
     },
     changeHomeTeam: function(data) {
         this.collection.each(function(team) {

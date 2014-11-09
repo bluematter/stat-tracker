@@ -7,7 +7,10 @@ module.exports = playerView = Marionette.ItemView.extend({
     	'mouseenter .player-image': 'playerOn',
         'mouseleave .player-image': 'playerOff',
         'click .player-image': 'playerClicked',
-        'keydown': 'on_keypress'
+        'keydown': 'on_keypress',
+        'click .one-point': 'onePoint',
+        'click .two-point': 'twoPoint',
+        'click .three-point': 'threePoint'
     },
     initialize:function() {
     	_.bindAll(this, 'on_keypress');
@@ -32,6 +35,21 @@ module.exports = playerView = Marionette.ItemView.extend({
         if(action === 'toggle') { player.toggleClass('show-confirmed-clicked') }
         if(action === 'add')    { player.addClass('show-player-data') }
         if(action === 'remove') { player.removeClass('show-player-data') }
+    },
+    onePoint:function(e) {
+        var addStat = parseInt(this.model.get('points')) + 1;        
+        this.model.set('points', addStat);
+        this.model.save();
+    },
+    twoPoint:function(e) {
+        var addStat = parseInt(this.model.get('points')) + 2;        
+        this.model.set('points', addStat);
+        this.model.save();
+    },
+    threePoint:function(e) {
+        var addStat = parseInt(this.model.get('points')) + 3;        
+        this.model.set('points', addStat);
+        this.model.save();
     },
     on_keypress:function(e) {
         this.keyStat(e, 49, 'points', 1);   // 1 point

@@ -68,7 +68,6 @@ if ('development' == env) {
     // required for passport
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
-    app.use(passport.authenticate('remember-me'));
     app.use(flash()); // use connect-flash for flash messages stored in session
 
 }

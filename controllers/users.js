@@ -19,7 +19,6 @@ module.exports = {
         }
         else
             res.render('login', { user: req.cookies.RMME }); 
-            console.log(req)
     },
     login: function(req, res) {
         res.render('login');
@@ -36,8 +35,7 @@ module.exports = {
                     if (err)
                         console.log('error')
                     else
-                        console.log('success')
-                        res.clearCookie('remember_me');
+                        console.log('success');
                         req.logout();
                         res.redirect('/');
                 });

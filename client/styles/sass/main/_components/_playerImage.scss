@@ -5,8 +5,9 @@
 .clicked-data-open .player-image { 
 }
 .player-image {
-	position: relative;
-    top: 15px;
+	position: absolute;
+    bottom: 0;
+    margin: auto;
 }
 .clicked-data-open .player-image:before {
     background-color: rgba(0, 0, 0, 0.4);

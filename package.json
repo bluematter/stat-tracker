@@ -71,7 +71,8 @@
     "backbone.wreqr": "./bower_components/backbone.marionette/public/javascripts/backbone.wreqr.js",
     "backbone.babysitter": "./bower_components/backbone.marionette/public/javascripts/backbone.babysitter.js",
     "backbone.dualStorage": "./bower_components/Backbone.dualStorage/backbone.dualstorage.js",
-    "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js"
+    "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js",
+    "slimscroll": "./bower_components/slimScroll/jquery.slimscroll.js"
   },
   "browserify": {
     "transform": [

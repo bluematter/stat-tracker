@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic);
+
 // Bootstrap
 @import "bootstrap/bootstrap";
 
@@ -29,7 +31,7 @@
 
 
 
-body {
+body, html {
     overflow: hidden;
 }
 
@@ -83,6 +85,7 @@ div#wrap:before {
 }
 
 
+// stellar ?
 .stellar:first-child {
     top: 0;
 }
@@ -96,6 +99,7 @@ div#wrap:before {
     top: -200px;
 }
 
+// ?
 .left-box, .right-box {
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -146,6 +150,7 @@ div#wrap:before {
 }
 
 
+// ?
 .last-guy {
     background-size: 590px auto; 
     background-color: rgb(57, 63, 79);
@@ -158,7 +163,8 @@ div#wrap:before {
 
 .feed {
     background-color: #FFFFFF;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     height: 594px;
     margin-top: 30px;
     overflow: hidden;
@@ -478,25 +484,6 @@ div#wrap:before {
 //     }
 // }
 
-// nice light version
-.statisticals {
-    color: #333;
-    border-bottom: 1px solid #F1F2F4;
-    font-family: brandon-grotesque;
-    font-size: 11px;
-    height: 45px;
-    letter-spacing: 1px;
-    background-color: #fff;
-    line-height: 24px;
-    padding: 10px 0;
-    text-transform: uppercase;
-    z-index: 10;
-    border-radius: 3px 3px 0 0;
-    .column {
-        .short { display: none; }
-        .long  { display: block;}
-    }
-}
 
 
 @media(max-width: $screen-md-max) { 

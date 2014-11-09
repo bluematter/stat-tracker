@@ -21,12 +21,6 @@ module.exports = TeamModel = Backbone.Model.extend({
         blocks:       0, 
         fouls:        0, 
         feed: ''
-    },
-    initialize: function() {
-        this.players = new PlayersCollection([], { team : this });
-    },
-    addPlayer: function(name) {
-        this.players.create({ player_name: name });
     }
 });
 

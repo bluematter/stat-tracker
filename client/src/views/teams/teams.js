@@ -1,23 +1,26 @@
 var Marionette = require('backbone.marionette'),
-    playerView = require('./player'),
+    PlayerView = require('./player'),
     PlayersCollection = require('../../collections/players');
 
 var teamView = Marionette.CompositeView.extend({
 	className: 'team row',
     template: require('../../../templates/teams/team.hbs'),
+    itemViewContainer: '.the-players',
     events: {
         'submit #AddPlayer': 'addPlayer',
-        'click .team-changes': 'teamChanges'
+        'click .team-changes': 'teamChanges',
+        'click .close-team-editor': 'closeTeamChanges'
     },
     initialize: function() {
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
-
-        // define this collection (its a model with an array) as a collection of players
-        this.collection = this.model.players;
+        
+        // build a collection of players with this team ID
+        this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
 
         // pass the team name from the model to teamIdenity function
         this.teamIdentity(this.model.get('team_name'));
+
     },
     teamIdentity: function(teamName) {
         // add the team name to DOM
@@ -25,18 +28,27 @@ var teamView = Marionette.CompositeView.extend({
         this.$el.attr('data-team', teamName);
     },
     teamChanges:function() {
-         this.$el.find('.team-editor').addClass('edit');
+        this.$el.find('.team-editor').addClass('edit');
+    },
+    closeTeamChanges:function() {
+        this.$el.find('.team-editor').removeClass('edit');
     },
     addPlayer: function(e) {
         e.preventDefault();
-        var newPlayer = this.$el.find('input.player_name');
-        this.model.addPlayer(newPlayer.val());
-        newPlayer.val('');
+        
+        var $newPlayer = this.$el.find('input.player_name')
+
+        var Player = {
+            player_name : $newPlayer.val(), 
+            team_id     : this.model.id
+        }
+        
+        var newPlayer = App.data.players.create(Player);
+        this.collection.add(newPlayer);
+        $newPlayer.val('');
+
     },
-    itemView: playerView,
-    appendHtml: function(collectionView, itemView){
-        collectionView.$('.the-players').append(itemView.el);
-    }
+    itemView: PlayerView
 });
 
 module.exports = CollectionView = Marionette.CollectionView.extend({
@@ -47,11 +59,11 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     },
     initialize: function() {
         this.listenTo(this.collection, 'change', this.render);
+        //$(this.$el).slimScroll();
     },
     addTeam: function(e) {
         e.preventDefault();
         var newTeam = this.$el.find('input.team_name').val();
-        console.log(newTeam)
         this.collection.create({team_name: newTeam})
     },
     itemView: teamView

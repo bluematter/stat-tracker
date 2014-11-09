@@ -6,6 +6,7 @@ module.exports = {
             "jquery": 'jQuery'
         }
     },
+    '../bower_components/slimScroll/jquery.slimscroll.js' :  { 'exports': 'slimscroll', 'depends': { '../bower_components/jquery/jquery.js': '$' } },
     "jquery.stellar": "Stellar",
     "snapjs": "Snap",
     "underscore": "_",

@@ -3,45 +3,48 @@ var models = require('../app/models'),
 
 module.exports = {
     index: function(req, res) {
-        console.log(req)
-        models.Team.find({ _id: req.params.tid }, { players: [] }, function(err, players) {
+        models.Player.find({}, function(err, player) {
             if (err) {
                 res.json({error: 'players not found.'});
             } else {
-                res.json(players[0].players);    
+                res.json(player);    
             }
         });
     },
     getById: function(req, res) {
-        models.Team.find({ _id: req.params.tid }, { players: { $elemMatch: { _id: req.params.pid } } }, function(err, player) {
+        models.Player.find({ _id: req.params.tid }, { players: { $elemMatch: { _id: req.params.pid } } }, function(err, player) {
             if (err) {
                 res.json({error: 'Player not found.'});
             } else {
-                res.json(player[0].players);
+                res.json(player);
+            }
+        })
+    },
+    getByTeamId: function(req, res) {
+        models.Player.find({ team_id: req.params.tid }, function(err, player) {
+            if (err) {
+                res.json({error: 'Player not found.'});
+            } else {
+                res.json(player);
             }
         })
     },
     add: function(req, res) {
-        console.log(req.params.tid);
-        models.Team.findByIdAndUpdate(
-            req.params.tid,
-            { $addToSet: { players: req.body } },
-            function(err, newPlayer){
-                if (err) {
-                    res.json({error: 'Error.'});
-                } else {
-                    res.json(newPlayer);
-                }
-            }
-        );
+        var newPlayer = new models.Player(req.body);
+        newPlayer.save(function(err, player) {
+            if (err)
+                res.json({});
+            console.log('successfully inserted new player: ' + player._id);
+            res.json(player);
+        });
     },
     update: function(req, res) {
-        models.Team.update({ _id: req.params.tid }, { players: { $elemMatch: { _id: req.params.pid } } }, function(err, player) {
+        models.Player.update({ _id: req.params.pid }, req.body, function(err, player) {
             if (err) {
                 res.json({error: 'Player not found.'});
             } else {
-                res.json(player[0].players);
+                res.json(player);
             }
-        })
+        });
     } 
 };

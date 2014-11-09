@@ -1,15 +1,13 @@
 var Marionette        = require('backbone.marionette'),
-    DualStorage       = require('backbone.dualStorage'),
+    //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
+    slimscroll        = require('slimscroll'),
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
     PlayersCollection = require('./collections/players'),
     TeamModel         = require('./models/team'),
     TeamsCollection   = require('./collections/teams');
-
-// playing with the espn data    
-var NBACollection     = require('./collections/espn/nbaPlayers');   
 
 module.exports = App = function App() {};
 
@@ -25,6 +23,9 @@ App.prototype.start = function(){
         App.fb    = {};
 
         App.vent = _.extend({}, Backbone.Events);
+
+        // temp set wrap height, sloppy?
+        $('#wrap').height($(window).height());
         
         // work with the facebook graph api
         window.fbAsyncInit = function() {
@@ -46,16 +47,15 @@ App.prototype.start = function(){
             reset: true,
             success: function(team) {
                 App.data.teams = teams;
-                App.core.vent.trigger('app:start');
-            }
-        });
-        
-        // playing with the espn api (depreciated)
-        var nba = new NBACollection();
-        nba.fetch({
-            reset: true,
-            success: function(team) {
-                App.data.nba = nba;
+
+                var players = new PlayersCollection();
+                players.fetch({
+                    success: function(player) {
+                        App.data.players = players;
+                        App.core.vent.trigger('app:start');
+                    }
+                });
+
             }
         });
         

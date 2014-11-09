@@ -42,7 +42,24 @@
 
         // inside statisticals move that here
         .statisticals {
+            color: #99a5a8;
+            border-bottom: 1px solid #F1F2F4;
+            font-family: brandon-grotesque;
+            font-size: 11px;
+            height: 45px;
+            letter-spacing: 1px;
+            background-color: #fff;
+            line-height: 24px;
+            padding: 10px 0;
+            text-transform: uppercase;
+            z-index: 10;
+            border-radius: 3px 3px 0 0;
+            .column {
+                .short { display: none; }
+                .long  { display: block;}
+            }
             .team-changes {
+                color: #646f73;
                 cursor: pointer;
                 display: inline;
                 left: 30px;
@@ -50,6 +67,7 @@
                 position: absolute;
             }
             .team-name {
+                color: #646f73;
                 display: inline;
                 margin-left: 30px;
             }
@@ -83,6 +101,9 @@
         .players-wrap {
             position: relative;
             z-index: 0;
+            &:nth-child(odd) {
+                background-color: #f2f5f6;
+            }
             &.hover, &.hover-clicked {
                 z-index: 9; 
             }
@@ -112,36 +133,96 @@
             }
         }
 	    .player { 
-            border-bottom: 1px solid #F1F2F4;
+            height: 63px; // this should determine the height
 			position: relative;
 			opacity: 1;
 			z-index: 9;
+            &:hover {
+                background-color: #eee;
+                .column.stat.name .player-buttons {
+                    opacity: 1; // show player buttons on hover
+                }
+            }
             .column.stat {
-			    color: #202020;
-			    font-size: 18px;
+			    color: #435155;
+			    font-size: 14px;
             }
             .column.stat.name {
             	text-align: left;
                 padding: 0;
+                height: 100%;
+                font-weight: 600;
+                font-family: Source Sans Pro;
                 span.face {
-                    background-color: #E3E3E3;
+                    background-color: #fff;
                     display: block;
-                    height: 79px;
-                    width: 79px;
+                    width: 65px;
+                    height: 100%;
                     float: left;
+                    position: relative;
+                }
+                .player-buttons {
+                    width: 40px;
+                    float: left;
+                    position: relative;
+                    height: 100%;
+                    opacity: 0;
+                    .buttons {
+                        cursor: pointer;
+                        float: left;
+                        color: #777;
+                        text-align: center;
+                        font-size: 10px;
+                        line-height: 23px; 
+                    }
+                    .buttons.top-button, .buttons.bottom-button {
+                        width: 39px; 
+                        height: 50%;
+                        background-color: #fff;
+                        border-right: 1px solid #ebebeb; 
+                    }
+                    .buttons.top-button { 
+                        border-bottom: 1px solid #ebebeb;
+                    }
+                    .buttons.middle-button {
+                        width: 30px;
+                        height: 30px;
+                        position: absolute;
+                        top: 0;
+                        margin: auto;
+                        bottom: 0;
+                        right: 25px;
+                        color: #fff;
+                        border: 4px solid #fff;
+                        background-color: #00c8d7;
+                        border-radius: 100em;
+                    } 
+                    .button.bottom-button{
+                        border-bottom: 1px solid #ebebeb; 
+                    }
+                }
+                .the-name {
+                    float: left;
+                    margin-left: 30px;
+                    text-align: left;
                 }
             }
-            .column.stat.makes-misses {
-			    color: #444;
-            }
             .column.stat.data {
-            	color: #222;
-			    font-size: 18px;
-			    font-weight: 400;
-                padding: 27px 0;
-                font-family: brandon-grotesque;
 			    text-align: center;
-			    text-transform: uppercase;         	
+                .active-add-stat {
+                    //border: 2px solid #555;
+                    padding: 0px;
+                    width: 24px;
+                    height: 24px;
+                    line-height: 21px;
+                    text-align: center;
+                    margin: auto;
+                }       	
+            }
+            .column.stat.data, .the-name {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
             }
             .column.stat.data:before {
                 // position: absolute;

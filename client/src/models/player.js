@@ -6,6 +6,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     idAttribute: '_id',
     defaults: {
         player_name: '',
+        bench:        false,
         points:       0, 
         made_one:     0, 
         made_two:     0, 
