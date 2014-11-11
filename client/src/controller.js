@@ -1,27 +1,19 @@
 var Marionette = require('backbone.marionette'),
-    HomeView   = require('./views/home'),
-    StatsView    = require('./views/statsView');
+    AppView    = require('./views/appView'),
+    StatsView  = require('./views/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
     initialize: function(options) {
         App.core.vent.trigger('app:log', 'Controller: Initializing');
-        window.App.views.homeView = new HomeView();
-        window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
+        //window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
+        window.App.views.appView  = new AppLayoutView();
     },
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit.');
-        //var view = window.App.views.homeView;
-        var view = window.App.views.statsView; // render stats as home for now
+        var view = window.App.views.appView;
         this.renderView(view);
         window.App.router.navigate('#');
-    },
-
-    stats: function() {
-        App.core.vent.trigger('app:log', 'Controller: "Stats" route hit.');
-        var view = window.App.views.statsView;
-        this.renderView(view);
-        window.App.router.navigate('#stats');
     },
 
     renderView: function(view) {

@@ -5772,6 +5772,208 @@ button {
     -webkit-transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg); }
 
+.menu {
+  position: absolute;
+  width: 200px;
+  border-top: 1px solid #e9edee;
+  padding: 30px 15px 0;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */ }
+  .menu .sidebar.sidebar--dark {
+    background-color: #2e353d;
+    color: #98a8b9; }
+    .menu .sidebar.sidebar--dark .sidebar a, .menu .sidebar.sidebar--dark .sidebar .nav-title {
+      color: #98a8b9; }
+    .menu .sidebar.sidebar--dark .app:not(.small-menu) .main-navigation > ul > li > ul > li.active a, .menu .sidebar.sidebar--dark .app:not(.small-menu) .main-navigation > ul > li > ul > li a:hover {
+      color: #d5dbe2; }
+    .menu .sidebar.sidebar--dark .main-navigation > ul > li:hover > a {
+      color: #d5dbe2; }
+    .menu .sidebar.sidebar--dark .main-navigation > ul > li.open .sub-menu {
+      background-color: #313941; }
+  .menu .sidebar.sidebar--light {
+    background-color: #fff;
+    color: #333; }
+    .menu .sidebar.sidebar--light .sidebar a, .menu .sidebar.sidebar--light .sidebar .nav-title {
+      color: #bdc5c8; }
+    .menu .sidebar.sidebar--light .app:not(.small-menu) .main-navigation > ul > li > ul > li.active a, .menu .sidebar.sidebar--light .app:not(.small-menu) .main-navigation > ul > li > ul > li a:hover {
+      color: #333; }
+    .menu .sidebar.sidebar--light .main-navigation > ul > li:hover > a {
+      color: #333; }
+    .menu .sidebar.sidebar--light .main-navigation > ul > li.open .sub-menu {
+      background-color: #313941; }
+  .menu .compact-menu .main-navigation > ul > li {
+    border-bottom: 1px solid #2a3037;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); }
+  .menu .app > .layout {
+    height: 100%;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden; }
+  .menu .app > .layout > aside {
+    height: 100%;
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    float: none; }
+    @media (max-width: 767px) {
+      .menu .app > .layout > aside {
+        position: fixed; } }
+  .menu .sidebar {
+    width: 200px; }
+  .menu .sidebar .nav-title {
+    font-size: 11px;
+    padding: 25px 15px 0;
+    letter-spacing: 1px; }
+  .menu .sidebar > footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+  .menu .main-navigation ul > li > a {
+    display: block;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%; }
+  .menu .main-navigation ul > li i {
+    padding-right: 10px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 14px; }
+  .menu .main-navigation .nav > li > a:hover, .menu .main-navigation .nav > li > a:focus, .menu .main-navigation .nav .open > a, .menu .main-navigation .nav .open > a:hover, .menu .main-navigation .nav .open > a:focus {
+    border-color: transparent;
+    background-color: transparent; }
+  .menu .touch li:hover, .menu .touch li:focus, .menu .touch a:hover, .menu .touch a:focus {
+    background-color: transparent !important; }
+  .menu .app .sidebar ul > li {
+    padding: 0 15px;
+    position: relative;
+    display: block; }
+  .menu .app .sidebar ul > li:before, .menu .app .sidebar ul > li:after {
+    content: " ";
+    display: table; }
+  .menu .app .sidebar ul > li:after {
+    clear: both; }
+  .menu .app .sidebar ul > li a {
+    position: relative;
+    color: #333; }
+    .menu .app .sidebar ul > li a.active {
+      background-color: #5cacdf;
+      color: #fff;
+      border-radius: 5px; }
+  .menu .app .sidebar ul > li.open > .dropdown-menu {
+    display: block; }
+  .menu .app .sidebar ul > li.open > a .toggle-accordion:before {
+    content: "\e64b"; }
+  .menu .app .sidebar ul > li > ul {
+    position: relative;
+    display: none;
+    padding: 0;
+    list-style: none;
+    float: left;
+    width: 100%;
+    -webkit-transition: background-color 400ms ease;
+    transition: background-color 400ms ease; }
+  .menu .app .sidebar li ul li a {
+    padding: 8px 15px 8px 40px !important;
+    font-size: 12px; }
+  .menu .app .sidebar li a .toggle-accordion {
+    float: right;
+    padding: 0;
+    font-size: 8px;
+    line-height: 20px; }
+  .menu .app .sidebar li a .toggle-accordion:before {
+    font-family: "themify";
+    font-style: normal;
+    font-weight: normal;
+    content: "\e649"; }
+  @media screen and (min-width: 768px) {
+    .menu .app.small-menu .brand {
+      width: 70px; } }
+  @media (min-width: 768px) { }
+  @media (min-width: 992px) { }
+  @media (min-width: 1200px) { }
+  .menu .app.small-menu .navbar-brand {
+    width: 100%;
+    text-align: center; }
+  .menu .app.small-menu .navbar-brand span {
+    display: none;
+    visibility: hidden; }
+  .menu .app.small-menu .navbar-brand i {
+    margin: 0; }
+  .menu .app.small-menu .sidebar {
+    width: 70px; }
+    .menu .app.small-menu .sidebar .nav-title {
+      text-align: center; }
+    .menu .app.small-menu .sidebar .main-navigation {
+      overflow: visible; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li.open .sub-menu {
+      display: none !important; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li {
+      position: relative;
+      text-align: center; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li > a {
+      padding: 15px; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li > a > span {
+      display: none;
+      visibility: hidden; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li i {
+      display: block;
+      padding: 0;
+      min-width: 100%; }
+    .menu .app.small-menu .sidebar .main-navigation > ul > li:hover .sub-menu {
+      display: block !important; }
+    .menu .app.small-menu .sidebar .main-navigation .toggle-accordion {
+      display: none; }
+    .menu .app.small-menu .sidebar .main-navigation .sub-menu {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      border: 1px solid #e3e6f3;
+      border-left: 0;
+      background: #fff;
+      z-index: 1000;
+      display: none;
+      padding: 0;
+      list-style: none;
+      width: auto; }
+    .menu .app.small-menu .sidebar .main-navigation .sub-menu a {
+      margin: 0;
+      padding: 3px 20px !important;
+      width: 100%;
+      font-size: 13px;
+      white-space: nowrap;
+      color: #59595a;
+      text-align: left; }
+    .menu .app.small-menu .sidebar .main-navigation .sub-menu a:hover {
+      background-color: #f1f2f9; }
+  @media screen and (min-width: 768px) {
+    .menu .sidebar-300 {
+      width: 300px; } }
+  .menu .sidebar-250 {
+    width: 250px; }
+  .menu .sidebar-400 {
+    width: 400px; }
+  @media (max-width: 767px) {
+    .menu .sidebar-300, .menu .sidebar-250, .menu .sidebar-400 {
+      width: 100%; } }
+  .menu .action-circle {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 100em; }
+    .menu .action-circle.red {
+      background-color: #f38079; }
+    .menu .action-circle.orange {
+      background-color: #f2a571; }
+    .menu .action-circle.green {
+      background-color: #aed991; }
+
+.content {
+  background-color: #ecf2f6;
+  position: relative; }
+
 .settings {
   background-color: #fff;
   color: #555;
@@ -6107,7 +6309,7 @@ button {
       font-weight: 600;
       font-family: Source Sans Pro; }
       #basketball .team .player .column.stat.name span.face {
-        background-color: #E3E3E3;
+        background-color: #fff;
         display: block;
         width: 65px;
         height: 100%;
@@ -6194,6 +6396,21 @@ button {
       color: #009855; }
     #basketball .team .player .column.points.miss:hover {
       color: #da4632; }
+
+.team-editor .edit {
+  display: block;
+  position: fixed;
+  width: 70%;
+  height: 70%;
+  top: 0;
+  margin: auto;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 999;
+  left: 0;
+  -webkit-box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3); }
 
 .player-data {
   background-color: #FFFFFF;
@@ -6306,23 +6523,6 @@ button {
     color: #fff;
     margin: auto;
     max-width: 0; }
-
-.team-editor {
-  display: none;
-  position: fixed;
-  width: 70%;
-  height: 70%;
-  top: 0;
-  margin: auto;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  z-index: 999;
-  left: 0;
-  -webkit-box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3); }
-  .team-editor.edit {
-    display: block; }
 
 .new-app {
   padding: 0; }

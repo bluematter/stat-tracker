@@ -1,8 +1,7 @@
 var home   = require('../controllers/home'),
     user   = require('../controllers/users'),
     team   = require('../controllers/teams'),
-    player = require('../controllers/players'),
-    utils  = require('utils');
+    player = require('../controllers/players');
 
 module.exports.initialize = function(app, router, passport) {
 

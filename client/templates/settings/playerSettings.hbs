@@ -1,0 +1,61 @@
+<div class="player col-xs-12">
+
+    <div class="col-xs-4 column stat name">
+
+        <span class="column face">
+            <img src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{name_format}}.png" class="player-image img-responsive"/>
+        </span>
+        
+        <div class="player-buttons">
+            <div class="column buttons top-button one-point">1</div>
+            <div class="column buttons middle-button two-point">2</div>
+            <div class="column buttons bottom-button three-point">3</div>
+        </div>
+
+        <div class="column the-name">
+            <span style="margin: auto;"> {{player_name}} </span>
+        </div>
+
+    </div>
+
+    <div class="col-xs-2 column stat data makes-misses">
+        <div class="active-add-stat">
+            <span class="points">{{points}}</span>
+        </div>
+        <div class="row clearfix" style="display: none;">
+            <div class="col-xs-4 column points miss one" data-stat="missed_one" data-missedone="{{missed_one}}">
+                <span class=""></span>
+            </div>
+            <div class="col-xs-4 column points miss two" data-stat="missed_two" data-missedtwo="{{missed_two}}">
+                <span class=""></span>
+            </div>
+            <div class="col-xs-4 column points miss three" data-stat="missed_three" data-missedthree="{{missed_three}}">
+                <span class=""></span>
+            </div>
+        </div>
+        <div class="row clearfix" style="display: none;">
+            <div class="col-xs-4 column points make one" data-stat="made_one" data-madeone="{{made_one}}">
+                <span class="fa-circle-o"></span>
+            </div>
+            <div class="col-xs-4 column points make two" data-stat="made_two" data-madetwo="{{made_two}}">
+                <span class="fa-circle-o"></span>
+            </div>
+            <div class="col-xs-4 column points make three" data-stat="made_three" data-madethree="{{made_three}}">
+                <span class="fa-circle-o"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-2 column stat data rebounds" data-stat="rebounds">
+        <span class="rebounds">{{rebounds}}</span>
+    </div>
+    <div class="col-xs-2 column stat data steals" data-stat="steals">
+        <span class="steals">{{steals}}</span>
+    </div>
+    <div class="col-xs-2 column stat data blocks" data-stat="blocks">
+        <span class="blocks">{{blocks}}</span>
+    </div>
+    {{!-- <div class="col-xs-1 column stat data fouls" data-stat="fouls">
+        {{fouls}}
+    </div> --}}
+</div>    

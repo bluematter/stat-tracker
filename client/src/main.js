@@ -1,3 +1,4 @@
 var App = require('./app');
-var myapp = new App();
-myapp.start();
+var StatApp = new App();
+
+StatApp.start();

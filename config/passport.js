@@ -3,7 +3,6 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var User             = require('../app/passport/User');
 var configAuth       = require('./auth');
 var md5              = require('MD5');
-var uid = require('uid2');
 
 module.exports = function(passport) {
     

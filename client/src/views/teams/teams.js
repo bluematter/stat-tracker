@@ -1,6 +1,7 @@
 var Marionette = require('backbone.marionette'),
     PlayerView = require('./player'),
-    PlayersCollection = require('../../collections/players');
+    PlayersCollection = require('../../collections/players'),
+    TeamSettingsLayoutView = require('../settings/teamSettings');
 
 var teamView = Marionette.CompositeView.extend({
 	className: 'team row',
@@ -16,7 +17,9 @@ var teamView = Marionette.CompositeView.extend({
         this.listenTo(this.model, 'change', this.render);
         
         // build a collection of players with this team ID
-        this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
+        //this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
+
+        this.collection = this.playingPlayers();
 
         // pass the team name from the model to teamIdenity function
         this.teamIdentity(this.model.get('team_name'));
@@ -27,24 +30,44 @@ var teamView = Marionette.CompositeView.extend({
         this.$el.addClass(teamName);
         this.$el.attr('data-team', teamName);
     },
+    playingPlayers: function (value) {
+
+        //var models = this.collection.where({playing: true});
+        var models = App.data.players.where({team_id: this.model.id,bench:false});
+        return new PlayersCollection(models);
+
+    },
+    benchPlayers: function (value) {
+
+        //var models = this.collection.where({playing: false});
+        var models = App.data.players.where({team_id: this.model.id,bench:true});
+        return new PlayersCollection(models);
+
+    },
     teamChanges:function() {
-        this.$el.find('.team-editor').addClass('edit');
+        this.playingCollection = this.playingPlayers();
+        this.benchedCollection = this.benchPlayers();
+
+        console.log(this.playingCollection);
+        console.log(this.benchedCollection);
+        
+        window.App.views.teamSettingsLayoutView = new TeamSettingsLayoutView({ 
+            collection: this.playingCollection,
+            benchedCollection: this.benchPlayers()
+        });
+        this.$el.find('.team-editor').html(App.views.teamSettingsLayoutView.render().el);
     },
     closeTeamChanges:function() {
-        this.$el.find('.team-editor').removeClass('edit');
+        window.App.views.teamSettingsLayoutView.close();
     },
     addPlayer: function(e) {
         e.preventDefault();
         
         var $newPlayer = this.$el.find('input.player_name')
-
-        var Player = {
-            player_name : $newPlayer.val(), 
-            team_id     : this.model.id
-        }
         
-        var newPlayer = App.data.players.create(Player);
-        this.collection.add(newPlayer);
+        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
+        //this.collection.add(newPlayer);
+
         $newPlayer.val('');
 
     },

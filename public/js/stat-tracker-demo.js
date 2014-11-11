@@ -1,9 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
-Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
+; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
+Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.4.1
@@ -2475,10 +2475,10 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],2:[function(require,module,exports){
+},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],2:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
 // Backbone.BabySitter
 // -------------------
 // v0.0.6
@@ -2641,11 +2641,11 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],3:[function(require,module,exports){
+},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-_ = global._ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+_ = global._ = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
 // Backbone.Wreqr (Backbone.Marionette)
 // ----------------------------------
 // v0.2.0
@@ -2917,7 +2917,7 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":8,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],4:[function(require,module,exports){
+},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":7,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],4:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 ;(function($, window, document, undefined) {
 
@@ -13367,485 +13367,6 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 }).call(global, module, undefined);
 
 },{}],6:[function(require,module,exports){
-var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
-
-; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
-/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
- * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
- * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
- *
- * Version: 1.3.3
- *
- */
-(function($) {
-
-  $.fn.extend({
-    slimScroll: function(options) {
-
-      var defaults = {
-
-        // width in pixels of the visible scroll area
-        width : 'auto',
-
-        // height in pixels of the visible scroll area
-        height : '250px',
-
-        // width in pixels of the scrollbar and rail
-        size : '7px',
-
-        // scrollbar color, accepts any hex/color value
-        color: '#000',
-
-        // scrollbar position - left/right
-        position : 'right',
-
-        // distance in pixels between the side edge and the scrollbar
-        distance : '1px',
-
-        // default scroll position on load - top / bottom / $('selector')
-        start : 'top',
-
-        // sets scrollbar opacity
-        opacity : .4,
-
-        // enables always-on mode for the scrollbar
-        alwaysVisible : false,
-
-        // check if we should hide the scrollbar when user is hovering over
-        disableFadeOut : false,
-
-        // sets visibility of the rail
-        railVisible : false,
-
-        // sets rail color
-        railColor : '#333',
-
-        // sets rail opacity
-        railOpacity : .2,
-
-        // whether  we should use jQuery UI Draggable to enable bar dragging
-        railDraggable : true,
-
-        // defautlt CSS class of the slimscroll rail
-        railClass : 'slimScrollRail',
-
-        // defautlt CSS class of the slimscroll bar
-        barClass : 'slimScrollBar',
-
-        // defautlt CSS class of the slimscroll wrapper
-        wrapperClass : 'slimScrollDiv',
-
-        // check if mousewheel should scroll the window if we reach top/bottom
-        allowPageScroll : false,
-
-        // scroll amount applied to each mouse wheel step
-        wheelStep : 20,
-
-        // scroll amount applied when user is using gestures
-        touchScrollStep : 200,
-
-        // sets border radius
-        borderRadius: '7px',
-
-        // sets border radius of the rail
-        railBorderRadius : '7px'
-      };
-
-      var o = $.extend(defaults, options);
-
-      // do it for every element that matches selector
-      this.each(function(){
-
-      var isOverPanel, isOverBar, isDragg, queueHide, touchDif,
-        barHeight, percentScroll, lastScroll,
-        divS = '<div></div>',
-        minBarHeight = 30,
-        releaseScroll = false;
-
-        // used in event handlers and for better minification
-        var me = $(this);
-
-        // ensure we are not binding it again
-        if (me.parent().hasClass(o.wrapperClass))
-        {
-            // start from last bar position
-            var offset = me.scrollTop();
-
-            // find bar and rail
-            bar = me.parent().find('.' + o.barClass);
-            rail = me.parent().find('.' + o.railClass);
-
-            getBarHeight();
-
-            // check if we should scroll existing instance
-            if ($.isPlainObject(options))
-            {
-              // Pass height: auto to an existing slimscroll object to force a resize after contents have changed
-              if ( 'height' in options && options.height == 'auto' ) {
-                me.parent().css('height', 'auto');
-                me.css('height', 'auto');
-                var height = me.parent().parent().height();
-                me.parent().css('height', height);
-                me.css('height', height);
-              }
-
-              if ('scrollTo' in options)
-              {
-                // jump to a static point
-                offset = parseInt(o.scrollTo);
-              }
-              else if ('scrollBy' in options)
-              {
-                // jump by value pixels
-                offset += parseInt(o.scrollBy);
-              }
-              else if ('destroy' in options)
-              {
-                // remove slimscroll elements
-                bar.remove();
-                rail.remove();
-                me.unwrap();
-                return;
-              }
-
-              // scroll content by the given offset
-              scrollContent(offset, false, true);
-            }
-
-            return;
-        }
-        else if ($.isPlainObject(options))
-        {
-            if ('destroy' in options)
-            {
-            	return;
-            }
-        }
-
-        // optionally set height to the parent's height
-        o.height = (o.height == 'auto') ? me.parent().height() : o.height;
-
-        // wrap content
-        var wrapper = $(divS)
-          .addClass(o.wrapperClass)
-          .css({
-            position: 'relative',
-            overflow: 'hidden',
-            width: o.width,
-            height: o.height
-          });
-
-        // update style for the div
-        me.css({
-          overflow: 'hidden',
-          width: o.width,
-          height: o.height
-        });
-
-        // create scrollbar rail
-        var rail = $(divS)
-          .addClass(o.railClass)
-          .css({
-            width: o.size,
-            height: '100%',
-            position: 'absolute',
-            top: 0,
-            display: (o.alwaysVisible && o.railVisible) ? 'block' : 'none',
-            'border-radius': o.railBorderRadius,
-            background: o.railColor,
-            opacity: o.railOpacity,
-            zIndex: 90
-          });
-
-        // create scrollbar
-        var bar = $(divS)
-          .addClass(o.barClass)
-          .css({
-            background: o.color,
-            width: o.size,
-            position: 'absolute',
-            top: 0,
-            opacity: o.opacity,
-            display: o.alwaysVisible ? 'block' : 'none',
-            'border-radius' : o.borderRadius,
-            BorderRadius: o.borderRadius,
-            MozBorderRadius: o.borderRadius,
-            WebkitBorderRadius: o.borderRadius,
-            zIndex: 99
-          });
-
-        // set position
-        var posCss = (o.position == 'right') ? { right: o.distance } : { left: o.distance };
-        rail.css(posCss);
-        bar.css(posCss);
-
-        // wrap it
-        me.wrap(wrapper);
-
-        // append to parent div
-        me.parent().append(bar);
-        me.parent().append(rail);
-
-        // make it draggable and no longer dependent on the jqueryUI
-        if (o.railDraggable){
-          bar.bind("mousedown", function(e) {
-            var $doc = $(document);
-            isDragg = true;
-            t = parseFloat(bar.css('top'));
-            pageY = e.pageY;
-
-            $doc.bind("mousemove.slimscroll", function(e){
-              currTop = t + e.pageY - pageY;
-              bar.css('top', currTop);
-              scrollContent(0, bar.position().top, false);// scroll content
-            });
-
-            $doc.bind("mouseup.slimscroll", function(e) {
-              isDragg = false;hideBar();
-              $doc.unbind('.slimscroll');
-            });
-            return false;
-          }).bind("selectstart.slimscroll", function(e){
-            e.stopPropagation();
-            e.preventDefault();
-            return false;
-          });
-        }
-
-        // on rail over
-        rail.hover(function(){
-          showBar();
-        }, function(){
-          hideBar();
-        });
-
-        // on bar over
-        bar.hover(function(){
-          isOverBar = true;
-        }, function(){
-          isOverBar = false;
-        });
-
-        // show on parent mouseover
-        me.hover(function(){
-          isOverPanel = true;
-          showBar();
-          hideBar();
-        }, function(){
-          isOverPanel = false;
-          hideBar();
-        });
-
-        // support for mobile
-        me.bind('touchstart', function(e,b){
-          if (e.originalEvent.touches.length)
-          {
-            // record where touch started
-            touchDif = e.originalEvent.touches[0].pageY;
-          }
-        });
-
-        me.bind('touchmove', function(e){
-          // prevent scrolling the page if necessary
-          if(!releaseScroll)
-          {
-  		      e.originalEvent.preventDefault();
-		      }
-          if (e.originalEvent.touches.length)
-          {
-            // see how far user swiped
-            var diff = (touchDif - e.originalEvent.touches[0].pageY) / o.touchScrollStep;
-            // scroll content
-            scrollContent(diff, true);
-            touchDif = e.originalEvent.touches[0].pageY;
-          }
-        });
-
-        // set up initial height
-        getBarHeight();
-
-        // check start position
-        if (o.start === 'bottom')
-        {
-          // scroll content to bottom
-          bar.css({ top: me.outerHeight() - bar.outerHeight() });
-          scrollContent(0, true);
-        }
-        else if (o.start !== 'top')
-        {
-          // assume jQuery selector
-          scrollContent($(o.start).position().top, null, true);
-
-          // make sure bar stays hidden
-          if (!o.alwaysVisible) { bar.hide(); }
-        }
-
-        // attach scroll events
-        attachWheel();
-
-        function _onWheel(e)
-        {
-          // use mouse wheel only when mouse is over
-          if (!isOverPanel) { return; }
-
-          var e = e || window.event;
-
-          var delta = 0;
-          if (e.wheelDelta) { delta = -e.wheelDelta/120; }
-          if (e.detail) { delta = e.detail / 3; }
-
-          var target = e.target || e.srcTarget || e.srcElement;
-          if ($(target).closest('.' + o.wrapperClass).is(me.parent())) {
-            // scroll content
-            scrollContent(delta, true);
-          }
-
-          // stop window scroll
-          if (e.preventDefault && !releaseScroll) { e.preventDefault(); }
-          if (!releaseScroll) { e.returnValue = false; }
-        }
-
-        function scrollContent(y, isWheel, isJump)
-        {
-          releaseScroll = false;
-          var delta = y;
-          var maxTop = me.outerHeight() - bar.outerHeight();
-
-          if (isWheel)
-          {
-            // move bar with mouse wheel
-            delta = parseInt(bar.css('top')) + y * parseInt(o.wheelStep) / 100 * bar.outerHeight();
-
-            // move bar, make sure it doesn't go out
-            delta = Math.min(Math.max(delta, 0), maxTop);
-
-            // if scrolling down, make sure a fractional change to the
-            // scroll position isn't rounded away when the scrollbar's CSS is set
-            // this flooring of delta would happened automatically when
-            // bar.css is set below, but we floor here for clarity
-            delta = (y > 0) ? Math.ceil(delta) : Math.floor(delta);
-
-            // scroll the scrollbar
-            bar.css({ top: delta + 'px' });
-          }
-
-          // calculate actual scroll amount
-          percentScroll = parseInt(bar.css('top')) / (me.outerHeight() - bar.outerHeight());
-          delta = percentScroll * (me[0].scrollHeight - me.outerHeight());
-
-          if (isJump)
-          {
-            delta = y;
-            var offsetTop = delta / me[0].scrollHeight * me.outerHeight();
-            offsetTop = Math.min(Math.max(offsetTop, 0), maxTop);
-            bar.css({ top: offsetTop + 'px' });
-          }
-
-          // scroll content
-          me.scrollTop(delta);
-
-          // fire scrolling event
-          me.trigger('slimscrolling', ~~delta);
-
-          // ensure bar is visible
-          showBar();
-
-          // trigger hide when scroll is stopped
-          hideBar();
-        }
-
-        function attachWheel()
-        {
-          if (window.addEventListener)
-          {
-            this.addEventListener('DOMMouseScroll', _onWheel, false );
-            this.addEventListener('mousewheel', _onWheel, false );
-          }
-          else
-          {
-            document.attachEvent("onmousewheel", _onWheel)
-          }
-        }
-
-        function getBarHeight()
-        {
-          // calculate scrollbar height and make sure it is not too small
-          barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
-          bar.css({ height: barHeight + 'px' });
-
-          // hide scrollbar if content is not long enough
-          var display = barHeight == me.outerHeight() ? 'none' : 'block';
-          bar.css({ display: display });
-        }
-
-        function showBar()
-        {
-          // recalculate bar height
-          getBarHeight();
-          clearTimeout(queueHide);
-
-          // when bar reached top or bottom
-          if (percentScroll == ~~percentScroll)
-          {
-            //release wheel
-            releaseScroll = o.allowPageScroll;
-
-            // publish approporiate event
-            if (lastScroll != percentScroll)
-            {
-                var msg = (~~percentScroll == 0) ? 'top' : 'bottom';
-                me.trigger('slimscroll', msg);
-            }
-          }
-          else
-          {
-            releaseScroll = false;
-          }
-          lastScroll = percentScroll;
-
-          // show only when required
-          if(barHeight >= me.outerHeight()) {
-            //allow window scroll
-            releaseScroll = true;
-            return;
-          }
-          bar.stop(true,true).fadeIn('fast');
-          if (o.railVisible) { rail.stop(true,true).fadeIn('fast'); }
-        }
-
-        function hideBar()
-        {
-          // only hide when options allow it
-          if (!o.alwaysVisible)
-          {
-            queueHide = setTimeout(function(){
-              if (!(o.disableFadeOut && isOverPanel) && !isOverBar && !isDragg)
-              {
-                bar.fadeOut('slow');
-                rail.fadeOut('slow');
-              }
-            }, 1000);
-          }
-        }
-
-      });
-
-      // maintain chainability
-      return this;
-    }
-  });
-
-  $.fn.extend({
-    slimscroll: $.fn.slimScroll
-  });
-
-})(jQuery);
-
-; browserify_shim__define__module__export__(typeof slimscroll != "undefined" ? slimscroll : window.slimscroll);
-
-}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
-
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],7:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*
  * Snap.js
@@ -14418,7 +13939,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 //     Underscore.js 1.5.2
 //     http://underscorejs.org
@@ -15699,11 +15220,11 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
-underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; $ = global.$ = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+underscore = global.underscore = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
 //     Backbone.js 1.1.0
 
 //     (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -17290,10 +16811,10 @@ underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":8,"underscore":8}],10:[function(require,module,exports){
+},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":7,"underscore":7}],9:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+; jQuery = global.jQuery = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
 /* ========================================================================
  * Bootstrap: dropdown.js v3.0.2
  * http://getbootstrap.com/javascript/#dropdowns
@@ -17817,11 +17338,11 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],11:[function(require,module,exports){
+},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],10:[function(require,module,exports){
 var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
-    slimscroll        = require('slimscroll'),
+    //slimscroll        = require('slimscroll'),
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -17841,8 +17362,6 @@ App.prototype.start = function(){
         App.data  = {};
         App.vent  = {}
         App.fb    = {};
-
-        App.vent = _.extend({}, Backbone.Events);
 
         // temp set wrap height, sloppy?
         $('#wrap').height($(window).height());
@@ -17901,7 +17420,7 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":12,"./collections/teams":13,"./controller":14,"./models/player":16,"./models/team":17,"./router":18,"backbone.marionette":1,"bootstrap":10,"slimscroll":6}],12:[function(require,module,exports){
+},{"./collections/players":11,"./collections/teams":12,"./controller":13,"./models/player":15,"./models/team":16,"./router":17,"backbone.marionette":1,"bootstrap":9}],11:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
@@ -17910,7 +17429,7 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
     url: '/api/players'
 });
 
-},{"../models/player":16,"backbone":9}],13:[function(require,module,exports){
+},{"../models/player":15,"backbone":8}],12:[function(require,module,exports){
 var Backbone = require('backbone'),
     TeamModel = require('../models/team'),
     PlayersCollection = require('./players');
@@ -17926,31 +17445,23 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
     }
 });
 
-},{"../models/team":17,"./players":12,"backbone":9}],14:[function(require,module,exports){
+},{"../models/team":16,"./players":11,"backbone":8}],13:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
-    HomeView   = require('./views/home'),
-    StatsView    = require('./views/statsView');
+    AppView    = require('./views/appView'),
+    StatsView  = require('./views/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
     initialize: function(options) {
         App.core.vent.trigger('app:log', 'Controller: Initializing');
-        window.App.views.homeView = new HomeView();
-        window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
+        //window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
+        window.App.views.appView  = new AppLayoutView();
     },
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit.');
-        //var view = window.App.views.homeView;
-        var view = window.App.views.statsView; // render stats as home for now
+        var view = window.App.views.appView;
         this.renderView(view);
         window.App.router.navigate('#');
-    },
-
-    stats: function() {
-        App.core.vent.trigger('app:log', 'Controller: "Stats" route hit.');
-        var view = window.App.views.statsView;
-        this.renderView(view);
-        window.App.router.navigate('#stats');
     },
 
     renderView: function(view) {
@@ -17968,12 +17479,13 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/home":22,"./views/statsView":24,"backbone.marionette":1}],15:[function(require,module,exports){
+},{"./views/appView":18,"./views/statsView":25,"backbone.marionette":1}],14:[function(require,module,exports){
 var App = require('./app');
-var myapp = new App();
-myapp.start();
+var StatApp = new App();
 
-},{"./app":11}],16:[function(require,module,exports){
+StatApp.start();
+
+},{"./app":10}],15:[function(require,module,exports){
 var Backbone     = require('backbone');
 //var NestedModel  = require('backbone.nested');
 //var Relational = require('backbone.relational');
@@ -18001,7 +17513,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     }
 });
 
-},{"backbone":9}],17:[function(require,module,exports){
+},{"backbone":8}],16:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
 //var NestedModel       = require('backbone.nested');
@@ -18029,17 +17541,41 @@ module.exports = TeamModel = Backbone.Model.extend({
 });
 
 
-},{"../collections/players":12,"backbone":9}],18:[function(require,module,exports){
+},{"../collections/players":11,"backbone":8}],17:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = Router = Marionette.AppRouter.extend({
     appRoutes: {
-        ''      : 'home',
-        'stats' : 'stats'
+        ''      : 'home'
     }
 });
 
-},{"backbone.marionette":1}],19:[function(require,module,exports){
+},{"backbone.marionette":1}],18:[function(require,module,exports){
+var Marionette = require('backbone.marionette'),
+    MenuView = require('./menu/menu'),
+    StatsView = require('./statsView/statsView');
+
+module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
+	template: require('../../templates/appView.hbs'),
+
+	regions: {
+		menu: ".menu",
+		stats: ".content"
+	},
+
+	onRender: function() {
+		// possibly add a headerView here?
+
+	    // render the app's menu	
+        var menuView = new MenuView();
+        this.menu.show(menuView);
+
+        // render the app's content	
+        var statsiew = new StatsView({ collection: window.App.data.teams });
+        this.stats.show(statsiew);
+    }
+});
+},{"../../templates/appView.hbs":29,"./menu/menu":22,"./statsView/statsView":26,"backbone.marionette":1}],19:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = playerData = Marionette.ItemView.extend({
@@ -18066,7 +17602,7 @@ module.exports = playerData = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/data/playerData.hbs":27,"backbone.marionette":1}],20:[function(require,module,exports){
+},{"../../../templates/data/playerData.hbs":30,"backbone.marionette":1}],20:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     playerData = require('./playerData'),
     PlayersCollection = require('../../collections/players');
@@ -18089,7 +17625,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: playerData
 });
 
-},{"../../collections/players":12,"./playerData":19,"backbone.marionette":1}],21:[function(require,module,exports){
+},{"../../collections/players":11,"./playerData":19,"backbone.marionette":1}],21:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../../collections/players');
 
@@ -18120,43 +17656,47 @@ module.exports = FeedView = Marionette.CompositeView.extend({
     itemView: FeedItemView
 });
 
-},{"../../../templates/feed/feed.hbs":28,"../../../templates/feed/feeds.hbs":29,"../../collections/players":12,"backbone.marionette":1}],22:[function(require,module,exports){
-var Marionette   = require('backbone.marionette');
+},{"../../../templates/feed/feed.hbs":31,"../../../templates/feed/feeds.hbs":32,"../../collections/players":11,"backbone.marionette":1}],22:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
 
-module.exports = homeView = Marionette.ItemView.extend({
-    className: 'homeView',
-    template: require('../../templates/home.hbs'),
-    initialize: function() {
-        this.snapMenu();
-        this.facebook();
+module.exports = MenuView = Backbone.Marionette.Layout.extend({
+    template: require('../../../templates/menu/menu.hbs'),
+
+    initialize: function(){
+        console.log('Region 1 Layout: initialize');
     },
-    facebook: function() {
-        $(document).on('fbStatusChange', function (event, data) {
-            if (data.status === 'connected') {
-                console.log('connected')
-                FB.api('/554870764588961/members/', function (response) {
-                    console.log(response);
-                });
-            } else {
-                console.log('not connected')
+    onRender: function(){
+        console.log('Region 1 Layout: onRender');
+    },
+    onShow: function(){
+        console.log('Region 1 Layout: onShow');
+    },
+    changeHomeTeam: function(data) {
+        this.collection.each(function(team) {
+            if(team.get('side') === 'home') {
+                team.set({playing: false, position: null, side: null});
+                team.save();
             }
-        });
-    }, 
-    snapMenu: function() {
-        var snapper = new Snap({ element: document.getElementById('wrap') });
-        $('.custom-toggle').click(function(){
-            if( snapper.state().state=="left" ){
-                snapper.close();
-                $(this).removeClass('close-menu');
-            } else {
-                snapper.open('left');
-                $(this).addClass('close-menu');
+            if(team.get('team_name') === data) {
+                team.set({playing: true, position: 1, side: 'home'});
+                team.save();
+            }  
+        },this);
+    },
+    changeAwayTeam: function(data) {
+        this.collection.each(function(team) {
+            if(team.get('side') === 'away') {
+                team.set({playing: false, position: null, side: null});
+                team.save();
             }
-        });
+            if(team.get('team_name') === data) {
+                team.set({playing: true, position: 2, side: 'away'});
+                team.save();
+            }  
+        },this);
     }
 });
-
-},{"../../templates/home.hbs":30,"backbone.marionette":1}],23:[function(require,module,exports){
+},{"../../../templates/menu/menu.hbs":33,"backbone.marionette":1}],23:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listTeamsView = Marionette.ItemView.extend({
@@ -18184,7 +17724,104 @@ module.exports = SettingsView = Marionette.CollectionView.extend({
     },
     itemView:listTeamsView
 });
-},{"../../../templates/team-list.hbs":32,"backbone.marionette":1}],24:[function(require,module,exports){
+},{"../../../templates/team-list.hbs":38,"backbone.marionette":1}],24:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
+
+
+/* Form to add player */
+var AddPlayerSettingsView = Marionette.ItemView.extend({
+    template: require('../../../templates/settings/addplayerSettings.hbs'),
+
+    initialize:function() {
+    },
+    onRender: function() {
+    }
+});
+/* Form to add player */
+
+
+/* Players who are playing */
+var playingPlayerSettingsView = Marionette.ItemView.extend({
+    className: 'player',
+    template: require('../../../templates/settings/playerSettings.hbs'),
+
+    initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+    },
+    onRender: function() {
+
+    }
+});
+
+var PlayingPlayersSettingsView = Marionette.CollectionView.extend({
+
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    onRender: function() {
+
+    },
+    itemView: playingPlayerSettingsView
+});
+/* end players who are playing */
+
+
+/* Players who are on the bench */
+var benchPlayerSettingsView = Marionette.ItemView.extend({
+    className: 'player',
+    template: require('../../../templates/settings/playerSettings.hbs'),
+
+    initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+
+        window.DROSE = this.model;
+    },
+    onRender: function() {
+
+    }
+});
+
+var BenchPlayersSettingsView = Marionette.CollectionView.extend({
+
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    onRender: function() {
+
+    },
+    itemView: benchPlayerSettingsView
+});
+/* end players who are on the bench */
+
+
+module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
+    className: 'edit',
+    template: require('../../../templates/settings/teamSettings.hbs'),
+
+    regions: {
+        addPlayer: ".add-player",
+        playingPlayers: ".playing-players",
+        benchPlayers: ".bench-players"
+    },
+
+    onRender: function() {
+
+        console.log(this.options.benchedCollection)
+        
+        // add players
+        var addPlayerSettingsView = new AddPlayerSettingsView({ collection: this.collection });
+        this.addPlayer.show(addPlayerSettingsView);
+        
+        // playing players   
+        var playingPlayersSettingsView = new PlayingPlayersSettingsView({ collection: this.collection });
+        this.playingPlayers.show(playingPlayersSettingsView);
+
+        // bench players   
+        var benchPlayersSettingsView = new BenchPlayersSettingsView({ collection: this.options.benchedCollection });
+        this.benchPlayers.show(benchPlayersSettingsView);
+    }
+});
+},{"../../../templates/settings/addplayerSettings.hbs":34,"../../../templates/settings/playerSettings.hbs":35,"../../../templates/settings/teamSettings.hbs":36,"backbone.marionette":1}],25:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Stellar      = require('jquery.stellar'),
     Snap         = require('snapjs'),
@@ -18317,7 +17954,116 @@ module.exports = appView = Marionette.ItemView.extend({
     }
 });
 
-},{"../../templates/statsView.hbs":31,"../collections/teams":13,"./data/teamData":20,"./feed/feed":21,"./settings/setTeams":23,"./teams/teams":26,"backbone.marionette":1,"jquery.stellar":4,"snapjs":7}],25:[function(require,module,exports){
+},{"../../templates/statsView.hbs":37,"../collections/teams":12,"./data/teamData":20,"./feed/feed":21,"./settings/setTeams":23,"./teams/teams":28,"backbone.marionette":1,"jquery.stellar":4,"snapjs":6}],26:[function(require,module,exports){
+var Marionette   = require('backbone.marionette'),
+    Snap         = require('snapjs'),
+    TeamsView    = require('../teams/teams'),
+    DataView     = require('../data/teamData'),
+    TeamsCollection = require('../../collections/teams');
+
+module.exports = statsView = Marionette.ItemView.extend({
+    className: 'statsView',
+    template: require('../../../templates/statsView.hbs'),
+    events: {
+        'mouseenter .home-boost': 'homeBoost',
+        'mouseenter .away-boost': 'awayBoost'
+    },
+    initialize: function() {
+
+        var self = this;
+
+        // intialize third party stuff
+        this.facebook();
+
+        this.$el.height($(window).height() - $('.navbar').outerHeight());
+
+        // listen for changes 
+        //App.vent.on('home-team-change', function(data) { self.changeHomeTeam(data); self.render(); });
+        //App.vent.on('away-team-change', function(data) { self.changeAwayTeam(data); self.render(); });
+    
+    },
+    onRender: function() {
+
+        // make a collection for the teams that are playing
+        this.playingCollection  = this.playingTeam();
+
+        // make a collection for the teams that are inactive
+        this.sidelineCollection = this.notPlayingTeam();
+        
+        // grab the playing teams ID's assuming there should be 2 teams only
+        //var team_id1 = this.playingCollection.pluck('_id')[0];
+        //var team_id2 = this.playingCollection.pluck('_id')[1];
+        
+        // initialize some views
+        window.App.views.teamsView = new TeamsView({ collection: this.playingCollection });
+        window.App.views.dataView  = new DataView({ collection: App.data.players });
+        
+        // append the view's to the DOM
+        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
+        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
+    },
+    onShow:function() {
+        setTimeout(function() {
+            console.log(document.getElementById('stats'));  
+        
+            /* beta menu open */
+            var snapper = new Snap({ element: document.getElementById('stats') });
+            snapper.settings({
+                resistance: 0.5,
+                flickThreshold: 50,
+                transitionSpeed: 0.3,
+                easing: 'ease',
+                maxPosition: 200
+            });
+            $('.custom-toggle').click(function(){
+                if( snapper.state().state=="left" ){
+                    snapper.close();
+                    $(this).removeClass('close-menu');
+                } else {
+                    snapper.open('left');
+                    $(this).addClass('close-menu'); 
+                }
+            });
+            snapper.on('animated', function(){
+                if(snapper.state().state != 'closed') {
+                    $('.custom-toggle').addClass('close-menu');
+                } else {
+                    $('.custom-toggle').removeClass('close-menu');
+                }
+            });
+        },0);
+    },
+    playingTeam: function (value) {
+        
+        // determine who is playing by looking for the team models
+        // that have "playing" set to true
+        var models = this.collection.where({playing: true});
+        return new TeamsCollection(models);
+
+    },
+    notPlayingTeam: function (value) {
+
+        // determine who is NOT playing by looking for the team models
+        // that have "playing" set to false
+        var models = this.collection.where({playing: false});
+        return new TeamsCollection(models);
+
+    },
+    facebook: function() {
+        $(document).on('fbStatusChange', function (event, data) {
+            if (data.status === 'connected') {
+                console.log('connected')
+                FB.api('/554870764588961/members/', function (response) {
+                    console.log(response);
+                });
+            } else {
+                console.log('not connected')
+            }
+        });
+    }
+});
+
+},{"../../../templates/statsView.hbs":37,"../../collections/teams":12,"../data/teamData":20,"../teams/teams":28,"backbone.marionette":1,"snapjs":6}],27:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = playerView = Marionette.ItemView.extend({
@@ -18394,10 +18140,11 @@ module.exports = playerView = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/teams/player.hbs":34,"backbone.marionette":1}],26:[function(require,module,exports){
+},{"../../../templates/teams/player.hbs":40,"backbone.marionette":1}],28:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayerView = require('./player'),
-    PlayersCollection = require('../../collections/players');
+    PlayersCollection = require('../../collections/players'),
+    TeamSettingsLayoutView = require('../settings/teamSettings');
 
 var teamView = Marionette.CompositeView.extend({
 	className: 'team row',
@@ -18413,7 +18160,9 @@ var teamView = Marionette.CompositeView.extend({
         this.listenTo(this.model, 'change', this.render);
         
         // build a collection of players with this team ID
-        this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
+        //this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
+
+        this.collection = this.playingPlayers();
 
         // pass the team name from the model to teamIdenity function
         this.teamIdentity(this.model.get('team_name'));
@@ -18424,24 +18173,44 @@ var teamView = Marionette.CompositeView.extend({
         this.$el.addClass(teamName);
         this.$el.attr('data-team', teamName);
     },
+    playingPlayers: function (value) {
+
+        //var models = this.collection.where({playing: true});
+        var models = App.data.players.where({team_id: this.model.id,bench:false});
+        return new PlayersCollection(models);
+
+    },
+    benchPlayers: function (value) {
+
+        //var models = this.collection.where({playing: false});
+        var models = App.data.players.where({team_id: this.model.id,bench:true});
+        return new PlayersCollection(models);
+
+    },
     teamChanges:function() {
-        this.$el.find('.team-editor').addClass('edit');
+        this.playingCollection = this.playingPlayers();
+        this.benchedCollection = this.benchPlayers();
+
+        console.log(this.playingCollection);
+        console.log(this.benchedCollection);
+        
+        window.App.views.teamSettingsLayoutView = new TeamSettingsLayoutView({ 
+            collection: this.playingCollection,
+            benchedCollection: this.benchPlayers()
+        });
+        this.$el.find('.team-editor').html(App.views.teamSettingsLayoutView.render().el);
     },
     closeTeamChanges:function() {
-        this.$el.find('.team-editor').removeClass('edit');
+        window.App.views.teamSettingsLayoutView.close();
     },
     addPlayer: function(e) {
         e.preventDefault();
         
         var $newPlayer = this.$el.find('input.player_name')
-
-        var Player = {
-            player_name : $newPlayer.val(), 
-            team_id     : this.model.id
-        }
         
-        var newPlayer = App.data.players.create(Player);
-        this.collection.add(newPlayer);
+        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
+        //this.collection.add(newPlayer);
+
         $newPlayer.val('');
 
     },
@@ -18466,7 +18235,19 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/teams/basketball.hbs":33,"../../../templates/teams/team.hbs":35,"../../collections/players":12,"./player":25,"backbone.marionette":1}],27:[function(require,module,exports){
+},{"../../../templates/teams/basketball.hbs":39,"../../../templates/teams/team.hbs":41,"../../collections/players":11,"../settings/teamSettings":24,"./player":27,"backbone.marionette":1}],29:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>";
+  });
+
+},{"hbsfy/runtime":45}],30:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18491,7 +18272,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":39}],28:[function(require,module,exports){
+},{"hbsfy/runtime":45}],31:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18502,7 +18283,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
   });
 
-},{"hbsfy/runtime":39}],29:[function(require,module,exports){
+},{"hbsfy/runtime":45}],32:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18514,7 +18295,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":39}],30:[function(require,module,exports){
+},{"hbsfy/runtime":45}],33:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18523,39 +18304,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"demo-wrapper\">\r\n  <!-- classnames for the pages should include: 1) type of page 2) page name-->\r\n   <div class=\"s-page random-restored-page\">\r\n      <div class=\"page-content\">\r\n        <h2 class=\"page-title\">Some minimized App</h2>\r\n        <div class=\"close-button s-close-button\">x</div>\r\n      </div>\r\n    </div>\r\n    <div class=\"s-page custom-page\">\r\n      <div class=\"page-content\">\r\n        <h2 class=\"page-title\">Thank You!</h2>\r\n        <div class=\"close-button s-close-button\">x</div>\r\n      </div>\r\n    </div>\r\n    <div class=\"r-page random-r-page\">\r\n      <div class=\"page-content\">\r\n        <h2 class=\"page-title\">App Screen</h2>\r\n        <p>Chew iPad power cord chew iPad power cord attack feet chase mice leave dead animals as gifts and stick butt in face chew iPad power cord. Chase mice. Run in circles use lap as chair why must they do that. Intrigued by the shower destroy couch leave hair everywhere sleep on keyboard chew iPad power cord. Use lap as chair. Missing until dinner time stand in front of the computer screen, intently sniff hand. Find something else more interesting. Destroy couch play time so inspect anything brought into the house hate dog burrow under covers. Sleep on keyboard destroy couch so hate dog so hide when guests come over. Chase mice destroy couch lick butt throwup on your pillow use lap as chair yet intrigued by the shower but climb leg. Stare at ceiling make muffins or hunt anything that moves claw drapes. Intently sniff hand intrigued by the shower. Why must they do that. Cat snacks leave dead animals as gifts or inspect anything brought into the house sweet beast so stare at ceiling give attitude. Flop over claw drapes but sun bathe lick butt, and chase mice. Rub face on everything lick butt leave hair everywhere lick butt, missing until dinner time for use lap as chair lick butt. Make muffins leave dead animals as gifts play time. Chew foot intrigued by the shower stare at ceiling inspect anything brought into the house yet hopped up on goofballs. \r\n \r\n        Hunt anything that moves intently sniff hand for hunt anything that moves play time. Chew foot climb leg throwup on your pillow so lick butt yet make muffins hate dog. Intrigued by the shower. Intently sniff hand shake treat bag. Cat snacks burrow under covers make muffins but all of a sudden go crazy find something else more interesting. Flop over chase mice. Give attitude. Inspect anything brought into the house. Stick butt in face sun bathe so find something else more interesting and intrigued by the shower. Rub face on everything use lap as chair. \r\n \r\n        Under the bed claw drapes chase mice but leave hair everywhere yet make muffins yet claw drapes. Use lap as chair. Find something else more interesting stretch for under the bed. Nap all day intrigued by the shower, hate dog sweet beast intently sniff hand so hate dog nap all day. Swat at dog hide when guests come over and mark territory chase mice for cat snacks. Use lap as chair. Lick butt throwup on your pillow need to chase tail. \r\n \r\n        Mark territory. Stick butt in face shake treat bag yet hunt anything that moves, yet hopped up on goofballs yet stare at ceiling under the bed. Give attitude chase imaginary bugs stretch so hunt anything that moves so hide when guests come over but intrigued by the shower find something else more interesting. Make muffins behind the couch for chew foot. Sweet beast flop over but throwup on your pillow. Intently sniff hand use lap as chair and missing until dinner time and chase imaginary bugs. \r\n        </p>\r\n      </div>\r\n       \r\n      <div class=\"close-button r-close-button\">x</div>\r\n    </div>\r\n  <!--each tile should specify what page type it opens (to determine which animation) and the corresponding page name it should open-->\r\n    <div class=\"dashboard clearfix\">\r\n      <ul class=\"tiles\">\r\n        <div class=\"col1 clearfix\">\r\n          <li class=\"tile tile-big tile-1 slideTextUp\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <div><p>This tile's content slides up</p></div>\r\n            <div><p>View all tasks</p></div>\r\n          </li>\r\n          <li class=\"tile tile-small tile tile-2 slideTextRight\" data-page-type=\"s-page\" data-page-name =\"random-restored-page\">\r\n            <div><p class=\"icon-arrow-right\"></p></div>\r\n            <div><p>Tile's content slides right. Page opens from left</p></div>\r\n          </li>\r\n          <li class=\"tile tile-small last tile-3\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <p class=\"icon-calendar-alt-fill\"></p>\r\n          </li>\r\n          <li class=\"tile tile-big tile-4\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <figure>\r\n              <img src=\"\" />\r\n              <figcaption class=\"tile-caption caption-left\">Slide-out Caption from left</figcaption>\r\n            </figure>\r\n          </li>\r\n        </div>\r\n \r\n        <div class=\"col2 clearfix\">\r\n          <li class=\"tile tile-big tile-5\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <div><p><span class=\"icon-cloudy\"></span>Weather</p></div>\r\n          </li>\r\n          <li class=\"tile tile-big tile-6 slideTextLeft\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <div><p><span class=\"icon-skype\"></span>Skype</p></div>\r\n            <div><p>Make a Call</p></div>\r\n          </li>\r\n          <!--Tiles with a 3D effect should have the following structure:\r\n              1) a container inside the tile with class of .faces\r\n              2) 2 figure elements, one with class .front and the other with class .back-->\r\n          <li class=\"tile tile-small tile-7 rotate3d rotate3dX\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <div class=\"faces\">\r\n              <div class=\"front\"><span class=\"icon-picassa\"></span></div>\r\n              <div class=\"back\"><p>Launch Picassa</p></div>\r\n            </div>\r\n          </li>\r\n          <li class=\"tile tile-small last tile-8 rotate3d rotate3dY\" data-page-type=\"r-page\" data-page-name=\"random-r-page\">\r\n            <div class=\"faces\">\r\n              <div class=\"front\"><span class=\"icon-instagram\"></span></div>\r\n              <div class=\"back\"><p>Launch Instagram</p></div>\r\n            </div>\r\n          </li>\r\n        </div>\r\n \r\n        <div class=\"col3 clearfix\">      \r\n          <li class=\"tile tile-2xbig tile-9\" data-page-type=\"custom-page\" data-page-name=\"random-r-page\">\r\n            <figure>\r\n              <img src=\"\" />\r\n              <figcaption class=\"tile-caption caption-bottom\">Fixed Caption: Some Subtitle or Tile Description Goes Here with some kinda link or anything\r\n              </figure>\r\n          </li>\r\n          <li class=\"tile tile-big tile-10\" data-page-type=\"s-page\" data-page-name=\"custom-page\">\r\n            <div><p>Windows-8-like Animations with CSS3 & jQuery © Sara Soueidan. Licensed under MIT.</p></div>\r\n          </li>\r\n        </div>\r\n      </ul>\r\n    </div><!--end dashboard-->\r\n  </div>";
+  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MENU</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/\">\r\n                    <i class=\"ti-home\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":39}],31:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "";
-
-
-  buffer += "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n	"
-    + "\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	"
-    + "\r\n\r\n</div>\r\n";
-  return buffer;
-  });
-
-},{"hbsfy/runtime":39}],32:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var stack1, functionType="function", escapeExpression=this.escapeExpression;
-
-
-  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  return escapeExpression(stack1);
-  });
-
-},{"hbsfy/runtime":39}],33:[function(require,module,exports){
+},{"hbsfy/runtime":45}],34:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18564,10 +18316,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<!-- <form id=\"AddTeam\">\r\n    <input class=\"team_name\" type=\"text\" placeholder=\"add a team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> -->";
+  return "<span class=\"close-team-editor\">X</span>\r\n<form id=\"AddPlayer\">\r\n    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to this team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> ";
   });
 
-},{"hbsfy/runtime":39}],34:[function(require,module,exports){
+},{"hbsfy/runtime":45}],35:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18629,7 +18381,64 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":39}],35:[function(require,module,exports){
+},{"hbsfy/runtime":45}],36:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "";
+
+
+  buffer += "\r\n\r\n<div class=\"row add-player\"></div>\r\n\r\n<div class=\"row sub-players\">\r\n    <div class=\"col-md-6 playing-players\"></div>\r\n	<div class=\"col-md-6 bench-players\"></div>\r\n</div>\r\n";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":45}],37:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "";
+
+
+  buffer += "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n	"
+    + "\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	"
+    + "\r\n\r\n</div>\r\n\r\n"
+    + "\r\n<div id=\"some-div\"></div>\r\n";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":45}],38:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  return escapeExpression(stack1);
+  });
+
+},{"hbsfy/runtime":45}],39:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<!-- <form id=\"AddTeam\">\r\n    <input class=\"team_name\" type=\"text\" placeholder=\"add a team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> -->";
+  });
+
+},{"hbsfy/runtime":45}],40:[function(require,module,exports){
+module.exports=require(35)
+},{"hbsfy/runtime":45}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18647,11 +18456,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor\">\r\n    <span class=\"close-team-editor\">X</span>\r\n    <form id=\"AddPlayer\">\r\n        <input class=\"player_name\" type=\"text\" placeholder=\"add a player to this team\" />\r\n        <button type=\"submit\">ADD</button>\r\n    </form>\r\n</div>\r\n";
+    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":39}],36:[function(require,module,exports){
+},{"hbsfy/runtime":45}],42:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -18819,7 +18628,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],37:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -18927,7 +18736,7 @@ return Handlebars;
 
 };
 
-},{}],38:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -19012,7 +18821,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],39:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -19023,4 +18832,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":36,"handlebars/lib/handlebars/runtime":37,"handlebars/lib/handlebars/utils":38}]},{},[15])
+},{"handlebars/lib/handlebars/base":42,"handlebars/lib/handlebars/runtime":43,"handlebars/lib/handlebars/utils":44}]},{},[14])
