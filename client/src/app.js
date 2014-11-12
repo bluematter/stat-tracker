@@ -1,7 +1,8 @@
 var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
-    //slimscroll        = require('slimscroll'),
+    slimscroll        = require('slimscroll'),
+    mousewheel        = require('mousewheel'), 
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -19,7 +20,7 @@ App.prototype.start = function(){
 
         App.views = {};
         App.data  = {};
-        App.vent  = {}
+        App.vent  = new Backbone.Wreqr.EventAggregator();
         App.fb    = {};
 
         // temp set wrap height, sloppy?

@@ -4,7 +4,10 @@ var mongoose = require('mongoose'),
 
 var Team = new Schema({
     team_name:    { type: String },
+    team_color:   { type: String },
     playing:      { type: Boolean },
+    side:         { type: String },
+    position:     { type: Number },
     points:       { type: Number },
     made_one:     { type: Number },
     made_two:     { type: Number },

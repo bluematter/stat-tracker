@@ -9,7 +9,10 @@ module.exports = {
                 console.log('no teams found, seeding...');
                 var newTeam = new models.Team({
                     team_name:   'Bulls',
+                    team_color:  '#D20E18',
                     playing:      true,
+                    side:         'home',
+                    position:     1,
                     points:       44,
                     made_one:     10,
                     made_two:     15,
@@ -73,11 +76,37 @@ module.exports = {
                     newPlayer.save(function(err, player) {
                         console.log('successfully inserted a player: ' + player._id);
                     });
+                    var newPlayer = new models.Player({
+                        player_name:  'Derrick Rose',
+                        team_id:      team._id,
+                        bench:        false,
+                        points:       0,
+                        made_one:     3,
+                        made_two:     4,
+                        made_three:   5,
+                        missed_one:   2,
+                        missed_two:   3,
+                        missed_three: 4,
+                        percentage:   5,
+                        assists:      2,
+                        rebounds:     2,
+                        steals:       2,
+                        blocks:       5,
+                        fouls:        3,  
+                        feed:         null,
+                        facebook_id:  null
+                    });
+                    newPlayer.save(function(err, player) {
+                        console.log('successfully inserted a player: ' + player._id);
+                    });
                 });
 
                 var newTeam = new models.Team({
                     team_name:   'Wizards',
+                    team_color:  '#042859',
                     playing:      true,
+                    side:         'away',
+                    position:     2,
                     points:       44,
                     made_one:     10,
                     made_two:     15,
@@ -141,10 +170,36 @@ module.exports = {
                     newPlayer.save(function(err, player) {
                         console.log('successfully inserted a player: ' + player._id);
                     });
+                    var newPlayer = new models.Player({
+                        player_name:  'Andre Miller',
+                        team_id:      team._id,
+                        bench:        false,
+                        points:       1,
+                        made_one:     3,
+                        made_two:     4,
+                        made_three:   5,
+                        missed_one:   2,
+                        missed_two:   3,
+                        missed_three: 4,
+                        percentage:   5,
+                        assists:      2,
+                        rebounds:     2,
+                        steals:       2,
+                        blocks:       5,
+                        fouls:        3,  
+                        feed:         null,
+                        facebook_id:  null
+                    });
+                    newPlayer.save(function(err, player) {
+                        console.log('successfully inserted a player: ' + player._id);
+                    });
 
                     var newTeam = new models.Team({
                     team_name:   'Cavs',
+                    team_color:  '#F2BC48',
                     playing:      false,
+                    side:         null,
+                    position:     null,
                     points:       44,
                     made_one:     10,
                     made_two:     15,
@@ -187,6 +242,29 @@ module.exports = {
                     });
                     var newPlayer = new models.Player({
                         player_name:  'Kevin Love',
+                        team_id:      team._id,
+                        bench:        false,
+                        points:       0,
+                        made_one:     3,
+                        made_two:     4,
+                        made_three:   5,
+                        missed_one:   2,
+                        missed_two:   3,
+                        missed_three: 4,
+                        percentage:   5,
+                        assists:      2,
+                        rebounds:     2,
+                        steals:       2,
+                        blocks:       5,
+                        fouls:        3,  
+                        feed:         null,
+                        facebook_id:  null
+                    });
+                    newPlayer.save(function(err, player) {
+                        console.log('successfully inserted a player: ' + player._id);
+                    });
+                    var newPlayer = new models.Player({
+                        player_name:  'Kyrie Irving',
                         team_id:      team._id,
                         bench:        false,
                         points:       0,

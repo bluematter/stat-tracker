@@ -27,14 +27,13 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        console.log(req.body);
-        models.Team.update({ _id: req.params.id }, function(err, updated) {
+        models.Team.update({ _id: req.params.id }, req.body, function(err, updated) {
             if (err) {
                 res.json({error: 'Team not found.'});
             } else {
                 res.json(updated);
             }
-        })
+        });
     },
     delete: function(req, res) {
         models.Team.findOne({ _id: req.params.id }, function(err, team) {

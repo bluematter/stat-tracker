@@ -1,6 +1,6 @@
 var Marionette = require('backbone.marionette');
 
-module.exports = playerView = Marionette.ItemView.extend({
+var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
     template: require('../../../templates/teams/player.hbs'),
     events: {
@@ -72,4 +72,12 @@ module.exports = playerView = Marionette.ItemView.extend({
             name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
         }
     }
+});
+
+
+module.exports = PlayersView = Marionette.CollectionView.extend({ 
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    itemView: playerView
 });

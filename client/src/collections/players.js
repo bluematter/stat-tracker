@@ -4,4 +4,5 @@ var Backbone = require('backbone'),
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
     url: '/api/players'
+
 });

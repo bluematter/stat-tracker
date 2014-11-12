@@ -5,10 +5,14 @@ var Backbone = require('backbone'),
 module.exports = TeamsCollection = Backbone.Collection.extend({
     model:  TeamModel,
     url: '/api/teams',
+    comparator: function(team) {
+        return team.get('position');
+    },
     byPlaying:function() {
-        playing = this.filter(function(team) {
-            return team.get('playing') === true;
-        });
-        return new TeamsCollection(playing);
+        // not in use?? COULD BE USEFUL!!
+        // playing = this.filter(function(team) {
+        //     return team.get('playing') === true;
+        // });
+        // return new TeamsCollection(playing);
     }
 });

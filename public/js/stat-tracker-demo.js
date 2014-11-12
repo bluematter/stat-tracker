@@ -1,9 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
-Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
+; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
+Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.4.1
@@ -2475,10 +2475,10 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],2:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],2:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
 // Backbone.BabySitter
 // -------------------
 // v0.0.6
@@ -2641,11 +2641,11 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],3:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-_ = global._ = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+_ = global._ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
 // Backbone.Wreqr (Backbone.Marionette)
 // ----------------------------------
 // v0.2.0
@@ -2917,662 +2917,1693 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":7,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":8}],4:[function(require,module,exports){
-var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
-;(function($, window, document, undefined) {
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],4:[function(require,module,exports){
+var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-	var pluginName = 'stellar',
-		defaults = {
-			scrollProperty: 'scroll',
-			positionProperty: 'position',
-			horizontalScrolling: true,
-			verticalScrolling: true,
-			horizontalOffset: 0,
-			verticalOffset: 0,
-			responsive: false,
-			parallaxBackgrounds: true,
-			parallaxElements: true,
-			hideDistantElements: true,
-			hideElement: function($elem) { $elem.hide(); },
-			showElement: function($elem) { $elem.show(); }
-		},
+; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+/*!
+ * jScrollPane - v2.0.20 - 2014-10-23
+ * http://jscrollpane.kelvinluck.com/
+ *
+ * Copyright (c) 2014 Kelvin Luck
+ * Dual licensed under the MIT or GPL licenses.
+ */
 
-		scrollProperty = {
-			scroll: {
-				getLeft: function($elem) { return $elem.scrollLeft(); },
-				setLeft: function($elem, val) { $elem.scrollLeft(val); },
+// Script: jScrollPane - cross browser customisable scrollbars
+//
+// *Version: 2.0.20, Last updated: 2014-10-23*
+//
+// Project Home - http://jscrollpane.kelvinluck.com/
+// GitHub       - http://github.com/vitch/jScrollPane
+// Source       - http://github.com/vitch/jScrollPane/raw/master/script/jquery.jscrollpane.js
+// (Minified)   - http://github.com/vitch/jScrollPane/raw/master/script/jquery.jscrollpane.min.js
+//
+// About: License
+//
+// Copyright (c) 2014 Kelvin Luck
+// Dual licensed under the MIT or GPL Version 2 licenses.
+// http://jscrollpane.kelvinluck.com/MIT-LICENSE.txt
+// http://jscrollpane.kelvinluck.com/GPL-LICENSE.txt
+//
+// About: Examples
+//
+// All examples and demos are available through the jScrollPane example site at:
+// http://jscrollpane.kelvinluck.com/
+//
+// About: Support and Testing
+//
+// This plugin is tested on the browsers below and has been found to work reliably on them. If you run
+// into a problem on one of the supported browsers then please visit the support section on the jScrollPane
+// website (http://jscrollpane.kelvinluck.com/) for more information on getting support. You are also
+// welcome to fork the project on GitHub if you can contribute a fix for a given issue. 
+//
+// jQuery Versions - tested in 1.4.2+ - reported to work in 1.3.x
+// Browsers Tested - Firefox 3.6.8, Safari 5, Opera 10.6, Chrome 5.0, IE 6, 7, 8
+//
+// About: Release History
+//
+// 2.0.20 - (2014-10-23) Adds AMD support (thanks @carlosrberto) and support for overflow-x/overflow-y (thanks @darimpulso)
+// 2.0.19 - (2013-11-16) Changes for more reliable scroll amount with latest mousewheel plugin (thanks @brandonaaron)
+// 2.0.18 - (2013-10-23) Fix for issue with gutters and scrollToElement (thanks @Dubiy)
+// 2.0.17 - (2013-08-17) Working correctly when box-sizing is set to border-box (thanks @pieht)
+// 2.0.16 - (2013-07-30) Resetting left position when scroll is removed. Fixes #189
+// 2.0.15 - (2013-07-29) Fixed issue with scrollToElement where the destX and destY are undefined.
+// 2.0.14 - (2013-05-01) Updated to most recent mouse wheel plugin (see #106) and related changes for sensible scroll speed
+// 2.0.13 - (2013-05-01) Switched to semver compatible version name
+// 2.0.0beta12 - (2012-09-27) fix for jQuery 1.8+
+// 2.0.0beta11 - (2012-05-14)
+// 2.0.0beta10 - (2011-04-17) cleaner required size calculation, improved keyboard support, stickToBottom/Left, other small fixes
+// 2.0.0beta9 - (2011-01-31) new API methods, bug fixes and correct keyboard support for FF/OSX
+// 2.0.0beta8 - (2011-01-29) touchscreen support, improved keyboard support
+// 2.0.0beta7 - (2011-01-23) scroll speed consistent (thanks Aivo Paas)
+// 2.0.0beta6 - (2010-12-07) scrollToElement horizontal support
+// 2.0.0beta5 - (2010-10-18) jQuery 1.4.3 support, various bug fixes
+// 2.0.0beta4 - (2010-09-17) clickOnTrack support, bug fixes
+// 2.0.0beta3 - (2010-08-27) Horizontal mousewheel, mwheelIntent, keyboard support, bug fixes
+// 2.0.0beta2 - (2010-08-21) Bug fixes
+// 2.0.0beta1 - (2010-08-17) Rewrite to follow modern best practices and enable horizontal scrolling, initially hidden
+//							 elements and dynamically sized elements.
+// 1.x - (2006-12-31 - 2010-07-31) Initial version, hosted at googlecode, deprecated
 
-				getTop: function($elem) { return $elem.scrollTop();	},
-				setTop: function($elem, val) { $elem.scrollTop(val); }
-			},
-			position: {
-				getLeft: function($elem) { return parseInt($elem.css('left'), 10) * -1; },
-				getTop: function($elem) { return parseInt($elem.css('top'), 10) * -1; }
-			},
-			margin: {
-				getLeft: function($elem) { return parseInt($elem.css('margin-left'), 10) * -1; },
-				getTop: function($elem) { return parseInt($elem.css('margin-top'), 10) * -1; }
-			},
-			transform: {
-				getLeft: function($elem) {
-					var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
-					return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[4], 10) * -1 : 0);
-				},
-				getTop: function($elem) {
-					var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
-					return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[5], 10) * -1 : 0);
+(function (plugin, window) {
+	var factory = function($){
+		return plugin($, window);
+	}
+  if ( typeof define === 'function' && define.amd ) {
+      // AMD. Register as an anonymous module.
+      define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+      // Node/CommonJS style for Browserify
+      module.exports = factory;
+  } else {
+      // Browser globals
+      factory(jQuery);
+  }
+}(function($,window,undefined){
+
+	$.fn.jScrollPane = function(settings)
+	{
+		// JScrollPane "class" - public methods are available through $('selector').data('jsp')
+		function JScrollPane(elem, s)
+		{
+			var settings, jsp = this, pane, paneWidth, paneHeight, container, contentWidth, contentHeight,
+				percentInViewH, percentInViewV, isScrollableV, isScrollableH, verticalDrag, dragMaxY,
+				verticalDragPosition, horizontalDrag, dragMaxX, horizontalDragPosition,
+				verticalBar, verticalTrack, scrollbarWidth, verticalTrackHeight, verticalDragHeight, arrowUp, arrowDown,
+				horizontalBar, horizontalTrack, horizontalTrackWidth, horizontalDragWidth, arrowLeft, arrowRight,
+				reinitialiseInterval, originalPadding, originalPaddingTotalWidth, previousContentWidth,
+				wasAtTop = true, wasAtLeft = true, wasAtBottom = false, wasAtRight = false,
+				originalElement = elem.clone(false, false).empty(),
+				mwEvent = $.fn.mwheelIntent ? 'mwheelIntent.jsp' : 'mousewheel.jsp';
+
+			if (elem.css('box-sizing') === 'border-box') {
+				originalPadding = 0;
+				originalPaddingTotalWidth = 0;
+			} else {
+				originalPadding = elem.css('paddingTop') + ' ' +
+									elem.css('paddingRight') + ' ' +
+									elem.css('paddingBottom') + ' ' +
+									elem.css('paddingLeft');	
+				originalPaddingTotalWidth = (parseInt(elem.css('paddingLeft'), 10) || 0) +
+											(parseInt(elem.css('paddingRight'), 10) || 0);
+			}
+
+			function initialise(s)
+			{
+
+				var /*firstChild, lastChild, */isMaintainingPositon, lastContentX, lastContentY,
+						hasContainingSpaceChanged, originalScrollTop, originalScrollLeft,
+						maintainAtBottom = false, maintainAtRight = false;
+
+				settings = s;
+
+				if (pane === undefined) {
+					originalScrollTop = elem.scrollTop();
+					originalScrollLeft = elem.scrollLeft();
+
+					elem.css(
+						{
+							overflow: 'hidden',
+							padding: 0
+						}
+					);
+					// TODO: Deal with where width/ height is 0 as it probably means the element is hidden and we should
+					// come back to it later and check once it is unhidden...
+					paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
+					paneHeight = elem.innerHeight();
+
+					elem.width(paneWidth);
+					
+					pane = $('<div class="jspPane" />').css('padding', originalPadding).append(elem.children());
+					container = $('<div class="jspContainer" />')
+						.css({
+							'width': paneWidth + 'px',
+							'height': paneHeight + 'px'
+						}
+					).append(pane).appendTo(elem);
+
+					/*
+					// Move any margins from the first and last children up to the container so they can still
+					// collapse with neighbouring elements as they would before jScrollPane 
+					firstChild = pane.find(':first-child');
+					lastChild = pane.find(':last-child');
+					elem.css(
+						{
+							'margin-top': firstChild.css('margin-top'),
+							'margin-bottom': lastChild.css('margin-bottom')
+						}
+					);
+					firstChild.css('margin-top', 0);
+					lastChild.css('margin-bottom', 0);
+					*/
+				} else {
+					elem.css('width', '');
+
+					maintainAtBottom = settings.stickToBottom && isCloseToBottom();
+					maintainAtRight  = settings.stickToRight  && isCloseToRight();
+
+					hasContainingSpaceChanged = elem.innerWidth() + originalPaddingTotalWidth != paneWidth || elem.outerHeight() != paneHeight;
+
+					if (hasContainingSpaceChanged) {
+						paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
+						paneHeight = elem.innerHeight();
+						container.css({
+							width: paneWidth + 'px',
+							height: paneHeight + 'px'
+						});
+					}
+
+					// If nothing changed since last check...
+					if (!hasContainingSpaceChanged && previousContentWidth == contentWidth && pane.outerHeight() == contentHeight) {
+						elem.width(paneWidth);
+						return;
+					}
+					previousContentWidth = contentWidth;
+					
+					pane.css('width', '');
+					elem.width(paneWidth);
+
+					container.find('>.jspVerticalBar,>.jspHorizontalBar').remove().end();
+				}
+
+				pane.css('overflow', 'auto');
+				if (s.contentWidth) {
+					contentWidth = s.contentWidth;
+				} else {
+					contentWidth = pane[0].scrollWidth;
+				}
+				contentHeight = pane[0].scrollHeight;
+				pane.css('overflow', '');
+
+				percentInViewH = contentWidth / paneWidth;
+				percentInViewV = contentHeight / paneHeight;
+				isScrollableV = percentInViewV > 1;
+
+				isScrollableH = percentInViewH > 1;
+
+				//console.log(paneWidth, paneHeight, contentWidth, contentHeight, percentInViewH, percentInViewV, isScrollableH, isScrollableV);
+
+				if (!(isScrollableH || isScrollableV)) {
+					elem.removeClass('jspScrollable');
+					pane.css({
+            top: 0,
+            left: 0,
+						width: container.width() - originalPaddingTotalWidth
+					});
+					removeMousewheel();
+					removeFocusHandler();
+					removeKeyboardNav();
+					removeClickOnTrack();
+				} else {
+					elem.addClass('jspScrollable');
+
+					isMaintainingPositon = settings.maintainPosition && (verticalDragPosition || horizontalDragPosition);
+					if (isMaintainingPositon) {
+						lastContentX = contentPositionX();
+						lastContentY = contentPositionY();
+					}
+
+					initialiseVerticalScroll();
+					initialiseHorizontalScroll();
+					resizeScrollbars();
+
+					if (isMaintainingPositon) {
+						scrollToX(maintainAtRight  ? (contentWidth  - paneWidth ) : lastContentX, false);
+						scrollToY(maintainAtBottom ? (contentHeight - paneHeight) : lastContentY, false);
+					}
+
+					initFocusHandler();
+					initMousewheel();
+					initTouch();
+					
+					if (settings.enableKeyboardNavigation) {
+						initKeyboardNav();
+					}
+					if (settings.clickOnTrack) {
+						initClickOnTrack();
+					}
+					
+					observeHash();
+					if (settings.hijackInternalLinks) {
+						hijackInternalLinks();
+					}
+				}
+
+				if (settings.autoReinitialise && !reinitialiseInterval) {
+					reinitialiseInterval = setInterval(
+						function()
+						{
+							initialise(settings);
+						},
+						settings.autoReinitialiseDelay
+					);
+				} else if (!settings.autoReinitialise && reinitialiseInterval) {
+					clearInterval(reinitialiseInterval);
+				}
+
+				originalScrollTop && elem.scrollTop(0) && scrollToY(originalScrollTop, false);
+				originalScrollLeft && elem.scrollLeft(0) && scrollToX(originalScrollLeft, false);
+
+				elem.trigger('jsp-initialised', [isScrollableH || isScrollableV]);
+			}
+
+			function initialiseVerticalScroll()
+			{
+				if (isScrollableV) {
+
+					container.append(
+						$('<div class="jspVerticalBar" />').append(
+							$('<div class="jspCap jspCapTop" />'),
+							$('<div class="jspTrack" />').append(
+								$('<div class="jspDrag" />').append(
+									$('<div class="jspDragTop" />'),
+									$('<div class="jspDragBottom" />')
+								)
+							),
+							$('<div class="jspCap jspCapBottom" />')
+						)
+					);
+
+					verticalBar = container.find('>.jspVerticalBar');
+					verticalTrack = verticalBar.find('>.jspTrack');
+					verticalDrag = verticalTrack.find('>.jspDrag');
+
+					if (settings.showArrows) {
+						arrowUp = $('<a class="jspArrow jspArrowUp" />').bind(
+							'mousedown.jsp', getArrowScroll(0, -1)
+						).bind('click.jsp', nil);
+						arrowDown = $('<a class="jspArrow jspArrowDown" />').bind(
+							'mousedown.jsp', getArrowScroll(0, 1)
+						).bind('click.jsp', nil);
+						if (settings.arrowScrollOnHover) {
+							arrowUp.bind('mouseover.jsp', getArrowScroll(0, -1, arrowUp));
+							arrowDown.bind('mouseover.jsp', getArrowScroll(0, 1, arrowDown));
+						}
+
+						appendArrows(verticalTrack, settings.verticalArrowPositions, arrowUp, arrowDown);
+					}
+
+					verticalTrackHeight = paneHeight;
+					container.find('>.jspVerticalBar>.jspCap:visible,>.jspVerticalBar>.jspArrow').each(
+						function()
+						{
+							verticalTrackHeight -= $(this).outerHeight();
+						}
+					);
+
+
+					verticalDrag.hover(
+						function()
+						{
+							verticalDrag.addClass('jspHover');
+						},
+						function()
+						{
+							verticalDrag.removeClass('jspHover');
+						}
+					).bind(
+						'mousedown.jsp',
+						function(e)
+						{
+							// Stop IE from allowing text selection
+							$('html').bind('dragstart.jsp selectstart.jsp', nil);
+
+							verticalDrag.addClass('jspActive');
+
+							var startY = e.pageY - verticalDrag.position().top;
+
+							$('html').bind(
+								'mousemove.jsp',
+								function(e)
+								{
+									positionDragY(e.pageY - startY, false);
+								}
+							).bind('mouseup.jsp mouseleave.jsp', cancelDrag);
+							return false;
+						}
+					);
+					sizeVerticalScrollbar();
 				}
 			}
-		},
 
-		positionProperty = {
-			position: {
-				setLeft: function($elem, left) { $elem.css('left', left); },
-				setTop: function($elem, top) { $elem.css('top', top); }
-			},
-			transform: {
-				setPosition: function($elem, left, startingLeft, top, startingTop) {
-					$elem[0].style[prefixedTransform] = 'translate3d(' + (left - startingLeft) + 'px, ' + (top - startingTop) + 'px, 0)';
-				}
-			}
-		},
+			function sizeVerticalScrollbar()
+			{
+				verticalTrack.height(verticalTrackHeight + 'px');
+				verticalDragPosition = 0;
+				scrollbarWidth = settings.verticalGutter + verticalTrack.outerWidth();
 
-		// Returns a function which adds a vendor prefix to any CSS property name
-		vendorPrefix = (function() {
-			var prefixes = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/,
-				style = $('script')[0].style,
-				prefix = '',
-				prop;
+				// Make the pane thinner to allow for the vertical scrollbar
+				pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
 
-			for (prop in style) {
-				if (prefixes.test(prop)) {
-					prefix = prop.match(prefixes)[0];
-					break;
+				// Add margin to the left of the pane if scrollbars are on that side (to position
+				// the scrollbar on the left or right set it's left or right property in CSS)
+				try {
+					if (verticalBar.position().left === 0) {
+						pane.css('margin-left', scrollbarWidth + 'px');
+					}
+				} catch (err) {
 				}
 			}
 
-			if ('WebkitOpacity' in style) { prefix = 'Webkit'; }
-			if ('KhtmlOpacity' in style) { prefix = 'Khtml'; }
+			function initialiseHorizontalScroll()
+			{
+				if (isScrollableH) {
 
-			return function(property) {
-				return prefix + (prefix.length > 0 ? property.charAt(0).toUpperCase() + property.slice(1) : property);
-			};
-		}()),
+					container.append(
+						$('<div class="jspHorizontalBar" />').append(
+							$('<div class="jspCap jspCapLeft" />'),
+							$('<div class="jspTrack" />').append(
+								$('<div class="jspDrag" />').append(
+									$('<div class="jspDragLeft" />'),
+									$('<div class="jspDragRight" />')
+								)
+							),
+							$('<div class="jspCap jspCapRight" />')
+						)
+					);
 
-		prefixedTransform = vendorPrefix('transform'),
+					horizontalBar = container.find('>.jspHorizontalBar');
+					horizontalTrack = horizontalBar.find('>.jspTrack');
+					horizontalDrag = horizontalTrack.find('>.jspDrag');
 
-		supportsBackgroundPositionXY = $('<div />', { style: 'background:#fff' }).css('background-position-x') !== undefined,
+					if (settings.showArrows) {
+						arrowLeft = $('<a class="jspArrow jspArrowLeft" />').bind(
+							'mousedown.jsp', getArrowScroll(-1, 0)
+						).bind('click.jsp', nil);
+						arrowRight = $('<a class="jspArrow jspArrowRight" />').bind(
+							'mousedown.jsp', getArrowScroll(1, 0)
+						).bind('click.jsp', nil);
+						if (settings.arrowScrollOnHover) {
+							arrowLeft.bind('mouseover.jsp', getArrowScroll(-1, 0, arrowLeft));
+							arrowRight.bind('mouseover.jsp', getArrowScroll(1, 0, arrowRight));
+						}
+						appendArrows(horizontalTrack, settings.horizontalArrowPositions, arrowLeft, arrowRight);
+					}
 
-		setBackgroundPosition = (supportsBackgroundPositionXY ?
-			function($elem, x, y) {
-				$elem.css({
-					'background-position-x': x,
-					'background-position-y': y
+					horizontalDrag.hover(
+						function()
+						{
+							horizontalDrag.addClass('jspHover');
+						},
+						function()
+						{
+							horizontalDrag.removeClass('jspHover');
+						}
+					).bind(
+						'mousedown.jsp',
+						function(e)
+						{
+							// Stop IE from allowing text selection
+							$('html').bind('dragstart.jsp selectstart.jsp', nil);
+
+							horizontalDrag.addClass('jspActive');
+
+							var startX = e.pageX - horizontalDrag.position().left;
+
+							$('html').bind(
+								'mousemove.jsp',
+								function(e)
+								{
+									positionDragX(e.pageX - startX, false);
+								}
+							).bind('mouseup.jsp mouseleave.jsp', cancelDrag);
+							return false;
+						}
+					);
+					horizontalTrackWidth = container.innerWidth();
+					sizeHorizontalScrollbar();
+				}
+			}
+
+			function sizeHorizontalScrollbar()
+			{
+				container.find('>.jspHorizontalBar>.jspCap:visible,>.jspHorizontalBar>.jspArrow').each(
+					function()
+					{
+						horizontalTrackWidth -= $(this).outerWidth();
+					}
+				);
+
+				horizontalTrack.width(horizontalTrackWidth + 'px');
+				horizontalDragPosition = 0;
+			}
+
+			function resizeScrollbars()
+			{
+				if (isScrollableH && isScrollableV) {
+					var horizontalTrackHeight = horizontalTrack.outerHeight(),
+						verticalTrackWidth = verticalTrack.outerWidth();
+					verticalTrackHeight -= horizontalTrackHeight;
+					$(horizontalBar).find('>.jspCap:visible,>.jspArrow').each(
+						function()
+						{
+							horizontalTrackWidth += $(this).outerWidth();
+						}
+					);
+					horizontalTrackWidth -= verticalTrackWidth;
+					paneHeight -= verticalTrackWidth;
+					paneWidth -= horizontalTrackHeight;
+					horizontalTrack.parent().append(
+						$('<div class="jspCorner" />').css('width', horizontalTrackHeight + 'px')
+					);
+					sizeVerticalScrollbar();
+					sizeHorizontalScrollbar();
+				}
+				// reflow content
+				if (isScrollableH) {
+					pane.width((container.outerWidth() - originalPaddingTotalWidth) + 'px');
+				}
+				contentHeight = pane.outerHeight();
+				percentInViewV = contentHeight / paneHeight;
+
+				if (isScrollableH) {
+					horizontalDragWidth = Math.ceil(1 / percentInViewH * horizontalTrackWidth);
+					if (horizontalDragWidth > settings.horizontalDragMaxWidth) {
+						horizontalDragWidth = settings.horizontalDragMaxWidth;
+					} else if (horizontalDragWidth < settings.horizontalDragMinWidth) {
+						horizontalDragWidth = settings.horizontalDragMinWidth;
+					}
+					horizontalDrag.width(horizontalDragWidth + 'px');
+					dragMaxX = horizontalTrackWidth - horizontalDragWidth;
+					_positionDragX(horizontalDragPosition); // To update the state for the arrow buttons
+				}
+				if (isScrollableV) {
+					verticalDragHeight = Math.ceil(1 / percentInViewV * verticalTrackHeight);
+					if (verticalDragHeight > settings.verticalDragMaxHeight) {
+						verticalDragHeight = settings.verticalDragMaxHeight;
+					} else if (verticalDragHeight < settings.verticalDragMinHeight) {
+						verticalDragHeight = settings.verticalDragMinHeight;
+					}
+					verticalDrag.height(verticalDragHeight + 'px');
+					dragMaxY = verticalTrackHeight - verticalDragHeight;
+					_positionDragY(verticalDragPosition); // To update the state for the arrow buttons
+				}
+			}
+
+			function appendArrows(ele, p, a1, a2)
+			{
+				var p1 = "before", p2 = "after", aTemp;
+				
+				// Sniff for mac... Is there a better way to determine whether the arrows would naturally appear
+				// at the top or the bottom of the bar?
+				if (p == "os") {
+					p = /Mac/.test(navigator.platform) ? "after" : "split";
+				}
+				if (p == p1) {
+					p2 = p;
+				} else if (p == p2) {
+					p1 = p;
+					aTemp = a1;
+					a1 = a2;
+					a2 = aTemp;
+				}
+
+				ele[p1](a1)[p2](a2);
+			}
+
+			function getArrowScroll(dirX, dirY, ele)
+			{
+				return function()
+				{
+					arrowScroll(dirX, dirY, this, ele);
+					this.blur();
+					return false;
+				};
+			}
+
+			function arrowScroll(dirX, dirY, arrow, ele)
+			{
+				arrow = $(arrow).addClass('jspActive');
+
+				var eve,
+					scrollTimeout,
+					isFirst = true,
+					doScroll = function()
+					{
+						if (dirX !== 0) {
+							jsp.scrollByX(dirX * settings.arrowButtonSpeed);
+						}
+						if (dirY !== 0) {
+							jsp.scrollByY(dirY * settings.arrowButtonSpeed);
+						}
+						scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.arrowRepeatFreq);
+						isFirst = false;
+					};
+
+				doScroll();
+
+				eve = ele ? 'mouseout.jsp' : 'mouseup.jsp';
+				ele = ele || $('html');
+				ele.bind(
+					eve,
+					function()
+					{
+						arrow.removeClass('jspActive');
+						scrollTimeout && clearTimeout(scrollTimeout);
+						scrollTimeout = null;
+						ele.unbind(eve);
+					}
+				);
+			}
+
+			function initClickOnTrack()
+			{
+				removeClickOnTrack();
+				if (isScrollableV) {
+					verticalTrack.bind(
+						'mousedown.jsp',
+						function(e)
+						{
+							if (e.originalTarget === undefined || e.originalTarget == e.currentTarget) {
+								var clickedTrack = $(this),
+									offset = clickedTrack.offset(),
+									direction = e.pageY - offset.top - verticalDragPosition,
+									scrollTimeout,
+									isFirst = true,
+									doScroll = function()
+									{
+										var offset = clickedTrack.offset(),
+											pos = e.pageY - offset.top - verticalDragHeight / 2,
+											contentDragY = paneHeight * settings.scrollPagePercent,
+											dragY = dragMaxY * contentDragY / (contentHeight - paneHeight);
+										if (direction < 0) {
+											if (verticalDragPosition - dragY > pos) {
+												jsp.scrollByY(-contentDragY);
+											} else {
+												positionDragY(pos);
+											}
+										} else if (direction > 0) {
+											if (verticalDragPosition + dragY < pos) {
+												jsp.scrollByY(contentDragY);
+											} else {
+												positionDragY(pos);
+											}
+										} else {
+											cancelClick();
+											return;
+										}
+										scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.trackClickRepeatFreq);
+										isFirst = false;
+									},
+									cancelClick = function()
+									{
+										scrollTimeout && clearTimeout(scrollTimeout);
+										scrollTimeout = null;
+										$(document).unbind('mouseup.jsp', cancelClick);
+									};
+								doScroll();
+								$(document).bind('mouseup.jsp', cancelClick);
+								return false;
+							}
+						}
+					);
+				}
+				
+				if (isScrollableH) {
+					horizontalTrack.bind(
+						'mousedown.jsp',
+						function(e)
+						{
+							if (e.originalTarget === undefined || e.originalTarget == e.currentTarget) {
+								var clickedTrack = $(this),
+									offset = clickedTrack.offset(),
+									direction = e.pageX - offset.left - horizontalDragPosition,
+									scrollTimeout,
+									isFirst = true,
+									doScroll = function()
+									{
+										var offset = clickedTrack.offset(),
+											pos = e.pageX - offset.left - horizontalDragWidth / 2,
+											contentDragX = paneWidth * settings.scrollPagePercent,
+											dragX = dragMaxX * contentDragX / (contentWidth - paneWidth);
+										if (direction < 0) {
+											if (horizontalDragPosition - dragX > pos) {
+												jsp.scrollByX(-contentDragX);
+											} else {
+												positionDragX(pos);
+											}
+										} else if (direction > 0) {
+											if (horizontalDragPosition + dragX < pos) {
+												jsp.scrollByX(contentDragX);
+											} else {
+												positionDragX(pos);
+											}
+										} else {
+											cancelClick();
+											return;
+										}
+										scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.trackClickRepeatFreq);
+										isFirst = false;
+									},
+									cancelClick = function()
+									{
+										scrollTimeout && clearTimeout(scrollTimeout);
+										scrollTimeout = null;
+										$(document).unbind('mouseup.jsp', cancelClick);
+									};
+								doScroll();
+								$(document).bind('mouseup.jsp', cancelClick);
+								return false;
+							}
+						}
+					);
+				}
+			}
+
+			function removeClickOnTrack()
+			{
+				if (horizontalTrack) {
+					horizontalTrack.unbind('mousedown.jsp');
+				}
+				if (verticalTrack) {
+					verticalTrack.unbind('mousedown.jsp');
+				}
+			}
+
+			function cancelDrag()
+			{
+				$('html').unbind('dragstart.jsp selectstart.jsp mousemove.jsp mouseup.jsp mouseleave.jsp');
+
+				if (verticalDrag) {
+					verticalDrag.removeClass('jspActive');
+				}
+				if (horizontalDrag) {
+					horizontalDrag.removeClass('jspActive');
+				}
+			}
+
+			function positionDragY(destY, animate)
+			{
+				if (!isScrollableV) {
+					return;
+				}
+				if (destY < 0) {
+					destY = 0;
+				} else if (destY > dragMaxY) {
+					destY = dragMaxY;
+				}
+
+				// can't just check if(animate) because false is a valid value that could be passed in...
+				if (animate === undefined) {
+					animate = settings.animateScroll;
+				}
+				if (animate) {
+					jsp.animate(verticalDrag, 'top', destY,	_positionDragY);
+				} else {
+					verticalDrag.css('top', destY);
+					_positionDragY(destY);
+				}
+
+			}
+
+			function _positionDragY(destY)
+			{
+				if (destY === undefined) {
+					destY = verticalDrag.position().top;
+				}
+
+				container.scrollTop(0);
+				verticalDragPosition = destY || 0;
+
+				var isAtTop = verticalDragPosition === 0,
+					isAtBottom = verticalDragPosition == dragMaxY,
+					percentScrolled = destY/ dragMaxY,
+					destTop = -percentScrolled * (contentHeight - paneHeight);
+
+				if (wasAtTop != isAtTop || wasAtBottom != isAtBottom) {
+					wasAtTop = isAtTop;
+					wasAtBottom = isAtBottom;
+					elem.trigger('jsp-arrow-change', [wasAtTop, wasAtBottom, wasAtLeft, wasAtRight]);
+				}
+				
+				updateVerticalArrows(isAtTop, isAtBottom);
+				pane.css('top', destTop);
+				elem.trigger('jsp-scroll-y', [-destTop, isAtTop, isAtBottom]).trigger('scroll');
+			}
+
+			function positionDragX(destX, animate)
+			{
+				if (!isScrollableH) {
+					return;
+				}
+				if (destX < 0) {
+					destX = 0;
+				} else if (destX > dragMaxX) {
+					destX = dragMaxX;
+				}
+
+				if (animate === undefined) {
+					animate = settings.animateScroll;
+				}
+				if (animate) {
+					jsp.animate(horizontalDrag, 'left', destX,	_positionDragX);
+				} else {
+					horizontalDrag.css('left', destX);
+					_positionDragX(destX);
+				}
+			}
+
+			function _positionDragX(destX)
+			{
+				if (destX === undefined) {
+					destX = horizontalDrag.position().left;
+				}
+
+				container.scrollTop(0);
+				horizontalDragPosition = destX ||0;
+
+				var isAtLeft = horizontalDragPosition === 0,
+					isAtRight = horizontalDragPosition == dragMaxX,
+					percentScrolled = destX / dragMaxX,
+					destLeft = -percentScrolled * (contentWidth - paneWidth);
+
+				if (wasAtLeft != isAtLeft || wasAtRight != isAtRight) {
+					wasAtLeft = isAtLeft;
+					wasAtRight = isAtRight;
+					elem.trigger('jsp-arrow-change', [wasAtTop, wasAtBottom, wasAtLeft, wasAtRight]);
+				}
+				
+				updateHorizontalArrows(isAtLeft, isAtRight);
+				pane.css('left', destLeft);
+				elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
+			}
+
+			function updateVerticalArrows(isAtTop, isAtBottom)
+			{
+				if (settings.showArrows) {
+					arrowUp[isAtTop ? 'addClass' : 'removeClass']('jspDisabled');
+					arrowDown[isAtBottom ? 'addClass' : 'removeClass']('jspDisabled');
+				}
+			}
+
+			function updateHorizontalArrows(isAtLeft, isAtRight)
+			{
+				if (settings.showArrows) {
+					arrowLeft[isAtLeft ? 'addClass' : 'removeClass']('jspDisabled');
+					arrowRight[isAtRight ? 'addClass' : 'removeClass']('jspDisabled');
+				}
+			}
+
+			function scrollToY(destY, animate)
+			{
+				var percentScrolled = destY / (contentHeight - paneHeight);
+				positionDragY(percentScrolled * dragMaxY, animate);
+			}
+
+			function scrollToX(destX, animate)
+			{
+				var percentScrolled = destX / (contentWidth - paneWidth);
+				positionDragX(percentScrolled * dragMaxX, animate);
+			}
+
+			function scrollToElement(ele, stickToTop, animate)
+			{
+				var e, eleHeight, eleWidth, eleTop = 0, eleLeft = 0, viewportTop, viewportLeft, maxVisibleEleTop, maxVisibleEleLeft, destY, destX;
+
+				// Legal hash values aren't necessarily legal jQuery selectors so we need to catch any
+				// errors from the lookup...
+				try {
+					e = $(ele);
+				} catch (err) {
+					return;
+				}
+				eleHeight = e.outerHeight();
+				eleWidth= e.outerWidth();
+
+				container.scrollTop(0);
+				container.scrollLeft(0);
+				
+				// loop through parents adding the offset top of any elements that are relatively positioned between
+				// the focused element and the jspPane so we can get the true distance from the top
+				// of the focused element to the top of the scrollpane...
+				while (!e.is('.jspPane')) {
+					eleTop += e.position().top;
+					eleLeft += e.position().left;
+					e = e.offsetParent();
+					if (/^body|html$/i.test(e[0].nodeName)) {
+						// we ended up too high in the document structure. Quit!
+						return;
+					}
+				}
+
+				viewportTop = contentPositionY();
+				maxVisibleEleTop = viewportTop + paneHeight;
+				if (eleTop < viewportTop || stickToTop) { // element is above viewport
+					destY = eleTop - settings.horizontalGutter;
+				} else if (eleTop + eleHeight > maxVisibleEleTop) { // element is below viewport
+					destY = eleTop - paneHeight + eleHeight + settings.horizontalGutter;
+				}
+				if (!isNaN(destY)) {
+					scrollToY(destY, animate);
+				}
+				
+				viewportLeft = contentPositionX();
+	            maxVisibleEleLeft = viewportLeft + paneWidth;
+	            if (eleLeft < viewportLeft || stickToTop) { // element is to the left of viewport
+	                destX = eleLeft - settings.horizontalGutter;
+	            } else if (eleLeft + eleWidth > maxVisibleEleLeft) { // element is to the right viewport
+	                destX = eleLeft - paneWidth + eleWidth + settings.horizontalGutter;
+	            }
+	            if (!isNaN(destX)) {
+	                scrollToX(destX, animate);
+	            }
+
+			}
+
+			function contentPositionX()
+			{
+				return -pane.position().left;
+			}
+
+			function contentPositionY()
+			{
+				return -pane.position().top;
+			}
+
+			function isCloseToBottom()
+			{
+				var scrollableHeight = contentHeight - paneHeight;
+				return (scrollableHeight > 20) && (scrollableHeight - contentPositionY() < 10);
+			}
+
+			function isCloseToRight()
+			{
+				var scrollableWidth = contentWidth - paneWidth;
+				return (scrollableWidth > 20) && (scrollableWidth - contentPositionX() < 10);
+			}
+
+			function initMousewheel()
+			{
+				container.unbind(mwEvent).bind(
+					mwEvent,
+					function (event, delta, deltaX, deltaY) {
+
+                        if (!horizontalDragPosition) horizontalDragPosition = 0;
+                        if (!verticalDragPosition) verticalDragPosition = 0;
+
+						var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed;
+						jsp.scrollBy(deltaX * factor, -deltaY * factor, false);
+						// return true if there was no movement so rest of screen can scroll
+						return dX == horizontalDragPosition && dY == verticalDragPosition;
+					}
+				);
+			}
+
+			function removeMousewheel()
+			{
+				container.unbind(mwEvent);
+			}
+
+			function nil()
+			{
+				return false;
+			}
+
+			function initFocusHandler()
+			{
+				pane.find(':input,a').unbind('focus.jsp').bind(
+					'focus.jsp',
+					function(e)
+					{
+						scrollToElement(e.target, false);
+					}
+				);
+			}
+
+			function removeFocusHandler()
+			{
+				pane.find(':input,a').unbind('focus.jsp');
+			}
+			
+			function initKeyboardNav()
+			{
+				var keyDown, elementHasScrolled, validParents = [];
+				isScrollableH && validParents.push(horizontalBar[0]);
+				isScrollableV && validParents.push(verticalBar[0]);
+				
+				// IE also focuses elements that don't have tabindex set.
+				pane.focus(
+					function()
+					{
+						elem.focus();
+					}
+				);
+				
+				elem.attr('tabindex', 0)
+					.unbind('keydown.jsp keypress.jsp')
+					.bind(
+						'keydown.jsp',
+						function(e)
+						{
+							if (e.target !== this && !(validParents.length && $(e.target).closest(validParents).length)){
+								return;
+							}
+							var dX = horizontalDragPosition, dY = verticalDragPosition;
+							switch(e.keyCode) {
+								case 40: // down
+								case 38: // up
+								case 34: // page down
+								case 32: // space
+								case 33: // page up
+								case 39: // right
+								case 37: // left
+									keyDown = e.keyCode;
+									keyDownHandler();
+									break;
+								case 35: // end
+									scrollToY(contentHeight - paneHeight);
+									keyDown = null;
+									break;
+								case 36: // home
+									scrollToY(0);
+									keyDown = null;
+									break;
+							}
+
+							elementHasScrolled = e.keyCode == keyDown && dX != horizontalDragPosition || dY != verticalDragPosition;
+							return !elementHasScrolled;
+						}
+					).bind(
+						'keypress.jsp', // For FF/ OSX so that we can cancel the repeat key presses if the JSP scrolls...
+						function(e)
+						{
+							if (e.keyCode == keyDown) {
+								keyDownHandler();
+							}
+							return !elementHasScrolled;
+						}
+					);
+				
+				if (settings.hideFocus) {
+					elem.css('outline', 'none');
+					if ('hideFocus' in container[0]){
+						elem.attr('hideFocus', true);
+					}
+				} else {
+					elem.css('outline', '');
+					if ('hideFocus' in container[0]){
+						elem.attr('hideFocus', false);
+					}
+				}
+				
+				function keyDownHandler()
+				{
+					var dX = horizontalDragPosition, dY = verticalDragPosition;
+					switch(keyDown) {
+						case 40: // down
+							jsp.scrollByY(settings.keyboardSpeed, false);
+							break;
+						case 38: // up
+							jsp.scrollByY(-settings.keyboardSpeed, false);
+							break;
+						case 34: // page down
+						case 32: // space
+							jsp.scrollByY(paneHeight * settings.scrollPagePercent, false);
+							break;
+						case 33: // page up
+							jsp.scrollByY(-paneHeight * settings.scrollPagePercent, false);
+							break;
+						case 39: // right
+							jsp.scrollByX(settings.keyboardSpeed, false);
+							break;
+						case 37: // left
+							jsp.scrollByX(-settings.keyboardSpeed, false);
+							break;
+					}
+
+					elementHasScrolled = dX != horizontalDragPosition || dY != verticalDragPosition;
+					return elementHasScrolled;
+				}
+			}
+			
+			function removeKeyboardNav()
+			{
+				elem.attr('tabindex', '-1')
+					.removeAttr('tabindex')
+					.unbind('keydown.jsp keypress.jsp');
+			}
+
+			function observeHash()
+			{
+				if (location.hash && location.hash.length > 1) {
+					var e,
+						retryInt,
+						hash = escape(location.hash.substr(1)) // hash must be escaped to prevent XSS
+						;
+					try {
+						e = $('#' + hash + ', a[name="' + hash + '"]');
+					} catch (err) {
+						return;
+					}
+
+					if (e.length && pane.find(hash)) {
+						// nasty workaround but it appears to take a little while before the hash has done its thing
+						// to the rendered page so we just wait until the container's scrollTop has been messed up.
+						if (container.scrollTop() === 0) {
+							retryInt = setInterval(
+								function()
+								{
+									if (container.scrollTop() > 0) {
+										scrollToElement(e, true);
+										$(document).scrollTop(container.position().top);
+										clearInterval(retryInt);
+									}
+								},
+								50
+							);
+						} else {
+							scrollToElement(e, true);
+							$(document).scrollTop(container.position().top);
+						}
+					}
+				}
+			}
+
+			function hijackInternalLinks()
+			{
+				// only register the link handler once
+				if ($(document.body).data('jspHijack')) {
+					return;
+				}
+
+				// remember that the handler was bound
+				$(document.body).data('jspHijack', true);
+
+				// use live handler to also capture newly created links
+				$(document.body).delegate('a[href*=#]', 'click', function(event) {
+					// does the link point to the same page?
+					// this also takes care of cases with a <base>-Tag or Links not starting with the hash #
+					// e.g. <a href="index.html#test"> when the current url already is index.html
+					var href = this.href.substr(0, this.href.indexOf('#')),
+						locationHref = location.href,
+						hash,
+						element,
+						container,
+						jsp,
+						scrollTop,
+						elementTop;
+					if (location.href.indexOf('#') !== -1) {
+						locationHref = location.href.substr(0, location.href.indexOf('#'));
+					}
+					if (href !== locationHref) {
+						// the link points to another page
+						return;
+					}
+
+					// check if jScrollPane should handle this click event
+					hash = escape(this.href.substr(this.href.indexOf('#') + 1));
+
+					// find the element on the page
+					element;
+					try {
+						element = $('#' + hash + ', a[name="' + hash + '"]');
+					} catch (e) {
+						// hash is not a valid jQuery identifier
+						return;
+					}
+
+					if (!element.length) {
+						// this link does not point to an element on this page
+						return;
+					}
+
+					container = element.closest('.jspScrollable');
+					jsp = container.data('jsp');
+
+					// jsp might be another jsp instance than the one, that bound this event
+					// remember: this event is only bound once for all instances.
+					jsp.scrollToElement(element, true);
+
+					if (container[0].scrollIntoView) {
+						// also scroll to the top of the container (if it is not visible)
+						scrollTop = $(window).scrollTop();
+						elementTop = element.offset().top;
+						if (elementTop < scrollTop || elementTop > scrollTop + $(window).height()) {
+							container[0].scrollIntoView();
+						}
+					}
+
+					// jsp handled this event, prevent the browser default (scrolling :P)
+					event.preventDefault();
 				});
-			} :
-			function($elem, x, y) {
-				$elem.css('background-position', x + ' ' + y);
 			}
-		),
-
-		getBackgroundPosition = (supportsBackgroundPositionXY ?
-			function($elem) {
-				return [
-					$elem.css('background-position-x'),
-					$elem.css('background-position-y')
-				];
-			} :
-			function($elem) {
-				return $elem.css('background-position').split(' ');
+			
+			// Init touch on iPad, iPhone, iPod, Android
+			function initTouch()
+			{
+				var startX,
+					startY,
+					touchStartX,
+					touchStartY,
+					moved,
+					moving = false;
+  
+				container.unbind('touchstart.jsp touchmove.jsp touchend.jsp click.jsp-touchclick').bind(
+					'touchstart.jsp',
+					function(e)
+					{
+						var touch = e.originalEvent.touches[0];
+						startX = contentPositionX();
+						startY = contentPositionY();
+						touchStartX = touch.pageX;
+						touchStartY = touch.pageY;
+						moved = false;
+						moving = true;
+					}
+				).bind(
+					'touchmove.jsp',
+					function(ev)
+					{
+						if(!moving) {
+							return;
+						}
+						
+						var touchPos = ev.originalEvent.touches[0],
+							dX = horizontalDragPosition, dY = verticalDragPosition;
+						
+						jsp.scrollTo(startX + touchStartX - touchPos.pageX, startY + touchStartY - touchPos.pageY);
+						
+						moved = moved || Math.abs(touchStartX - touchPos.pageX) > 5 || Math.abs(touchStartY - touchPos.pageY) > 5;
+						
+						// return true if there was no movement so rest of screen can scroll
+						return dX == horizontalDragPosition && dY == verticalDragPosition;
+					}
+				).bind(
+					'touchend.jsp',
+					function(e)
+					{
+						moving = false;
+						/*if(moved) {
+							return false;
+						}*/
+					}
+				).bind(
+					'click.jsp-touchclick',
+					function(e)
+					{
+						if(moved) {
+							moved = false;
+							return false;
+						}
+					}
+				);
 			}
-		),
+			
+			function destroy(){
+				var currentY = contentPositionY(),
+					currentX = contentPositionX();
+				elem.removeClass('jspScrollable').unbind('.jsp');
+				elem.replaceWith(originalElement.append(pane.children()));
+				originalElement.scrollTop(currentY);
+				originalElement.scrollLeft(currentX);
 
-		requestAnimFrame = (
-			window.requestAnimationFrame       ||
-			window.webkitRequestAnimationFrame ||
-			window.mozRequestAnimationFrame    ||
-			window.oRequestAnimationFrame      ||
-			window.msRequestAnimationFrame     ||
-			function(callback) {
-				setTimeout(callback, 1000 / 60);
+				// clear reinitialize timer if active
+				if (reinitialiseInterval) {
+					clearInterval(reinitialiseInterval);
+				}
+			}
+
+			// Public API
+			$.extend(
+				jsp,
+				{
+					// Reinitialises the scroll pane (if it's internal dimensions have changed since the last time it
+					// was initialised). The settings object which is passed in will override any settings from the
+					// previous time it was initialised - if you don't pass any settings then the ones from the previous
+					// initialisation will be used.
+					reinitialise: function(s)
+					{
+						s = $.extend({}, settings, s);
+						initialise(s);
+					},
+					// Scrolls the specified element (a jQuery object, DOM node or jQuery selector string) into view so
+					// that it can be seen within the viewport. If stickToTop is true then the element will appear at
+					// the top of the viewport, if it is false then the viewport will scroll as little as possible to
+					// show the element. You can also specify if you want animation to occur. If you don't provide this
+					// argument then the animateScroll value from the settings object is used instead.
+					scrollToElement: function(ele, stickToTop, animate)
+					{
+						scrollToElement(ele, stickToTop, animate);
+					},
+					// Scrolls the pane so that the specified co-ordinates within the content are at the top left
+					// of the viewport. animate is optional and if not passed then the value of animateScroll from
+					// the settings object this jScrollPane was initialised with is used.
+					scrollTo: function(destX, destY, animate)
+					{
+						scrollToX(destX, animate);
+						scrollToY(destY, animate);
+					},
+					// Scrolls the pane so that the specified co-ordinate within the content is at the left of the
+					// viewport. animate is optional and if not passed then the value of animateScroll from the settings
+					// object this jScrollPane was initialised with is used.
+					scrollToX: function(destX, animate)
+					{
+						scrollToX(destX, animate);
+					},
+					// Scrolls the pane so that the specified co-ordinate within the content is at the top of the
+					// viewport. animate is optional and if not passed then the value of animateScroll from the settings
+					// object this jScrollPane was initialised with is used.
+					scrollToY: function(destY, animate)
+					{
+						scrollToY(destY, animate);
+					},
+					// Scrolls the pane to the specified percentage of its maximum horizontal scroll position. animate
+					// is optional and if not passed then the value of animateScroll from the settings object this
+					// jScrollPane was initialised with is used.
+					scrollToPercentX: function(destPercentX, animate)
+					{
+						scrollToX(destPercentX * (contentWidth - paneWidth), animate);
+					},
+					// Scrolls the pane to the specified percentage of its maximum vertical scroll position. animate
+					// is optional and if not passed then the value of animateScroll from the settings object this
+					// jScrollPane was initialised with is used.
+					scrollToPercentY: function(destPercentY, animate)
+					{
+						scrollToY(destPercentY * (contentHeight - paneHeight), animate);
+					},
+					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
+					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
+					scrollBy: function(deltaX, deltaY, animate)
+					{
+						jsp.scrollByX(deltaX, animate);
+						jsp.scrollByY(deltaY, animate);
+					},
+					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
+					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
+					scrollByX: function(deltaX, animate)
+					{
+						var destX = contentPositionX() + Math[deltaX<0 ? 'floor' : 'ceil'](deltaX),
+							percentScrolled = destX / (contentWidth - paneWidth);
+						positionDragX(percentScrolled * dragMaxX, animate);
+					},
+					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
+					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
+					scrollByY: function(deltaY, animate)
+					{
+						var destY = contentPositionY() + Math[deltaY<0 ? 'floor' : 'ceil'](deltaY),
+							percentScrolled = destY / (contentHeight - paneHeight);
+						positionDragY(percentScrolled * dragMaxY, animate);
+					},
+					// Positions the horizontal drag at the specified x position (and updates the viewport to reflect
+					// this). animate is optional and if not passed then the value of animateScroll from the settings
+					// object this jScrollPane was initialised with is used.
+					positionDragX: function(x, animate)
+					{
+						positionDragX(x, animate);
+					},
+					// Positions the vertical drag at the specified y position (and updates the viewport to reflect
+					// this). animate is optional and if not passed then the value of animateScroll from the settings
+					// object this jScrollPane was initialised with is used.
+					positionDragY: function(y, animate)
+					{
+						positionDragY(y, animate);
+					},
+					// This method is called when jScrollPane is trying to animate to a new position. You can override
+					// it if you want to provide advanced animation functionality. It is passed the following arguments:
+					//  * ele          - the element whose position is being animated
+					//  * prop         - the property that is being animated
+					//  * value        - the value it's being animated to
+					//  * stepCallback - a function that you must execute each time you update the value of the property
+					// You can use the default implementation (below) as a starting point for your own implementation.
+					animate: function(ele, prop, value, stepCallback)
+					{
+						var params = {};
+						params[prop] = value;
+						ele.animate(
+							params,
+							{
+								'duration'	: settings.animateDuration,
+								'easing'	: settings.animateEase,
+								'queue'		: false,
+								'step'		: stepCallback
+							}
+						);
+					},
+					// Returns the current x position of the viewport with regards to the content pane.
+					getContentPositionX: function()
+					{
+						return contentPositionX();
+					},
+					// Returns the current y position of the viewport with regards to the content pane.
+					getContentPositionY: function()
+					{
+						return contentPositionY();
+					},
+					// Returns the width of the content within the scroll pane.
+					getContentWidth: function()
+					{
+						return contentWidth;
+					},
+					// Returns the height of the content within the scroll pane.
+					getContentHeight: function()
+					{
+						return contentHeight;
+					},
+					// Returns the horizontal position of the viewport within the pane content.
+					getPercentScrolledX: function()
+					{
+						return contentPositionX() / (contentWidth - paneWidth);
+					},
+					// Returns the vertical position of the viewport within the pane content.
+					getPercentScrolledY: function()
+					{
+						return contentPositionY() / (contentHeight - paneHeight);
+					},
+					// Returns whether or not this scrollpane has a horizontal scrollbar.
+					getIsScrollableH: function()
+					{
+						return isScrollableH;
+					},
+					// Returns whether or not this scrollpane has a vertical scrollbar.
+					getIsScrollableV: function()
+					{
+						return isScrollableV;
+					},
+					// Gets a reference to the content pane. It is important that you use this method if you want to
+					// edit the content of your jScrollPane as if you access the element directly then you may have some
+					// problems (as your original element has had additional elements for the scrollbars etc added into
+					// it).
+					getContentPane: function()
+					{
+						return pane;
+					},
+					// Scrolls this jScrollPane down as far as it can currently scroll. If animate isn't passed then the
+					// animateScroll value from settings is used instead.
+					scrollToBottom: function(animate)
+					{
+						positionDragY(dragMaxY, animate);
+					},
+					// Hijacks the links on the page which link to content inside the scrollpane. If you have changed
+					// the content of your page (e.g. via AJAX) and want to make sure any new anchor links to the
+					// contents of your scroll pane will work then call this function.
+					hijackInternalLinks: $.noop,
+					// Removes the jScrollPane and returns the page to the state it was in before jScrollPane was
+					// initialised.
+					destroy: function()
+					{
+							destroy();
+					}
+				}
+			);
+			
+			initialise(s);
+		}
+
+		// Pluginifying code...
+		settings = $.extend({}, $.fn.jScrollPane.defaults, settings);
+		
+		// Apply default speed
+		$.each(['arrowButtonSpeed', 'trackClickSpeed', 'keyboardSpeed'], function() {
+			settings[this] = settings[this] || settings.speed;
+		});
+
+		return this.each(
+			function()
+			{
+				var elem = $(this), jspApi = elem.data('jsp');
+				if (jspApi) {
+					jspApi.reinitialise(settings);
+				} else {
+					$("script",elem).filter('[type="text/javascript"],:not([type])').remove();
+					jspApi = new JScrollPane(elem, settings);
+					elem.data('jsp', jspApi);
+				}
 			}
 		);
-
-	function Plugin(element, options) {
-		this.element = element;
-		this.options = $.extend({}, defaults, options);
-
-		this._defaults = defaults;
-		this._name = pluginName;
-
-		this.init();
-	}
-
-	Plugin.prototype = {
-		init: function() {
-			this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
-
-			this._defineElements();
-			this._defineGetters();
-			this._defineSetters();
-			this._handleWindowLoadAndResize();
-			this._detectViewport();
-
-			this.refresh({ firstLoad: true });
-
-			if (this.options.scrollProperty === 'scroll') {
-				this._handleScrollEvent();
-			} else {
-				this._startAnimationLoop();
-			}
-		},
-		_defineElements: function() {
-			if (this.element === document.body) this.element = window;
-			this.$scrollElement = $(this.element);
-			this.$element = (this.element === window ? $('body') : this.$scrollElement);
-			this.$viewportElement = (this.options.viewportElement !== undefined ? $(this.options.viewportElement) : (this.$scrollElement[0] === window || this.options.scrollProperty === 'scroll' ? this.$scrollElement : this.$scrollElement.parent()) );
-		},
-		_defineGetters: function() {
-			var self = this,
-				scrollPropertyAdapter = scrollProperty[self.options.scrollProperty];
-
-			this._getScrollLeft = function() {
-				return scrollPropertyAdapter.getLeft(self.$scrollElement);
-			};
-
-			this._getScrollTop = function() {
-				return scrollPropertyAdapter.getTop(self.$scrollElement);
-			};
-		},
-		_defineSetters: function() {
-			var self = this,
-				scrollPropertyAdapter = scrollProperty[self.options.scrollProperty],
-				positionPropertyAdapter = positionProperty[self.options.positionProperty],
-				setScrollLeft = scrollPropertyAdapter.setLeft,
-				setScrollTop = scrollPropertyAdapter.setTop;
-
-			this._setScrollLeft = (typeof setScrollLeft === 'function' ? function(val) {
-				setScrollLeft(self.$scrollElement, val);
-			} : $.noop);
-
-			this._setScrollTop = (typeof setScrollTop === 'function' ? function(val) {
-				setScrollTop(self.$scrollElement, val);
-			} : $.noop);
-
-			this._setPosition = positionPropertyAdapter.setPosition ||
-				function($elem, left, startingLeft, top, startingTop) {
-					if (self.options.horizontalScrolling) {
-						positionPropertyAdapter.setLeft($elem, left, startingLeft);
-					}
-
-					if (self.options.verticalScrolling) {
-						positionPropertyAdapter.setTop($elem, top, startingTop);
-					}
-				};
-		},
-		_handleWindowLoadAndResize: function() {
-			var self = this,
-				$window = $(window);
-
-			if (self.options.responsive) {
-				$window.bind('load.' + this.name, function() {
-					self.refresh();
-				});
-			}
-
-			$window.bind('resize.' + this.name, function() {
-				self._detectViewport();
-
-				if (self.options.responsive) {
-					self.refresh();
-				}
-			});
-		},
-		refresh: function(options) {
-			var self = this,
-				oldLeft = self._getScrollLeft(),
-				oldTop = self._getScrollTop();
-
-			if (!options || !options.firstLoad) {
-				this._reset();
-			}
-
-			this._setScrollLeft(0);
-			this._setScrollTop(0);
-
-			this._setOffsets();
-			this._findParticles();
-			this._findBackgrounds();
-
-			// Fix for WebKit background rendering bug
-			if (options && options.firstLoad && /WebKit/.test(navigator.userAgent)) {
-				$(window).load(function() {
-					var oldLeft = self._getScrollLeft(),
-						oldTop = self._getScrollTop();
-
-					self._setScrollLeft(oldLeft + 1);
-					self._setScrollTop(oldTop + 1);
-
-					self._setScrollLeft(oldLeft);
-					self._setScrollTop(oldTop);
-				});
-			}
-
-			this._setScrollLeft(oldLeft);
-			this._setScrollTop(oldTop);
-		},
-		_detectViewport: function() {
-			var viewportOffsets = this.$viewportElement.offset(),
-				hasOffsets = viewportOffsets !== null && viewportOffsets !== undefined;
-
-			this.viewportWidth = this.$viewportElement.width();
-			this.viewportHeight = this.$viewportElement.height();
-
-			this.viewportOffsetTop = (hasOffsets ? viewportOffsets.top : 0);
-			this.viewportOffsetLeft = (hasOffsets ? viewportOffsets.left : 0);
-		},
-		_findParticles: function() {
-			var self = this,
-				scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop();
-
-			if (this.particles !== undefined) {
-				for (var i = this.particles.length - 1; i >= 0; i--) {
-					this.particles[i].$element.data('stellar-elementIsActive', undefined);
-				}
-			}
-
-			this.particles = [];
-
-			if (!this.options.parallaxElements) return;
-
-			this.$element.find('[data-stellar-ratio]').each(function(i) {
-				var $this = $(this),
-					horizontalOffset,
-					verticalOffset,
-					positionLeft,
-					positionTop,
-					marginLeft,
-					marginTop,
-					$offsetParent,
-					offsetLeft,
-					offsetTop,
-					parentOffsetLeft = 0,
-					parentOffsetTop = 0,
-					tempParentOffsetLeft = 0,
-					tempParentOffsetTop = 0;
-
-				// Ensure this element isn't already part of another scrolling element
-				if (!$this.data('stellar-elementIsActive')) {
-					$this.data('stellar-elementIsActive', this);
-				} else if ($this.data('stellar-elementIsActive') !== this) {
-					return;
-				}
-
-				self.options.showElement($this);
-
-				// Save/restore the original top and left CSS values in case we refresh the particles or destroy the instance
-				if (!$this.data('stellar-startingLeft')) {
-					$this.data('stellar-startingLeft', $this.css('left'));
-					$this.data('stellar-startingTop', $this.css('top'));
-				} else {
-					$this.css('left', $this.data('stellar-startingLeft'));
-					$this.css('top', $this.data('stellar-startingTop'));
-				}
-
-				positionLeft = $this.position().left;
-				positionTop = $this.position().top;
-
-				// Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
-				marginLeft = ($this.css('margin-left') === 'auto') ? 0 : parseInt($this.css('margin-left'), 10);
-				marginTop = ($this.css('margin-top') === 'auto') ? 0 : parseInt($this.css('margin-top'), 10);
-
-				offsetLeft = $this.offset().left - marginLeft;
-				offsetTop = $this.offset().top - marginTop;
-
-				// Calculate the offset parent
-				$this.parents().each(function() {
-					var $this = $(this);
-
-					if ($this.data('stellar-offset-parent') === true) {
-						parentOffsetLeft = tempParentOffsetLeft;
-						parentOffsetTop = tempParentOffsetTop;
-						$offsetParent = $this;
-
-						return false;
-					} else {
-						tempParentOffsetLeft += $this.position().left;
-						tempParentOffsetTop += $this.position().top;
-					}
-				});
-
-				// Detect the offsets
-				horizontalOffset = ($this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset));
-				verticalOffset = ($this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset));
-
-				// Add our object to the particles collection
-				self.particles.push({
-					$element: $this,
-					$offsetParent: $offsetParent,
-					isFixed: $this.css('position') === 'fixed',
-					horizontalOffset: horizontalOffset,
-					verticalOffset: verticalOffset,
-					startingPositionLeft: positionLeft,
-					startingPositionTop: positionTop,
-					startingOffsetLeft: offsetLeft,
-					startingOffsetTop: offsetTop,
-					parentOffsetLeft: parentOffsetLeft,
-					parentOffsetTop: parentOffsetTop,
-					stellarRatio: ($this.data('stellar-ratio') !== undefined ? $this.data('stellar-ratio') : 1),
-					width: $this.outerWidth(true),
-					height: $this.outerHeight(true),
-					isHidden: false
-				});
-			});
-		},
-		_findBackgrounds: function() {
-			var self = this,
-				scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop(),
-				$backgroundElements;
-
-			this.backgrounds = [];
-
-			if (!this.options.parallaxBackgrounds) return;
-
-			$backgroundElements = this.$element.find('[data-stellar-background-ratio]');
-
-			if (this.$element.data('stellar-background-ratio')) {
-                $backgroundElements = $backgroundElements.add(this.$element);
-			}
-
-			$backgroundElements.each(function() {
-				var $this = $(this),
-					backgroundPosition = getBackgroundPosition($this),
-					horizontalOffset,
-					verticalOffset,
-					positionLeft,
-					positionTop,
-					marginLeft,
-					marginTop,
-					offsetLeft,
-					offsetTop,
-					$offsetParent,
-					parentOffsetLeft = 0,
-					parentOffsetTop = 0,
-					tempParentOffsetLeft = 0,
-					tempParentOffsetTop = 0;
-
-				// Ensure this element isn't already part of another scrolling element
-				if (!$this.data('stellar-backgroundIsActive')) {
-					$this.data('stellar-backgroundIsActive', this);
-				} else if ($this.data('stellar-backgroundIsActive') !== this) {
-					return;
-				}
-
-				// Save/restore the original top and left CSS values in case we destroy the instance
-				if (!$this.data('stellar-backgroundStartingLeft')) {
-					$this.data('stellar-backgroundStartingLeft', backgroundPosition[0]);
-					$this.data('stellar-backgroundStartingTop', backgroundPosition[1]);
-				} else {
-					setBackgroundPosition($this, $this.data('stellar-backgroundStartingLeft'), $this.data('stellar-backgroundStartingTop'));
-				}
-
-				// Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
-				marginLeft = ($this.css('margin-left') === 'auto') ? 0 : parseInt($this.css('margin-left'), 10);
-				marginTop = ($this.css('margin-top') === 'auto') ? 0 : parseInt($this.css('margin-top'), 10);
-
-				offsetLeft = $this.offset().left - marginLeft - scrollLeft;
-				offsetTop = $this.offset().top - marginTop - scrollTop;
-				
-				// Calculate the offset parent
-				$this.parents().each(function() {
-					var $this = $(this);
-
-					if ($this.data('stellar-offset-parent') === true) {
-						parentOffsetLeft = tempParentOffsetLeft;
-						parentOffsetTop = tempParentOffsetTop;
-						$offsetParent = $this;
-
-						return false;
-					} else {
-						tempParentOffsetLeft += $this.position().left;
-						tempParentOffsetTop += $this.position().top;
-					}
-				});
-
-				// Detect the offsets
-				horizontalOffset = ($this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset));
-				verticalOffset = ($this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset));
-
-				self.backgrounds.push({
-					$element: $this,
-					$offsetParent: $offsetParent,
-					isFixed: $this.css('background-attachment') === 'fixed',
-					horizontalOffset: horizontalOffset,
-					verticalOffset: verticalOffset,
-					startingValueLeft: backgroundPosition[0],
-					startingValueTop: backgroundPosition[1],
-					startingBackgroundPositionLeft: (isNaN(parseInt(backgroundPosition[0], 10)) ? 0 : parseInt(backgroundPosition[0], 10)),
-					startingBackgroundPositionTop: (isNaN(parseInt(backgroundPosition[1], 10)) ? 0 : parseInt(backgroundPosition[1], 10)),
-					startingPositionLeft: $this.position().left,
-					startingPositionTop: $this.position().top,
-					startingOffsetLeft: offsetLeft,
-					startingOffsetTop: offsetTop,
-					parentOffsetLeft: parentOffsetLeft,
-					parentOffsetTop: parentOffsetTop,
-					stellarRatio: ($this.data('stellar-background-ratio') === undefined ? 1 : $this.data('stellar-background-ratio'))
-				});
-			});
-		},
-		_reset: function() {
-			var particle,
-				startingPositionLeft,
-				startingPositionTop,
-				background,
-				i;
-
-			for (i = this.particles.length - 1; i >= 0; i--) {
-				particle = this.particles[i];
-				startingPositionLeft = particle.$element.data('stellar-startingLeft');
-				startingPositionTop = particle.$element.data('stellar-startingTop');
-
-				this._setPosition(particle.$element, startingPositionLeft, startingPositionLeft, startingPositionTop, startingPositionTop);
-
-				this.options.showElement(particle.$element);
-
-				particle.$element.data('stellar-startingLeft', null).data('stellar-elementIsActive', null).data('stellar-backgroundIsActive', null);
-			}
-
-			for (i = this.backgrounds.length - 1; i >= 0; i--) {
-				background = this.backgrounds[i];
-
-				background.$element.data('stellar-backgroundStartingLeft', null).data('stellar-backgroundStartingTop', null);
-
-				setBackgroundPosition(background.$element, background.startingValueLeft, background.startingValueTop);
-			}
-		},
-		destroy: function() {
-			this._reset();
-
-			this.$scrollElement.unbind('resize.' + this.name).unbind('scroll.' + this.name);
-			this._animationLoop = $.noop;
-
-			$(window).unbind('load.' + this.name).unbind('resize.' + this.name);
-		},
-		_setOffsets: function() {
-			var self = this,
-				$window = $(window);
-
-			$window.unbind('resize.horizontal-' + this.name).unbind('resize.vertical-' + this.name);
-
-			if (typeof this.options.horizontalOffset === 'function') {
-				this.horizontalOffset = this.options.horizontalOffset();
-				$window.bind('resize.horizontal-' + this.name, function() {
-					self.horizontalOffset = self.options.horizontalOffset();
-				});
-			} else {
-				this.horizontalOffset = this.options.horizontalOffset;
-			}
-
-			if (typeof this.options.verticalOffset === 'function') {
-				this.verticalOffset = this.options.verticalOffset();
-				$window.bind('resize.vertical-' + this.name, function() {
-					self.verticalOffset = self.options.verticalOffset();
-				});
-			} else {
-				this.verticalOffset = this.options.verticalOffset;
-			}
-		},
-		_repositionElements: function() {
-			var scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop(),
-				horizontalOffset,
-				verticalOffset,
-				particle,
-				fixedRatioOffset,
-				background,
-				bgLeft,
-				bgTop,
-				isVisibleVertical = true,
-				isVisibleHorizontal = true,
-				newPositionLeft,
-				newPositionTop,
-				newOffsetLeft,
-				newOffsetTop,
-				i;
-
-			// First check that the scroll position or container size has changed
-			if (this.currentScrollLeft === scrollLeft && this.currentScrollTop === scrollTop && this.currentWidth === this.viewportWidth && this.currentHeight === this.viewportHeight) {
-				return;
-			} else {
-				this.currentScrollLeft = scrollLeft;
-				this.currentScrollTop = scrollTop;
-				this.currentWidth = this.viewportWidth;
-				this.currentHeight = this.viewportHeight;
-			}
-
-			// Reposition elements
-			for (i = this.particles.length - 1; i >= 0; i--) {
-				particle = this.particles[i];
-
-				fixedRatioOffset = (particle.isFixed ? 1 : 0);
-
-				// Calculate position, then calculate what the particle's new offset will be (for visibility check)
-				if (this.options.horizontalScrolling) {
-					newPositionLeft = (scrollLeft + particle.horizontalOffset + this.viewportOffsetLeft + particle.startingPositionLeft - particle.startingOffsetLeft + particle.parentOffsetLeft) * -(particle.stellarRatio + fixedRatioOffset - 1) + particle.startingPositionLeft;
-					newOffsetLeft = newPositionLeft - particle.startingPositionLeft + particle.startingOffsetLeft;
-				} else {
-					newPositionLeft = particle.startingPositionLeft;
-					newOffsetLeft = particle.startingOffsetLeft;
-				}
-
-				if (this.options.verticalScrolling) {
-					newPositionTop = (scrollTop + particle.verticalOffset + this.viewportOffsetTop + particle.startingPositionTop - particle.startingOffsetTop + particle.parentOffsetTop) * -(particle.stellarRatio + fixedRatioOffset - 1) + particle.startingPositionTop;
-					newOffsetTop = newPositionTop - particle.startingPositionTop + particle.startingOffsetTop;
-				} else {
-					newPositionTop = particle.startingPositionTop;
-					newOffsetTop = particle.startingOffsetTop;
-				}
-
-				// Check visibility
-				if (this.options.hideDistantElements) {
-					isVisibleHorizontal = !this.options.horizontalScrolling || newOffsetLeft + particle.width > (particle.isFixed ? 0 : scrollLeft) && newOffsetLeft < (particle.isFixed ? 0 : scrollLeft) + this.viewportWidth + this.viewportOffsetLeft;
-					isVisibleVertical = !this.options.verticalScrolling || newOffsetTop + particle.height > (particle.isFixed ? 0 : scrollTop) && newOffsetTop < (particle.isFixed ? 0 : scrollTop) + this.viewportHeight + this.viewportOffsetTop;
-				}
-
-				if (isVisibleHorizontal && isVisibleVertical) {
-					if (particle.isHidden) {
-						this.options.showElement(particle.$element);
-						particle.isHidden = false;
-					}
-
-					this._setPosition(particle.$element, newPositionLeft, particle.startingPositionLeft, newPositionTop, particle.startingPositionTop);
-				} else {
-					if (!particle.isHidden) {
-						this.options.hideElement(particle.$element);
-						particle.isHidden = true;
-					}
-				}
-			}
-
-			// Reposition backgrounds
-			for (i = this.backgrounds.length - 1; i >= 0; i--) {
-				background = this.backgrounds[i];
-
-				fixedRatioOffset = (background.isFixed ? 0 : 1);
-				bgLeft = (this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
-				bgTop = (this.options.verticalScrolling ? (scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop);
-
-				setBackgroundPosition(background.$element, bgLeft, bgTop);
-			}
-		},
-		_handleScrollEvent: function() {
-			var self = this,
-				ticking = false;
-
-			var update = function() {
-				self._repositionElements();
-				ticking = false;
-			};
-
-			var requestTick = function() {
-				if (!ticking) {
-					requestAnimFrame(update);
-					ticking = true;
-				}
-			};
-			
-			this.$scrollElement.bind('scroll.' + this.name, requestTick);
-			requestTick();
-		},
-		_startAnimationLoop: function() {
-			var self = this;
-
-			this._animationLoop = function() {
-				requestAnimFrame(self._animationLoop);
-				self._repositionElements();
-			};
-			this._animationLoop();
-		}
 	};
 
-	$.fn[pluginName] = function (options) {
-		var args = arguments;
-		if (options === undefined || typeof options === 'object') {
-			return this.each(function () {
-				if (!$.data(this, 'plugin_' + pluginName)) {
-					$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-				}
-			});
-		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
-			return this.each(function () {
-				var instance = $.data(this, 'plugin_' + pluginName);
-				if (instance instanceof Plugin && typeof instance[options] === 'function') {
-					instance[options].apply(instance, Array.prototype.slice.call(args, 1));
-				}
-				if (options === 'destroy') {
-					$.data(this, 'plugin_' + pluginName, null);
-				}
-			});
-		}
+	$.fn.jScrollPane.defaults = {
+		showArrows					: false,
+		maintainPosition			: true,
+		stickToBottom				: false,
+		stickToRight				: false,
+		clickOnTrack				: true,
+		autoReinitialise			: false,
+		autoReinitialiseDelay		: 500,
+		verticalDragMinHeight		: 0,
+		verticalDragMaxHeight		: 99999,
+		horizontalDragMinWidth		: 0,
+		horizontalDragMaxWidth		: 99999,
+		contentWidth				: undefined,
+		animateScroll				: false,
+		animateDuration				: 300,
+		animateEase					: 'linear',
+		hijackInternalLinks			: false,
+		verticalGutter				: 4,
+		horizontalGutter			: 4,
+		mouseWheelSpeed				: 3,
+		arrowButtonSpeed			: 0,
+		arrowRepeatFreq				: 50,
+		arrowScrollOnHover			: false,
+		trackClickSpeed				: 0,
+		trackClickRepeatFreq		: 70,
+		verticalArrowPositions		: 'split',
+		horizontalArrowPositions	: 'split',
+		enableKeyboardNavigation	: true,
+		hideFocus					: false,
+		keyboardSpeed				: 0,
+		initialDelay                : 300,        // Delay before starting repeating
+		speed						: 30,		// Default speed when others falsey
+		scrollPagePercent			: .8		// Percent of visible area scrolled when pageUp/Down or track area pressed
 	};
 
-	$[pluginName] = function(options) {
-		var $window = $(window);
-		return $window.stellar.apply($window, Array.prototype.slice.call(arguments, 0));
-	};
+},this));
+; browserify_shim__define__module__export__(typeof jscrollpane != "undefined" ? jscrollpane : window.jscrollpane);
 
-	// Expose the scroll and position property function hashes so they can be extended
-	$[pluginName].scrollProperty = scrollProperty;
-	$[pluginName].positionProperty = positionProperty;
+}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-	// Expose the plugin class so it can be modified
-	window.Stellar = Plugin;
-}(jQuery, this, document));
-}).call(global, module, undefined);
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],5:[function(require,module,exports){
+var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-},{}],5:[function(require,module,exports){
+; jscrollpane = global.jscrollpane = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jScrollPane\\script\\jquery.jscrollpane.js");
+/*! Copyright (c) 2013 Brandon Aaron (http://brandon.aaron.sh)
+ * Licensed under the MIT License (LICENSE.txt).
+ *
+ * Version: 3.1.9
+ *
+ * Requires: jQuery 1.2.2+
+ */
+
+(function (factory) {
+    if ( typeof define === 'function' && define.amd ) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node/CommonJS style for Browserify
+        module.exports = factory;
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+
+    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+        toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
+                    ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
+        slice  = Array.prototype.slice,
+        nullLowestDeltaTimeout, lowestDelta;
+
+    if ( $.event.fixHooks ) {
+        for ( var i = toFix.length; i; ) {
+            $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
+        }
+    }
+
+    var special = $.event.special.mousewheel = {
+        version: '3.1.9',
+
+        setup: function() {
+            if ( this.addEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.addEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = handler;
+            }
+            // Store the line height and page height for this particular element
+            $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
+            $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
+        },
+
+        teardown: function() {
+            if ( this.removeEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.removeEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = null;
+            }
+        },
+
+        getLineHeight: function(elem) {
+            return parseInt($(elem)['offsetParent' in $.fn ? 'offsetParent' : 'parent']().css('fontSize'), 10);
+        },
+
+        getPageHeight: function(elem) {
+            return $(elem).height();
+        },
+
+        settings: {
+            adjustOldDeltas: true
+        }
+    };
+
+    $.fn.extend({
+        mousewheel: function(fn) {
+            return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
+        },
+
+        unmousewheel: function(fn) {
+            return this.unbind('mousewheel', fn);
+        }
+    });
+
+
+    function handler(event) {
+        var orgEvent   = event || window.event,
+            args       = slice.call(arguments, 1),
+            delta      = 0,
+            deltaX     = 0,
+            deltaY     = 0,
+            absDelta   = 0;
+        event = $.event.fix(orgEvent);
+        event.type = 'mousewheel';
+
+        // Old school scrollwheel delta
+        if ( 'detail'      in orgEvent ) { deltaY = orgEvent.detail * -1;      }
+        if ( 'wheelDelta'  in orgEvent ) { deltaY = orgEvent.wheelDelta;       }
+        if ( 'wheelDeltaY' in orgEvent ) { deltaY = orgEvent.wheelDeltaY;      }
+        if ( 'wheelDeltaX' in orgEvent ) { deltaX = orgEvent.wheelDeltaX * -1; }
+
+        // Firefox < 17 horizontal scrolling related to DOMMouseScroll event
+        if ( 'axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
+            deltaX = deltaY * -1;
+            deltaY = 0;
+        }
+
+        // Set delta to be deltaY or deltaX if deltaY is 0 for backwards compatabilitiy
+        delta = deltaY === 0 ? deltaX : deltaY;
+
+        // New school wheel delta (wheel event)
+        if ( 'deltaY' in orgEvent ) {
+            deltaY = orgEvent.deltaY * -1;
+            delta  = deltaY;
+        }
+        if ( 'deltaX' in orgEvent ) {
+            deltaX = orgEvent.deltaX;
+            if ( deltaY === 0 ) { delta  = deltaX * -1; }
+        }
+
+        // No change actually happened, no reason to go any further
+        if ( deltaY === 0 && deltaX === 0 ) { return; }
+
+        // Need to convert lines and pages to pixels if we aren't already in pixels
+        // There are three delta modes:
+        //   * deltaMode 0 is by pixels, nothing to do
+        //   * deltaMode 1 is by lines
+        //   * deltaMode 2 is by pages
+        if ( orgEvent.deltaMode === 1 ) {
+            var lineHeight = $.data(this, 'mousewheel-line-height');
+            delta  *= lineHeight;
+            deltaY *= lineHeight;
+            deltaX *= lineHeight;
+        } else if ( orgEvent.deltaMode === 2 ) {
+            var pageHeight = $.data(this, 'mousewheel-page-height');
+            delta  *= pageHeight;
+            deltaY *= pageHeight;
+            deltaX *= pageHeight;
+        }
+
+        // Store lowest absolute delta to normalize the delta values
+        absDelta = Math.max( Math.abs(deltaY), Math.abs(deltaX) );
+
+        if ( !lowestDelta || absDelta < lowestDelta ) {
+            lowestDelta = absDelta;
+
+            // Adjust older deltas if necessary
+            if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
+                lowestDelta /= 40;
+            }
+        }
+
+        // Adjust older deltas if necessary
+        if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
+            // Divide all the things by 40!
+            delta  /= 40;
+            deltaX /= 40;
+            deltaY /= 40;
+        }
+
+        // Get a whole, normalized value for the deltas
+        delta  = Math[ delta  >= 1 ? 'floor' : 'ceil' ](delta  / lowestDelta);
+        deltaX = Math[ deltaX >= 1 ? 'floor' : 'ceil' ](deltaX / lowestDelta);
+        deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ](deltaY / lowestDelta);
+
+        // Add information to the event object
+        event.deltaX = deltaX;
+        event.deltaY = deltaY;
+        event.deltaFactor = lowestDelta;
+        // Go ahead and set deltaMode to 0 since we converted to pixels
+        // Although this is a little odd since we overwrite the deltaX/Y
+        // properties with normalized deltas.
+        event.deltaMode = 0;
+
+        // Add event and delta to the front of the arguments
+        args.unshift(event, delta, deltaX, deltaY);
+
+        // Clearout lowestDelta after sometime to better
+        // handle multiple device types that give different
+        // a different lowestDelta
+        // Ex: trackpad = 3 and mouse wheel = 120
+        if (nullLowestDeltaTimeout) { clearTimeout(nullLowestDeltaTimeout); }
+        nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
+
+        return ($.event.dispatch || $.event.handle).apply(this, args);
+    }
+
+    function nullLowestDelta() {
+        lowestDelta = null;
+    }
+
+    function shouldAdjustOldDeltas(orgEvent, absDelta) {
+        // If this is an older event and the delta is divisable by 120,
+        // then we are assuming that the browser is treating this as an
+        // older mouse wheel event and that we should divide the deltas
+        // by 40 to try and get a more usable deltaFactor.
+        // Side note, this actually impacts the reported scroll distance
+        // in older browsers and can cause scrolling to be slower than native.
+        // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
+        return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
+    }
+
+}));
+
+
+; browserify_shim__define__module__export__(typeof mousewheel != "undefined" ? mousewheel : window.mousewheel);
+
+}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
+
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jScrollPane\\script\\jquery.jscrollpane.js":4}],6:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*!
  * jQuery JavaScript Library v1.10.2
@@ -13366,7 +14397,486 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 }).call(global, module, undefined);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
+
+; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version: 1.3.3
+ *
+ */
+(function($) {
+
+  $.fn.extend({
+    slimScroll: function(options) {
+
+      var defaults = {
+
+        // width in pixels of the visible scroll area
+        width : 'auto',
+
+        // height in pixels of the visible scroll area
+        height : '250px',
+
+        // width in pixels of the scrollbar and rail
+        size : '7px',
+
+        // scrollbar color, accepts any hex/color value
+        color: '#000',
+
+        // scrollbar position - left/right
+        position : 'right',
+
+        // distance in pixels between the side edge and the scrollbar
+        distance : '1px',
+
+        // default scroll position on load - top / bottom / $('selector')
+        start : 'top',
+
+        // sets scrollbar opacity
+        opacity : .4,
+
+        // enables always-on mode for the scrollbar
+        alwaysVisible : false,
+
+        // check if we should hide the scrollbar when user is hovering over
+        disableFadeOut : false,
+
+        // sets visibility of the rail
+        railVisible : false,
+
+        // sets rail color
+        railColor : '#333',
+
+        // sets rail opacity
+        railOpacity : .2,
+
+        // whether  we should use jQuery UI Draggable to enable bar dragging
+        railDraggable : true,
+
+        // defautlt CSS class of the slimscroll rail
+        railClass : 'slimScrollRail',
+
+        // defautlt CSS class of the slimscroll bar
+        barClass : 'slimScrollBar',
+
+        // defautlt CSS class of the slimscroll wrapper
+        wrapperClass : 'slimScrollDiv',
+
+        // check if mousewheel should scroll the window if we reach top/bottom
+        allowPageScroll : false,
+
+        // scroll amount applied to each mouse wheel step
+        wheelStep : 20,
+
+        // scroll amount applied when user is using gestures
+        touchScrollStep : 200,
+
+        // sets border radius
+        borderRadius: '7px',
+
+        // sets border radius of the rail
+        railBorderRadius : '7px'
+      };
+
+      var o = $.extend(defaults, options);
+
+      // do it for every element that matches selector
+      this.each(function(){
+
+      var isOverPanel, isOverBar, isDragg, queueHide, touchDif,
+        barHeight, percentScroll, lastScroll,
+        divS = '<div></div>',
+        minBarHeight = 30,
+        releaseScroll = false;
+
+        // used in event handlers and for better minification
+        var me = $(this);
+
+        // ensure we are not binding it again
+        if (me.parent().hasClass(o.wrapperClass))
+        {
+            // start from last bar position
+            var offset = me.scrollTop();
+
+            // find bar and rail
+            bar = me.parent().find('.' + o.barClass);
+            rail = me.parent().find('.' + o.railClass);
+
+            getBarHeight();
+
+            // check if we should scroll existing instance
+            if ($.isPlainObject(options))
+            {
+              // Pass height: auto to an existing slimscroll object to force a resize after contents have changed
+              if ( 'height' in options && options.height == 'auto' ) {
+                me.parent().css('height', 'auto');
+                me.css('height', 'auto');
+                var height = me.parent().parent().height();
+                me.parent().css('height', height);
+                me.css('height', height);
+              }
+
+              if ('scrollTo' in options)
+              {
+                // jump to a static point
+                offset = parseInt(o.scrollTo);
+              }
+              else if ('scrollBy' in options)
+              {
+                // jump by value pixels
+                offset += parseInt(o.scrollBy);
+              }
+              else if ('destroy' in options)
+              {
+                // remove slimscroll elements
+                bar.remove();
+                rail.remove();
+                me.unwrap();
+                return;
+              }
+
+              // scroll content by the given offset
+              scrollContent(offset, false, true);
+            }
+
+            return;
+        }
+        else if ($.isPlainObject(options))
+        {
+            if ('destroy' in options)
+            {
+            	return;
+            }
+        }
+
+        // optionally set height to the parent's height
+        o.height = (o.height == 'auto') ? me.parent().height() : o.height;
+
+        // wrap content
+        var wrapper = $(divS)
+          .addClass(o.wrapperClass)
+          .css({
+            position: 'relative',
+            overflow: 'hidden',
+            width: o.width,
+            height: o.height
+          });
+
+        // update style for the div
+        me.css({
+          overflow: 'hidden',
+          width: o.width,
+          height: o.height
+        });
+
+        // create scrollbar rail
+        var rail = $(divS)
+          .addClass(o.railClass)
+          .css({
+            width: o.size,
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            display: (o.alwaysVisible && o.railVisible) ? 'block' : 'none',
+            'border-radius': o.railBorderRadius,
+            background: o.railColor,
+            opacity: o.railOpacity,
+            zIndex: 90
+          });
+
+        // create scrollbar
+        var bar = $(divS)
+          .addClass(o.barClass)
+          .css({
+            background: o.color,
+            width: o.size,
+            position: 'absolute',
+            top: 0,
+            opacity: o.opacity,
+            display: o.alwaysVisible ? 'block' : 'none',
+            'border-radius' : o.borderRadius,
+            BorderRadius: o.borderRadius,
+            MozBorderRadius: o.borderRadius,
+            WebkitBorderRadius: o.borderRadius,
+            zIndex: 99
+          });
+
+        // set position
+        var posCss = (o.position == 'right') ? { right: o.distance } : { left: o.distance };
+        rail.css(posCss);
+        bar.css(posCss);
+
+        // wrap it
+        me.wrap(wrapper);
+
+        // append to parent div
+        me.parent().append(bar);
+        me.parent().append(rail);
+
+        // make it draggable and no longer dependent on the jqueryUI
+        if (o.railDraggable){
+          bar.bind("mousedown", function(e) {
+            var $doc = $(document);
+            isDragg = true;
+            t = parseFloat(bar.css('top'));
+            pageY = e.pageY;
+
+            $doc.bind("mousemove.slimscroll", function(e){
+              currTop = t + e.pageY - pageY;
+              bar.css('top', currTop);
+              scrollContent(0, bar.position().top, false);// scroll content
+            });
+
+            $doc.bind("mouseup.slimscroll", function(e) {
+              isDragg = false;hideBar();
+              $doc.unbind('.slimscroll');
+            });
+            return false;
+          }).bind("selectstart.slimscroll", function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+          });
+        }
+
+        // on rail over
+        rail.hover(function(){
+          showBar();
+        }, function(){
+          hideBar();
+        });
+
+        // on bar over
+        bar.hover(function(){
+          isOverBar = true;
+        }, function(){
+          isOverBar = false;
+        });
+
+        // show on parent mouseover
+        me.hover(function(){
+          isOverPanel = true;
+          showBar();
+          hideBar();
+        }, function(){
+          isOverPanel = false;
+          hideBar();
+        });
+
+        // support for mobile
+        me.bind('touchstart', function(e,b){
+          if (e.originalEvent.touches.length)
+          {
+            // record where touch started
+            touchDif = e.originalEvent.touches[0].pageY;
+          }
+        });
+
+        me.bind('touchmove', function(e){
+          // prevent scrolling the page if necessary
+          if(!releaseScroll)
+          {
+  		      e.originalEvent.preventDefault();
+		      }
+          if (e.originalEvent.touches.length)
+          {
+            // see how far user swiped
+            var diff = (touchDif - e.originalEvent.touches[0].pageY) / o.touchScrollStep;
+            // scroll content
+            scrollContent(diff, true);
+            touchDif = e.originalEvent.touches[0].pageY;
+          }
+        });
+
+        // set up initial height
+        getBarHeight();
+
+        // check start position
+        if (o.start === 'bottom')
+        {
+          // scroll content to bottom
+          bar.css({ top: me.outerHeight() - bar.outerHeight() });
+          scrollContent(0, true);
+        }
+        else if (o.start !== 'top')
+        {
+          // assume jQuery selector
+          scrollContent($(o.start).position().top, null, true);
+
+          // make sure bar stays hidden
+          if (!o.alwaysVisible) { bar.hide(); }
+        }
+
+        // attach scroll events
+        attachWheel();
+
+        function _onWheel(e)
+        {
+          // use mouse wheel only when mouse is over
+          if (!isOverPanel) { return; }
+
+          var e = e || window.event;
+
+          var delta = 0;
+          if (e.wheelDelta) { delta = -e.wheelDelta/120; }
+          if (e.detail) { delta = e.detail / 3; }
+
+          var target = e.target || e.srcTarget || e.srcElement;
+          if ($(target).closest('.' + o.wrapperClass).is(me.parent())) {
+            // scroll content
+            scrollContent(delta, true);
+          }
+
+          // stop window scroll
+          if (e.preventDefault && !releaseScroll) { e.preventDefault(); }
+          if (!releaseScroll) { e.returnValue = false; }
+        }
+
+        function scrollContent(y, isWheel, isJump)
+        {
+          releaseScroll = false;
+          var delta = y;
+          var maxTop = me.outerHeight() - bar.outerHeight();
+
+          if (isWheel)
+          {
+            // move bar with mouse wheel
+            delta = parseInt(bar.css('top')) + y * parseInt(o.wheelStep) / 100 * bar.outerHeight();
+
+            // move bar, make sure it doesn't go out
+            delta = Math.min(Math.max(delta, 0), maxTop);
+
+            // if scrolling down, make sure a fractional change to the
+            // scroll position isn't rounded away when the scrollbar's CSS is set
+            // this flooring of delta would happened automatically when
+            // bar.css is set below, but we floor here for clarity
+            delta = (y > 0) ? Math.ceil(delta) : Math.floor(delta);
+
+            // scroll the scrollbar
+            bar.css({ top: delta + 'px' });
+          }
+
+          // calculate actual scroll amount
+          percentScroll = parseInt(bar.css('top')) / (me.outerHeight() - bar.outerHeight());
+          delta = percentScroll * (me[0].scrollHeight - me.outerHeight());
+
+          if (isJump)
+          {
+            delta = y;
+            var offsetTop = delta / me[0].scrollHeight * me.outerHeight();
+            offsetTop = Math.min(Math.max(offsetTop, 0), maxTop);
+            bar.css({ top: offsetTop + 'px' });
+          }
+
+          // scroll content
+          me.scrollTop(delta);
+
+          // fire scrolling event
+          me.trigger('slimscrolling', ~~delta);
+
+          // ensure bar is visible
+          showBar();
+
+          // trigger hide when scroll is stopped
+          hideBar();
+        }
+
+        function attachWheel()
+        {
+          if (window.addEventListener)
+          {
+            this.addEventListener('DOMMouseScroll', _onWheel, false );
+            this.addEventListener('mousewheel', _onWheel, false );
+          }
+          else
+          {
+            document.attachEvent("onmousewheel", _onWheel)
+          }
+        }
+
+        function getBarHeight()
+        {
+          // calculate scrollbar height and make sure it is not too small
+          barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
+          bar.css({ height: barHeight + 'px' });
+
+          // hide scrollbar if content is not long enough
+          var display = barHeight == me.outerHeight() ? 'none' : 'block';
+          bar.css({ display: display });
+        }
+
+        function showBar()
+        {
+          // recalculate bar height
+          getBarHeight();
+          clearTimeout(queueHide);
+
+          // when bar reached top or bottom
+          if (percentScroll == ~~percentScroll)
+          {
+            //release wheel
+            releaseScroll = o.allowPageScroll;
+
+            // publish approporiate event
+            if (lastScroll != percentScroll)
+            {
+                var msg = (~~percentScroll == 0) ? 'top' : 'bottom';
+                me.trigger('slimscroll', msg);
+            }
+          }
+          else
+          {
+            releaseScroll = false;
+          }
+          lastScroll = percentScroll;
+
+          // show only when required
+          if(barHeight >= me.outerHeight()) {
+            //allow window scroll
+            releaseScroll = true;
+            return;
+          }
+          bar.stop(true,true).fadeIn('fast');
+          if (o.railVisible) { rail.stop(true,true).fadeIn('fast'); }
+        }
+
+        function hideBar()
+        {
+          // only hide when options allow it
+          if (!o.alwaysVisible)
+          {
+            queueHide = setTimeout(function(){
+              if (!(o.disableFadeOut && isOverPanel) && !isOverBar && !isDragg)
+              {
+                bar.fadeOut('slow');
+                rail.fadeOut('slow');
+              }
+            }, 1000);
+          }
+        }
+
+      });
+
+      // maintain chainability
+      return this;
+    }
+  });
+
+  $.fn.extend({
+    slimscroll: $.fn.slimScroll
+  });
+
+})(jQuery);
+
+; browserify_shim__define__module__export__(typeof slimscroll != "undefined" ? slimscroll : window.slimscroll);
+
+}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
+
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],8:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*
  * Snap.js
@@ -13939,7 +15449,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 //     Underscore.js 1.5.2
 //     http://underscorejs.org
@@ -15220,11 +16730,11 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; $ = global.$ = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
-underscore = global.underscore = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
 //     Backbone.js 1.1.0
 
 //     (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -16811,10 +18321,10 @@ underscore = global.underscore = require("C:\\Users\\visum_000\\Desktop\\project
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5,"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":7,"underscore":7}],9:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"underscore":9}],11:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; jQuery = global.jQuery = require("C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
 /* ========================================================================
  * Bootstrap: dropdown.js v3.0.2
  * http://getbootstrap.com/javascript/#dropdowns
@@ -17338,11 +18848,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\visum_000\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],10:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],12:[function(require,module,exports){
 var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
-    //slimscroll        = require('slimscroll'),
+    slimscroll        = require('slimscroll'),
+    mousewheel        = require('mousewheel'), 
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -17360,7 +18871,7 @@ App.prototype.start = function(){
 
         App.views = {};
         App.data  = {};
-        App.vent  = {}
+        App.vent  = new Backbone.Wreqr.EventAggregator();
         App.fb    = {};
 
         // temp set wrap height, sloppy?
@@ -17420,16 +18931,17 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":11,"./collections/teams":12,"./controller":13,"./models/player":15,"./models/team":16,"./router":17,"backbone.marionette":1,"bootstrap":9}],11:[function(require,module,exports){
+},{"./collections/players":13,"./collections/teams":14,"./controller":15,"./models/player":17,"./models/team":18,"./router":19,"backbone.marionette":1,"bootstrap":11,"mousewheel":5,"slimscroll":7}],13:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
     url: '/api/players'
+
 });
 
-},{"../models/player":15,"backbone":8}],12:[function(require,module,exports){
+},{"../models/player":17,"backbone":10}],14:[function(require,module,exports){
 var Backbone = require('backbone'),
     TeamModel = require('../models/team'),
     PlayersCollection = require('./players');
@@ -17437,31 +18949,44 @@ var Backbone = require('backbone'),
 module.exports = TeamsCollection = Backbone.Collection.extend({
     model:  TeamModel,
     url: '/api/teams',
+    comparator: function(team) {
+        return team.get('position');
+    },
     byPlaying:function() {
-        playing = this.filter(function(team) {
-            return team.get('playing') === true;
-        });
-        return new TeamsCollection(playing);
+        // not in use?? COULD BE USEFUL!!
+        // playing = this.filter(function(team) {
+        //     return team.get('playing') === true;
+        // });
+        // return new TeamsCollection(playing);
     }
 });
 
-},{"../models/team":16,"./players":11,"backbone":8}],13:[function(require,module,exports){
+},{"../models/team":18,"./players":13,"backbone":10}],15:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
-    StatsView  = require('./views/statsView');
+    SetTeamsView = require('./views/teamsView/setTeams'),
+    StatsView  = require('./views/statsView/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
     initialize: function(options) {
         App.core.vent.trigger('app:log', 'Controller: Initializing');
-        //window.App.views.statsView  = new StatsView({ collection: window.App.data.teams });
         window.App.views.appView  = new AppLayoutView();
+
+        // render appLayoutView
+        var view = window.App.views.appView;
+        this.renderView(view);
     },
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit.');
-        var view = window.App.views.appView;
-        this.renderView(view);
+        window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
         window.App.router.navigate('#');
+    },
+
+    teams: function() {
+        App.core.vent.trigger('app:log', 'Controller: "Teams" route hit.');
+        window.App.views.appView.stats.show(new SetTeamsView({ collection: window.App.data.teams }));
+        window.App.router.navigate('#teams');
     },
 
     renderView: function(view) {
@@ -17479,13 +19004,13 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/appView":18,"./views/statsView":25,"backbone.marionette":1}],14:[function(require,module,exports){
+},{"./views/appView":20,"./views/statsView/statsView":25,"./views/teamsView/setTeams":26,"backbone.marionette":1}],16:[function(require,module,exports){
 var App = require('./app');
 var StatApp = new App();
 
 StatApp.start();
 
-},{"./app":10}],15:[function(require,module,exports){
+},{"./app":12}],17:[function(require,module,exports){
 var Backbone     = require('backbone');
 //var NestedModel  = require('backbone.nested');
 //var Relational = require('backbone.relational');
@@ -17513,7 +19038,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     }
 });
 
-},{"backbone":8}],16:[function(require,module,exports){
+},{"backbone":10}],18:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
 //var NestedModel       = require('backbone.nested');
@@ -17541,16 +19066,17 @@ module.exports = TeamModel = Backbone.Model.extend({
 });
 
 
-},{"../collections/players":11,"backbone":8}],17:[function(require,module,exports){
+},{"../collections/players":13,"backbone":10}],19:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = Router = Marionette.AppRouter.extend({
     appRoutes: {
-        ''      : 'home'
+        ''      : 'home',
+        'teams' : 'teams'
     }
 });
 
-},{"backbone.marionette":1}],18:[function(require,module,exports){
+},{"backbone.marionette":1}],20:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     MenuView = require('./menu/menu'),
     StatsView = require('./statsView/statsView');
@@ -17566,443 +19092,13 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 	onRender: function() {
 		// possibly add a headerView here?
 
-	    // render the app's menu	
+	    // render the app's menu (always render the menu)	
         var menuView = new MenuView();
         this.menu.show(menuView);
 
-        // render the app's content	
-        var statsiew = new StatsView({ collection: window.App.data.teams });
-        this.stats.show(statsiew);
-    }
-});
-},{"../../templates/appView.hbs":29,"./menu/menu":22,"./statsView/statsView":26,"backbone.marionette":1}],19:[function(require,module,exports){
-var Marionette = require('backbone.marionette');
-
-module.exports = playerData = Marionette.ItemView.extend({
-    className: 'player-data',
-    template: require('../../../templates/data/playerData.hbs'),
-    events: {
-        'mouseenter .player-image': 'imageHover',
-        'mouseleave .player-image': 'imageLeave'
+        this.snapper();
     },
-    initialize: function() {
-        this.listenTo(this.model, 'change', this.render);
-        this.$el.attr('data-player', this.model.get('player_name').replace(/\s+/g,"_").toLowerCase());
-    },
-    imageHover: function() {
-        this.$el.find('.player-image').addClass('image-hover');
-    },
-    imageLeave: function() {
-        this.$el.find('.player-image').removeClass('image-hover');
-    },
-    templateHelpers:function(){
-        return {
-            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
-        }
-    }
-});
-
-},{"../../../templates/data/playerData.hbs":30,"backbone.marionette":1}],20:[function(require,module,exports){
-var Marionette = require('backbone.marionette'),
-    playerData = require('./playerData'),
-    PlayersCollection = require('../../collections/players');
-
-// var teamDataView = Marionette.CompositeView.extend({
-//     className: 'team-data',
-//     template: require('../../../templates/data/teamData.hbs'),
-//     initialize: function() {
-//         this.listenTo(this.model, 'change', this.render);
-//         this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
-//     },
-//     itemView: playerData
-// });
-
-module.exports = CollectionView = Marionette.CollectionView.extend({
-    className: 'data-wrap',
-    initialize: function() {
-        this.listenTo(this.collection, 'change', this.render);
-    },
-    itemView: playerData
-});
-
-},{"../../collections/players":11,"./playerData":19,"backbone.marionette":1}],21:[function(require,module,exports){
-var Marionette = require('backbone.marionette'),
-    PlayersCollection = require('../../collections/players');
-
-var FeedItemView = Marionette.ItemView.extend({
-    className: 'feeds',
-    template: require('../../../templates/feed/feeds.hbs'),
-    initialize:function() {
-        this.listenTo(this.model, 'change', this.render);
-    }
-});
-
-module.exports = FeedView = Marionette.CompositeView.extend({
-    template: require('../../../templates/feed/feed.hbs'),
-    initialize:function() {
-        this.listenTo(this.collection, 'change', this.render);
-    },
-    onRender: function() {
-        var feedItems = this.$el.find('#feed-items');
-        setTimeout(function() {
-            //feedItems.stellar();
-        },1000);
-        
-        setTimeout(function() {
-            feedItems.append('<div class="stellar" style="transform: translate3d(0px, 0px, 0px); z-index: -4;"> <div class="left-box" style="background-color: #fff;"><div data-stellar-ratio="0.4" class="base"><h1>Kirk Steal</h1><div style="background-image: url(&quot;http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/kirk_hinrich.png&quot;); width: 100%; background-repeat: no-repeat; height: 185px; position: relative;"></div></div></div></div>');
-            feedItems.animate({ scrollTop: 620 }, 800);
-        }, 8000);
-    },
-    itemView: FeedItemView
-});
-
-},{"../../../templates/feed/feed.hbs":31,"../../../templates/feed/feeds.hbs":32,"../../collections/players":11,"backbone.marionette":1}],22:[function(require,module,exports){
-var Marionette = require('backbone.marionette');
-
-module.exports = MenuView = Backbone.Marionette.Layout.extend({
-    template: require('../../../templates/menu/menu.hbs'),
-
-    initialize: function(){
-        console.log('Region 1 Layout: initialize');
-    },
-    onRender: function(){
-        console.log('Region 1 Layout: onRender');
-    },
-    onShow: function(){
-        console.log('Region 1 Layout: onShow');
-    },
-    changeHomeTeam: function(data) {
-        this.collection.each(function(team) {
-            if(team.get('side') === 'home') {
-                team.set({playing: false, position: null, side: null});
-                team.save();
-            }
-            if(team.get('team_name') === data) {
-                team.set({playing: true, position: 1, side: 'home'});
-                team.save();
-            }  
-        },this);
-    },
-    changeAwayTeam: function(data) {
-        this.collection.each(function(team) {
-            if(team.get('side') === 'away') {
-                team.set({playing: false, position: null, side: null});
-                team.save();
-            }
-            if(team.get('team_name') === data) {
-                team.set({playing: true, position: 2, side: 'away'});
-                team.save();
-            }  
-        },this);
-    }
-});
-},{"../../../templates/menu/menu.hbs":33,"backbone.marionette":1}],23:[function(require,module,exports){
-var Marionette = require('backbone.marionette');
-
-var listTeamsView = Marionette.ItemView.extend({
-    tagName: 'li',
-    template: require('../../../templates/team-list.hbs'),
-    events: {
-        'click': 'setTeam'
-    },
-    initialize:function() {
-
-    },
-    setTeam:function(e) { 
-        if($(e.currentTarget).closest('.choose-teams').hasClass('home')) {
-            App.vent.trigger('home-team-change', this.model.get('team_name'));
-        } else {
-            App.vent.trigger('away-team-change', this.model.get('team_name'));
-        }
-    }
-});
-
-module.exports = SettingsView = Marionette.CollectionView.extend({
-    tagName: 'ul',
-    initialize:function() {
-        
-    },
-    itemView:listTeamsView
-});
-},{"../../../templates/team-list.hbs":38,"backbone.marionette":1}],24:[function(require,module,exports){
-var Marionette = require('backbone.marionette');
-
-
-/* Form to add player */
-var AddPlayerSettingsView = Marionette.ItemView.extend({
-    template: require('../../../templates/settings/addplayerSettings.hbs'),
-
-    initialize:function() {
-    },
-    onRender: function() {
-    }
-});
-/* Form to add player */
-
-
-/* Players who are playing */
-var playingPlayerSettingsView = Marionette.ItemView.extend({
-    className: 'player',
-    template: require('../../../templates/settings/playerSettings.hbs'),
-
-    initialize:function() {
-        this.listenTo(this.model, 'change', this.render);
-    },
-    onRender: function() {
-
-    }
-});
-
-var PlayingPlayersSettingsView = Marionette.CollectionView.extend({
-
-    initialize:function() {
-        this.listenTo(this.collection, 'change', this.render);
-    },
-    onRender: function() {
-
-    },
-    itemView: playingPlayerSettingsView
-});
-/* end players who are playing */
-
-
-/* Players who are on the bench */
-var benchPlayerSettingsView = Marionette.ItemView.extend({
-    className: 'player',
-    template: require('../../../templates/settings/playerSettings.hbs'),
-
-    initialize:function() {
-        this.listenTo(this.model, 'change', this.render);
-
-        window.DROSE = this.model;
-    },
-    onRender: function() {
-
-    }
-});
-
-var BenchPlayersSettingsView = Marionette.CollectionView.extend({
-
-    initialize:function() {
-        this.listenTo(this.collection, 'change', this.render);
-    },
-    onRender: function() {
-
-    },
-    itemView: benchPlayerSettingsView
-});
-/* end players who are on the bench */
-
-
-module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
-    className: 'edit',
-    template: require('../../../templates/settings/teamSettings.hbs'),
-
-    regions: {
-        addPlayer: ".add-player",
-        playingPlayers: ".playing-players",
-        benchPlayers: ".bench-players"
-    },
-
-    onRender: function() {
-
-        console.log(this.options.benchedCollection)
-        
-        // add players
-        var addPlayerSettingsView = new AddPlayerSettingsView({ collection: this.collection });
-        this.addPlayer.show(addPlayerSettingsView);
-        
-        // playing players   
-        var playingPlayersSettingsView = new PlayingPlayersSettingsView({ collection: this.collection });
-        this.playingPlayers.show(playingPlayersSettingsView);
-
-        // bench players   
-        var benchPlayersSettingsView = new BenchPlayersSettingsView({ collection: this.options.benchedCollection });
-        this.benchPlayers.show(benchPlayersSettingsView);
-    }
-});
-},{"../../../templates/settings/addplayerSettings.hbs":34,"../../../templates/settings/playerSettings.hbs":35,"../../../templates/settings/teamSettings.hbs":36,"backbone.marionette":1}],25:[function(require,module,exports){
-var Marionette   = require('backbone.marionette'),
-    Stellar      = require('jquery.stellar'),
-    Snap         = require('snapjs'),
-    //LeaderView   = require('./leaders/leaders'),
-    TeamsView    = require('./teams/teams'),
-    DataView     = require('./data/teamData'),
-    SettingsView = require('./settings/setTeams'), 
-    FeedView     = require('./feed/feed'),
-    TeamsCollection = require('../collections/teams');
-
-module.exports = appView = Marionette.ItemView.extend({
-    className: 'appView',
-    template: require('../../templates/statsView.hbs'),
-    events: {
-        'mouseenter .home-boost': 'homeBoost',
-        'mouseenter .away-boost': 'awayBoost'
-    },
-    initialize: function() {
-
-        var self = this;
-
-        // intialize third party stuff
-        this.snapMenu();
-        this.facebook();
-
-        // listen for changes 
-        App.vent.on('home-team-change', function(data) { self.changeHomeTeam(data); self.render(); });
-        App.vent.on('away-team-change', function(data) { self.changeAwayTeam(data); self.render(); });
-    
-    },
-    onRender: function() {
-
-        // make a collection for the teams that are playing
-        this.playingCollection  = this.playingTeam();
-
-        // make a collection for the teams that are inactive
-        this.sidelineCollection = this.notPlayingTeam();
-        
-        // grab the playing teams ID's assuming there should be 2 teams only
-        var team_id1 = this.playingCollection.pluck('_id')[0];
-        var team_id2 = this.playingCollection.pluck('_id')[1];
-        
-        // initialize some views
-        //window.App.views.leaderView   = new LeaderView({ collection: this.playingCollection, id1: team_id1, id2: team_id2 }); 
-        window.App.views.teamsView    = new TeamsView({ collection: this.playingCollection });
-        window.App.views.dataView     = new DataView({ collection: App.data.players });
-        window.App.views.settingsView = new SettingsView({ collection: this.sidelineCollection });
-        //window.App.views.feedView     = new FeedView({ collection: this.playingCollection });
-        
-        // append the view's to the DOM
-        $('.settings .choose-teams').html(App.views.settingsView.render().el); // settings view
-        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
-        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
-        //this.$el.prepend(App.views.leaderView.render().el); // leader view
-        //this.$el.find('.app .feed').html(App.views.feedView.render().el); // feed view
-    },
-    playingTeam: function (value) {
-        
-        // determine who is playing by looking for the team models
-        // that have "playing" set to true
-        var models = this.collection.where({playing: true});
-        return new TeamsCollection(models);
-
-    },
-    notPlayingTeam: function (value) {
-
-        // determine who is NOT playing by looking for the team models
-        // that have "playing" set to false
-        var models = this.collection.where({playing: false});
-        return new TeamsCollection(models);
-
-    },
-    changeHomeTeam: function(data) {
-        this.collection.each(function(team) {
-            if(team.get('side') === 'home') {
-                team.set({playing: false, position: null, side: null});
-                team.save();
-            }
-            if(team.get('team_name') === data) {
-                team.set({playing: true, position: 1, side: 'home'});
-                team.save();
-            }  
-        },this);
-    },
-    changeAwayTeam: function(data) {
-        this.collection.each(function(team) {
-            if(team.get('side') === 'away') {
-                team.set({playing: false, position: null, side: null});
-                team.save();
-            }
-            if(team.get('team_name') === data) {
-                team.set({playing: true, position: 2, side: 'away'});
-                team.save();
-            }  
-        },this);
-    },
-    homeBoost:function(e) {
-        $('.away-boost').removeClass('active');
-        $(e.currentTarget).addClass('active');
-        $(".playing").css({ 'transform': 'translateY(0)' });
-    },
-    awayBoost:function(e) {
-        $('.home-boost').removeClass('active');
-        $(e.currentTarget).addClass('active');
-        $(".playing").css({ 'transform': 'translateY(-200px)' });
-    },
-    facebook: function() {
-        $(document).on('fbStatusChange', function (event, data) {
-            if (data.status === 'connected') {
-                console.log('connected')
-                FB.api('/554870764588961/members/', function (response) {
-                    console.log(response);
-                });
-            } else {
-                console.log('not connected')
-            }
-        });
-    },
-    snapMenu: function() {
-        var snapper = new Snap({ element: document.getElementById('wrap') });
-        $('.custom-toggle').click(function(){
-            if( snapper.state().state=="left" ){
-                snapper.close();
-                $(this).removeClass('close-menu');
-            } else {
-                snapper.open('left');
-                $(this).addClass('close-menu');
-            }
-        });
-    }
-});
-
-},{"../../templates/statsView.hbs":37,"../collections/teams":12,"./data/teamData":20,"./feed/feed":21,"./settings/setTeams":23,"./teams/teams":28,"backbone.marionette":1,"jquery.stellar":4,"snapjs":6}],26:[function(require,module,exports){
-var Marionette   = require('backbone.marionette'),
-    Snap         = require('snapjs'),
-    TeamsView    = require('../teams/teams'),
-    DataView     = require('../data/teamData'),
-    TeamsCollection = require('../../collections/teams');
-
-module.exports = statsView = Marionette.ItemView.extend({
-    className: 'statsView',
-    template: require('../../../templates/statsView.hbs'),
-    events: {
-        'mouseenter .home-boost': 'homeBoost',
-        'mouseenter .away-boost': 'awayBoost'
-    },
-    initialize: function() {
-
-        var self = this;
-
-        // intialize third party stuff
-        this.facebook();
-
-        this.$el.height($(window).height() - $('.navbar').outerHeight());
-
-        // listen for changes 
-        //App.vent.on('home-team-change', function(data) { self.changeHomeTeam(data); self.render(); });
-        //App.vent.on('away-team-change', function(data) { self.changeAwayTeam(data); self.render(); });
-    
-    },
-    onRender: function() {
-
-        // make a collection for the teams that are playing
-        this.playingCollection  = this.playingTeam();
-
-        // make a collection for the teams that are inactive
-        this.sidelineCollection = this.notPlayingTeam();
-        
-        // grab the playing teams ID's assuming there should be 2 teams only
-        //var team_id1 = this.playingCollection.pluck('_id')[0];
-        //var team_id2 = this.playingCollection.pluck('_id')[1];
-        
-        // initialize some views
-        window.App.views.teamsView = new TeamsView({ collection: this.playingCollection });
-        window.App.views.dataView  = new DataView({ collection: App.data.players });
-        
-        // append the view's to the DOM
-        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
-        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
-    },
-    onShow:function() {
+    snapper: function() {
         setTimeout(function() {
             console.log(document.getElementById('stats'));  
         
@@ -18032,9 +19128,247 @@ module.exports = statsView = Marionette.ItemView.extend({
                 }
             });
         },0);
+    }
+});
+},{"../../templates/appView.hbs":29,"./menu/menu":23,"./statsView/statsView":25,"backbone.marionette":1}],21:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
+
+module.exports = playerData = Marionette.ItemView.extend({
+    className: 'player-data',
+    template: require('../../../templates/data/playerData.hbs'),
+    events: {
+        'mouseenter .player-image': 'imageHover',
+        'mouseleave .player-image': 'imageLeave'
+    },
+    initialize: function() {
+        this.listenTo(this.model, 'change', this.render);
+        this.$el.attr('data-player', this.model.get('player_name').replace(/\s+/g,"_").toLowerCase());
+    },
+    imageHover: function() {
+        this.$el.find('.player-image').addClass('image-hover');
+    },
+    imageLeave: function() {
+        this.$el.find('.player-image').removeClass('image-hover');
+    },
+    templateHelpers:function(){
+        return {
+            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
+        }
+    }
+});
+
+},{"../../../templates/data/playerData.hbs":30,"backbone.marionette":1}],22:[function(require,module,exports){
+var Marionette = require('backbone.marionette'),
+    playerData = require('./playerData'),
+    PlayersCollection = require('../../collections/players');
+
+// var teamDataView = Marionette.CompositeView.extend({
+//     className: 'team-data',
+//     template: require('../../../templates/data/teamData.hbs'),
+//     initialize: function() {
+//         this.listenTo(this.model, 'change', this.render);
+//         this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
+//     },
+//     itemView: playerData
+// });
+
+module.exports = CollectionView = Marionette.CollectionView.extend({
+    className: 'data-wrap',
+    initialize: function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    itemView: playerData
+});
+
+},{"../../collections/players":13,"./playerData":21,"backbone.marionette":1}],23:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
+
+module.exports = MenuView = Backbone.Marionette.Layout.extend({
+    template: require('../../../templates/menu/menu.hbs'),
+
+    initialize: function(){
+    },
+    onRender: function(){
+    },
+    onShow: function(){
+    }
+});
+},{"../../../templates/menu/menu.hbs":31,"backbone.marionette":1}],24:[function(require,module,exports){
+var Marionette = require('backbone.marionette'),
+    PlayersCollection = require('../../collections/players');
+
+
+/* Form to add player */
+var AddPlayerSettingsView = Marionette.ItemView.extend({
+    template: require('../../../templates/settings/addplayerSettings.hbs'),
+
+    initialize:function() {
+    }
+});
+/* Form to add player */
+
+
+
+
+
+/* Players who are playing */
+var playingPlayerSettingsView = Marionette.ItemView.extend({
+    className: 'player',
+    template: require('../../../templates/settings/playerSettings.hbs'),
+    events: {
+        'click': 'putBench'
+    },
+
+    initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+    },
+    putBench:function() {
+        this.model.set({bench:true});
+        this.model.save();
+        App.vent.trigger('subbed');
+    },
+    templateHelpers:function(){
+        return {
+            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
+        }
+    }
+});
+
+var PlayingPlayersSettingsView = Marionette.CollectionView.extend({
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+        this.listenTo(this.collection, "reset", this.render, this);
+    },
+    itemView: playingPlayerSettingsView
+});
+/* end players who are playing */
+
+
+
+
+/* Players who are on the bench */
+var benchPlayerSettingsView = Marionette.ItemView.extend({
+    className: 'player',
+    template: require('../../../templates/settings/playerSettings.hbs'),
+    events: {
+        'click': 'putGame'
+    },
+
+    initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+    },
+    putGame:function() {
+        this.model.set({bench:false});
+        this.model.save();
+        App.vent.trigger('subbed');
+    },
+    templateHelpers:function(){
+        return {
+            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
+        }
+    }
+});
+
+var BenchPlayersSettingsView = Marionette.CollectionView.extend({
+
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    itemView: benchPlayerSettingsView
+});
+/* end players who are on the bench */
+
+
+
+
+
+
+module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
+    className: 'edit',
+    template: require('../../../templates/settings/teamSettings.hbs'),
+
+    regions: {
+        addPlayer: ".add-player",
+        playingPlayers: ".playing-players",
+        benchPlayers: ".bench-players"
+    },
+
+    initialize: function() {
+        var self = this;
+
+        // temp re render regions bench/playing collections
+        App.vent.on('subbed', function(data) { self.render() });
+    },
+
+    onRender: function() {
+        
+        // region to add players
+        var addPlayerSettingsView = new AddPlayerSettingsView({ 
+            model: this.options.teamModel
+        });
+        this.addPlayer.show(addPlayerSettingsView);
+        
+
+
+        // region showing a list of playing players  
+        var Playingresults = App.data.players.where({ team_id: this.options.teamModel.id, bench: false });
+        var filteredPlayingCollection = new PlayersCollection(Playingresults); 
+
+        var playingPlayersSettingsView = new PlayingPlayersSettingsView({ 
+            collection: filteredPlayingCollection
+        });
+        this.playingPlayers.show(playingPlayersSettingsView);
+
+
+
+        // region showing a list of bench players  
+        var Benchresults = App.data.players.where({ team_id: this.options.teamModel.id, bench: true });
+        var filteredBenchCollection = new PlayersCollection(Benchresults); 
+
+        var benchPlayersSettingsView = new BenchPlayersSettingsView({ 
+            collection: filteredBenchCollection
+        });
+        this.benchPlayers.show(benchPlayersSettingsView);
+
+    }
+});
+},{"../../../templates/settings/addplayerSettings.hbs":32,"../../../templates/settings/playerSettings.hbs":33,"../../../templates/settings/teamSettings.hbs":34,"../../collections/players":13,"backbone.marionette":1}],25:[function(require,module,exports){
+var Marionette   = require('backbone.marionette'),
+    Snap         = require('snapjs'),
+    TeamsView    = require('../teams/teams'),
+    DataView     = require('../data/teamData'),
+    TeamsCollection = require('../../collections/teams');
+
+module.exports = statsView = Marionette.ItemView.extend({
+    className: 'statsView',
+    template: require('../../../templates/statsView.hbs'),
+    
+    initialize: function() {
+
+        // intialize third party stuff
+        this.facebook();
+        // temp height
+        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+
+    },
+    onRender: function() {
+
+        // make a collection for the teams that are playing
+        this.playingCollection  = this.playingTeam();
+        // make a collection for the teams that are inactive
+        this.sidelineCollection = this.notPlayingTeam();
+        
+        // initialize subviews for statsView
+        window.App.views.teamsView = new TeamsView({ collection: this.playingCollection });
+        window.App.views.dataView  = new DataView({ collection: App.data.players });
+        
+        // append the view's to the DOM (turn into LayoutView??)
+        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
+        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
     },
     playingTeam: function (value) {
-        
+        // get playing team from backbone.collection.extend filter??
+
         // determine who is playing by looking for the team models
         // that have "playing" set to true
         var models = this.collection.where({playing: true});
@@ -18042,6 +19376,7 @@ module.exports = statsView = Marionette.ItemView.extend({
 
     },
     notPlayingTeam: function (value) {
+        // get playing team from backbone.collection.extend filter??
 
         // determine who is NOT playing by looking for the team models
         // that have "playing" set to false
@@ -18050,6 +19385,7 @@ module.exports = statsView = Marionette.ItemView.extend({
 
     },
     facebook: function() {
+        // WIP
         $(document).on('fbStatusChange', function (event, data) {
             if (data.status === 'connected') {
                 console.log('connected')
@@ -18063,10 +19399,53 @@ module.exports = statsView = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/statsView.hbs":37,"../../collections/teams":12,"../data/teamData":20,"../teams/teams":28,"backbone.marionette":1,"snapjs":6}],27:[function(require,module,exports){
+},{"../../../templates/statsView.hbs":35,"../../collections/teams":14,"../data/teamData":22,"../teams/teams":28,"backbone.marionette":1,"snapjs":8}],26:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
-module.exports = playerView = Marionette.ItemView.extend({
+var listTeamsView = Marionette.ItemView.extend({
+    className: 'col-md-6',
+    template: require('../../../templates/team-list.hbs'),
+    events: {
+        'click .home': 'setHome',
+        'click .away': 'setAway'
+    },
+    setHome:function(e) { 
+        //App.vent.trigger('home-team-change', this.model.get('team_name'));
+        App.data.teams.each(function(team) {
+            // clear any team that has side:'home'
+            if(team.get('side') === 'home') {
+                team.set({playing: false, position: null, side: null});
+                team.save();
+            }  
+        },this);
+        this.model.set({playing: true, position: 1, side: 'home'});
+        this.model.save();
+    },
+    setAway:function(e) { 
+        //App.vent.trigger('away-team-change', this.model.get('team_name'));
+        App.data.teams.each(function(team) {
+            // clear any team that has side:'away'
+            if(team.get('side') === 'away') {
+                team.set({playing: false, position: null, side: null});
+                team.save();
+            }  
+        },this);
+        this.model.set({playing: true, position: 2, side: 'away'});
+        this.model.save();
+    }
+});
+
+module.exports = SettingsView = Marionette.CollectionView.extend({
+    className: 'row',
+    initialize:function() {
+        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+    },
+    itemView:listTeamsView
+});
+},{"../../../templates/team-list.hbs":36,"backbone.marionette":1}],27:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
+
+var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
     template: require('../../../templates/teams/player.hbs'),
     events: {
@@ -18140,81 +19519,94 @@ module.exports = playerView = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/teams/player.hbs":40,"backbone.marionette":1}],28:[function(require,module,exports){
+
+module.exports = PlayersView = Marionette.CollectionView.extend({ 
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    itemView: playerView
+});
+
+},{"../../../templates/teams/player.hbs":38,"backbone.marionette":1}],28:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
-    PlayerView = require('./player'),
+    PlayersView = require('./player'),
     PlayersCollection = require('../../collections/players'),
     TeamSettingsLayoutView = require('../settings/teamSettings');
 
-var teamView = Marionette.CompositeView.extend({
+var teamView = Backbone.Marionette.Layout.extend({
 	className: 'team row',
     template: require('../../../templates/teams/team.hbs'),
-    itemViewContainer: '.the-players',
     events: {
         'submit #AddPlayer': 'addPlayer',
         'click .team-changes': 'teamChanges',
         'click .close-team-editor': 'closeTeamChanges'
     },
+    regions: {
+        players: ".the-players"
+    },
     initialize: function() {
+
+        var self = this;
+
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
-        
-        // build a collection of players with this team ID
-        //this.collection = new PlayersCollection(App.data.players.where({team_id: this.model.id}));
-
-        this.collection = this.playingPlayers();
 
         // pass the team name from the model to teamIdenity function
         this.teamIdentity(this.model.get('team_name'));
 
+        // temp re render regions bench/playing collections
+        App.vent.on('subbed', function(data) { self.setRegion() });
+
+    },
+    onRender: function() {
+
+        this.setRegion();
+
+    },
+    setRegion: function() {
+
+        // region showing a list of playing players  
+        var Playingresults = App.data.players.where({ team_id: this.model.id, bench: false });
+        var filteredPlayingCollection = new PlayersCollection(Playingresults); 
+
+        var playersView = new PlayersView({ 
+            collection: filteredPlayingCollection
+        });
+        this.players.show(playersView);
+
     },
     teamIdentity: function(teamName) {
+
         // add the team name to DOM
         this.$el.addClass(teamName);
         this.$el.attr('data-team', teamName);
-    },
-    playingPlayers: function (value) {
-
-        //var models = this.collection.where({playing: true});
-        var models = App.data.players.where({team_id: this.model.id,bench:false});
-        return new PlayersCollection(models);
-
-    },
-    benchPlayers: function (value) {
-
-        //var models = this.collection.where({playing: false});
-        var models = App.data.players.where({team_id: this.model.id,bench:true});
-        return new PlayersCollection(models);
 
     },
     teamChanges:function() {
-        this.playingCollection = this.playingPlayers();
-        this.benchedCollection = this.benchPlayers();
-
-        console.log(this.playingCollection);
-        console.log(this.benchedCollection);
         
         window.App.views.teamSettingsLayoutView = new TeamSettingsLayoutView({ 
-            collection: this.playingCollection,
-            benchedCollection: this.benchPlayers()
+            teamModel: this.model
         });
-        this.$el.find('.team-editor').html(App.views.teamSettingsLayoutView.render().el);
+        this.$el.find('.team-editor').toggleClass('hide show').append(App.views.teamSettingsLayoutView.render().el);
+    
     },
     closeTeamChanges:function() {
+
+        this.$el.find('.team-editor').toggleClass('show hide')
         window.App.views.teamSettingsLayoutView.close();
+
     },
     addPlayer: function(e) {
+
         e.preventDefault();
         
         var $newPlayer = this.$el.find('input.player_name')
-        
         var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
         //this.collection.add(newPlayer);
 
         $newPlayer.val('');
 
-    },
-    itemView: PlayerView
+    }
 });
 
 module.exports = CollectionView = Marionette.CollectionView.extend({
@@ -18225,7 +19617,17 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     },
     initialize: function() {
         this.listenTo(this.collection, 'change', this.render);
-        //$(this.$el).slimScroll();
+    },
+    onRender: function() {
+        var self = this;
+        this.$el.height($('.statsView').height());
+        setTimeout(function() {
+            $(self.$el).slimScroll({
+                height: $('.statsView').height() - 62, // 60 for margins
+                size: '5px',
+                railOpacity: 0.1
+            });
+        },0);
     },
     addTeam: function(e) {
         e.preventDefault();
@@ -18235,7 +19637,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/teams/basketball.hbs":39,"../../../templates/teams/team.hbs":41,"../../collections/players":11,"../settings/teamSettings":24,"./player":27,"backbone.marionette":1}],29:[function(require,module,exports){
+},{"../../../templates/teams/basketball.hbs":37,"../../../templates/teams/team.hbs":39,"../../collections/players":13,"../settings/teamSettings":24,"./player":27,"backbone.marionette":1}],29:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18247,7 +19649,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>";
   });
 
-},{"hbsfy/runtime":45}],30:[function(require,module,exports){
+},{"hbsfy/runtime":43}],30:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18272,7 +19674,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":45}],31:[function(require,module,exports){
+},{"hbsfy/runtime":43}],31:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18281,9 +19683,64 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
+  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MENU</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-home\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":45}],32:[function(require,module,exports){
+},{"hbsfy/runtime":43}],32:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<span class=\"close-team-editor\">X</span>\r\n\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n    <div class=\"col-md-6\">\r\n		<form id=\"AddPlayer\">\r\n		    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
+  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" />\r\n		    <button type=\"submit\">ADD</button>\r\n		</form> \r\n	</div>\r\n	</div>\r\n</div>";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":43}],33:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            <img src=\"http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
+  if (stack1 = helpers.name_format) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.name_format; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + ".png\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+  if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " </span>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-6 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points\">";
+  if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n        </div>\r\n    </div>\r\n</div>    \r\n";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":43}],34:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"row add-player\"></div>\r\n\r\n<div class=\"row row-remove-padding sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<p>Playing</p>\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<p>Bench</p>\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>\r\n";
+  });
+
+},{"hbsfy/runtime":43}],35:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18292,10 +19749,30 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "";
 
 
+  buffer += "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n	"
+    + "\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	"
+    + "\r\n\r\n</div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":45}],33:[function(require,module,exports){
+},{"hbsfy/runtime":43}],36:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div style=\"background-color: #fff; margin: 15px;\">\r\n	";
+  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\r\n	<div class=\"home\" style=\"cursor: pointer\">HOME</div>\r\n	<div class=\"away\" style=\"cursor: pointer\">AWAY</div>\r\n</div>\r\n";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":43}],37:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18304,22 +19781,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MENU</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/\">\r\n                    <i class=\"ti-home\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
+  return "<!-- <form id=\"AddTeam\">\r\n    <input class=\"team_name\" type=\"text\" placeholder=\"add a team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> -->";
   });
 
-},{"hbsfy/runtime":45}],34:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
-
-
-  return "<span class=\"close-team-editor\">X</span>\r\n<form id=\"AddPlayer\">\r\n    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to this team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> ";
-  });
-
-},{"hbsfy/runtime":45}],35:[function(require,module,exports){
+},{"hbsfy/runtime":43}],38:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18381,64 +19846,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":45}],36:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "";
-
-
-  buffer += "\r\n\r\n<div class=\"row add-player\"></div>\r\n\r\n<div class=\"row sub-players\">\r\n    <div class=\"col-md-6 playing-players\"></div>\r\n	<div class=\"col-md-6 bench-players\"></div>\r\n</div>\r\n";
-  return buffer;
-  });
-
-},{"hbsfy/runtime":45}],37:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "";
-
-
-  buffer += "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n	"
-    + "\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	"
-    + "\r\n\r\n</div>\r\n\r\n"
-    + "\r\n<div id=\"some-div\"></div>\r\n";
-  return buffer;
-  });
-
-},{"hbsfy/runtime":45}],38:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var stack1, functionType="function", escapeExpression=this.escapeExpression;
-
-
-  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  return escapeExpression(stack1);
-  });
-
-},{"hbsfy/runtime":45}],39:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
-
-
-  return "<!-- <form id=\"AddTeam\">\r\n    <input class=\"team_name\" type=\"text\" placeholder=\"add a team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> -->";
-  });
-
-},{"hbsfy/runtime":45}],40:[function(require,module,exports){
-module.exports=require(35)
-},{"hbsfy/runtime":45}],41:[function(require,module,exports){
+},{"hbsfy/runtime":43}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -18447,7 +19855,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"statisticals col-xs-12\">\r\n    <div class=\"col-xs-4 column\">\r\n        <div class=\"team-changes\">\r\n            <i class=\"ti-settings\"></i>\r\n        </div>\r\n        <div class=\"team-name\">\r\n            <div style=\"background-color: #D20E18;display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;\"></div>\r\n            ";
+  buffer += "<div class=\"statisticals col-xs-12\">\r\n    <div class=\"col-xs-4 column\">\r\n        <div class=\"team-changes\">\r\n            <i class=\"ti-settings\"></i>\r\n        </div>\r\n        <div class=\"team-name\">\r\n            <div style=\"background-color: ";
+  if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + ";display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;\"></div>\r\n            ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -18456,11 +19868,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
+    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor hide\">\r\n    <div style=\"position:fixed;background-color: rgba(255,255,255,0.8);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;-webkit-filter: blur(20px);\"></div>\r\n</div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":45}],42:[function(require,module,exports){
+},{"hbsfy/runtime":43}],40:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -18628,7 +20040,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],43:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -18736,7 +20148,7 @@ return Handlebars;
 
 };
 
-},{}],44:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -18821,7 +20233,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],45:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -18832,4 +20244,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":42,"handlebars/lib/handlebars/runtime":43,"handlebars/lib/handlebars/utils":44}]},{},[14])
+},{"handlebars/lib/handlebars/base":40,"handlebars/lib/handlebars/runtime":41,"handlebars/lib/handlebars/utils":42}]},{},[16])

@@ -4,7 +4,7 @@
             <i class="ti-settings"></i>
         </div>
         <div class="team-name">
-            <div style="background-color: #D20E18;display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;"></div>
+            <div style="background-color: {{team_color}};display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;"></div>
             {{team_name}}
         </div>    
     </div>
@@ -32,4 +32,6 @@
 
 <div class="the-players {{team_name}} col-xs-12"></div>
 
-<div class="team-editor"></div>
+<div class="team-editor hide">
+    <div style="position:fixed;background-color: rgba(255,255,255,0.8);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;-webkit-filter: blur(20px);"></div>
+</div>
