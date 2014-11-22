@@ -9,17 +9,11 @@ module.exports = {
     '../bower_components/slimScroll/jquery.slimscroll.js' :  { 'exports': 'slimscroll', 'depends': { '../bower_components/jquery/jquery.js': '$' } },
     "jquery.stellar": "Stellar",
     "snapjs": "Snap",
-    "jscrollpane": {
-        "exports": "jscrollpane",
-        "depends": {
-            "jquery": "$"
-        } 
+    "chartjs": {
+        "exports": "chartjs"
     },
-    "mousewheel": {
-        "exports": "mousewheel",
-        "depends": {
-            "jscrollpane": 'jscrollpane'
-        } 
+    "colourBrightness": {
+        "exports": "colourBrightness"
     },
     "underscore": "_",
     "backbone": {

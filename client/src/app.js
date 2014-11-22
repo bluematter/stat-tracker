@@ -2,7 +2,8 @@ var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
     slimscroll        = require('slimscroll'),
-    mousewheel        = require('mousewheel'), 
+    chartjs           = require('chartjs'), 
+    colourBrightness  = require('colourBrightness'), 
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -31,7 +32,7 @@ App.prototype.start = function(){
             FB.init({
                 appId      : '446186442184074',
                 xfbml      : true,
-                version    : 'v2.0'
+                version    : 'v2.1'
             });
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {

@@ -3,15 +3,45 @@
     width: 100%;
     opacity: 0.9;
     z-index: 2147483647;
+    position: relative;
     -webkit-backface-visibility: hidden;
     .sb.row {
 		max-width: 1270px;
 		margin: 0 auto;
-		padding: 23px 0;
+		height: 65px;
 	}
-    .scores {
+    .scores, .clock {
 		color: #fff;
-		margin: auto;
-		max-width: 0;
+		position: relative;
+        top: 6px;
+		.score-data-circle {
+			float: left;
+			&:last-child {
+			    float: right;
+			}
+			.scoreboard-points {
+				border: 2px solid #eee;
+				border-radius: 100em;
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				line-height: 38px;
+		    }
+		    .scoreboard-time {
+				border:2px solid #eee;
+				border-radius: 100em;
+				padding: 10px;
+		    }
+		}
+		&.center {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 10px;
+			margin: auto;
+			width: 0;
+			text-align: center;
+
+		}
 	}
 }

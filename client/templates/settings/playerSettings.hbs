@@ -1,9 +1,13 @@
-<div class="player col-xs-12">
+<div class="player">
 
     <div class="col-xs-6 column stat name">
 
         <span class="column face">
-            <img src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{name_format}}.png" class="player-image img-responsive"/>
+            {{#if player_picture}}
+                <img src="{{player_picture}}" class="player-image img-responsive"/>
+            {{else}}
+                {{!-- <img src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{name_format}}.png" class="player-image img-responsive"/> --}}
+            {{/if}}
         </span>
 
         <div class="column the-name">

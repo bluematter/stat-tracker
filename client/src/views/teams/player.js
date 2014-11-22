@@ -1,4 +1,5 @@
 var Marionette = require('backbone.marionette');
+var TeamsCollection = require('../../collections/teams');
 
 var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
@@ -10,15 +11,22 @@ var playerView = Marionette.ItemView.extend({
         'keydown': 'on_keypress',
         'click .one-point': 'onePoint',
         'click .two-point': 'twoPoint',
-        'click .three-point': 'threePoint'
+        'click .three-point': 'threePoint',
+        'click .add-rebound': 'addRebound',
+        'click .add-steal': 'addSteal',
+        'click .add-block': 'addBlock'
     },
     initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+
     	_.bindAll(this, 'on_keypress');
         $(document).bind('keydown', this.on_keypress);
-        this.listenTo(this.model, 'change', this.render);
+
+    },
+    onRender: function() {
         this.$el.attr('data-player', this.model.get('player_name').replace(/\s+/g,"_").toLowerCase());
     },
-    playerOn:function(e) {
+    playerOn:function() {
     	this.$el.addClass('hover');
         this.findPlayer(this.model.get('player_name'), 'add');   	
     },
@@ -40,16 +48,73 @@ var playerView = Marionette.ItemView.extend({
         var addStat = parseInt(this.model.get('points')) + 1;        
         this.model.set('points', addStat);
         this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 1 });
+        });
     },
     twoPoint:function(e) {
         var addStat = parseInt(this.model.get('points')) + 2;        
         this.model.set('points', addStat);
         this.model.save();
+        
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 2 });
+        });
     },
     threePoint:function(e) {
         var addStat = parseInt(this.model.get('points')) + 3;        
         this.model.set('points', addStat);
         this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 3 });
+        });
+    },
+    addRebound:function(e) {
+        var addStat = parseInt(this.model.get('rebounds')) + 1;        
+        this.model.set('rebounds', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({rebounds: parseInt(theTeam.get('rebounds')) + 1 });
+        });
+    },
+    addSteal:function(e) {
+        var addStat = parseInt(this.model.get('steals')) + 1;        
+        this.model.set('steals', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({steals: parseInt(theTeam.get('steals')) + 1 });
+        });
+    },
+    addBlock:function(e) {
+        var addStat = parseInt(this.model.get('blocks')) + 1;        
+        this.model.set('blocks', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({blocks: parseInt(theTeam.get('blocks')) + 1 });
+        });
     },
     on_keypress:function(e) {
         this.keyStat(e, 49, 'points', 1);   // 1 point
@@ -64,6 +129,13 @@ var playerView = Marionette.ItemView.extend({
                 var addStat = parseInt(this.model.get(stat)) + number;        
 	            this.model.set(stat, addStat);
                 this.model.save();
+
+                // better way to update team stats from new player stats... still BETA
+                var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+                var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+                thisPlayersTeam.each(function(theTeam) {
+                    theTeam.save({stat: parseInt(theTeam.get(stat)) + number });
+                });
             }
 		}
 	},

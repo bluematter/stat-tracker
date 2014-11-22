@@ -9,10 +9,9 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
         return team.get('position');
     },
     byPlaying:function() {
-        // not in use?? COULD BE USEFUL!!
-        // playing = this.filter(function(team) {
-        //     return team.get('playing') === true;
-        // });
-        // return new TeamsCollection(playing);
+        playing = this.filter(function(team) {
+            return team.get('playing') === true;
+        });
+        return new TeamsCollection(playing);
     }
 });

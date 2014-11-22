@@ -71,9 +71,8 @@
     "backbone.dualStorage": "./bower_components/Backbone.dualStorage/backbone.dualstorage.js",
     "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js",
     "slimscroll": "./bower_components/slimScroll/jquery.slimscroll.js",
-    "mwheel.intent": "./bower_components/jScrollPane/script/mwheelintent.js",
-    "mousewheel": "./bower_components/jScrollPane/script/jquery.mousewheel.js",
-    "jscrollpane": "./bower_components/jScrollPane/script/jquery.jscrollpane.js"
+    "chartjs": "./bower_components/chartjs/Chart.js",
+    "colourBrightness": "./client/requires/colourBrightness.js-master/jquery.colourbrightness.js"
   },
   "browserify": {
     "transform": [

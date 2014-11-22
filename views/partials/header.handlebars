@@ -14,7 +14,29 @@
         <div class="pull-right">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.local.email}} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {{#if user.facebook.id}}
+                          <img class="img-circle header-avatar" src="https://graph.facebook.com/{{user.facebook.id}}/picture" alt="user" title="user">
+                        {{else}} 
+                          <img class="img-circle header-avatar" src="https://en.gravatar.com/userimage/30938076/3bf8574b4d6685976ee76e6c0009fa7f.jpg" alt="user" title="user"> 
+                        {{/if}}
+                        <span class="user-name-dropdown ">
+                          {{#if user.local.name}}
+                            {{user.local.name}}
+                          {{else}}    
+                            {{#if user.facebook.id}}
+                              {{user.facebook.name}}
+                            {{else}} 
+                              {{#if user.local.username}}
+                                {{user.local.username}}
+                              {{else}}
+                                {{user.local.email}}
+                              {{/if}}
+                            {{/if}}
+                          {{/if}}
+                        </span>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>

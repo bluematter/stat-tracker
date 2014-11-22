@@ -1,24 +1,37 @@
+.snapjs-left {
+	.team-editor .edit .editor {
+		right: 200px;
+	}
+}
+
 .team-editor {
 	.edit {
-		display: block;
-		position: fixed;
-		width: 70%;
-		height: 70%;
-		top: 0;
-		margin: auto;
-		right: 0;
-		bottom: 0;
-		background-color: #fff;
-		z-index: 999;
-		left: 0;
-		box-shadow: 0 0px 1px 0 rgba(0,0,0,0.3);
+		.editor {
+			display: block;
+			position: fixed;
+			width: 70%;
+			height: 70%;
+			top: 0;
+			margin: auto;
+			overflow: hidden;
+			right: 0;
+			bottom: 0;
+			background-color: #fff;
+			z-index: 999;
+			left: 0;
+			box-shadow: 0 0px 1px 0 rgba(0,0,0,0.3);
+	    }
     }
     .close-team-editor {
 		position: absolute;
-		right: 10px;
+		right: 20px;
 		cursor: pointer;
-		top: 5px;
+		top: 11px;
+		border: 2px solid;
 		z-index: 9;
+		padding: 0px 5px;
+		border-radius: 100em;
+		color: #646f73;
 	}
 	.add-new-player {
 		background-color: #f5f5f5;

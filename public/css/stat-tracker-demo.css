@@ -5435,7 +5435,9 @@ th.hidden-lg, td.hidden-lg {
 .player-image {
   position: absolute;
   bottom: 0;
-  margin: auto; }
+  margin: auto;
+  height: 65px;
+  width: 65px; }
 
 .clicked-data-open .player-image:before {
   background-color: rgba(0, 0, 0, 0.4);
@@ -5453,12 +5455,12 @@ th.hidden-lg, td.hidden-lg {
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
-  border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 100em;
   bottom: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   cursor: pointer;
+  overflow: hidden;
   height: 80px;
   left: 0;
   margin: auto;
@@ -5651,6 +5653,11 @@ th.hidden-lg, td.hidden-lg {
 p.sign-up {
   color: #fff;
   font-size: 12px; }
+
+.nav > li > a > img {
+  max-height: 25px;
+  margin-right: 5px;
+  margin-top: -5px; }
 
 button {
   display: inline-block;
@@ -6015,6 +6022,22 @@ button {
     text-decoration: none;
     outline: 0 none; }
 
+.the-teams .team-block.dark {
+  color: #fff; }
+.the-teams .team-block.light {
+  color: #333; }
+.the-teams .true {
+  border: 1px solid #0bf; }
+.the-teams .team-data {
+  font-size: 50px;
+  display: inline-block;
+  margin-left: 25px; }
+.the-teams .team-settings-btn {
+  color: #015693;
+  background-color: transparent;
+  border-color: #015693;
+  border-radius: 100em; }
+
 .start-up .live-data {
   height: 729px; }
 
@@ -6196,10 +6219,45 @@ button {
     margin: 4px 10px 0 0;
     width: 50px; }
 
+.chart {
+  position: absolute;
+  right: 0;
+  background: #f2f5f6;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1); }
+  .chart canvas {
+    position: relative;
+    left: -2px; }
+
+@-webkit-keyframes myfirst {
+  0% {
+    left: 67px;
+    top: 0px; }
+
+  100% {
+    left: 87px;
+    top: -20px; } }
+
+@keyframes myfirst {
+  0% {
+    left: 67px;
+    top: 0px; }
+
+  100% {
+    left: 87px;
+    top: -20px; } }
+
+#basketball .test {
+  -webkit-transition: 1s all ease;
+  transition: 1s all ease;
+  height: 1px;
+  width: 0%;
+  float: left; }
 #basketball .teams-box {
   margin-top: 30px; }
-#basketball .column {
-  overflow: hidden; }
 #basketball .col-xs-3 {
   width: 22%; }
 #basketball h6 {
@@ -6209,19 +6267,6 @@ button {
   left: 0; }
   #basketball .choose-team li {
     display: block; }
-#basketball .team:before {
-  -webkit-background-size: cover;
-  background-size: cover;
-  color: #AFAFAF;
-  content: "";
-  display: block;
-  height: 530px;
-  left: 50%;
-  opacity: 0.34;
-  position: absolute;
-  top: 45px;
-  width: 690px;
-  z-index: 4; }
 #basketball .team {
   background-color: #FEFEFE;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -6314,7 +6359,8 @@ button {
         width: 65px;
         height: 100%;
         float: left;
-        position: relative; }
+        position: relative;
+        overflow: hidden; }
       #basketball .team .player .column.stat.name .player-buttons {
         width: 40px;
         float: left;
@@ -6362,6 +6408,39 @@ button {
         line-height: 21px;
         text-align: center;
         margin: auto; }
+      #basketball .team .player .column.stat.data .stat-add-button {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 67px;
+        top: 0px;
+        margin: auto;
+        bottom: 0;
+        cursor: pointer;
+        line-height: 20px;
+        z-index: 9;
+        color: #fff;
+        background-color: #00c8d7;
+        border-radius: 100em;
+        opacity: 0; }
+      #basketball .team .player .column.stat.data:hover {
+        cursor: pointer; }
+        #basketball .team .player .column.stat.data:hover .stat-add-button {
+          opacity: 1;
+          -webkit-animation-name: myfirst;
+          animation-name: myfirst;
+          -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+          -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
     #basketball .team .player .column.stat.data, #basketball .team .player .the-name {
       position: relative;
       top: 50%;
@@ -6397,13 +6476,17 @@ button {
     #basketball .team .player .column.points.miss:hover {
       color: #da4632; }
 
-.team-editor .edit {
+.snapjs-left .team-editor .edit .editor {
+  right: 200px; }
+
+.team-editor .edit .editor {
   display: block;
   position: fixed;
   width: 70%;
   height: 70%;
   top: 0;
   margin: auto;
+  overflow: hidden;
   right: 0;
   bottom: 0;
   background-color: #fff;
@@ -6413,10 +6496,14 @@ button {
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3); }
 .team-editor .close-team-editor {
   position: absolute;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
-  top: 5px;
-  z-index: 9; }
+  top: 11px;
+  border: 2px solid;
+  z-index: 9;
+  padding: 0px 5px;
+  border-radius: 100em;
+  color: #646f73; }
 .team-editor .add-new-player {
   background-color: #f5f5f5;
   display: inline-block;
@@ -6437,14 +6524,14 @@ button {
 
 .player-data {
   background-color: #FFFFFF;
-  border-left: 1px solid #F5F5F5;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   height: 100%;
   opacity: 0.95;
   position: fixed;
   right: 0;
   top: 0;
+  width: 400px;
   -webkit-transform: translate3d(400px, 0px, 0px);
   transform: translate3d(400px, 0px, 0px);
   -webkit-transition-duration: 0.75s;
@@ -6535,15 +6622,39 @@ button {
   width: 100%;
   opacity: 0.9;
   z-index: 2147483647;
+  position: relative;
   -webkit-backface-visibility: hidden; }
   .scoreboard .sb.row {
     max-width: 1270px;
     margin: 0 auto;
-    padding: 23px 0; }
-  .scoreboard .scores {
+    height: 65px; }
+  .scoreboard .scores, .scoreboard .clock {
     color: #fff;
-    margin: auto;
-    max-width: 0; }
+    position: relative;
+    top: 6px; }
+    .scoreboard .scores .score-data-circle, .scoreboard .clock .score-data-circle {
+      float: left; }
+      .scoreboard .scores .score-data-circle:last-child, .scoreboard .clock .score-data-circle:last-child {
+        float: right; }
+      .scoreboard .scores .score-data-circle .scoreboard-points, .scoreboard .clock .score-data-circle .scoreboard-points {
+        border: 2px solid #eee;
+        border-radius: 100em;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 38px; }
+      .scoreboard .scores .score-data-circle .scoreboard-time, .scoreboard .clock .score-data-circle .scoreboard-time {
+        border: 2px solid #eee;
+        border-radius: 100em;
+        padding: 10px; }
+    .scoreboard .scores.center, .scoreboard .clock.center {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 10px;
+      margin: auto;
+      width: 0;
+      text-align: center; }
 
 .new-app {
   padding: 0; }

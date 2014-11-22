@@ -26,6 +26,7 @@ var Team = new Schema({
 
 var Player = new Schema({
     player_name:  { type: String },
+    player_picture: { type: String },
     team_id:      { type: String },
     bench:        { type: Boolean },
     points:       { type: Number },

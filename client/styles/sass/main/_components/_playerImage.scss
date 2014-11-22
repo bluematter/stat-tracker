@@ -8,6 +8,8 @@
 	position: absolute;
     bottom: 0;
     margin: auto;
+    height: 65px;
+    width: 65px;
 }
 .clicked-data-open .player-image:before {
     background-color: rgba(0, 0, 0, 0.4);
@@ -24,11 +26,11 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 100em;
     bottom: 0;
     box-shadow: none;
     cursor: pointer;
+    overflow: hidden;
     height: 80px;
     left: 0;
     margin: auto;

@@ -1,12 +1,26 @@
+@keyframes myfirst {
+    0% {
+        left: 67px;
+        top: 0px;
+    }
+    100% {
+        left: 87px;
+        top: -20px;
+    }
+}
+
 #basketball {
+
+    .test {
+        transition: 1s all ease; 
+        height: 1px; 
+        width: 0%;
+        float: left;
+    }
 
     .teams-box {
         margin-top: 30px;
     }
-
-	.column {
-		overflow: hidden;
-	}
 
 	.col-xs-3 {
 	    width: 22%; // change col-xs-3 for more room
@@ -23,19 +37,6 @@
 		li {display: block}
 	}
     
-    .team:before {
-	    background-size: cover;
-	    color: #AFAFAF; 
-	    content: "";
-	    display: block;
-	    height: 530px;
-	    left: 50%;
-	    opacity: 0.34;
-	    position: absolute; 
-	    top: 45px;
-	    width: 690px;
-	    z-index: 4;
-	}
 	.team{
 	    background-color: #FEFEFE;
         box-shadow: 0 1px 2px rgba(0,0,0,.1);
@@ -159,6 +160,7 @@
                     height: 100%;
                     float: left;
                     position: relative;
+                    overflow: hidden;
                 }
                 .player-buttons {
                     width: 40px;
@@ -216,24 +218,41 @@
                     line-height: 21px;
                     text-align: center;
                     margin: auto;
-                }       	
+                } 
+                .stat-add-button {
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    left: 67px;
+                    top: 0px;
+                    margin: auto;
+                    bottom: 0;
+                    cursor: pointer;
+                    line-height: 20px;
+                    z-index: 9;
+                    color: #fff;
+                    background-color: #00c8d7;
+                    border-radius: 100em;
+                    opacity: 0;
+                } 
+                &:hover {
+                    cursor: pointer;
+                    .stat-add-button {
+                        opacity: 1;
+                        animation-name: myfirst;
+                        animation-duration: 0.4s;
+                        animation-timing-function: linear;
+                        animation-delay: 0s;
+                        animation-iteration-count: 1;
+                        animation-direction: alternate;
+                        animation-fill-mode: forwards;
+                    }
+                }     	
             }
             .column.stat.data, .the-name {
                 position: relative;
                 top: 50%;
                 transform: translateY(-50%);
-            }
-            .column.stat.data:before {
-                // position: absolute;
-                // height: 25%;
-                // content: "";
-                // top: 0;
-                // margin: auto;
-                // right: 0;
-                // bottom: 0;
-                // width: 1px;
-                // background-color: #aaa;
-                // display: block;
             }
             .column.stat.data.fouls {
             	font-size: 10px;

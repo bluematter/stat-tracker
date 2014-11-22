@@ -6,7 +6,8 @@ var PlayersCollection = require('../collections/players');
 module.exports = TeamModel = Backbone.Model.extend({
     idAttribute: '_id',
     defaults: {
-        team_name: '',         
+        team_name: '',
+        team_color:   '#ffffff',         
         points:       0, 
         made_one:     0, 
         made_two:     0, 

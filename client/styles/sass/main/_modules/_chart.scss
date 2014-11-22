@@ -1,0 +1,13 @@
+.chart {
+	position: absolute;
+	right: 0;
+	background: #f2f5f6;
+	height: 100%;
+	padding: 0;
+	overflow: hidden;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+	canvas {
+		position: relative;
+		left: -2px;
+	}
+}

@@ -2475,7 +2475,7 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],2:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],2:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -2641,7 +2641,7 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],3:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -2917,1693 +2917,1440 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],4:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":8,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":9}],4:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
-
-; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
 /*!
- * jScrollPane - v2.0.20 - 2014-10-23
- * http://jscrollpane.kelvinluck.com/
+ * Chart.js
+ * http://chartjs.org/
  *
- * Copyright (c) 2014 Kelvin Luck
- * Dual licensed under the MIT or GPL licenses.
+ * Copyright 2013 Nick Downie
+ * Released under the MIT license
+ * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
  */
 
-// Script: jScrollPane - cross browser customisable scrollbars
-//
-// *Version: 2.0.20, Last updated: 2014-10-23*
-//
-// Project Home - http://jscrollpane.kelvinluck.com/
-// GitHub       - http://github.com/vitch/jScrollPane
-// Source       - http://github.com/vitch/jScrollPane/raw/master/script/jquery.jscrollpane.js
-// (Minified)   - http://github.com/vitch/jScrollPane/raw/master/script/jquery.jscrollpane.min.js
-//
-// About: License
-//
-// Copyright (c) 2014 Kelvin Luck
-// Dual licensed under the MIT or GPL Version 2 licenses.
-// http://jscrollpane.kelvinluck.com/MIT-LICENSE.txt
-// http://jscrollpane.kelvinluck.com/GPL-LICENSE.txt
-//
-// About: Examples
-//
-// All examples and demos are available through the jScrollPane example site at:
-// http://jscrollpane.kelvinluck.com/
-//
-// About: Support and Testing
-//
-// This plugin is tested on the browsers below and has been found to work reliably on them. If you run
-// into a problem on one of the supported browsers then please visit the support section on the jScrollPane
-// website (http://jscrollpane.kelvinluck.com/) for more information on getting support. You are also
-// welcome to fork the project on GitHub if you can contribute a fix for a given issue. 
-//
-// jQuery Versions - tested in 1.4.2+ - reported to work in 1.3.x
-// Browsers Tested - Firefox 3.6.8, Safari 5, Opera 10.6, Chrome 5.0, IE 6, 7, 8
-//
-// About: Release History
-//
-// 2.0.20 - (2014-10-23) Adds AMD support (thanks @carlosrberto) and support for overflow-x/overflow-y (thanks @darimpulso)
-// 2.0.19 - (2013-11-16) Changes for more reliable scroll amount with latest mousewheel plugin (thanks @brandonaaron)
-// 2.0.18 - (2013-10-23) Fix for issue with gutters and scrollToElement (thanks @Dubiy)
-// 2.0.17 - (2013-08-17) Working correctly when box-sizing is set to border-box (thanks @pieht)
-// 2.0.16 - (2013-07-30) Resetting left position when scroll is removed. Fixes #189
-// 2.0.15 - (2013-07-29) Fixed issue with scrollToElement where the destX and destY are undefined.
-// 2.0.14 - (2013-05-01) Updated to most recent mouse wheel plugin (see #106) and related changes for sensible scroll speed
-// 2.0.13 - (2013-05-01) Switched to semver compatible version name
-// 2.0.0beta12 - (2012-09-27) fix for jQuery 1.8+
-// 2.0.0beta11 - (2012-05-14)
-// 2.0.0beta10 - (2011-04-17) cleaner required size calculation, improved keyboard support, stickToBottom/Left, other small fixes
-// 2.0.0beta9 - (2011-01-31) new API methods, bug fixes and correct keyboard support for FF/OSX
-// 2.0.0beta8 - (2011-01-29) touchscreen support, improved keyboard support
-// 2.0.0beta7 - (2011-01-23) scroll speed consistent (thanks Aivo Paas)
-// 2.0.0beta6 - (2010-12-07) scrollToElement horizontal support
-// 2.0.0beta5 - (2010-10-18) jQuery 1.4.3 support, various bug fixes
-// 2.0.0beta4 - (2010-09-17) clickOnTrack support, bug fixes
-// 2.0.0beta3 - (2010-08-27) Horizontal mousewheel, mwheelIntent, keyboard support, bug fixes
-// 2.0.0beta2 - (2010-08-21) Bug fixes
-// 2.0.0beta1 - (2010-08-17) Rewrite to follow modern best practices and enable horizontal scrolling, initially hidden
-//							 elements and dynamically sized elements.
-// 1.x - (2006-12-31 - 2010-07-31) Initial version, hosted at googlecode, deprecated
+//Define the global Chart Variable as a class.
+window.Chart = function(context){
 
-(function (plugin, window) {
-	var factory = function($){
-		return plugin($, window);
-	}
-  if ( typeof define === 'function' && define.amd ) {
-      // AMD. Register as an anonymous module.
-      define(['jquery'], factory);
-  } else if (typeof exports === 'object') {
-      // Node/CommonJS style for Browserify
-      module.exports = factory;
-  } else {
-      // Browser globals
-      factory(jQuery);
-  }
-}(function($,window,undefined){
-
-	$.fn.jScrollPane = function(settings)
-	{
-		// JScrollPane "class" - public methods are available through $('selector').data('jsp')
-		function JScrollPane(elem, s)
-		{
-			var settings, jsp = this, pane, paneWidth, paneHeight, container, contentWidth, contentHeight,
-				percentInViewH, percentInViewV, isScrollableV, isScrollableH, verticalDrag, dragMaxY,
-				verticalDragPosition, horizontalDrag, dragMaxX, horizontalDragPosition,
-				verticalBar, verticalTrack, scrollbarWidth, verticalTrackHeight, verticalDragHeight, arrowUp, arrowDown,
-				horizontalBar, horizontalTrack, horizontalTrackWidth, horizontalDragWidth, arrowLeft, arrowRight,
-				reinitialiseInterval, originalPadding, originalPaddingTotalWidth, previousContentWidth,
-				wasAtTop = true, wasAtLeft = true, wasAtBottom = false, wasAtRight = false,
-				originalElement = elem.clone(false, false).empty(),
-				mwEvent = $.fn.mwheelIntent ? 'mwheelIntent.jsp' : 'mousewheel.jsp';
-
-			if (elem.css('box-sizing') === 'border-box') {
-				originalPadding = 0;
-				originalPaddingTotalWidth = 0;
+	var chart = this;
+	
+	
+	//Easing functions adapted from Robert Penner's easing equations
+	//http://www.robertpenner.com/easing/
+	
+	var animationOptions = {
+		linear : function (t){
+			return t;
+		},
+		easeInQuad: function (t) {
+			return t*t;
+		},
+		easeOutQuad: function (t) {
+			return -1 *t*(t-2);
+		},
+		easeInOutQuad: function (t) {
+			if ((t/=1/2) < 1) return 1/2*t*t;
+			return -1/2 * ((--t)*(t-2) - 1);
+		},
+		easeInCubic: function (t) {
+			return t*t*t;
+		},
+		easeOutCubic: function (t) {
+			return 1*((t=t/1-1)*t*t + 1);
+		},
+		easeInOutCubic: function (t) {
+			if ((t/=1/2) < 1) return 1/2*t*t*t;
+			return 1/2*((t-=2)*t*t + 2);
+		},
+		easeInQuart: function (t) {
+			return t*t*t*t;
+		},
+		easeOutQuart: function (t) {
+			return -1 * ((t=t/1-1)*t*t*t - 1);
+		},
+		easeInOutQuart: function (t) {
+			if ((t/=1/2) < 1) return 1/2*t*t*t*t;
+			return -1/2 * ((t-=2)*t*t*t - 2);
+		},
+		easeInQuint: function (t) {
+			return 1*(t/=1)*t*t*t*t;
+		},
+		easeOutQuint: function (t) {
+			return 1*((t=t/1-1)*t*t*t*t + 1);
+		},
+		easeInOutQuint: function (t) {
+			if ((t/=1/2) < 1) return 1/2*t*t*t*t*t;
+			return 1/2*((t-=2)*t*t*t*t + 2);
+		},
+		easeInSine: function (t) {
+			return -1 * Math.cos(t/1 * (Math.PI/2)) + 1;
+		},
+		easeOutSine: function (t) {
+			return 1 * Math.sin(t/1 * (Math.PI/2));
+		},
+		easeInOutSine: function (t) {
+			return -1/2 * (Math.cos(Math.PI*t/1) - 1);
+		},
+		easeInExpo: function (t) {
+			return (t==0) ? 1 : 1 * Math.pow(2, 10 * (t/1 - 1));
+		},
+		easeOutExpo: function (t) {
+			return (t==1) ? 1 : 1 * (-Math.pow(2, -10 * t/1) + 1);
+		},
+		easeInOutExpo: function (t) {
+			if (t==0) return 0;
+			if (t==1) return 1;
+			if ((t/=1/2) < 1) return 1/2 * Math.pow(2, 10 * (t - 1));
+			return 1/2 * (-Math.pow(2, -10 * --t) + 2);
+			},
+		easeInCirc: function (t) {
+			if (t>=1) return t;
+			return -1 * (Math.sqrt(1 - (t/=1)*t) - 1);
+		},
+		easeOutCirc: function (t) {
+			return 1 * Math.sqrt(1 - (t=t/1-1)*t);
+		},
+		easeInOutCirc: function (t) {
+			if ((t/=1/2) < 1) return -1/2 * (Math.sqrt(1 - t*t) - 1);
+			return 1/2 * (Math.sqrt(1 - (t-=2)*t) + 1);
+		},
+		easeInElastic: function (t) {
+			var s=1.70158;var p=0;var a=1;
+			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*.3;
+			if (a < Math.abs(1)) { a=1; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (1/a);
+			return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p ));
+		},
+		easeOutElastic: function (t) {
+			var s=1.70158;var p=0;var a=1;
+			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*.3;
+			if (a < Math.abs(1)) { a=1; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (1/a);
+			return a*Math.pow(2,-10*t) * Math.sin( (t*1-s)*(2*Math.PI)/p ) + 1;
+		},
+		easeInOutElastic: function (t) {
+			var s=1.70158;var p=0;var a=1;
+			if (t==0) return 0;  if ((t/=1/2)==2) return 1;  if (!p) p=1*(.3*1.5);
+			if (a < Math.abs(1)) { a=1; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (1/a);
+			if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p ));
+			return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p )*.5 + 1;
+		},
+		easeInBack: function (t) {
+			var s = 1.70158;
+			return 1*(t/=1)*t*((s+1)*t - s);
+		},
+		easeOutBack: function (t) {
+			var s = 1.70158;
+			return 1*((t=t/1-1)*t*((s+1)*t + s) + 1);
+		},
+		easeInOutBack: function (t) {
+			var s = 1.70158; 
+			if ((t/=1/2) < 1) return 1/2*(t*t*(((s*=(1.525))+1)*t - s));
+			return 1/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2);
+		},
+		easeInBounce: function (t) {
+			return 1 - animationOptions.easeOutBounce (1-t);
+		},
+		easeOutBounce: function (t) {
+			if ((t/=1) < (1/2.75)) {
+				return 1*(7.5625*t*t);
+			} else if (t < (2/2.75)) {
+				return 1*(7.5625*(t-=(1.5/2.75))*t + .75);
+			} else if (t < (2.5/2.75)) {
+				return 1*(7.5625*(t-=(2.25/2.75))*t + .9375);
 			} else {
-				originalPadding = elem.css('paddingTop') + ' ' +
-									elem.css('paddingRight') + ' ' +
-									elem.css('paddingBottom') + ' ' +
-									elem.css('paddingLeft');	
-				originalPaddingTotalWidth = (parseInt(elem.css('paddingLeft'), 10) || 0) +
-											(parseInt(elem.css('paddingRight'), 10) || 0);
+				return 1*(7.5625*(t-=(2.625/2.75))*t + .984375);
 			}
+		},
+		easeInOutBounce: function (t) {
+			if (t < 1/2) return animationOptions.easeInBounce (t*2) * .5;
+			return animationOptions.easeOutBounce (t*2-1) * .5 + 1*.5;
+		}
+	};
 
-			function initialise(s)
-			{
+	//Variables global to the chart
+	var width = context.canvas.width;
+	var height = context.canvas.height;
 
-				var /*firstChild, lastChild, */isMaintainingPositon, lastContentX, lastContentY,
-						hasContainingSpaceChanged, originalScrollTop, originalScrollLeft,
-						maintainAtBottom = false, maintainAtRight = false;
 
-				settings = s;
+	//High pixel density displays - multiply the size of the canvas height/width by the device pixel ratio, then scale.
+	if (window.devicePixelRatio) {
+		context.canvas.style.width = width + "px";
+		context.canvas.style.height = height + "px";
+		context.canvas.height = height * window.devicePixelRatio;
+		context.canvas.width = width * window.devicePixelRatio;
+		context.scale(window.devicePixelRatio, window.devicePixelRatio);
+	}
 
-				if (pane === undefined) {
-					originalScrollTop = elem.scrollTop();
-					originalScrollLeft = elem.scrollLeft();
+	this.PolarArea = function(data,options){
+	
+		chart.PolarArea.defaults = {
+			scaleOverlay : true,
+			scaleOverride : false,
+			scaleSteps : null,
+			scaleStepWidth : null,
+			scaleStartValue : null,
+			scaleShowLine : true,
+			scaleLineColor : "rgba(0,0,0,.1)",
+			scaleLineWidth : 1,
+			scaleShowLabels : true,
+			scaleLabel : "<%=value%>",
+			scaleFontFamily : "'Arial'",
+			scaleFontSize : 12,
+			scaleFontStyle : "normal",
+			scaleFontColor : "#666",
+			scaleShowLabelBackdrop : true,
+			scaleBackdropColor : "rgba(255,255,255,0.75)",
+			scaleBackdropPaddingY : 2,
+			scaleBackdropPaddingX : 2,
+			segmentShowStroke : true,
+			segmentStrokeColor : "#fff",
+			segmentStrokeWidth : 2,
+			animation : true,
+			animationSteps : 100,
+			animationEasing : "easeOutBounce",
+			animateRotate : true,
+			animateScale : false,
+			onAnimationComplete : null
+		};
+		
+		var config = (options)? mergeChartConfig(chart.PolarArea.defaults,options) : chart.PolarArea.defaults;
+		
+		return new PolarArea(data,config,context);
+	};
 
-					elem.css(
-						{
-							overflow: 'hidden',
-							padding: 0
-						}
-					);
-					// TODO: Deal with where width/ height is 0 as it probably means the element is hidden and we should
-					// come back to it later and check once it is unhidden...
-					paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
-					paneHeight = elem.innerHeight();
+	this.Radar = function(data,options){
+	
+		chart.Radar.defaults = {
+			scaleOverlay : false,
+			scaleOverride : false,
+			scaleSteps : null,
+			scaleStepWidth : null,
+			scaleStartValue : null,
+			scaleShowLine : true,
+			scaleLineColor : "rgba(0,0,0,.1)",
+			scaleLineWidth : 1,
+			scaleShowLabels : false,
+			scaleLabel : "<%=value%>",
+			scaleFontFamily : "'Arial'",
+			scaleFontSize : 12,
+			scaleFontStyle : "normal",
+			scaleFontColor : "#666",
+			scaleShowLabelBackdrop : true,
+			scaleBackdropColor : "rgba(255,255,255,0.75)",
+			scaleBackdropPaddingY : 2,
+			scaleBackdropPaddingX : 2,
+			angleShowLineOut : true,
+			angleLineColor : "rgba(0,0,0,.1)",
+			angleLineWidth : 1,			
+			pointLabelFontFamily : "'Arial'",
+			pointLabelFontStyle : "normal",
+			pointLabelFontSize : 12,
+			pointLabelFontColor : "#666",
+			pointDot : true,
+			pointDotRadius : 3,
+			pointDotStrokeWidth : 1,
+			datasetStroke : true,
+			datasetStrokeWidth : 2,
+			datasetFill : true,
+			animation : true,
+			animationSteps : 60,
+			animationEasing : "easeOutQuart",
+			onAnimationComplete : null
+		};
+		
+		var config = (options)? mergeChartConfig(chart.Radar.defaults,options) : chart.Radar.defaults;
 
-					elem.width(paneWidth);
-					
-					pane = $('<div class="jspPane" />').css('padding', originalPadding).append(elem.children());
-					container = $('<div class="jspContainer" />')
-						.css({
-							'width': paneWidth + 'px',
-							'height': paneHeight + 'px'
-						}
-					).append(pane).appendTo(elem);
+		return new Radar(data,config,context);
+	};
+	
+	this.Pie = function(data,options){
+		chart.Pie.defaults = {
+			segmentShowStroke : true,
+			segmentStrokeColor : "#fff",
+			segmentStrokeWidth : 2,
+			animation : true,
+			animationSteps : 100,
+			animationEasing : "easeOutBounce",
+			animateRotate : true,
+			animateScale : false,
+			onAnimationComplete : null
+		};		
 
-					/*
-					// Move any margins from the first and last children up to the container so they can still
-					// collapse with neighbouring elements as they would before jScrollPane 
-					firstChild = pane.find(':first-child');
-					lastChild = pane.find(':last-child');
-					elem.css(
-						{
-							'margin-top': firstChild.css('margin-top'),
-							'margin-bottom': lastChild.css('margin-bottom')
-						}
-					);
-					firstChild.css('margin-top', 0);
-					lastChild.css('margin-bottom', 0);
-					*/
-				} else {
-					elem.css('width', '');
+		var config = (options)? mergeChartConfig(chart.Pie.defaults,options) : chart.Pie.defaults;
+		
+		return new Pie(data,config,context);				
+	};
+	
+	this.Doughnut = function(data,options){
+	
+		chart.Doughnut.defaults = {
+			segmentShowStroke : true,
+			segmentStrokeColor : "#fff",
+			segmentStrokeWidth : 2,
+			percentageInnerCutout : 50,
+			animation : true,
+			animationSteps : 100,
+			animationEasing : "easeOutBounce",
+			animateRotate : true,
+			animateScale : false,
+			onAnimationComplete : null
+		};		
 
-					maintainAtBottom = settings.stickToBottom && isCloseToBottom();
-					maintainAtRight  = settings.stickToRight  && isCloseToRight();
+		var config = (options)? mergeChartConfig(chart.Doughnut.defaults,options) : chart.Doughnut.defaults;
+		
+		return new Doughnut(data,config,context);			
+		
+	};
 
-					hasContainingSpaceChanged = elem.innerWidth() + originalPaddingTotalWidth != paneWidth || elem.outerHeight() != paneHeight;
+	this.Line = function(data,options){
+	
+		chart.Line.defaults = {
+			scaleOverlay : false,
+			scaleOverride : false,
+			scaleSteps : null,
+			scaleStepWidth : null,
+			scaleStartValue : null,
+			scaleLineColor : "rgba(0,0,0,.1)",
+			scaleLineWidth : 1,
+			scaleShowLabels : true,
+			scaleLabel : "<%=value%>",
+			scaleFontFamily : "'Arial'",
+			scaleFontSize : 12,
+			scaleFontStyle : "normal",
+			scaleFontColor : "#666",
+			scaleShowGridLines : true,
+			scaleGridLineColor : "rgba(0,0,0,.05)",
+			scaleGridLineWidth : 1,
+			bezierCurve : true,
+			pointDot : true,
+			pointDotRadius : 4,
+			pointDotStrokeWidth : 2,
+			datasetStroke : true,
+			datasetStrokeWidth : 2,
+			datasetFill : true,
+			animation : true,
+			animationSteps : 60,
+			animationEasing : "easeOutQuart",
+			onAnimationComplete : null
+		};		
+		var config = (options) ? mergeChartConfig(chart.Line.defaults,options) : chart.Line.defaults;
+		
+		return new Line(data,config,context);
+	}
+	
+	this.Bar = function(data,options){
+		chart.Bar.defaults = {
+			scaleOverlay : false,
+			scaleOverride : false,
+			scaleSteps : null,
+			scaleStepWidth : null,
+			scaleStartValue : null,
+			scaleLineColor : "rgba(0,0,0,.1)",
+			scaleLineWidth : 1,
+			scaleShowLabels : true,
+			scaleLabel : "<%=value%>",
+			scaleFontFamily : "'Arial'",
+			scaleFontSize : 12,
+			scaleFontStyle : "normal",
+			scaleFontColor : "#666",
+			scaleShowGridLines : true,
+			scaleGridLineColor : "rgba(0,0,0,.05)",
+			scaleGridLineWidth : 1,
+			barShowStroke : true,
+			barStrokeWidth : 2,
+			barValueSpacing : 5,
+			barDatasetSpacing : 1,
+			animation : true,
+			animationSteps : 60,
+			animationEasing : "easeOutQuart",
+			onAnimationComplete : null
+		};		
+		var config = (options) ? mergeChartConfig(chart.Bar.defaults,options) : chart.Bar.defaults;
+		
+		return new Bar(data,config,context);		
+	}
+	
+	var clear = function(c){
+		c.clearRect(0, 0, width, height);
+	};
 
-					if (hasContainingSpaceChanged) {
-						paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
-						paneHeight = elem.innerHeight();
-						container.css({
-							width: paneWidth + 'px',
-							height: paneHeight + 'px'
-						});
-					}
+	var PolarArea = function(data,config,ctx){
+		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString;		
+		
+		
+		calculateDrawingSizes();
+		
+		valueBounds = getValueBounds();
 
-					// If nothing changed since last check...
-					if (!hasContainingSpaceChanged && previousContentWidth == contentWidth && pane.outerHeight() == contentHeight) {
-						elem.width(paneWidth);
-						return;
-					}
-					previousContentWidth = contentWidth;
-					
-					pane.css('width', '');
-					elem.width(paneWidth);
+		labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : null;
 
-					container.find('>.jspVerticalBar,>.jspHorizontalBar').remove().end();
-				}
-
-				pane.css('overflow', 'auto');
-				if (s.contentWidth) {
-					contentWidth = s.contentWidth;
-				} else {
-					contentWidth = pane[0].scrollWidth;
-				}
-				contentHeight = pane[0].scrollHeight;
-				pane.css('overflow', '');
-
-				percentInViewH = contentWidth / paneWidth;
-				percentInViewV = contentHeight / paneHeight;
-				isScrollableV = percentInViewV > 1;
-
-				isScrollableH = percentInViewH > 1;
-
-				//console.log(paneWidth, paneHeight, contentWidth, contentHeight, percentInViewH, percentInViewV, isScrollableH, isScrollableV);
-
-				if (!(isScrollableH || isScrollableV)) {
-					elem.removeClass('jspScrollable');
-					pane.css({
-            top: 0,
-            left: 0,
-						width: container.width() - originalPaddingTotalWidth
-					});
-					removeMousewheel();
-					removeFocusHandler();
-					removeKeyboardNav();
-					removeClickOnTrack();
-				} else {
-					elem.addClass('jspScrollable');
-
-					isMaintainingPositon = settings.maintainPosition && (verticalDragPosition || horizontalDragPosition);
-					if (isMaintainingPositon) {
-						lastContentX = contentPositionX();
-						lastContentY = contentPositionY();
-					}
-
-					initialiseVerticalScroll();
-					initialiseHorizontalScroll();
-					resizeScrollbars();
-
-					if (isMaintainingPositon) {
-						scrollToX(maintainAtRight  ? (contentWidth  - paneWidth ) : lastContentX, false);
-						scrollToY(maintainAtBottom ? (contentHeight - paneHeight) : lastContentY, false);
-					}
-
-					initFocusHandler();
-					initMousewheel();
-					initTouch();
-					
-					if (settings.enableKeyboardNavigation) {
-						initKeyboardNav();
-					}
-					if (settings.clickOnTrack) {
-						initClickOnTrack();
-					}
-					
-					observeHash();
-					if (settings.hijackInternalLinks) {
-						hijackInternalLinks();
-					}
-				}
-
-				if (settings.autoReinitialise && !reinitialiseInterval) {
-					reinitialiseInterval = setInterval(
-						function()
-						{
-							initialise(settings);
-						},
-						settings.autoReinitialiseDelay
-					);
-				} else if (!settings.autoReinitialise && reinitialiseInterval) {
-					clearInterval(reinitialiseInterval);
-				}
-
-				originalScrollTop && elem.scrollTop(0) && scrollToY(originalScrollTop, false);
-				originalScrollLeft && elem.scrollLeft(0) && scrollToX(originalScrollLeft, false);
-
-				elem.trigger('jsp-initialised', [isScrollableH || isScrollableV]);
+		//Check and set the scale
+		if (!config.scaleOverride){
+			
+			calculatedScale = calculateScale(scaleHeight,valueBounds.maxSteps,valueBounds.minSteps,valueBounds.maxValue,valueBounds.minValue,labelTemplateString);
+		}
+		else {
+			calculatedScale = {
+				steps : config.scaleSteps,
+				stepValue : config.scaleStepWidth,
+				graphMin : config.scaleStartValue,
+				labels : []
 			}
-
-			function initialiseVerticalScroll()
-			{
-				if (isScrollableV) {
-
-					container.append(
-						$('<div class="jspVerticalBar" />').append(
-							$('<div class="jspCap jspCapTop" />'),
-							$('<div class="jspTrack" />').append(
-								$('<div class="jspDrag" />').append(
-									$('<div class="jspDragTop" />'),
-									$('<div class="jspDragBottom" />')
-								)
-							),
-							$('<div class="jspCap jspCapBottom" />')
-						)
-					);
-
-					verticalBar = container.find('>.jspVerticalBar');
-					verticalTrack = verticalBar.find('>.jspTrack');
-					verticalDrag = verticalTrack.find('>.jspDrag');
-
-					if (settings.showArrows) {
-						arrowUp = $('<a class="jspArrow jspArrowUp" />').bind(
-							'mousedown.jsp', getArrowScroll(0, -1)
-						).bind('click.jsp', nil);
-						arrowDown = $('<a class="jspArrow jspArrowDown" />').bind(
-							'mousedown.jsp', getArrowScroll(0, 1)
-						).bind('click.jsp', nil);
-						if (settings.arrowScrollOnHover) {
-							arrowUp.bind('mouseover.jsp', getArrowScroll(0, -1, arrowUp));
-							arrowDown.bind('mouseover.jsp', getArrowScroll(0, 1, arrowDown));
-						}
-
-						appendArrows(verticalTrack, settings.verticalArrowPositions, arrowUp, arrowDown);
-					}
-
-					verticalTrackHeight = paneHeight;
-					container.find('>.jspVerticalBar>.jspCap:visible,>.jspVerticalBar>.jspArrow').each(
-						function()
-						{
-							verticalTrackHeight -= $(this).outerHeight();
-						}
-					);
-
-
-					verticalDrag.hover(
-						function()
-						{
-							verticalDrag.addClass('jspHover');
-						},
-						function()
-						{
-							verticalDrag.removeClass('jspHover');
-						}
-					).bind(
-						'mousedown.jsp',
-						function(e)
-						{
-							// Stop IE from allowing text selection
-							$('html').bind('dragstart.jsp selectstart.jsp', nil);
-
-							verticalDrag.addClass('jspActive');
-
-							var startY = e.pageY - verticalDrag.position().top;
-
-							$('html').bind(
-								'mousemove.jsp',
-								function(e)
-								{
-									positionDragY(e.pageY - startY, false);
-								}
-							).bind('mouseup.jsp mouseleave.jsp', cancelDrag);
-							return false;
-						}
-					);
-					sizeVerticalScrollbar();
-				}
-			}
-
-			function sizeVerticalScrollbar()
-			{
-				verticalTrack.height(verticalTrackHeight + 'px');
-				verticalDragPosition = 0;
-				scrollbarWidth = settings.verticalGutter + verticalTrack.outerWidth();
-
-				// Make the pane thinner to allow for the vertical scrollbar
-				pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
-
-				// Add margin to the left of the pane if scrollbars are on that side (to position
-				// the scrollbar on the left or right set it's left or right property in CSS)
-				try {
-					if (verticalBar.position().left === 0) {
-						pane.css('margin-left', scrollbarWidth + 'px');
-					}
-				} catch (err) {
-				}
-			}
-
-			function initialiseHorizontalScroll()
-			{
-				if (isScrollableH) {
-
-					container.append(
-						$('<div class="jspHorizontalBar" />').append(
-							$('<div class="jspCap jspCapLeft" />'),
-							$('<div class="jspTrack" />').append(
-								$('<div class="jspDrag" />').append(
-									$('<div class="jspDragLeft" />'),
-									$('<div class="jspDragRight" />')
-								)
-							),
-							$('<div class="jspCap jspCapRight" />')
-						)
-					);
-
-					horizontalBar = container.find('>.jspHorizontalBar');
-					horizontalTrack = horizontalBar.find('>.jspTrack');
-					horizontalDrag = horizontalTrack.find('>.jspDrag');
-
-					if (settings.showArrows) {
-						arrowLeft = $('<a class="jspArrow jspArrowLeft" />').bind(
-							'mousedown.jsp', getArrowScroll(-1, 0)
-						).bind('click.jsp', nil);
-						arrowRight = $('<a class="jspArrow jspArrowRight" />').bind(
-							'mousedown.jsp', getArrowScroll(1, 0)
-						).bind('click.jsp', nil);
-						if (settings.arrowScrollOnHover) {
-							arrowLeft.bind('mouseover.jsp', getArrowScroll(-1, 0, arrowLeft));
-							arrowRight.bind('mouseover.jsp', getArrowScroll(1, 0, arrowRight));
-						}
-						appendArrows(horizontalTrack, settings.horizontalArrowPositions, arrowLeft, arrowRight);
-					}
-
-					horizontalDrag.hover(
-						function()
-						{
-							horizontalDrag.addClass('jspHover');
-						},
-						function()
-						{
-							horizontalDrag.removeClass('jspHover');
-						}
-					).bind(
-						'mousedown.jsp',
-						function(e)
-						{
-							// Stop IE from allowing text selection
-							$('html').bind('dragstart.jsp selectstart.jsp', nil);
-
-							horizontalDrag.addClass('jspActive');
-
-							var startX = e.pageX - horizontalDrag.position().left;
-
-							$('html').bind(
-								'mousemove.jsp',
-								function(e)
-								{
-									positionDragX(e.pageX - startX, false);
-								}
-							).bind('mouseup.jsp mouseleave.jsp', cancelDrag);
-							return false;
-						}
-					);
-					horizontalTrackWidth = container.innerWidth();
-					sizeHorizontalScrollbar();
-				}
-			}
-
-			function sizeHorizontalScrollbar()
-			{
-				container.find('>.jspHorizontalBar>.jspCap:visible,>.jspHorizontalBar>.jspArrow').each(
-					function()
-					{
-						horizontalTrackWidth -= $(this).outerWidth();
-					}
-				);
-
-				horizontalTrack.width(horizontalTrackWidth + 'px');
-				horizontalDragPosition = 0;
-			}
-
-			function resizeScrollbars()
-			{
-				if (isScrollableH && isScrollableV) {
-					var horizontalTrackHeight = horizontalTrack.outerHeight(),
-						verticalTrackWidth = verticalTrack.outerWidth();
-					verticalTrackHeight -= horizontalTrackHeight;
-					$(horizontalBar).find('>.jspCap:visible,>.jspArrow').each(
-						function()
-						{
-							horizontalTrackWidth += $(this).outerWidth();
-						}
-					);
-					horizontalTrackWidth -= verticalTrackWidth;
-					paneHeight -= verticalTrackWidth;
-					paneWidth -= horizontalTrackHeight;
-					horizontalTrack.parent().append(
-						$('<div class="jspCorner" />').css('width', horizontalTrackHeight + 'px')
-					);
-					sizeVerticalScrollbar();
-					sizeHorizontalScrollbar();
-				}
-				// reflow content
-				if (isScrollableH) {
-					pane.width((container.outerWidth() - originalPaddingTotalWidth) + 'px');
-				}
-				contentHeight = pane.outerHeight();
-				percentInViewV = contentHeight / paneHeight;
-
-				if (isScrollableH) {
-					horizontalDragWidth = Math.ceil(1 / percentInViewH * horizontalTrackWidth);
-					if (horizontalDragWidth > settings.horizontalDragMaxWidth) {
-						horizontalDragWidth = settings.horizontalDragMaxWidth;
-					} else if (horizontalDragWidth < settings.horizontalDragMinWidth) {
-						horizontalDragWidth = settings.horizontalDragMinWidth;
-					}
-					horizontalDrag.width(horizontalDragWidth + 'px');
-					dragMaxX = horizontalTrackWidth - horizontalDragWidth;
-					_positionDragX(horizontalDragPosition); // To update the state for the arrow buttons
-				}
-				if (isScrollableV) {
-					verticalDragHeight = Math.ceil(1 / percentInViewV * verticalTrackHeight);
-					if (verticalDragHeight > settings.verticalDragMaxHeight) {
-						verticalDragHeight = settings.verticalDragMaxHeight;
-					} else if (verticalDragHeight < settings.verticalDragMinHeight) {
-						verticalDragHeight = settings.verticalDragMinHeight;
-					}
-					verticalDrag.height(verticalDragHeight + 'px');
-					dragMaxY = verticalTrackHeight - verticalDragHeight;
-					_positionDragY(verticalDragPosition); // To update the state for the arrow buttons
-				}
-			}
-
-			function appendArrows(ele, p, a1, a2)
-			{
-				var p1 = "before", p2 = "after", aTemp;
-				
-				// Sniff for mac... Is there a better way to determine whether the arrows would naturally appear
-				// at the top or the bottom of the bar?
-				if (p == "os") {
-					p = /Mac/.test(navigator.platform) ? "after" : "split";
-				}
-				if (p == p1) {
-					p2 = p;
-				} else if (p == p2) {
-					p1 = p;
-					aTemp = a1;
-					a1 = a2;
-					a2 = aTemp;
-				}
-
-				ele[p1](a1)[p2](a2);
-			}
-
-			function getArrowScroll(dirX, dirY, ele)
-			{
-				return function()
-				{
-					arrowScroll(dirX, dirY, this, ele);
-					this.blur();
-					return false;
-				};
-			}
-
-			function arrowScroll(dirX, dirY, arrow, ele)
-			{
-				arrow = $(arrow).addClass('jspActive');
-
-				var eve,
-					scrollTimeout,
-					isFirst = true,
-					doScroll = function()
-					{
-						if (dirX !== 0) {
-							jsp.scrollByX(dirX * settings.arrowButtonSpeed);
-						}
-						if (dirY !== 0) {
-							jsp.scrollByY(dirY * settings.arrowButtonSpeed);
-						}
-						scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.arrowRepeatFreq);
-						isFirst = false;
-					};
-
-				doScroll();
-
-				eve = ele ? 'mouseout.jsp' : 'mouseup.jsp';
-				ele = ele || $('html');
-				ele.bind(
-					eve,
-					function()
-					{
-						arrow.removeClass('jspActive');
-						scrollTimeout && clearTimeout(scrollTimeout);
-						scrollTimeout = null;
-						ele.unbind(eve);
-					}
-				);
-			}
-
-			function initClickOnTrack()
-			{
-				removeClickOnTrack();
-				if (isScrollableV) {
-					verticalTrack.bind(
-						'mousedown.jsp',
-						function(e)
-						{
-							if (e.originalTarget === undefined || e.originalTarget == e.currentTarget) {
-								var clickedTrack = $(this),
-									offset = clickedTrack.offset(),
-									direction = e.pageY - offset.top - verticalDragPosition,
-									scrollTimeout,
-									isFirst = true,
-									doScroll = function()
-									{
-										var offset = clickedTrack.offset(),
-											pos = e.pageY - offset.top - verticalDragHeight / 2,
-											contentDragY = paneHeight * settings.scrollPagePercent,
-											dragY = dragMaxY * contentDragY / (contentHeight - paneHeight);
-										if (direction < 0) {
-											if (verticalDragPosition - dragY > pos) {
-												jsp.scrollByY(-contentDragY);
-											} else {
-												positionDragY(pos);
-											}
-										} else if (direction > 0) {
-											if (verticalDragPosition + dragY < pos) {
-												jsp.scrollByY(contentDragY);
-											} else {
-												positionDragY(pos);
-											}
-										} else {
-											cancelClick();
-											return;
-										}
-										scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.trackClickRepeatFreq);
-										isFirst = false;
-									},
-									cancelClick = function()
-									{
-										scrollTimeout && clearTimeout(scrollTimeout);
-										scrollTimeout = null;
-										$(document).unbind('mouseup.jsp', cancelClick);
-									};
-								doScroll();
-								$(document).bind('mouseup.jsp', cancelClick);
-								return false;
-							}
-						}
-					);
-				}
-				
-				if (isScrollableH) {
-					horizontalTrack.bind(
-						'mousedown.jsp',
-						function(e)
-						{
-							if (e.originalTarget === undefined || e.originalTarget == e.currentTarget) {
-								var clickedTrack = $(this),
-									offset = clickedTrack.offset(),
-									direction = e.pageX - offset.left - horizontalDragPosition,
-									scrollTimeout,
-									isFirst = true,
-									doScroll = function()
-									{
-										var offset = clickedTrack.offset(),
-											pos = e.pageX - offset.left - horizontalDragWidth / 2,
-											contentDragX = paneWidth * settings.scrollPagePercent,
-											dragX = dragMaxX * contentDragX / (contentWidth - paneWidth);
-										if (direction < 0) {
-											if (horizontalDragPosition - dragX > pos) {
-												jsp.scrollByX(-contentDragX);
-											} else {
-												positionDragX(pos);
-											}
-										} else if (direction > 0) {
-											if (horizontalDragPosition + dragX < pos) {
-												jsp.scrollByX(contentDragX);
-											} else {
-												positionDragX(pos);
-											}
-										} else {
-											cancelClick();
-											return;
-										}
-										scrollTimeout = setTimeout(doScroll, isFirst ? settings.initialDelay : settings.trackClickRepeatFreq);
-										isFirst = false;
-									},
-									cancelClick = function()
-									{
-										scrollTimeout && clearTimeout(scrollTimeout);
-										scrollTimeout = null;
-										$(document).unbind('mouseup.jsp', cancelClick);
-									};
-								doScroll();
-								$(document).bind('mouseup.jsp', cancelClick);
-								return false;
-							}
-						}
-					);
-				}
-			}
-
-			function removeClickOnTrack()
-			{
-				if (horizontalTrack) {
-					horizontalTrack.unbind('mousedown.jsp');
-				}
-				if (verticalTrack) {
-					verticalTrack.unbind('mousedown.jsp');
-				}
-			}
-
-			function cancelDrag()
-			{
-				$('html').unbind('dragstart.jsp selectstart.jsp mousemove.jsp mouseup.jsp mouseleave.jsp');
-
-				if (verticalDrag) {
-					verticalDrag.removeClass('jspActive');
-				}
-				if (horizontalDrag) {
-					horizontalDrag.removeClass('jspActive');
-				}
-			}
-
-			function positionDragY(destY, animate)
-			{
-				if (!isScrollableV) {
-					return;
-				}
-				if (destY < 0) {
-					destY = 0;
-				} else if (destY > dragMaxY) {
-					destY = dragMaxY;
-				}
-
-				// can't just check if(animate) because false is a valid value that could be passed in...
-				if (animate === undefined) {
-					animate = settings.animateScroll;
-				}
-				if (animate) {
-					jsp.animate(verticalDrag, 'top', destY,	_positionDragY);
-				} else {
-					verticalDrag.css('top', destY);
-					_positionDragY(destY);
-				}
-
-			}
-
-			function _positionDragY(destY)
-			{
-				if (destY === undefined) {
-					destY = verticalDrag.position().top;
-				}
-
-				container.scrollTop(0);
-				verticalDragPosition = destY || 0;
-
-				var isAtTop = verticalDragPosition === 0,
-					isAtBottom = verticalDragPosition == dragMaxY,
-					percentScrolled = destY/ dragMaxY,
-					destTop = -percentScrolled * (contentHeight - paneHeight);
-
-				if (wasAtTop != isAtTop || wasAtBottom != isAtBottom) {
-					wasAtTop = isAtTop;
-					wasAtBottom = isAtBottom;
-					elem.trigger('jsp-arrow-change', [wasAtTop, wasAtBottom, wasAtLeft, wasAtRight]);
-				}
-				
-				updateVerticalArrows(isAtTop, isAtBottom);
-				pane.css('top', destTop);
-				elem.trigger('jsp-scroll-y', [-destTop, isAtTop, isAtBottom]).trigger('scroll');
-			}
-
-			function positionDragX(destX, animate)
-			{
-				if (!isScrollableH) {
-					return;
-				}
-				if (destX < 0) {
-					destX = 0;
-				} else if (destX > dragMaxX) {
-					destX = dragMaxX;
-				}
-
-				if (animate === undefined) {
-					animate = settings.animateScroll;
-				}
-				if (animate) {
-					jsp.animate(horizontalDrag, 'left', destX,	_positionDragX);
-				} else {
-					horizontalDrag.css('left', destX);
-					_positionDragX(destX);
-				}
-			}
-
-			function _positionDragX(destX)
-			{
-				if (destX === undefined) {
-					destX = horizontalDrag.position().left;
-				}
-
-				container.scrollTop(0);
-				horizontalDragPosition = destX ||0;
-
-				var isAtLeft = horizontalDragPosition === 0,
-					isAtRight = horizontalDragPosition == dragMaxX,
-					percentScrolled = destX / dragMaxX,
-					destLeft = -percentScrolled * (contentWidth - paneWidth);
-
-				if (wasAtLeft != isAtLeft || wasAtRight != isAtRight) {
-					wasAtLeft = isAtLeft;
-					wasAtRight = isAtRight;
-					elem.trigger('jsp-arrow-change', [wasAtTop, wasAtBottom, wasAtLeft, wasAtRight]);
-				}
-				
-				updateHorizontalArrows(isAtLeft, isAtRight);
-				pane.css('left', destLeft);
-				elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
-			}
-
-			function updateVerticalArrows(isAtTop, isAtBottom)
-			{
-				if (settings.showArrows) {
-					arrowUp[isAtTop ? 'addClass' : 'removeClass']('jspDisabled');
-					arrowDown[isAtBottom ? 'addClass' : 'removeClass']('jspDisabled');
-				}
-			}
-
-			function updateHorizontalArrows(isAtLeft, isAtRight)
-			{
-				if (settings.showArrows) {
-					arrowLeft[isAtLeft ? 'addClass' : 'removeClass']('jspDisabled');
-					arrowRight[isAtRight ? 'addClass' : 'removeClass']('jspDisabled');
-				}
-			}
-
-			function scrollToY(destY, animate)
-			{
-				var percentScrolled = destY / (contentHeight - paneHeight);
-				positionDragY(percentScrolled * dragMaxY, animate);
-			}
-
-			function scrollToX(destX, animate)
-			{
-				var percentScrolled = destX / (contentWidth - paneWidth);
-				positionDragX(percentScrolled * dragMaxX, animate);
-			}
-
-			function scrollToElement(ele, stickToTop, animate)
-			{
-				var e, eleHeight, eleWidth, eleTop = 0, eleLeft = 0, viewportTop, viewportLeft, maxVisibleEleTop, maxVisibleEleLeft, destY, destX;
-
-				// Legal hash values aren't necessarily legal jQuery selectors so we need to catch any
-				// errors from the lookup...
-				try {
-					e = $(ele);
-				} catch (err) {
-					return;
-				}
-				eleHeight = e.outerHeight();
-				eleWidth= e.outerWidth();
-
-				container.scrollTop(0);
-				container.scrollLeft(0);
-				
-				// loop through parents adding the offset top of any elements that are relatively positioned between
-				// the focused element and the jspPane so we can get the true distance from the top
-				// of the focused element to the top of the scrollpane...
-				while (!e.is('.jspPane')) {
-					eleTop += e.position().top;
-					eleLeft += e.position().left;
-					e = e.offsetParent();
-					if (/^body|html$/i.test(e[0].nodeName)) {
-						// we ended up too high in the document structure. Quit!
-						return;
-					}
-				}
-
-				viewportTop = contentPositionY();
-				maxVisibleEleTop = viewportTop + paneHeight;
-				if (eleTop < viewportTop || stickToTop) { // element is above viewport
-					destY = eleTop - settings.horizontalGutter;
-				} else if (eleTop + eleHeight > maxVisibleEleTop) { // element is below viewport
-					destY = eleTop - paneHeight + eleHeight + settings.horizontalGutter;
-				}
-				if (!isNaN(destY)) {
-					scrollToY(destY, animate);
-				}
-				
-				viewportLeft = contentPositionX();
-	            maxVisibleEleLeft = viewportLeft + paneWidth;
-	            if (eleLeft < viewportLeft || stickToTop) { // element is to the left of viewport
-	                destX = eleLeft - settings.horizontalGutter;
-	            } else if (eleLeft + eleWidth > maxVisibleEleLeft) { // element is to the right viewport
-	                destX = eleLeft - paneWidth + eleWidth + settings.horizontalGutter;
-	            }
-	            if (!isNaN(destX)) {
-	                scrollToX(destX, animate);
-	            }
-
-			}
-
-			function contentPositionX()
-			{
-				return -pane.position().left;
-			}
-
-			function contentPositionY()
-			{
-				return -pane.position().top;
-			}
-
-			function isCloseToBottom()
-			{
-				var scrollableHeight = contentHeight - paneHeight;
-				return (scrollableHeight > 20) && (scrollableHeight - contentPositionY() < 10);
-			}
-
-			function isCloseToRight()
-			{
-				var scrollableWidth = contentWidth - paneWidth;
-				return (scrollableWidth > 20) && (scrollableWidth - contentPositionX() < 10);
-			}
-
-			function initMousewheel()
-			{
-				container.unbind(mwEvent).bind(
-					mwEvent,
-					function (event, delta, deltaX, deltaY) {
-
-                        if (!horizontalDragPosition) horizontalDragPosition = 0;
-                        if (!verticalDragPosition) verticalDragPosition = 0;
-
-						var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed;
-						jsp.scrollBy(deltaX * factor, -deltaY * factor, false);
-						// return true if there was no movement so rest of screen can scroll
-						return dX == horizontalDragPosition && dY == verticalDragPosition;
-					}
-				);
-			}
-
-			function removeMousewheel()
-			{
-				container.unbind(mwEvent);
-			}
-
-			function nil()
-			{
-				return false;
-			}
-
-			function initFocusHandler()
-			{
-				pane.find(':input,a').unbind('focus.jsp').bind(
-					'focus.jsp',
-					function(e)
-					{
-						scrollToElement(e.target, false);
-					}
-				);
-			}
-
-			function removeFocusHandler()
-			{
-				pane.find(':input,a').unbind('focus.jsp');
+			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
+		}
+		
+		scaleHop = maxSize/(calculatedScale.steps);
+
+		//Wrap in an animation loop wrapper
+		animationLoop(config,drawScale,drawAllSegments,ctx);
+
+		function calculateDrawingSizes(){
+			maxSize = (Min([width,height])/2);
+			//Remove whatever is larger - the font size or line width.
+			
+			maxSize -= Max([config.scaleFontSize*0.5,config.scaleLineWidth*0.5]);
+			
+			labelHeight = config.scaleFontSize*2;
+			//If we're drawing the backdrop - add the Y padding to the label height and remove from drawing region.
+			if (config.scaleShowLabelBackdrop){
+				labelHeight += (2 * config.scaleBackdropPaddingY);
+				maxSize -= config.scaleBackdropPaddingY*1.5;
 			}
 			
-			function initKeyboardNav()
-			{
-				var keyDown, elementHasScrolled, validParents = [];
-				isScrollableH && validParents.push(horizontalBar[0]);
-				isScrollableV && validParents.push(verticalBar[0]);
-				
-				// IE also focuses elements that don't have tabindex set.
-				pane.focus(
-					function()
-					{
-						elem.focus();
-					}
-				);
-				
-				elem.attr('tabindex', 0)
-					.unbind('keydown.jsp keypress.jsp')
-					.bind(
-						'keydown.jsp',
-						function(e)
-						{
-							if (e.target !== this && !(validParents.length && $(e.target).closest(validParents).length)){
-								return;
-							}
-							var dX = horizontalDragPosition, dY = verticalDragPosition;
-							switch(e.keyCode) {
-								case 40: // down
-								case 38: // up
-								case 34: // page down
-								case 32: // space
-								case 33: // page up
-								case 39: // right
-								case 37: // left
-									keyDown = e.keyCode;
-									keyDownHandler();
-									break;
-								case 35: // end
-									scrollToY(contentHeight - paneHeight);
-									keyDown = null;
-									break;
-								case 36: // home
-									scrollToY(0);
-									keyDown = null;
-									break;
-							}
-
-							elementHasScrolled = e.keyCode == keyDown && dX != horizontalDragPosition || dY != verticalDragPosition;
-							return !elementHasScrolled;
-						}
-					).bind(
-						'keypress.jsp', // For FF/ OSX so that we can cancel the repeat key presses if the JSP scrolls...
-						function(e)
-						{
-							if (e.keyCode == keyDown) {
-								keyDownHandler();
-							}
-							return !elementHasScrolled;
-						}
-					);
-				
-				if (settings.hideFocus) {
-					elem.css('outline', 'none');
-					if ('hideFocus' in container[0]){
-						elem.attr('hideFocus', true);
-					}
-				} else {
-					elem.css('outline', '');
-					if ('hideFocus' in container[0]){
-						elem.attr('hideFocus', false);
-					}
-				}
-				
-				function keyDownHandler()
-				{
-					var dX = horizontalDragPosition, dY = verticalDragPosition;
-					switch(keyDown) {
-						case 40: // down
-							jsp.scrollByY(settings.keyboardSpeed, false);
-							break;
-						case 38: // up
-							jsp.scrollByY(-settings.keyboardSpeed, false);
-							break;
-						case 34: // page down
-						case 32: // space
-							jsp.scrollByY(paneHeight * settings.scrollPagePercent, false);
-							break;
-						case 33: // page up
-							jsp.scrollByY(-paneHeight * settings.scrollPagePercent, false);
-							break;
-						case 39: // right
-							jsp.scrollByX(settings.keyboardSpeed, false);
-							break;
-						case 37: // left
-							jsp.scrollByX(-settings.keyboardSpeed, false);
-							break;
-					}
-
-					elementHasScrolled = dX != horizontalDragPosition || dY != verticalDragPosition;
-					return elementHasScrolled;
-				}
-			}
-			
-			function removeKeyboardNav()
-			{
-				elem.attr('tabindex', '-1')
-					.removeAttr('tabindex')
-					.unbind('keydown.jsp keypress.jsp');
-			}
-
-			function observeHash()
-			{
-				if (location.hash && location.hash.length > 1) {
-					var e,
-						retryInt,
-						hash = escape(location.hash.substr(1)) // hash must be escaped to prevent XSS
-						;
-					try {
-						e = $('#' + hash + ', a[name="' + hash + '"]');
-					} catch (err) {
-						return;
-					}
-
-					if (e.length && pane.find(hash)) {
-						// nasty workaround but it appears to take a little while before the hash has done its thing
-						// to the rendered page so we just wait until the container's scrollTop has been messed up.
-						if (container.scrollTop() === 0) {
-							retryInt = setInterval(
-								function()
-								{
-									if (container.scrollTop() > 0) {
-										scrollToElement(e, true);
-										$(document).scrollTop(container.position().top);
-										clearInterval(retryInt);
-									}
-								},
-								50
-							);
-						} else {
-							scrollToElement(e, true);
-							$(document).scrollTop(container.position().top);
-						}
-					}
-				}
-			}
-
-			function hijackInternalLinks()
-			{
-				// only register the link handler once
-				if ($(document.body).data('jspHijack')) {
-					return;
+			scaleHeight = maxSize;
+			//If the label height is less than 5, set it to 5 so we don't have lines on top of each other.
+			labelHeight = Default(labelHeight,5);
+		}
+		function drawScale(){
+			for (var i=0; i<calculatedScale.steps; i++){
+				//If the line object is there
+				if (config.scaleShowLine){
+					ctx.beginPath();
+					ctx.arc(width/2, height/2, scaleHop * (i + 1), 0, (Math.PI * 2), true);
+					ctx.strokeStyle = config.scaleLineColor;
+					ctx.lineWidth = config.scaleLineWidth;
+					ctx.stroke();
 				}
 
-				// remember that the handler was bound
-				$(document.body).data('jspHijack', true);
-
-				// use live handler to also capture newly created links
-				$(document.body).delegate('a[href*=#]', 'click', function(event) {
-					// does the link point to the same page?
-					// this also takes care of cases with a <base>-Tag or Links not starting with the hash #
-					// e.g. <a href="index.html#test"> when the current url already is index.html
-					var href = this.href.substr(0, this.href.indexOf('#')),
-						locationHref = location.href,
-						hash,
-						element,
-						container,
-						jsp,
-						scrollTop,
-						elementTop;
-					if (location.href.indexOf('#') !== -1) {
-						locationHref = location.href.substr(0, location.href.indexOf('#'));
-					}
-					if (href !== locationHref) {
-						// the link points to another page
-						return;
-					}
-
-					// check if jScrollPane should handle this click event
-					hash = escape(this.href.substr(this.href.indexOf('#') + 1));
-
-					// find the element on the page
-					element;
-					try {
-						element = $('#' + hash + ', a[name="' + hash + '"]');
-					} catch (e) {
-						// hash is not a valid jQuery identifier
-						return;
-					}
-
-					if (!element.length) {
-						// this link does not point to an element on this page
-						return;
-					}
-
-					container = element.closest('.jspScrollable');
-					jsp = container.data('jsp');
-
-					// jsp might be another jsp instance than the one, that bound this event
-					// remember: this event is only bound once for all instances.
-					jsp.scrollToElement(element, true);
-
-					if (container[0].scrollIntoView) {
-						// also scroll to the top of the container (if it is not visible)
-						scrollTop = $(window).scrollTop();
-						elementTop = element.offset().top;
-						if (elementTop < scrollTop || elementTop > scrollTop + $(window).height()) {
-							container[0].scrollIntoView();
-						}
-					}
-
-					// jsp handled this event, prevent the browser default (scrolling :P)
-					event.preventDefault();
-				});
-			}
-			
-			// Init touch on iPad, iPhone, iPod, Android
-			function initTouch()
-			{
-				var startX,
-					startY,
-					touchStartX,
-					touchStartY,
-					moved,
-					moving = false;
-  
-				container.unbind('touchstart.jsp touchmove.jsp touchend.jsp click.jsp-touchclick').bind(
-					'touchstart.jsp',
-					function(e)
-					{
-						var touch = e.originalEvent.touches[0];
-						startX = contentPositionX();
-						startY = contentPositionY();
-						touchStartX = touch.pageX;
-						touchStartY = touch.pageY;
-						moved = false;
-						moving = true;
-					}
-				).bind(
-					'touchmove.jsp',
-					function(ev)
-					{
-						if(!moving) {
-							return;
-						}
-						
-						var touchPos = ev.originalEvent.touches[0],
-							dX = horizontalDragPosition, dY = verticalDragPosition;
-						
-						jsp.scrollTo(startX + touchStartX - touchPos.pageX, startY + touchStartY - touchPos.pageY);
-						
-						moved = moved || Math.abs(touchStartX - touchPos.pageX) > 5 || Math.abs(touchStartY - touchPos.pageY) > 5;
-						
-						// return true if there was no movement so rest of screen can scroll
-						return dX == horizontalDragPosition && dY == verticalDragPosition;
-					}
-				).bind(
-					'touchend.jsp',
-					function(e)
-					{
-						moving = false;
-						/*if(moved) {
-							return false;
-						}*/
-					}
-				).bind(
-					'click.jsp-touchclick',
-					function(e)
-					{
-						if(moved) {
-							moved = false;
-							return false;
-						}
-					}
-				);
-			}
-			
-			function destroy(){
-				var currentY = contentPositionY(),
-					currentX = contentPositionX();
-				elem.removeClass('jspScrollable').unbind('.jsp');
-				elem.replaceWith(originalElement.append(pane.children()));
-				originalElement.scrollTop(currentY);
-				originalElement.scrollLeft(currentX);
-
-				// clear reinitialize timer if active
-				if (reinitialiseInterval) {
-					clearInterval(reinitialiseInterval);
-				}
-			}
-
-			// Public API
-			$.extend(
-				jsp,
-				{
-					// Reinitialises the scroll pane (if it's internal dimensions have changed since the last time it
-					// was initialised). The settings object which is passed in will override any settings from the
-					// previous time it was initialised - if you don't pass any settings then the ones from the previous
-					// initialisation will be used.
-					reinitialise: function(s)
-					{
-						s = $.extend({}, settings, s);
-						initialise(s);
-					},
-					// Scrolls the specified element (a jQuery object, DOM node or jQuery selector string) into view so
-					// that it can be seen within the viewport. If stickToTop is true then the element will appear at
-					// the top of the viewport, if it is false then the viewport will scroll as little as possible to
-					// show the element. You can also specify if you want animation to occur. If you don't provide this
-					// argument then the animateScroll value from the settings object is used instead.
-					scrollToElement: function(ele, stickToTop, animate)
-					{
-						scrollToElement(ele, stickToTop, animate);
-					},
-					// Scrolls the pane so that the specified co-ordinates within the content are at the top left
-					// of the viewport. animate is optional and if not passed then the value of animateScroll from
-					// the settings object this jScrollPane was initialised with is used.
-					scrollTo: function(destX, destY, animate)
-					{
-						scrollToX(destX, animate);
-						scrollToY(destY, animate);
-					},
-					// Scrolls the pane so that the specified co-ordinate within the content is at the left of the
-					// viewport. animate is optional and if not passed then the value of animateScroll from the settings
-					// object this jScrollPane was initialised with is used.
-					scrollToX: function(destX, animate)
-					{
-						scrollToX(destX, animate);
-					},
-					// Scrolls the pane so that the specified co-ordinate within the content is at the top of the
-					// viewport. animate is optional and if not passed then the value of animateScroll from the settings
-					// object this jScrollPane was initialised with is used.
-					scrollToY: function(destY, animate)
-					{
-						scrollToY(destY, animate);
-					},
-					// Scrolls the pane to the specified percentage of its maximum horizontal scroll position. animate
-					// is optional and if not passed then the value of animateScroll from the settings object this
-					// jScrollPane was initialised with is used.
-					scrollToPercentX: function(destPercentX, animate)
-					{
-						scrollToX(destPercentX * (contentWidth - paneWidth), animate);
-					},
-					// Scrolls the pane to the specified percentage of its maximum vertical scroll position. animate
-					// is optional and if not passed then the value of animateScroll from the settings object this
-					// jScrollPane was initialised with is used.
-					scrollToPercentY: function(destPercentY, animate)
-					{
-						scrollToY(destPercentY * (contentHeight - paneHeight), animate);
-					},
-					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
-					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
-					scrollBy: function(deltaX, deltaY, animate)
-					{
-						jsp.scrollByX(deltaX, animate);
-						jsp.scrollByY(deltaY, animate);
-					},
-					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
-					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
-					scrollByX: function(deltaX, animate)
-					{
-						var destX = contentPositionX() + Math[deltaX<0 ? 'floor' : 'ceil'](deltaX),
-							percentScrolled = destX / (contentWidth - paneWidth);
-						positionDragX(percentScrolled * dragMaxX, animate);
-					},
-					// Scrolls the pane by the specified amount of pixels. animate is optional and if not passed then
-					// the value of animateScroll from the settings object this jScrollPane was initialised with is used.
-					scrollByY: function(deltaY, animate)
-					{
-						var destY = contentPositionY() + Math[deltaY<0 ? 'floor' : 'ceil'](deltaY),
-							percentScrolled = destY / (contentHeight - paneHeight);
-						positionDragY(percentScrolled * dragMaxY, animate);
-					},
-					// Positions the horizontal drag at the specified x position (and updates the viewport to reflect
-					// this). animate is optional and if not passed then the value of animateScroll from the settings
-					// object this jScrollPane was initialised with is used.
-					positionDragX: function(x, animate)
-					{
-						positionDragX(x, animate);
-					},
-					// Positions the vertical drag at the specified y position (and updates the viewport to reflect
-					// this). animate is optional and if not passed then the value of animateScroll from the settings
-					// object this jScrollPane was initialised with is used.
-					positionDragY: function(y, animate)
-					{
-						positionDragY(y, animate);
-					},
-					// This method is called when jScrollPane is trying to animate to a new position. You can override
-					// it if you want to provide advanced animation functionality. It is passed the following arguments:
-					//  * ele          - the element whose position is being animated
-					//  * prop         - the property that is being animated
-					//  * value        - the value it's being animated to
-					//  * stepCallback - a function that you must execute each time you update the value of the property
-					// You can use the default implementation (below) as a starting point for your own implementation.
-					animate: function(ele, prop, value, stepCallback)
-					{
-						var params = {};
-						params[prop] = value;
-						ele.animate(
-							params,
-							{
-								'duration'	: settings.animateDuration,
-								'easing'	: settings.animateEase,
-								'queue'		: false,
-								'step'		: stepCallback
-							}
+				if (config.scaleShowLabels){
+					ctx.textAlign = "center";
+					ctx.font = config.scaleFontStyle + " " + config.scaleFontSize + "px " + config.scaleFontFamily;
+ 					var label =  calculatedScale.labels[i];
+					//If the backdrop object is within the font object
+					if (config.scaleShowLabelBackdrop){
+						var textWidth = ctx.measureText(label).width;
+						ctx.fillStyle = config.scaleBackdropColor;
+						ctx.beginPath();
+						ctx.rect(
+							Math.round(width/2 - textWidth/2 - config.scaleBackdropPaddingX),     //X
+							Math.round(height/2 - (scaleHop * (i + 1)) - config.scaleFontSize*0.5 - config.scaleBackdropPaddingY),//Y
+							Math.round(textWidth + (config.scaleBackdropPaddingX*2)), //Width
+							Math.round(config.scaleFontSize + (config.scaleBackdropPaddingY*2)) //Height
 						);
-					},
-					// Returns the current x position of the viewport with regards to the content pane.
-					getContentPositionX: function()
-					{
-						return contentPositionX();
-					},
-					// Returns the current y position of the viewport with regards to the content pane.
-					getContentPositionY: function()
-					{
-						return contentPositionY();
-					},
-					// Returns the width of the content within the scroll pane.
-					getContentWidth: function()
-					{
-						return contentWidth;
-					},
-					// Returns the height of the content within the scroll pane.
-					getContentHeight: function()
-					{
-						return contentHeight;
-					},
-					// Returns the horizontal position of the viewport within the pane content.
-					getPercentScrolledX: function()
-					{
-						return contentPositionX() / (contentWidth - paneWidth);
-					},
-					// Returns the vertical position of the viewport within the pane content.
-					getPercentScrolledY: function()
-					{
-						return contentPositionY() / (contentHeight - paneHeight);
-					},
-					// Returns whether or not this scrollpane has a horizontal scrollbar.
-					getIsScrollableH: function()
-					{
-						return isScrollableH;
-					},
-					// Returns whether or not this scrollpane has a vertical scrollbar.
-					getIsScrollableV: function()
-					{
-						return isScrollableV;
-					},
-					// Gets a reference to the content pane. It is important that you use this method if you want to
-					// edit the content of your jScrollPane as if you access the element directly then you may have some
-					// problems (as your original element has had additional elements for the scrollbars etc added into
-					// it).
-					getContentPane: function()
-					{
-						return pane;
-					},
-					// Scrolls this jScrollPane down as far as it can currently scroll. If animate isn't passed then the
-					// animateScroll value from settings is used instead.
-					scrollToBottom: function(animate)
-					{
-						positionDragY(dragMaxY, animate);
-					},
-					// Hijacks the links on the page which link to content inside the scrollpane. If you have changed
-					// the content of your page (e.g. via AJAX) and want to make sure any new anchor links to the
-					// contents of your scroll pane will work then call this function.
-					hijackInternalLinks: $.noop,
-					// Removes the jScrollPane and returns the page to the state it was in before jScrollPane was
-					// initialised.
-					destroy: function()
-					{
-							destroy();
+						ctx.fill();
+					}
+					ctx.textBaseline = "middle";
+					ctx.fillStyle = config.scaleFontColor;
+					ctx.fillText(label,width/2,height/2 - (scaleHop * (i + 1)));
+				}
+			}
+		}
+		function drawAllSegments(animationDecimal){
+			var startAngle = -Math.PI/2,
+			angleStep = (Math.PI*2)/data.length,
+			scaleAnimation = 1,
+			rotateAnimation = 1;
+			if (config.animation) {
+				if (config.animateScale) {
+					scaleAnimation = animationDecimal;
+				}
+				if (config.animateRotate){
+					rotateAnimation = animationDecimal;
+				}
+			}
+
+			for (var i=0; i<data.length; i++){
+
+				ctx.beginPath();
+				ctx.arc(width/2,height/2,scaleAnimation * calculateOffset(data[i].value,calculatedScale,scaleHop),startAngle, startAngle + rotateAnimation*angleStep, false);
+				ctx.lineTo(width/2,height/2);
+				ctx.closePath();
+				ctx.fillStyle = data[i].color;
+				ctx.fill();
+
+				if(config.segmentShowStroke){
+					ctx.strokeStyle = config.segmentStrokeColor;
+					ctx.lineWidth = config.segmentStrokeWidth;
+					ctx.stroke();
+				}
+				startAngle += rotateAnimation*angleStep;
+			}
+		}
+		function getValueBounds() {
+			var upperValue = Number.MIN_VALUE;
+			var lowerValue = Number.MAX_VALUE;
+			for (var i=0; i<data.length; i++){
+				if (data[i].value > upperValue) {upperValue = data[i].value;}
+				if (data[i].value < lowerValue) {lowerValue = data[i].value;}
+			};
+
+			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
+			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
+			
+			return {
+				maxValue : upperValue,
+				minValue : lowerValue,
+				maxSteps : maxSteps,
+				minSteps : minSteps
+			};
+			
+
+		}
+	}
+
+	var Radar = function (data,config,ctx) {
+		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString;	
+			
+		//If no labels are defined set to an empty array, so referencing length for looping doesn't blow up.
+		if (!data.labels) data.labels = [];
+		
+		calculateDrawingSizes();
+
+		var valueBounds = getValueBounds();
+
+		labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : null;
+
+		//Check and set the scale
+		if (!config.scaleOverride){
+			
+			calculatedScale = calculateScale(scaleHeight,valueBounds.maxSteps,valueBounds.minSteps,valueBounds.maxValue,valueBounds.minValue,labelTemplateString);
+		}
+		else {
+			calculatedScale = {
+				steps : config.scaleSteps,
+				stepValue : config.scaleStepWidth,
+				graphMin : config.scaleStartValue,
+				labels : []
+			}
+			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
+		}
+		
+		scaleHop = maxSize/(calculatedScale.steps);
+		
+		animationLoop(config,drawScale,drawAllDataPoints,ctx);
+		
+		//Radar specific functions.
+		function drawAllDataPoints(animationDecimal){
+			var rotationDegree = (2*Math.PI)/data.datasets[0].data.length;
+
+			ctx.save();
+			//translate to the centre of the canvas.
+			ctx.translate(width/2,height/2);
+			
+			//We accept multiple data sets for radar charts, so show loop through each set
+			for (var i=0; i<data.datasets.length; i++){
+				ctx.beginPath();
+
+				ctx.moveTo(0,animationDecimal*(-1*calculateOffset(data.datasets[i].data[0],calculatedScale,scaleHop)));
+				for (var j=1; j<data.datasets[i].data.length; j++){
+					ctx.rotate(rotationDegree);	
+					ctx.lineTo(0,animationDecimal*(-1*calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)));
+			
+				}
+				ctx.closePath();
+				
+				
+				ctx.fillStyle = data.datasets[i].fillColor;
+				ctx.strokeStyle = data.datasets[i].strokeColor;
+				ctx.lineWidth = config.datasetStrokeWidth;
+				ctx.fill();
+				ctx.stroke();
+				
+								
+				if (config.pointDot){
+					ctx.fillStyle = data.datasets[i].pointColor;
+					ctx.strokeStyle = data.datasets[i].pointStrokeColor;
+					ctx.lineWidth = config.pointDotStrokeWidth;
+					for (var k=0; k<data.datasets[i].data.length; k++){
+						ctx.rotate(rotationDegree);
+						ctx.beginPath();
+						ctx.arc(0,animationDecimal*(-1*calculateOffset(data.datasets[i].data[k],calculatedScale,scaleHop)),config.pointDotRadius,2*Math.PI,false);
+						ctx.fill();
+						ctx.stroke();
+					}					
+					
+				}
+				ctx.rotate(rotationDegree);
+				
+			}
+			ctx.restore();
+			
+			
+		}
+		function drawScale(){
+			var rotationDegree = (2*Math.PI)/data.datasets[0].data.length;
+			ctx.save();
+		    ctx.translate(width / 2, height / 2);	
+			
+			if (config.angleShowLineOut){
+				ctx.strokeStyle = config.angleLineColor;		    	    
+				ctx.lineWidth = config.angleLineWidth;
+				for (var h=0; h<data.datasets[0].data.length; h++){
+					
+				    ctx.rotate(rotationDegree);
+					ctx.beginPath();
+					ctx.moveTo(0,0);
+					ctx.lineTo(0,-maxSize);
+					ctx.stroke();
+				}
+			}
+
+			for (var i=0; i<calculatedScale.steps; i++){
+				ctx.beginPath();
+				
+				if(config.scaleShowLine){
+					ctx.strokeStyle = config.scaleLineColor;
+					ctx.lineWidth = config.scaleLineWidth;
+					ctx.moveTo(0,-scaleHop * (i+1));					
+					for (var j=0; j<data.datasets[0].data.length; j++){
+					    ctx.rotate(rotationDegree);
+						ctx.lineTo(0,-scaleHop * (i+1));
+					}
+					ctx.closePath();
+					ctx.stroke();			
+							
+				}
+				
+				if (config.scaleShowLabels){				
+					ctx.textAlign = 'center';
+					ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily; 
+					ctx.textBaseline = "middle";
+					
+					if (config.scaleShowLabelBackdrop){
+						var textWidth = ctx.measureText(calculatedScale.labels[i]).width;
+						ctx.fillStyle = config.scaleBackdropColor;
+						ctx.beginPath();
+						ctx.rect(
+							Math.round(- textWidth/2 - config.scaleBackdropPaddingX),     //X
+							Math.round((-scaleHop * (i + 1)) - config.scaleFontSize*0.5 - config.scaleBackdropPaddingY),//Y
+							Math.round(textWidth + (config.scaleBackdropPaddingX*2)), //Width
+							Math.round(config.scaleFontSize + (config.scaleBackdropPaddingY*2)) //Height
+						);
+						ctx.fill();
+					}						
+					ctx.fillStyle = config.scaleFontColor;
+					ctx.fillText(calculatedScale.labels[i],0,-scaleHop*(i+1));
+				}
+
+			}
+			for (var k=0; k<data.labels.length; k++){				
+			ctx.font = config.pointLabelFontStyle + " " + config.pointLabelFontSize+"px " + config.pointLabelFontFamily;
+			ctx.fillStyle = config.pointLabelFontColor;
+				var opposite = Math.sin(rotationDegree*k) * (maxSize + config.pointLabelFontSize);
+				var adjacent = Math.cos(rotationDegree*k) * (maxSize + config.pointLabelFontSize);
+				
+				if(rotationDegree*k == Math.PI || rotationDegree*k == 0){
+					ctx.textAlign = "center";
+				}
+				else if(rotationDegree*k > Math.PI){
+					ctx.textAlign = "right";
+				}
+				else{
+					ctx.textAlign = "left";
+				}
+				
+				ctx.textBaseline = "middle";
+				
+				ctx.fillText(data.labels[k],opposite,-adjacent);
+				
+			}
+			ctx.restore();
+		};
+		function calculateDrawingSizes(){
+			maxSize = (Min([width,height])/2);
+
+			labelHeight = config.scaleFontSize*2;
+			
+			var labelLength = 0;
+			for (var i=0; i<data.labels.length; i++){
+				ctx.font = config.pointLabelFontStyle + " " + config.pointLabelFontSize+"px " + config.pointLabelFontFamily;
+				var textMeasurement = ctx.measureText(data.labels[i]).width;
+				if(textMeasurement>labelLength) labelLength = textMeasurement;
+			}
+			
+			//Figure out whats the largest - the height of the text or the width of what's there, and minus it from the maximum usable size.
+			maxSize -= Max([labelLength,((config.pointLabelFontSize/2)*1.5)]);				
+			
+			maxSize -= config.pointLabelFontSize;
+			maxSize = CapValue(maxSize, null, 0);
+			scaleHeight = maxSize;
+			//If the label height is less than 5, set it to 5 so we don't have lines on top of each other.
+			labelHeight = Default(labelHeight,5);
+		};
+		function getValueBounds() {
+			var upperValue = Number.MIN_VALUE;
+			var lowerValue = Number.MAX_VALUE;
+			
+			for (var i=0; i<data.datasets.length; i++){
+				for (var j=0; j<data.datasets[i].data.length; j++){
+					if (data.datasets[i].data[j] > upperValue){upperValue = data.datasets[i].data[j]}
+					if (data.datasets[i].data[j] < lowerValue){lowerValue = data.datasets[i].data[j]}
+				}
+			}
+
+			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
+			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
+			
+			return {
+				maxValue : upperValue,
+				minValue : lowerValue,
+				maxSteps : maxSteps,
+				minSteps : minSteps
+			};
+			
+
+		}
+	}
+
+	var Pie = function(data,config,ctx){
+		var segmentTotal = 0;
+		
+		//In case we have a canvas that is not a square. Minus 5 pixels as padding round the edge.
+		var pieRadius = Min([height/2,width/2]) - 5;
+		
+		for (var i=0; i<data.length; i++){
+			segmentTotal += data[i].value;
+		}
+		
+		
+		animationLoop(config,null,drawPieSegments,ctx);
+				
+		function drawPieSegments (animationDecimal){
+			var cumulativeAngle = -Math.PI/2,
+			scaleAnimation = 1,
+			rotateAnimation = 1;
+			if (config.animation) {
+				if (config.animateScale) {
+					scaleAnimation = animationDecimal;
+				}
+				if (config.animateRotate){
+					rotateAnimation = animationDecimal;
+				}
+			}
+			for (var i=0; i<data.length; i++){
+				var segmentAngle = rotateAnimation * ((data[i].value/segmentTotal) * (Math.PI*2));
+				ctx.beginPath();
+				ctx.arc(width/2,height/2,scaleAnimation * pieRadius,cumulativeAngle,cumulativeAngle + segmentAngle);
+				ctx.lineTo(width/2,height/2);
+				ctx.closePath();
+				ctx.fillStyle = data[i].color;
+				ctx.fill();
+				
+				if(config.segmentShowStroke){
+					ctx.lineWidth = config.segmentStrokeWidth;
+					ctx.strokeStyle = config.segmentStrokeColor;
+					ctx.stroke();
+				}
+				cumulativeAngle += segmentAngle;
+			}			
+		}		
+	}
+
+	var Doughnut = function(data,config,ctx){
+		var segmentTotal = 0;
+		
+		//In case we have a canvas that is not a square. Minus 5 pixels as padding round the edge.
+		var doughnutRadius = Min([height/2,width/2]) - 5;
+		
+		var cutoutRadius = doughnutRadius * (config.percentageInnerCutout/100);
+		
+		for (var i=0; i<data.length; i++){
+			segmentTotal += data[i].value;
+		}
+		
+		
+		animationLoop(config,null,drawPieSegments,ctx);
+		
+		
+		function drawPieSegments (animationDecimal){
+			var cumulativeAngle = -Math.PI/2,
+			scaleAnimation = 1,
+			rotateAnimation = 1;
+			if (config.animation) {
+				if (config.animateScale) {
+					scaleAnimation = animationDecimal;
+				}
+				if (config.animateRotate){
+					rotateAnimation = animationDecimal;
+				}
+			}
+			for (var i=0; i<data.length; i++){
+				var segmentAngle = rotateAnimation * ((data[i].value/segmentTotal) * (Math.PI*2));
+				ctx.beginPath();
+				ctx.arc(width/2,height/2,scaleAnimation * doughnutRadius,cumulativeAngle,cumulativeAngle + segmentAngle,false);
+				ctx.arc(width/2,height/2,scaleAnimation * cutoutRadius,cumulativeAngle + segmentAngle,cumulativeAngle,true);
+				ctx.closePath();
+				ctx.fillStyle = data[i].color;
+				ctx.fill();
+				
+				if(config.segmentShowStroke){
+					ctx.lineWidth = config.segmentStrokeWidth;
+					ctx.strokeStyle = config.segmentStrokeColor;
+					ctx.stroke();
+				}
+				cumulativeAngle += segmentAngle;
+			}			
+		}			
+		
+		
+		
+	}
+
+	var Line = function(data,config,ctx){
+		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString, valueHop,widestXLabel, xAxisLength,yAxisPosX,xAxisPosY, rotateLabels = 0;
+			
+		calculateDrawingSizes();
+		
+		valueBounds = getValueBounds();
+		//Check and set the scale
+		labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : "";
+		if (!config.scaleOverride){
+			
+			calculatedScale = calculateScale(scaleHeight,valueBounds.maxSteps,valueBounds.minSteps,valueBounds.maxValue,valueBounds.minValue,labelTemplateString);
+		}
+		else {
+			calculatedScale = {
+				steps : config.scaleSteps,
+				stepValue : config.scaleStepWidth,
+				graphMin : config.scaleStartValue,
+				labels : []
+			}
+			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
+		}
+		
+		scaleHop = Math.floor(scaleHeight/calculatedScale.steps);
+		calculateXAxisSize();
+		animationLoop(config,drawScale,drawLines,ctx);		
+		
+		function drawLines(animPc){
+			for (var i=0; i<data.datasets.length; i++){
+				ctx.strokeStyle = data.datasets[i].strokeColor;
+				ctx.lineWidth = config.datasetStrokeWidth;
+				ctx.beginPath();
+				ctx.moveTo(yAxisPosX, xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[0],calculatedScale,scaleHop)))
+
+				for (var j=1; j<data.datasets[i].data.length; j++){
+					if (config.bezierCurve){
+						ctx.bezierCurveTo(xPos(j-0.5),yPos(i,j-1),xPos(j-0.5),yPos(i,j),xPos(j),yPos(i,j));
+					}
+					else{
+						ctx.lineTo(xPos(j),yPos(i,j));
 					}
 				}
-			);
+				ctx.stroke();
+				if (config.datasetFill){
+					ctx.lineTo(yAxisPosX + (valueHop*(data.datasets[i].data.length-1)),xAxisPosY);
+					ctx.lineTo(yAxisPosX,xAxisPosY);
+					ctx.closePath();
+					ctx.fillStyle = data.datasets[i].fillColor;
+					ctx.fill();
+				}
+				else{
+					ctx.closePath();
+				}
+				if(config.pointDot){
+					ctx.fillStyle = data.datasets[i].pointColor;
+					ctx.strokeStyle = data.datasets[i].pointStrokeColor;
+					ctx.lineWidth = config.pointDotStrokeWidth;
+					for (var k=0; k<data.datasets[i].data.length; k++){
+						ctx.beginPath();
+						ctx.arc(yAxisPosX + (valueHop *k),xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[k],calculatedScale,scaleHop)),config.pointDotRadius,0,Math.PI*2,true);
+						ctx.fill();
+						ctx.stroke();
+					}
+				}
+			}
 			
-			initialise(s);
+			function yPos(dataSet,iteration){
+				return xAxisPosY - animPc*(calculateOffset(data.datasets[dataSet].data[iteration],calculatedScale,scaleHop));			
+			}
+			function xPos(iteration){
+				return yAxisPosX + (valueHop * iteration);
+			}
+		}
+		function drawScale(){
+			//X axis line
+			ctx.lineWidth = config.scaleLineWidth;
+			ctx.strokeStyle = config.scaleLineColor;
+			ctx.beginPath();
+			ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+			ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+			ctx.stroke();
+			
+			
+			if (rotateLabels > 0){
+				ctx.save();
+				ctx.textAlign = "right";
+			}
+			else{
+				ctx.textAlign = "center";
+			}
+			ctx.fillStyle = config.scaleFontColor;
+			for (var i=0; i<data.labels.length; i++){
+				ctx.save();
+				if (rotateLabels > 0){
+					ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+					ctx.rotate(-(rotateLabels * (Math.PI/180)));
+					ctx.fillText(data.labels[i], 0,0);
+					ctx.restore();
+				}
+				
+				else{
+					ctx.fillText(data.labels[i], yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize+3);					
+				}
+
+				ctx.beginPath();
+				ctx.moveTo(yAxisPosX + i * valueHop, xAxisPosY+3);
+				
+				//Check i isnt 0, so we dont go over the Y axis twice.
+				if(config.scaleShowGridLines && i>0){
+					ctx.lineWidth = config.scaleGridLineWidth;
+					ctx.strokeStyle = config.scaleGridLineColor;					
+					ctx.lineTo(yAxisPosX + i * valueHop, 5);
+				}
+				else{
+					ctx.lineTo(yAxisPosX + i * valueHop, xAxisPosY+3);				
+				}
+				ctx.stroke();
+			}
+			
+			//Y axis
+			ctx.lineWidth = config.scaleLineWidth;
+			ctx.strokeStyle = config.scaleLineColor;
+			ctx.beginPath();
+			ctx.moveTo(yAxisPosX,xAxisPosY+5);
+			ctx.lineTo(yAxisPosX,5);
+			ctx.stroke();
+			
+			ctx.textAlign = "right";
+			ctx.textBaseline = "middle";
+			for (var j=0; j<calculatedScale.steps; j++){
+				ctx.beginPath();
+				ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
+				if (config.scaleShowGridLines){
+					ctx.lineWidth = config.scaleGridLineWidth;
+					ctx.strokeStyle = config.scaleGridLineColor;
+					ctx.lineTo(yAxisPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));					
+				}
+				else{
+					ctx.lineTo(yAxisPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+				}
+				
+				ctx.stroke();
+				
+				if (config.scaleShowLabels){
+					ctx.fillText(calculatedScale.labels[j],yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+				}
+			}
+			
+			
+		}
+		function calculateXAxisSize(){
+			var longestText = 1;
+			//if we are showing the labels
+			if (config.scaleShowLabels){
+				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
+				for (var i=0; i<calculatedScale.labels.length; i++){
+					var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
+					longestText = (measuredText > longestText)? measuredText : longestText;
+				}
+				//Add a little extra padding from the y axis
+				longestText +=10;
+			}
+			xAxisLength = width - longestText - widestXLabel;
+			valueHop = Math.floor(xAxisLength/(data.labels.length-1));	
+				
+			yAxisPosX = width-widestXLabel/2-xAxisLength;
+			xAxisPosY = scaleHeight + config.scaleFontSize/2;				
+		}		
+		function calculateDrawingSizes(){
+			maxSize = height;
+
+			//Need to check the X axis first - measure the length of each text metric, and figure out if we need to rotate by 45 degrees.
+			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
+			widestXLabel = 1;
+			for (var i=0; i<data.labels.length; i++){
+				var textLength = ctx.measureText(data.labels[i]).width;
+				//If the text length is longer - make that equal to longest text!
+				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
+			}
+			if (width/data.labels.length < widestXLabel){
+				rotateLabels = 45;
+				if (width/data.labels.length < Math.cos(rotateLabels) * widestXLabel){
+					rotateLabels = 90;
+					maxSize -= widestXLabel; 
+				}
+				else{
+					maxSize -= Math.sin(rotateLabels) * widestXLabel;
+				}
+			}
+			else{
+				maxSize -= config.scaleFontSize;
+			}
+			
+			//Add a little padding between the x line and the text
+			maxSize -= 5;
+			
+			
+			labelHeight = config.scaleFontSize;
+			
+			maxSize -= labelHeight;
+			//Set 5 pixels greater than the font size to allow for a little padding from the X axis.
+			
+			scaleHeight = maxSize;
+			
+			//Then get the area above we can safely draw on.
+			
+		}		
+		function getValueBounds() {
+			var upperValue = Number.MIN_VALUE;
+			var lowerValue = Number.MAX_VALUE;
+			for (var i=0; i<data.datasets.length; i++){
+				for (var j=0; j<data.datasets[i].data.length; j++){
+					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
+					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
+				}
+			};
+	
+			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
+			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
+			
+			return {
+				maxValue : upperValue,
+				minValue : lowerValue,
+				maxSteps : maxSteps,
+				minSteps : minSteps
+			};
+			
+	
 		}
 
-		// Pluginifying code...
-		settings = $.extend({}, $.fn.jScrollPane.defaults, settings);
 		
-		// Apply default speed
-		$.each(['arrowButtonSpeed', 'trackClickSpeed', 'keyboardSpeed'], function() {
-			settings[this] = settings[this] || settings.speed;
-		});
-
-		return this.each(
-			function()
-			{
-				var elem = $(this), jspApi = elem.data('jsp');
-				if (jspApi) {
-					jspApi.reinitialise(settings);
-				} else {
-					$("script",elem).filter('[type="text/javascript"],:not([type])').remove();
-					jspApi = new JScrollPane(elem, settings);
-					elem.data('jsp', jspApi);
+	}
+	
+	var Bar = function(data,config,ctx){
+		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString, valueHop,widestXLabel, xAxisLength,yAxisPosX,xAxisPosY,barWidth, rotateLabels = 0;
+			
+		calculateDrawingSizes();
+		
+		valueBounds = getValueBounds();
+		//Check and set the scale
+		labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : "";
+		if (!config.scaleOverride){
+			
+			calculatedScale = calculateScale(scaleHeight,valueBounds.maxSteps,valueBounds.minSteps,valueBounds.maxValue,valueBounds.minValue,labelTemplateString);
+		}
+		else {
+			calculatedScale = {
+				steps : config.scaleSteps,
+				stepValue : config.scaleStepWidth,
+				graphMin : config.scaleStartValue,
+				labels : []
+			}
+			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
+		}
+		
+		scaleHop = Math.floor(scaleHeight/calculatedScale.steps);
+		calculateXAxisSize();
+		animationLoop(config,drawScale,drawBars,ctx);		
+		
+		function drawBars(animPc){
+			ctx.lineWidth = config.barStrokeWidth;
+			for (var i=0; i<data.datasets.length; i++){
+					ctx.fillStyle = data.datasets[i].fillColor;
+					ctx.strokeStyle = data.datasets[i].strokeColor;
+				for (var j=0; j<data.datasets[i].data.length; j++){
+					var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + barWidth*i + config.barDatasetSpacing*i + config.barStrokeWidth*i;
+					
+					ctx.beginPath();
+					ctx.moveTo(barOffset, xAxisPosY);
+					ctx.lineTo(barOffset, xAxisPosY - animPc*calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)+(config.barStrokeWidth/2));
+					ctx.lineTo(barOffset + barWidth, xAxisPosY - animPc*calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)+(config.barStrokeWidth/2));
+					ctx.lineTo(barOffset + barWidth, xAxisPosY);
+					if(config.barShowStroke){
+						ctx.stroke();
+					}
+					ctx.closePath();
+					ctx.fill();
 				}
 			}
-		);
-	};
+			
+		}
+		function drawScale(){
+			//X axis line
+			ctx.lineWidth = config.scaleLineWidth;
+			ctx.strokeStyle = config.scaleLineColor;
+			ctx.beginPath();
+			ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+			ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+			ctx.stroke();
+			
+			
+			if (rotateLabels > 0){
+				ctx.save();
+				ctx.textAlign = "right";
+			}
+			else{
+				ctx.textAlign = "center";
+			}
+			ctx.fillStyle = config.scaleFontColor;
+			for (var i=0; i<data.labels.length; i++){
+				ctx.save();
+				if (rotateLabels > 0){
+					ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+					ctx.rotate(-(rotateLabels * (Math.PI/180)));
+					ctx.fillText(data.labels[i], 0,0);
+					ctx.restore();
+				}
+				
+				else{
+					ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);					
+				}
 
-	$.fn.jScrollPane.defaults = {
-		showArrows					: false,
-		maintainPosition			: true,
-		stickToBottom				: false,
-		stickToRight				: false,
-		clickOnTrack				: true,
-		autoReinitialise			: false,
-		autoReinitialiseDelay		: 500,
-		verticalDragMinHeight		: 0,
-		verticalDragMaxHeight		: 99999,
-		horizontalDragMinWidth		: 0,
-		horizontalDragMaxWidth		: 99999,
-		contentWidth				: undefined,
-		animateScroll				: false,
-		animateDuration				: 300,
-		animateEase					: 'linear',
-		hijackInternalLinks			: false,
-		verticalGutter				: 4,
-		horizontalGutter			: 4,
-		mouseWheelSpeed				: 3,
-		arrowButtonSpeed			: 0,
-		arrowRepeatFreq				: 50,
-		arrowScrollOnHover			: false,
-		trackClickSpeed				: 0,
-		trackClickRepeatFreq		: 70,
-		verticalArrowPositions		: 'split',
-		horizontalArrowPositions	: 'split',
-		enableKeyboardNavigation	: true,
-		hideFocus					: false,
-		keyboardSpeed				: 0,
-		initialDelay                : 300,        // Delay before starting repeating
-		speed						: 30,		// Default speed when others falsey
-		scrollPagePercent			: .8		// Percent of visible area scrolled when pageUp/Down or track area pressed
-	};
+				ctx.beginPath();
+				ctx.moveTo(yAxisPosX + (i+1) * valueHop, xAxisPosY+3);
+				
+				//Check i isnt 0, so we dont go over the Y axis twice.
+					ctx.lineWidth = config.scaleGridLineWidth;
+					ctx.strokeStyle = config.scaleGridLineColor;					
+					ctx.lineTo(yAxisPosX + (i+1) * valueHop, 5);
+				ctx.stroke();
+			}
+			
+			//Y axis
+			ctx.lineWidth = config.scaleLineWidth;
+			ctx.strokeStyle = config.scaleLineColor;
+			ctx.beginPath();
+			ctx.moveTo(yAxisPosX,xAxisPosY+5);
+			ctx.lineTo(yAxisPosX,5);
+			ctx.stroke();
+			
+			ctx.textAlign = "right";
+			ctx.textBaseline = "middle";
+			for (var j=0; j<calculatedScale.steps; j++){
+				ctx.beginPath();
+				ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
+				if (config.scaleShowGridLines){
+					ctx.lineWidth = config.scaleGridLineWidth;
+					ctx.strokeStyle = config.scaleGridLineColor;
+					ctx.lineTo(yAxisPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));					
+				}
+				else{
+					ctx.lineTo(yAxisPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+				}
+				
+				ctx.stroke();
+				if (config.scaleShowLabels){
+					ctx.fillText(calculatedScale.labels[j],yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+				}
+			}
+			
+			
+		}
+		function calculateXAxisSize(){
+			var longestText = 1;
+			//if we are showing the labels
+			if (config.scaleShowLabels){
+				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
+				for (var i=0; i<calculatedScale.labels.length; i++){
+					var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
+					longestText = (measuredText > longestText)? measuredText : longestText;
+				}
+				//Add a little extra padding from the y axis
+				longestText +=10;
+			}
+			xAxisLength = width - longestText - widestXLabel;
+			valueHop = Math.floor(xAxisLength/(data.labels.length));	
+			
+			barWidth = (valueHop - config.scaleGridLineWidth*2 - (config.barValueSpacing*2) - (config.barDatasetSpacing*data.datasets.length-1) - ((config.barStrokeWidth/2)*data.datasets.length-1))/data.datasets.length;
+			
+			yAxisPosX = width-widestXLabel/2-xAxisLength;
+			xAxisPosY = scaleHeight + config.scaleFontSize/2;				
+		}		
+		function calculateDrawingSizes(){
+			maxSize = height;
 
-},this));
-; browserify_shim__define__module__export__(typeof jscrollpane != "undefined" ? jscrollpane : window.jscrollpane);
+			//Need to check the X axis first - measure the length of each text metric, and figure out if we need to rotate by 45 degrees.
+			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
+			widestXLabel = 1;
+			for (var i=0; i<data.labels.length; i++){
+				var textLength = ctx.measureText(data.labels[i]).width;
+				//If the text length is longer - make that equal to longest text!
+				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
+			}
+			if (width/data.labels.length < widestXLabel){
+				rotateLabels = 45;
+				if (width/data.labels.length < Math.cos(rotateLabels) * widestXLabel){
+					rotateLabels = 90;
+					maxSize -= widestXLabel; 
+				}
+				else{
+					maxSize -= Math.sin(rotateLabels) * widestXLabel;
+				}
+			}
+			else{
+				maxSize -= config.scaleFontSize;
+			}
+			
+			//Add a little padding between the x line and the text
+			maxSize -= 5;
+			
+			
+			labelHeight = config.scaleFontSize;
+			
+			maxSize -= labelHeight;
+			//Set 5 pixels greater than the font size to allow for a little padding from the X axis.
+			
+			scaleHeight = maxSize;
+			
+			//Then get the area above we can safely draw on.
+			
+		}		
+		function getValueBounds() {
+			var upperValue = Number.MIN_VALUE;
+			var lowerValue = Number.MAX_VALUE;
+			for (var i=0; i<data.datasets.length; i++){
+				for (var j=0; j<data.datasets[i].data.length; j++){
+					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
+					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
+				}
+			};
+	
+			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
+			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
+			
+			return {
+				maxValue : upperValue,
+				minValue : lowerValue,
+				maxSteps : maxSteps,
+				minSteps : minSteps
+			};
+			
+	
+		}
+	}
+	
+	function calculateOffset(val,calculatedScale,scaleHop){
+		var outerValue = calculatedScale.steps * calculatedScale.stepValue;
+		var adjustedValue = val - calculatedScale.graphMin;
+		var scalingFactor = CapValue(adjustedValue/outerValue,1,0);
+		return (scaleHop*calculatedScale.steps) * scalingFactor;
+	}
+	
+	function animationLoop(config,drawScale,drawData,ctx){
+		var animFrameAmount = (config.animation)? 1/CapValue(config.animationSteps,Number.MAX_VALUE,1) : 1,
+			easingFunction = animationOptions[config.animationEasing],
+			percentAnimComplete =(config.animation)? 0 : 1;
+		
+	
+		
+		if (typeof drawScale !== "function") drawScale = function(){};
+		
+		requestAnimFrame(animLoop);
+		
+		function animateFrame(){
+			var easeAdjustedAnimationPercent =(config.animation)? CapValue(easingFunction(percentAnimComplete),null,0) : 1;
+			clear(ctx);
+			if(config.scaleOverlay){
+				drawData(easeAdjustedAnimationPercent);
+				drawScale();
+			} else {
+				drawScale();
+				drawData(easeAdjustedAnimationPercent);
+			}				
+		}
+		function animLoop(){
+			//We need to check if the animation is incomplete (less than 1), or complete (1).
+				percentAnimComplete += animFrameAmount;
+				animateFrame();	
+				//Stop the loop continuing forever
+				if (percentAnimComplete <= 1){
+					requestAnimFrame(animLoop);
+				}
+				else{
+					if (typeof config.onAnimationComplete == "function") config.onAnimationComplete();
+				}
+			
+		}		
+		
+	}
+
+	//Declare global functions to be called within this namespace here.
+	
+	
+	// shim layer with setTimeout fallback
+	var requestAnimFrame = (function(){
+		return window.requestAnimationFrame ||
+			window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame ||
+			window.oRequestAnimationFrame ||
+			window.msRequestAnimationFrame ||
+			function(callback) {
+				window.setTimeout(callback, 1000 / 60);
+			};
+	})();
+
+	function calculateScale(drawingHeight,maxSteps,minSteps,maxValue,minValue,labelTemplateString){
+			var graphMin,graphMax,graphRange,stepValue,numberOfSteps,valueRange,rangeOrderOfMagnitude,decimalNum;
+			
+			valueRange = maxValue - minValue;
+			
+			rangeOrderOfMagnitude = calculateOrderOfMagnitude(valueRange);
+
+        	graphMin = Math.floor(minValue / (1 * Math.pow(10, rangeOrderOfMagnitude))) * Math.pow(10, rangeOrderOfMagnitude);
+            
+            graphMax = Math.ceil(maxValue / (1 * Math.pow(10, rangeOrderOfMagnitude))) * Math.pow(10, rangeOrderOfMagnitude);
+            
+            graphRange = graphMax - graphMin;
+            
+            stepValue = Math.pow(10, rangeOrderOfMagnitude);
+            
+	        numberOfSteps = Math.round(graphRange / stepValue);
+	        
+	        //Compare number of steps to the max and min for that size graph, and add in half steps if need be.	        
+	        while(numberOfSteps < minSteps || numberOfSteps > maxSteps) {
+	        	if (numberOfSteps < minSteps){
+			        stepValue /= 2;
+			        numberOfSteps = Math.round(graphRange/stepValue);
+		        }
+		        else{
+			        stepValue *=2;
+			        numberOfSteps = Math.round(graphRange/stepValue);
+		        }
+	        };
+
+	        var labels = [];
+	        populateLabels(labelTemplateString, labels, numberOfSteps, graphMin, stepValue);
+		
+	        return {
+		        steps : numberOfSteps,
+				stepValue : stepValue,
+				graphMin : graphMin,
+				labels : labels		        
+		        
+	        }
+		
+			function calculateOrderOfMagnitude(val){
+			  return Math.floor(Math.log(val) / Math.LN10);
+			}		
+
+
+	}
+
+    //Populate an array of all the labels by interpolating the string.
+    function populateLabels(labelTemplateString, labels, numberOfSteps, graphMin, stepValue) {
+        if (labelTemplateString) {
+            //Fix floating point errors by setting to fixed the on the same decimal as the stepValue.
+            for (var i = 1; i < numberOfSteps + 1; i++) {
+                labels.push(tmpl(labelTemplateString, {value: (graphMin + (stepValue * i)).toFixed(getDecimalPlaces(stepValue))}));
+            }
+        }
+    }
+	
+	//Max value from array
+	function Max( array ){
+		return Math.max.apply( Math, array );
+	};
+	//Min value from array
+	function Min( array ){
+		return Math.min.apply( Math, array );
+	};
+	//Default if undefined
+	function Default(userDeclared,valueIfFalse){
+		if(!userDeclared){
+			return valueIfFalse;
+		} else {
+			return userDeclared;
+		}
+	};
+	//Is a number function
+	function isNumber(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+	//Apply cap a value at a high or low number
+	function CapValue(valueToCap, maxValue, minValue){
+		if(isNumber(maxValue)) {
+			if( valueToCap > maxValue ) {
+				return maxValue;
+			}
+		}
+		if(isNumber(minValue)){
+			if ( valueToCap < minValue ){
+				return minValue;
+			}
+		}
+		return valueToCap;
+	}
+	function getDecimalPlaces (num){
+		var numberOfDecimalPlaces;
+		if (num%1!=0){
+			return num.toString().split(".")[1].length
+		}
+		else{
+			return 0;
+		}
+		
+	} 
+	
+	function mergeChartConfig(defaults,userDefined){
+		var returnObj = {};
+	    for (var attrname in defaults) { returnObj[attrname] = defaults[attrname]; }
+	    for (var attrname in userDefined) { returnObj[attrname] = userDefined[attrname]; }
+	    return returnObj;
+	}
+	
+	//Javascript micro templating by John Resig - source at http://ejohn.org/blog/javascript-micro-templating/
+	  var cache = {};
+	 
+	  function tmpl(str, data){
+	    // Figure out if we're getting a template, or if we need to
+	    // load the template - and be sure to cache the result.
+	    var fn = !/\W/.test(str) ?
+	      cache[str] = cache[str] ||
+	        tmpl(document.getElementById(str).innerHTML) :
+	     
+	      // Generate a reusable function that will serve as a template
+	      // generator (and which will be cached).
+	      new Function("obj",
+	        "var p=[],print=function(){p.push.apply(p,arguments);};" +
+	       
+	        // Introduce the data as local variables using with(){}
+	        "with(obj){p.push('" +
+	       
+	        // Convert the template into pure JavaScript
+	        str
+	          .replace(/[\r\t\n]/g, " ")
+	          .split("<%").join("\t")
+	          .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+	          .replace(/\t=(.*?)%>/g, "',$1,'")
+	          .split("\t").join("');")
+	          .split("%>").join("p.push('")
+	          .split("\r").join("\\'")
+	      + "');}return p.join('');");
+	   
+	    // Provide some basic currying to the user
+	    return data ? fn( data ) : fn;
+	  };
+}
+
+
+
+; browserify_shim__define__module__export__(typeof chartjs != "undefined" ? chartjs : window.chartjs);
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],5:[function(require,module,exports){
-var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
-
-; jscrollpane = global.jscrollpane = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jScrollPane\\script\\jquery.jscrollpane.js");
-/*! Copyright (c) 2013 Brandon Aaron (http://brandon.aaron.sh)
- * Licensed under the MIT License (LICENSE.txt).
- *
- * Version: 3.1.9
- *
- * Requires: jQuery 1.2.2+
- */
-
-(function (factory) {
-    if ( typeof define === 'function' && define.amd ) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS style for Browserify
-        module.exports = factory;
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
-
-    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
-        toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
-                    ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
-        slice  = Array.prototype.slice,
-        nullLowestDeltaTimeout, lowestDelta;
-
-    if ( $.event.fixHooks ) {
-        for ( var i = toFix.length; i; ) {
-            $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
-        }
-    }
-
-    var special = $.event.special.mousewheel = {
-        version: '3.1.9',
-
-        setup: function() {
-            if ( this.addEventListener ) {
-                for ( var i = toBind.length; i; ) {
-                    this.addEventListener( toBind[--i], handler, false );
-                }
-            } else {
-                this.onmousewheel = handler;
-            }
-            // Store the line height and page height for this particular element
-            $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
-            $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
-        },
-
-        teardown: function() {
-            if ( this.removeEventListener ) {
-                for ( var i = toBind.length; i; ) {
-                    this.removeEventListener( toBind[--i], handler, false );
-                }
-            } else {
-                this.onmousewheel = null;
-            }
-        },
-
-        getLineHeight: function(elem) {
-            return parseInt($(elem)['offsetParent' in $.fn ? 'offsetParent' : 'parent']().css('fontSize'), 10);
-        },
-
-        getPageHeight: function(elem) {
-            return $(elem).height();
-        },
-
-        settings: {
-            adjustOldDeltas: true
-        }
-    };
-
-    $.fn.extend({
-        mousewheel: function(fn) {
-            return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
-        },
-
-        unmousewheel: function(fn) {
-            return this.unbind('mousewheel', fn);
-        }
-    });
-
-
-    function handler(event) {
-        var orgEvent   = event || window.event,
-            args       = slice.call(arguments, 1),
-            delta      = 0,
-            deltaX     = 0,
-            deltaY     = 0,
-            absDelta   = 0;
-        event = $.event.fix(orgEvent);
-        event.type = 'mousewheel';
-
-        // Old school scrollwheel delta
-        if ( 'detail'      in orgEvent ) { deltaY = orgEvent.detail * -1;      }
-        if ( 'wheelDelta'  in orgEvent ) { deltaY = orgEvent.wheelDelta;       }
-        if ( 'wheelDeltaY' in orgEvent ) { deltaY = orgEvent.wheelDeltaY;      }
-        if ( 'wheelDeltaX' in orgEvent ) { deltaX = orgEvent.wheelDeltaX * -1; }
-
-        // Firefox < 17 horizontal scrolling related to DOMMouseScroll event
-        if ( 'axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
-            deltaX = deltaY * -1;
-            deltaY = 0;
-        }
-
-        // Set delta to be deltaY or deltaX if deltaY is 0 for backwards compatabilitiy
-        delta = deltaY === 0 ? deltaX : deltaY;
-
-        // New school wheel delta (wheel event)
-        if ( 'deltaY' in orgEvent ) {
-            deltaY = orgEvent.deltaY * -1;
-            delta  = deltaY;
-        }
-        if ( 'deltaX' in orgEvent ) {
-            deltaX = orgEvent.deltaX;
-            if ( deltaY === 0 ) { delta  = deltaX * -1; }
-        }
-
-        // No change actually happened, no reason to go any further
-        if ( deltaY === 0 && deltaX === 0 ) { return; }
-
-        // Need to convert lines and pages to pixels if we aren't already in pixels
-        // There are three delta modes:
-        //   * deltaMode 0 is by pixels, nothing to do
-        //   * deltaMode 1 is by lines
-        //   * deltaMode 2 is by pages
-        if ( orgEvent.deltaMode === 1 ) {
-            var lineHeight = $.data(this, 'mousewheel-line-height');
-            delta  *= lineHeight;
-            deltaY *= lineHeight;
-            deltaX *= lineHeight;
-        } else if ( orgEvent.deltaMode === 2 ) {
-            var pageHeight = $.data(this, 'mousewheel-page-height');
-            delta  *= pageHeight;
-            deltaY *= pageHeight;
-            deltaX *= pageHeight;
-        }
-
-        // Store lowest absolute delta to normalize the delta values
-        absDelta = Math.max( Math.abs(deltaY), Math.abs(deltaX) );
-
-        if ( !lowestDelta || absDelta < lowestDelta ) {
-            lowestDelta = absDelta;
-
-            // Adjust older deltas if necessary
-            if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
-                lowestDelta /= 40;
-            }
-        }
-
-        // Adjust older deltas if necessary
-        if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
-            // Divide all the things by 40!
-            delta  /= 40;
-            deltaX /= 40;
-            deltaY /= 40;
-        }
-
-        // Get a whole, normalized value for the deltas
-        delta  = Math[ delta  >= 1 ? 'floor' : 'ceil' ](delta  / lowestDelta);
-        deltaX = Math[ deltaX >= 1 ? 'floor' : 'ceil' ](deltaX / lowestDelta);
-        deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ](deltaY / lowestDelta);
-
-        // Add information to the event object
-        event.deltaX = deltaX;
-        event.deltaY = deltaY;
-        event.deltaFactor = lowestDelta;
-        // Go ahead and set deltaMode to 0 since we converted to pixels
-        // Although this is a little odd since we overwrite the deltaX/Y
-        // properties with normalized deltas.
-        event.deltaMode = 0;
-
-        // Add event and delta to the front of the arguments
-        args.unshift(event, delta, deltaX, deltaY);
-
-        // Clearout lowestDelta after sometime to better
-        // handle multiple device types that give different
-        // a different lowestDelta
-        // Ex: trackpad = 3 and mouse wheel = 120
-        if (nullLowestDeltaTimeout) { clearTimeout(nullLowestDeltaTimeout); }
-        nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
-
-        return ($.event.dispatch || $.event.handle).apply(this, args);
-    }
-
-    function nullLowestDelta() {
-        lowestDelta = null;
-    }
-
-    function shouldAdjustOldDeltas(orgEvent, absDelta) {
-        // If this is an older event and the delta is divisable by 120,
-        // then we are assuming that the browser is treating this as an
-        // older mouse wheel event and that we should divide the deltas
-        // by 40 to try and get a more usable deltaFactor.
-        // Side note, this actually impacts the reported scroll distance
-        // in older browsers and can cause scrolling to be slower than native.
-        // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
-        return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
-    }
-
-}));
-
-
-; browserify_shim__define__module__export__(typeof mousewheel != "undefined" ? mousewheel : window.mousewheel);
-
-}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
-
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jScrollPane\\script\\jquery.jscrollpane.js":4}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*!
  * jQuery JavaScript Library v1.10.2
@@ -14397,7 +14144,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 }).call(global, module, undefined);
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -14876,7 +14623,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],8:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],7:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*
  * Snap.js
@@ -15449,7 +15196,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 //     Underscore.js 1.5.2
 //     http://underscorejs.org
@@ -16730,7 +16477,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -18321,7 +18068,7 @@ underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"underscore":9}],11:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":8,"underscore":8}],10:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -18848,12 +18595,63 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],12:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],11:[function(require,module,exports){
+var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
+/*
+ *  colourBrightness.js
+ *
+ *  Copyright 2013, Jamie Brittain - http://jamiebrittain.com
+ *  Released under the WTFPL license
+ *  http://sam.zoy.org/wtfpl/
+ *
+ *  Github:  http://github.com/jamiebrittain/colourBrightness.js
+ *  Version: 1.1
+ */
+
+(function($){
+  $.fn.colourBrightness = function(){
+    var r,g,b,brightness,
+        colour = this.css("background-color");
+
+    if (colour.match(/^rgb/)) {
+      colour = colour.match(/rgb\(([^)]+)\)/)[1];
+      colour = colour.split(/ *, */).map(Number);
+      r = colour[0];
+      g = colour[1];
+      b = colour[2];
+    } else if ('#' == colour[0] && 7 == colour.length) {
+      r = parseInt(colour.slice(1, 3), 16);
+      g = parseInt(colour.slice(3, 5), 16);
+      b = parseInt(colour.slice(5, 7), 16);
+    } else if ('#' == colour[0] && 4 == colour.length) {
+      r = parseInt(colour[1] + colour[1], 16);
+      g = parseInt(colour[2] + colour[2], 16);
+      b = parseInt(colour[3] + colour[3], 16);
+    }
+
+    brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    if (brightness < 125) {
+      // white text
+      this.removeClass("light").addClass("dark");
+    } else {
+      // black text
+      this.removeClass("dark").addClass("light");
+    }
+  }
+})(jQuery);
+
+; browserify_shim__define__module__export__(typeof colourBrightness != "undefined" ? colourBrightness : window.colourBrightness);
+
+}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
+
+},{}],12:[function(require,module,exports){
 var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'),
     Bootsrap          = require('bootstrap'),
     slimscroll        = require('slimscroll'),
-    mousewheel        = require('mousewheel'), 
+    chartjs           = require('chartjs'), 
+    colourBrightness  = require('colourBrightness'), 
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -18882,7 +18680,7 @@ App.prototype.start = function(){
             FB.init({
                 appId      : '446186442184074',
                 xfbml      : true,
-                version    : 'v2.0'
+                version    : 'v2.1'
             });
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
@@ -18931,7 +18729,7 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":13,"./collections/teams":14,"./controller":15,"./models/player":17,"./models/team":18,"./router":19,"backbone.marionette":1,"bootstrap":11,"mousewheel":5,"slimscroll":7}],13:[function(require,module,exports){
+},{"./collections/players":13,"./collections/teams":14,"./controller":15,"./models/player":17,"./models/team":18,"./router":19,"backbone.marionette":1,"bootstrap":10,"chartjs":4,"colourBrightness":11,"slimscroll":6}],13:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
@@ -18941,7 +18739,7 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
 
 });
 
-},{"../models/player":17,"backbone":10}],14:[function(require,module,exports){
+},{"../models/player":17,"backbone":9}],14:[function(require,module,exports){
 var Backbone = require('backbone'),
     TeamModel = require('../models/team'),
     PlayersCollection = require('./players');
@@ -18953,18 +18751,18 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
         return team.get('position');
     },
     byPlaying:function() {
-        // not in use?? COULD BE USEFUL!!
-        // playing = this.filter(function(team) {
-        //     return team.get('playing') === true;
-        // });
-        // return new TeamsCollection(playing);
+        playing = this.filter(function(team) {
+            return team.get('playing') === true;
+        });
+        return new TeamsCollection(playing);
     }
 });
 
-},{"../models/team":18,"./players":13,"backbone":10}],15:[function(require,module,exports){
+},{"../models/team":18,"./players":13,"backbone":9}],15:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
     SetTeamsView = require('./views/teamsView/setTeams'),
+    PlayersSettingsView = require('./views/playersView/playersView'),
     StatsView  = require('./views/statsView/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
@@ -18989,6 +18787,12 @@ module.exports = Controller = Marionette.Controller.extend({
         window.App.router.navigate('#teams');
     },
 
+    players: function() {
+        App.core.vent.trigger('app:log', 'Controller: "Players" route hit.');
+        window.App.views.appView.stats.show(new PlayersSettingsView({ collection: window.App.data.players }));
+        window.App.router.navigate('#players');
+    },
+
     renderView: function(view) {
         this.destroyCurrentView(view);
         App.core.vent.trigger('app:log', 'Controller: Rendering new view.');
@@ -19004,7 +18808,7 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/appView":20,"./views/statsView/statsView":25,"./views/teamsView/setTeams":26,"backbone.marionette":1}],16:[function(require,module,exports){
+},{"./views/appView":20,"./views/playersView/playersView":25,"./views/statsView/statsView":28,"./views/teamsView/setTeams":29,"backbone.marionette":1}],16:[function(require,module,exports){
 var App = require('./app');
 var StatApp = new App();
 
@@ -19038,7 +18842,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     }
 });
 
-},{"backbone":10}],18:[function(require,module,exports){
+},{"backbone":9}],18:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
 //var NestedModel       = require('backbone.nested');
@@ -19047,7 +18851,8 @@ var PlayersCollection = require('../collections/players');
 module.exports = TeamModel = Backbone.Model.extend({
     idAttribute: '_id',
     defaults: {
-        team_name: '',         
+        team_name: '',
+        team_color:   '#ffffff',         
         points:       0, 
         made_one:     0, 
         made_two:     0, 
@@ -19066,27 +18871,30 @@ module.exports = TeamModel = Backbone.Model.extend({
 });
 
 
-},{"../collections/players":13,"backbone":10}],19:[function(require,module,exports){
+},{"../collections/players":13,"backbone":9}],19:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = Router = Marionette.AppRouter.extend({
     appRoutes: {
         ''      : 'home',
-        'teams' : 'teams'
+        'teams' : 'teams',
+        'players' : 'players'
     }
 });
 
 },{"backbone.marionette":1}],20:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     MenuView = require('./menu/menu'),
-    StatsView = require('./statsView/statsView');
+    StatsView = require('./statsView/statsView'),
+    ScoreboardView = require('./scoreboard/scoreboardView');
 
 module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 	template: require('../../templates/appView.hbs'),
 
 	regions: {
 		menu: ".menu",
-		stats: ".content"
+		stats: ".content",
+        scoreboard: ".scoreboard"
 	},
 
 	onRender: function() {
@@ -19096,7 +18904,12 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         var menuView = new MenuView();
         this.menu.show(menuView);
 
+        // render the app's scoreboard (always render the scoreboard, for now??)   
+        var scoreboardView = new ScoreboardView();
+        this.scoreboard.show(scoreboardView);
+
         this.snapper();
+
     },
     snapper: function() {
         setTimeout(function() {
@@ -19109,6 +18922,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
                 flickThreshold: 50,
                 transitionSpeed: 0.3,
                 easing: 'ease',
+                tapToClose: false,
                 maxPosition: 200
             });
             $('.custom-toggle').click(function(){
@@ -19130,7 +18944,218 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../templates/appView.hbs":29,"./menu/menu":23,"./statsView/statsView":25,"backbone.marionette":1}],21:[function(require,module,exports){
+},{"../../templates/appView.hbs":32,"./menu/menu":24,"./scoreboard/scoreboardView":26,"./statsView/statsView":28,"backbone.marionette":1}],21:[function(require,module,exports){
+var Marionette   = require('backbone.marionette'),
+    TeamsCollection = require('../../collections/teams');
+
+module.exports = statsView = Marionette.ItemView.extend({
+    className: 'chartView',
+    template: require('../../../templates/chartView/chartView.hbs'),
+    
+    initialize: function() {
+        this.listenTo(App.data.teams, 'change', this.render);
+    },
+    onRender: function() {
+         
+        var teamsData = [];
+
+        this.collection.each(function(team) {
+            teamsData.push ({
+                fillColor : this.convertHex(team.get('team_color'),80),
+                strokeColor : this.convertHex(team.get('team_color'),0),
+                pointColor : "rgba(220,220,220,1)",
+                pointStrokeColor : "#fff",
+                data : [team.get('points'),team.get('rebounds'),team.get('steals'),team.get('blocks')]
+            });
+        }, this);
+
+        var lineChartData = {
+           labels : ["","","",""],
+           datasets : teamsData  
+        }
+        
+        var ctx = $('#canvas', this.el)[0].getContext("2d");
+        var myLineChart = new Chart(ctx).Line(lineChartData, settings);
+        
+    },
+    convertHex: function(hex,opacity) {
+        hex = hex.replace('#','');
+        r = parseInt(hex.substring(0,2), 16);
+        g = parseInt(hex.substring(2,4), 16);
+        b = parseInt(hex.substring(4,6), 16);
+
+        result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+        return result;
+    }
+});
+
+var settings = {
+                    
+     // GLOBAL //
+
+     // Boolean - Whether to animate the chart
+     animation: true,
+
+     // Number - Number of animation steps
+     animationSteps: 60,
+
+     // String - Animation easing effect
+     animationEasing: "easeOutQuart",
+
+     // Boolean - If we should show the scale at all
+     showScale: false,
+
+     // Boolean - If we want to override with a hard coded scale
+     scaleOverride: false,
+
+     // ** Required if scaleOverride is true **
+     // Number - The number of steps in a hard coded scale
+     scaleSteps: null,
+     // Number - The value jump in the hard coded scale
+     scaleStepWidth: null,
+     // Number - The scale starting value
+     scaleStartValue: null,
+
+     // String - Colour of the scale line
+     scaleLineColor: "rgba(0,0,0,.1)",
+
+     // Number - Pixel width of the scale line
+     scaleLineWidth: 1,
+
+     // Boolean - Whether to show labels on the scale
+     scaleShowLabels: false,
+
+     // Interpolated JS string - can access value
+     scaleLabel: "<%=value%>",
+
+     // Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+     scaleIntegersOnly: true,
+
+     // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+     scaleBeginAtZero: false,
+
+     // String - Scale label font declaration for the scale label
+     scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+     // Number - Scale label font size in pixels
+     scaleFontSize: 12,
+
+     // String - Scale label font weight style
+     scaleFontStyle: "normal",
+
+     // String - Scale label font colour
+     scaleFontColor: "#666",
+
+     // Boolean - whether or not the chart should be responsive and resize when the browser does.
+     responsive: false,
+
+     // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+     maintainAspectRatio: true,
+
+     // Boolean - Determines whether to draw tooltips on the canvas or not
+     showTooltips: true,
+
+     // Array - Array of string names to attach tooltip events
+     tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+
+     // String - Tooltip background colour
+     tooltipFillColor: "rgba(0,0,0,0.8)",
+
+     // String - Tooltip label font declaration for the scale label
+     tooltipFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+     // Number - Tooltip label font size in pixels
+     tooltipFontSize: 14,
+
+     // String - Tooltip font weight style
+     tooltipFontStyle: "normal",
+
+     // String - Tooltip label font colour
+     tooltipFontColor: "#fff",
+
+     // String - Tooltip title font declaration for the scale label
+     tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+     // Number - Tooltip title font size in pixels
+     tooltipTitleFontSize: 14,
+
+     // String - Tooltip title font weight style
+     tooltipTitleFontStyle: "bold",
+
+     // String - Tooltip title font colour
+     tooltipTitleFontColor: "#fff",
+
+     // Number - pixel width of padding around tooltip text
+     tooltipYPadding: 6,
+
+     // Number - pixel width of padding around tooltip text
+     tooltipXPadding: 6,
+
+     // Number - Size of the caret on the tooltip
+     tooltipCaretSize: 8,
+
+     // Number - Pixel radius of the tooltip border
+     tooltipCornerRadius: 6,
+
+     // Number - Pixel offset from point x to tooltip edge
+     tooltipXOffset: 10,
+
+     // String - Template string for single tooltips
+     tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+
+     // String - Template string for single tooltips
+     multiTooltipTemplate: "<%= value %>",
+
+     // Function - Will fire on animation progression.
+     onAnimationProgress: function(){},
+
+     // Function - Will fire on animation completion.
+     onAnimationComplete: function(){},
+
+
+     // SPECIFIC FOR LINE CHARTS //
+
+     ///Boolean - Whether grid lines are shown across the chart
+     scaleShowGridLines : false,
+
+     //String - Colour of the grid lines
+     scaleGridLineColor : "rgba(0,0,0,0.0)",
+
+     //Number - Width of the grid lines
+     scaleGridLineWidth : 0,
+
+     //Boolean - Whether the line is curved between points
+     bezierCurve : false,
+
+     //Number - Tension of the bezier curve between points
+     bezierCurveTension : 0.4,
+
+     //Boolean - Whether to show a dot for each point
+     pointDot : false,
+
+     //Number - Radius of each point dot in pixels
+     pointDotRadius : 4,
+
+     //Number - Pixel width of point dot stroke
+     pointDotStrokeWidth : 1,
+
+     //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+     pointHitDetectionRadius : 20,
+
+     //Boolean - Whether to show a stroke for datasets
+     datasetStroke : true,
+
+     //Number - Pixel width of dataset stroke
+     datasetStrokeWidth : 2,
+
+     //Boolean - Whether to fill the dataset with a colour
+     datasetFill : true,
+
+     //String - A legend template
+     legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+
+ }
+},{"../../../templates/chartView/chartView.hbs":33,"../../collections/teams":14,"backbone.marionette":1}],22:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = playerData = Marionette.ItemView.extend({
@@ -19157,7 +19182,7 @@ module.exports = playerData = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/data/playerData.hbs":30,"backbone.marionette":1}],22:[function(require,module,exports){
+},{"../../../templates/data/playerData.hbs":34,"backbone.marionette":1}],23:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     playerData = require('./playerData'),
     PlayersCollection = require('../../collections/players');
@@ -19180,7 +19205,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: playerData
 });
 
-},{"../../collections/players":13,"./playerData":21,"backbone.marionette":1}],23:[function(require,module,exports){
+},{"../../collections/players":13,"./playerData":22,"backbone.marionette":1}],24:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = MenuView = Backbone.Marionette.Layout.extend({
@@ -19193,7 +19218,97 @@ module.exports = MenuView = Backbone.Marionette.Layout.extend({
     onShow: function(){
     }
 });
-},{"../../../templates/menu/menu.hbs":31,"backbone.marionette":1}],24:[function(require,module,exports){
+},{"../../../templates/menu/menu.hbs":35,"backbone.marionette":1}],25:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
+
+var listPlayersView = Marionette.ItemView.extend({
+    className: 'col-md-6',
+    template: require('../../../templates/playersView/playerView.hbs')
+});
+
+var ListPlayersView = Marionette.CollectionView.extend({
+    itemView:listPlayersView
+});
+
+module.exports = PlayersSettingsView = Marionette.Layout.extend({
+    className: 'row',
+    template: require('../../../templates/playersView/playersView.hbs'),
+    initialize:function() {
+        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+    },
+    regions: {
+        players: ".the-players"
+    },
+    onRender: function() {
+
+        // show another view, add a new team??
+
+        // show all the teams, thier data, and modification buttons
+        var listPlayersView = new ListPlayersView({ 
+            collection: this.collection
+        });
+        this.players.show(listPlayersView);
+
+        // show another view, possibly the teams that are playing etc...
+    }
+});
+},{"../../../templates/playersView/playerView.hbs":36,"../../../templates/playersView/playersView.hbs":37,"backbone.marionette":1}],26:[function(require,module,exports){
+var Marionette = require('backbone.marionette'),
+    TeamsCollection = require('../../collections/teams');
+
+var ScoresView = Backbone.Marionette.ItemView.extend({
+    className: 'score-data-circle',
+    template: require('../../../templates/scoreboard/scores.hbs'),
+    initialize: function(){
+        // anytime something within this specific team changes, render
+        this.listenTo(this.model, 'change', this.render);
+    },
+    onRender: function(){
+    }
+});
+
+var ScoreboardScoreView = Backbone.Marionette.CollectionView.extend({
+    className: 'scores',
+    initialize: function(){
+        this.listenTo(this.collection, 'change', this.render);
+    },
+    onRender: function(){
+    },
+    itemView: ScoresView
+});
+
+// USE LAYOUT VIEW??
+module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
+    template: require('../../../templates/scoreboard/scoreboard.hbs'),
+    regions: {
+        scores: '.scores'
+    },
+    initialize: function(){
+        this.listenTo(App.data.teams, 'change', this.render);
+
+        var self = this;
+        
+        // as of now the only way we can update playingTeam collection??
+        App.vent.on('home-team-change', function(data){ self.render() });
+        App.vent.on('away-team-change', function(data){ self.render() });
+    },
+    onRender: function(){
+
+        var scoreboardScoreView = new ScoreboardScoreView({collection: this.playingTeam()});
+        this.scores.show(scoreboardScoreView);
+
+    },
+    playingTeam: function (value) {
+        // get playing team from backbone.collection.extend filter??
+
+        // determine who is playing by looking for the team models
+        // that have "playing" set to true
+        var models = App.data.teams.where({playing: true});
+        return new TeamsCollection(models);
+
+    },
+});
+},{"../../../templates/scoreboard/scoreboard.hbs":38,"../../../templates/scoreboard/scores.hbs":39,"../../collections/teams":14,"backbone.marionette":1}],27:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../../collections/players');
 
@@ -19201,8 +19316,24 @@ var Marionette = require('backbone.marionette'),
 /* Form to add player */
 var AddPlayerSettingsView = Marionette.ItemView.extend({
     template: require('../../../templates/settings/addplayerSettings.hbs'),
+    events: {
+        'submit #AddPlayer': 'addPlayer'
+    },
 
     initialize:function() {
+    },
+    addPlayer: function(e) {
+        
+        // move this??
+        e.preventDefault();
+        
+        var $newPlayer = this.$el.find('input.player_name')
+        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
+
+        App.vent.trigger('newPlayer');
+
+        $newPlayer.val('');
+
     }
 });
 /* Form to add player */
@@ -19274,9 +19405,66 @@ var BenchPlayersSettingsView = Marionette.CollectionView.extend({
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
+    onRender: function() {
+        var self = this;
+        setTimeout(function() {
+            $(self.$el).slimScroll({
+                height: $('.editor').height(),
+                size: '5px',
+                railOpacity: 0.1
+            });
+        },0);
+    },
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
+
+
+
+/* Players from facebook */
+var addFacebookPlayersView = Marionette.ItemView.extend({
+    className: 'player',
+    template: require('../../../templates/settings/addFacebookPlayer.hbs'),
+    events: {
+        'click': 'addToRoster'
+    },
+
+    initialize:function(options) {
+        this.listenTo(this.model, 'change', this.render);
+        this.team = options.team;
+    },
+    addToRoster:function() {
+        this.model.set({team_id: this.team.id, bench:true});
+        this.model.save();
+        App.data.players.add(this.model);
+        App.vent.trigger('subbed');
+    }
+});
+
+var AddFacebookPlayersView = Marionette.CollectionView.extend({
+
+    initialize:function() {
+        this.listenTo(this.collection, 'change', this.render);
+        this.team = this.options.teamModel
+    },
+    onRender: function() {
+        var self = this;
+        setTimeout(function() {
+            $(self.$el).slimScroll({
+                height: $('.editor').height() - $('.sub-players').height() - $('.add-player').height(),
+                size: '5px',
+                railOpacity: 0.1
+            });
+        },0);
+    },
+    itemView: addFacebookPlayersView,
+    itemViewOptions: function(model,index){
+        return{
+             team: this.team
+        }
+    }
+});
+/* end players from facebook */
 
 
 
@@ -19286,28 +19474,41 @@ var BenchPlayersSettingsView = Marionette.CollectionView.extend({
 module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
     className: 'edit',
     template: require('../../../templates/settings/teamSettings.hbs'),
+    events: {
+        'click .list-facebookers': 'facebookRegion',
+        'click .go-back': 'goBack'
+    },
 
     regions: {
         addPlayer: ".add-player",
         playingPlayers: ".playing-players",
-        benchPlayers: ".bench-players"
+        benchPlayers: ".bench-players",
+        facebookPlayers: ".facebook-players"
     },
 
     initialize: function() {
         var self = this;
 
         // temp re render regions bench/playing collections
+        App.vent.on('newPlayer', function(data) { self.render() });
         App.vent.on('subbed', function(data) { self.render() });
+
     },
 
     onRender: function() {
+
+        // set scrollbars, set height??
+        this.$el.height(this.$el.height());
         
         // region to add players
+        var SpecificTeam = App.data.players.where({ team_id: this.options.teamModel.id });
+        var filteredByTeamCollection = new PlayersCollection(SpecificTeam); 
+
         var addPlayerSettingsView = new AddPlayerSettingsView({ 
             model: this.options.teamModel
         });
         this.addPlayer.show(addPlayerSettingsView);
-        
+
 
 
         // region showing a list of playing players  
@@ -19330,76 +19531,76 @@ module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
         });
         this.benchPlayers.show(benchPlayersSettingsView);
 
+    },
+    facebookRegion: function() {
+        
+        // hide some region
+        this.playingPlayers.$el.hide();
+        this.benchPlayers.$el.hide();
+
+        // region showing a list of facebookers  
+        var addFacebookPlayersView = new AddFacebookPlayersView({ 
+            collection: App.data.facebookPlayers,
+            teamModel: this.options.teamModel
+        });
+        this.facebookPlayers.show(addFacebookPlayersView);
+        
+        // need to show the el after hiding
+        this.facebookPlayers.$el.show();
+    },
+    goBack: function() {
+
+        this.facebookPlayers.$el.hide();
+
+        this.playingPlayers.$el.show();
+        this.benchPlayers.$el.show();
     }
 });
-},{"../../../templates/settings/addplayerSettings.hbs":32,"../../../templates/settings/playerSettings.hbs":33,"../../../templates/settings/teamSettings.hbs":34,"../../collections/players":13,"backbone.marionette":1}],25:[function(require,module,exports){
+},{"../../../templates/settings/addFacebookPlayer.hbs":40,"../../../templates/settings/addplayerSettings.hbs":41,"../../../templates/settings/playerSettings.hbs":42,"../../../templates/settings/teamSettings.hbs":43,"../../collections/players":13,"backbone.marionette":1}],28:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('../teams/teams'),
     DataView     = require('../data/teamData'),
+    ChartView     = require('../chartView/chartView'),
     TeamsCollection = require('../../collections/teams');
 
-module.exports = statsView = Marionette.ItemView.extend({
+// Turn this into a Layout!!!!!
+module.exports = statsView = Marionette.Layout.extend({
     className: 'statsView',
     template: require('../../../templates/statsView.hbs'),
+
+    regions: {
+        teams: ".teams-box",
+        data: '.app',
+        chart: '.chart'
+    },
     
     initialize: function() {
 
-        // intialize third party stuff
-        this.facebook();
         // temp height
         this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
 
     },
     onRender: function() {
-
-        // make a collection for the teams that are playing
-        this.playingCollection  = this.playingTeam();
-        // make a collection for the teams that are inactive
-        this.sidelineCollection = this.notPlayingTeam();
         
         // initialize subviews for statsView
-        window.App.views.teamsView = new TeamsView({ collection: this.playingCollection });
-        window.App.views.dataView  = new DataView({ collection: App.data.players });
+        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying() });
+        //window.App.views.dataView  = new DataView({ collection: App.data.players });
+        window.App.views.chartView = new ChartView({ collection: this.collection.byPlaying() });
         
+        this.teams.show(App.views.teamsView);
+        //this.data.show(App.views.dataView);
+        this.chart.show(App.views.chartView);
+
         // append the view's to the DOM (turn into LayoutView??)
-        this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
-        this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
-    },
-    playingTeam: function (value) {
-        // get playing team from backbone.collection.extend filter??
-
-        // determine who is playing by looking for the team models
-        // that have "playing" set to true
-        var models = this.collection.where({playing: true});
-        return new TeamsCollection(models);
-
-    },
-    notPlayingTeam: function (value) {
-        // get playing team from backbone.collection.extend filter??
-
-        // determine who is NOT playing by looking for the team models
-        // that have "playing" set to false
-        var models = this.collection.where({playing: false});
-        return new TeamsCollection(models);
-
-    },
-    facebook: function() {
-        // WIP
-        $(document).on('fbStatusChange', function (event, data) {
-            if (data.status === 'connected') {
-                console.log('connected')
-                FB.api('/554870764588961/members/', function (response) {
-                    console.log(response);
-                });
-            } else {
-                console.log('not connected')
-            }
-        });
+        // this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
+        // this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
+        // this.$el.find('.app .chart').prepend(App.views.chartView.render().el); // chart view
+        
     }
 });
 
-},{"../../../templates/statsView.hbs":35,"../../collections/teams":14,"../data/teamData":22,"../teams/teams":28,"backbone.marionette":1,"snapjs":8}],26:[function(require,module,exports){
+},{"../../../templates/statsView.hbs":44,"../../collections/teams":14,"../chartView/chartView":21,"../data/teamData":23,"../teams/teams":31,"backbone.marionette":1,"snapjs":7}],29:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listTeamsView = Marionette.ItemView.extend({
@@ -19409,8 +19610,14 @@ var listTeamsView = Marionette.ItemView.extend({
         'click .home': 'setHome',
         'click .away': 'setAway'
     },
+    onRender: function() {
+        var self = this;
+        setTimeout(function() {
+            self.$el.find('.team-block').colourBrightness();
+        },0);
+    },
     setHome:function(e) { 
-        //App.vent.trigger('home-team-change', this.model.get('team_name'));
+        App.vent.trigger('home-team-change', this.model.get('team_name'));
         App.data.teams.each(function(team) {
             // clear any team that has side:'home'
             if(team.get('side') === 'home') {
@@ -19422,7 +19629,7 @@ var listTeamsView = Marionette.ItemView.extend({
         this.model.save();
     },
     setAway:function(e) { 
-        //App.vent.trigger('away-team-change', this.model.get('team_name'));
+        App.vent.trigger('away-team-change', this.model.get('team_name'));
         App.data.teams.each(function(team) {
             // clear any team that has side:'away'
             if(team.get('side') === 'away') {
@@ -19435,15 +19642,44 @@ var listTeamsView = Marionette.ItemView.extend({
     }
 });
 
-module.exports = SettingsView = Marionette.CollectionView.extend({
-    className: 'row',
-    initialize:function() {
-        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+var ListTeamView = Marionette.CompositeView.extend({
+    template: require('../../../templates/teamsView/addTeamsView.hbs'),
+    events: {
+        'submit #AddTeam': 'addTeam'
+    },
+    addTeam: function(e) {
+        e.preventDefault();
+        var newTeam = this.$el.find('input.team_name').val();
+        this.collection.create({team_name: newTeam})
     },
     itemView:listTeamsView
 });
-},{"../../../templates/team-list.hbs":36,"backbone.marionette":1}],27:[function(require,module,exports){
+
+module.exports = SettingsView = Marionette.Layout.extend({
+    className: 'row',
+    template: require('../../../templates/teamsView/teamsView.hbs'),
+    initialize:function() {
+        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+    },
+    regions: {
+        teams: ".the-teams"
+    },
+    onRender: function() {
+
+        // show another view, add a new team??
+
+        // show all the teams, thier data, and modification buttons
+        var listTeamView = new ListTeamView({ 
+            collection: this.collection
+        });
+        this.teams.show(listTeamView);
+
+        // show another view, possibly the teams that are playing etc...
+    }
+});
+},{"../../../templates/team-list.hbs":45,"../../../templates/teamsView/addTeamsView.hbs":46,"../../../templates/teamsView/teamsView.hbs":47,"backbone.marionette":1}],30:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
+var TeamsCollection = require('../../collections/teams');
 
 var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
@@ -19455,15 +19691,22 @@ var playerView = Marionette.ItemView.extend({
         'keydown': 'on_keypress',
         'click .one-point': 'onePoint',
         'click .two-point': 'twoPoint',
-        'click .three-point': 'threePoint'
+        'click .three-point': 'threePoint',
+        'click .add-rebound': 'addRebound',
+        'click .add-steal': 'addSteal',
+        'click .add-block': 'addBlock'
     },
     initialize:function() {
+        this.listenTo(this.model, 'change', this.render);
+
     	_.bindAll(this, 'on_keypress');
         $(document).bind('keydown', this.on_keypress);
-        this.listenTo(this.model, 'change', this.render);
+
+    },
+    onRender: function() {
         this.$el.attr('data-player', this.model.get('player_name').replace(/\s+/g,"_").toLowerCase());
     },
-    playerOn:function(e) {
+    playerOn:function() {
     	this.$el.addClass('hover');
         this.findPlayer(this.model.get('player_name'), 'add');   	
     },
@@ -19485,16 +19728,73 @@ var playerView = Marionette.ItemView.extend({
         var addStat = parseInt(this.model.get('points')) + 1;        
         this.model.set('points', addStat);
         this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 1 });
+        });
     },
     twoPoint:function(e) {
         var addStat = parseInt(this.model.get('points')) + 2;        
         this.model.set('points', addStat);
         this.model.save();
+        
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 2 });
+        });
     },
     threePoint:function(e) {
         var addStat = parseInt(this.model.get('points')) + 3;        
         this.model.set('points', addStat);
         this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({points: parseInt(theTeam.get('points')) + 3 });
+        });
+    },
+    addRebound:function(e) {
+        var addStat = parseInt(this.model.get('rebounds')) + 1;        
+        this.model.set('rebounds', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({rebounds: parseInt(theTeam.get('rebounds')) + 1 });
+        });
+    },
+    addSteal:function(e) {
+        var addStat = parseInt(this.model.get('steals')) + 1;        
+        this.model.set('steals', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({steals: parseInt(theTeam.get('steals')) + 1 });
+        });
+    },
+    addBlock:function(e) {
+        var addStat = parseInt(this.model.get('blocks')) + 1;        
+        this.model.set('blocks', addStat);
+        this.model.save();
+
+        // better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({blocks: parseInt(theTeam.get('blocks')) + 1 });
+        });
     },
     on_keypress:function(e) {
         this.keyStat(e, 49, 'points', 1);   // 1 point
@@ -19509,6 +19809,13 @@ var playerView = Marionette.ItemView.extend({
                 var addStat = parseInt(this.model.get(stat)) + number;        
 	            this.model.set(stat, addStat);
                 this.model.save();
+
+                // better way to update team stats from new player stats... still BETA
+                var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+                var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+                thisPlayersTeam.each(function(theTeam) {
+                    theTeam.save({stat: parseInt(theTeam.get(stat)) + number });
+                });
             }
 		}
 	},
@@ -19527,7 +19834,7 @@ module.exports = PlayersView = Marionette.CollectionView.extend({
     itemView: playerView
 });
 
-},{"../../../templates/teams/player.hbs":38,"backbone.marionette":1}],28:[function(require,module,exports){
+},{"../../../templates/teams/player.hbs":48,"../../collections/teams":14,"backbone.marionette":1}],31:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
     PlayersCollection = require('../../collections/players'),
@@ -19537,12 +19844,12 @@ var teamView = Backbone.Marionette.Layout.extend({
 	className: 'team row',
     template: require('../../../templates/teams/team.hbs'),
     events: {
-        'submit #AddPlayer': 'addPlayer',
         'click .team-changes': 'teamChanges',
         'click .close-team-editor': 'closeTeamChanges'
     },
     regions: {
-        players: ".the-players"
+        players: ".the-players",
+        teamSettings: '.team-editor'
     },
     initialize: function() {
 
@@ -19555,15 +19862,10 @@ var teamView = Backbone.Marionette.Layout.extend({
         this.teamIdentity(this.model.get('team_name'));
 
         // temp re render regions bench/playing collections
-        App.vent.on('subbed', function(data) { self.setRegion() });
+        // App.vent.on('subbed', function(data) {});
 
     },
     onRender: function() {
-
-        this.setRegion();
-
-    },
-    setRegion: function() {
 
         // region showing a list of playing players  
         var Playingresults = App.data.players.where({ team_id: this.model.id, bench: false });
@@ -19577,48 +19879,44 @@ var teamView = Backbone.Marionette.Layout.extend({
     },
     teamIdentity: function(teamName) {
 
-        // add the team name to DOM
+        // add the team name to DOM // not really needed!!! consider removing??
         this.$el.addClass(teamName);
         this.$el.attr('data-team', teamName);
 
     },
     teamChanges:function() {
-        
-        window.App.views.teamSettingsLayoutView = new TeamSettingsLayoutView({ 
+    
+        // event triggers another Layout to make subs and add players etc
+        var teamSettingsLayoutView = new TeamSettingsLayoutView({ 
             teamModel: this.model
         });
-        this.$el.find('.team-editor').toggleClass('hide show').append(App.views.teamSettingsLayoutView.render().el);
-    
+        this.teamSettings.show(teamSettingsLayoutView);
+
     },
     closeTeamChanges:function() {
-
-        this.$el.find('.team-editor').toggleClass('show hide')
-        window.App.views.teamSettingsLayoutView.close();
-
-    },
-    addPlayer: function(e) {
-
-        e.preventDefault();
         
-        var $newPlayer = this.$el.find('input.player_name')
-        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
-        //this.collection.add(newPlayer);
-
-        $newPlayer.val('');
+        // event renders this based on changes made in Layout above and closes the Layout
+        this.render();
+        this.teamSettings.close();
 
     }
 });
 
 module.exports = CollectionView = Marionette.CollectionView.extend({
     className: 'playing',
-    template: require('../../../templates/teams/basketball.hbs'),
-    events: {
-        'submit #AddTeam': 'addTeam'
-    },
     initialize: function() {
         this.listenTo(this.collection, 'change', this.render);
+        
+        // builds a backbone collection from facebook API
+        this.facebook(function (response) {
+            var testCollection = new PlayersCollection(response);
+            window.App.data.facebookPlayers = testCollection;
+        });
+
+        this.setScroll();
+
     },
-    onRender: function() {
+    setScroll: function() {
         var self = this;
         this.$el.height($('.statsView').height());
         setTimeout(function() {
@@ -19629,15 +19927,35 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
             });
         },0);
     },
-    addTeam: function(e) {
-        e.preventDefault();
-        var newTeam = this.$el.find('input.team_name').val();
-        this.collection.create({team_name: newTeam})
+    facebook: function(callback) {
+        // Build object from facebook suitable for playersCollection
+        // DOES NOT EXECUTE IT THIS IS NOT LOADED INITIALLY, IF ANOTHER
+        // VIEW IS ACTIVE THIS WILL MISS...
+        $(document).on('fbStatusChange', function (event, data) {
+            if (data.status === 'connected') {
+                console.log('facebook api connected')
+                
+                var facebookPlayers = [];
+
+                FB.api('/554870764588961?fields=members{id,name,picture.type(large)}', function (response) {
+                    for (i = 0; i < response.members.data.length; i++) { 
+                        facebookPlayers.push({
+                            player_name:response.members.data[i].name ,
+                            player_picture:response.members.data[i].picture.data.url
+                        });
+                    }
+                    callback(facebookPlayers);
+                });
+
+            } else {
+                console.log('facebook api not connected')
+            }
+        });
     },
     itemView: teamView
 });
 
-},{"../../../templates/teams/basketball.hbs":37,"../../../templates/teams/team.hbs":39,"../../collections/players":13,"../settings/teamSettings":24,"./player":27,"backbone.marionette":1}],29:[function(require,module,exports){
+},{"../../../templates/teams/team.hbs":49,"../../collections/players":13,"../settings/teamSettings":27,"./player":30,"backbone.marionette":1}],32:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19646,10 +19964,115 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>";
+  return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
   });
 
-},{"hbsfy/runtime":43}],30:[function(require,module,exports){
+},{"hbsfy/runtime":53}],33:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"leader\" style=\"height: 270px;\">\r\n    <div class=\"leader-points\" style=\"font-size: 50px;\">60</div>\r\n	<img src=\"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/10710809_10204199750268310_5779538399511018533_n.jpg?oh=c176cb01f5804c3d4e704c23290bb65c&amp;oe=54DD3C58&amp;__gda__=1423605202_4cc8840862010ed3f96a1cb504d6da5e\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px;\">\r\n</div>\r\n<canvas id=\"canvas\" height=\"341\" width=\"350\"></canvas>";
+  });
+
+},{"hbsfy/runtime":53}],34:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n        <div class=\"player-image\" style=\"background-image: url(";
+  if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + ");\">\r\n            <span class=\"fa-pencil-square-o\"></span>\r\n        </div>\r\n    ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "";
+  buffer += "\r\n        "
+    + "\r\n    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"player-profile\">\r\n    <div class=\"player-profile-stats col-md-12\">\r\n        <li class=\"col-md-3\">PTS: ";
+  if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</li>\r\n        <li class=\"col-md-3\">FG: </li>\r\n        <li class=\"col-md-3\">3PT: </li>\r\n        <li class=\"col-md-3\">FT: </li>\r\n    </div>\r\n    ";
+  stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </div>\r\n    <div class=\"player-name\">";
+  if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n</div>\r\n\r\n<div class=\"player-stats\" style=\"color: #fff;\">\r\n    "
+    + "\r\n</div>\r\n\r\n<div class=\"dynamic-feed\"></div>";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":53}],35:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
+  });
+
+},{"hbsfy/runtime":53}],36:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  return escapeExpression(stack1);
+  });
+
+},{"hbsfy/runtime":53}],37:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"the-players\"></div>";
+  });
+
+},{"hbsfy/runtime":53}],38:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n	    <div class=\"scores\"></div>\r\n	    <div class=\"clock center\">\r\n		  <div class=\"score-data-circle\">\r\n			  <div class=\"scoreboard-time\">\r\n			      20:00\r\n			  </div>\r\n		  </div>\r\n	    </div>\r\n	</div>\r\n</div>";
+  });
+
+},{"hbsfy/runtime":53}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19658,35 +20081,44 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"player-profile\">\r\n    <div class=\"player-profile-stats col-md-12\">\r\n        <li class=\"col-md-3\">PTS: ";
+  buffer += "<div class=\"scoreboard-points\" style=\"border-color: ";
+  if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</li>\r\n        <li class=\"col-md-3\">FG: </li>\r\n        <li class=\"col-md-3\">3PT: </li>\r\n        <li class=\"col-md-3\">FT: </li>\r\n    </div>\r\n    <div class=\"player-image\" style=\"background-image: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
-  if (stack1 = helpers.name_format) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.name_format; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + ".png);\">\r\n        <span class=\"fa-pencil-square-o\"></span>\r\n    </div>\r\n    <div class=\"player-name\">";
-  if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</div>\r\n</div>\r\n\r\n<div class=\"player-stats\" style=\"color: #fff;\">\r\n    <div class=\"chart\"></div>\r\n</div>\r\n\r\n<div class=\"dynamic-feed\"></div>";
+    + "</div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],31:[function(require,module,exports){
+},{"hbsfy/runtime":53}],40:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MENU</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-home\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
+  buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            <img src=\"";
+  if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+  if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " </span>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-6 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points\">";
+  if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n        </div>\r\n    </div>\r\n</div>    \r\n";
+  return buffer;
   });
 
-},{"hbsfy/runtime":43}],32:[function(require,module,exports){
+},{"hbsfy/runtime":53}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19703,20 +20135,37 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],33:[function(require,module,exports){
+},{"hbsfy/runtime":53}],42:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
-
-  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            <img src=\"http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
-  if (stack1 = helpers.name_format) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.name_format; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n                <img src=\"";
+  if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + ".png\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+    + "\" class=\"player-image img-responsive\"/>\r\n            ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "";
+  buffer += "\r\n                "
+    + "\r\n            ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -19728,7 +20177,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],34:[function(require,module,exports){
+},{"hbsfy/runtime":53}],43:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19737,25 +20186,22 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"row add-player\"></div>\r\n\r\n<div class=\"row row-remove-padding sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<p>Playing</p>\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<p>Bench</p>\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>\r\n";
+  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <div class=\"row\">\r\n	    <div class=\"col-md-6 list-facebookers\">Facebookers</div>\r\n	    <a class=\"col-md-6 go-back\"><</a>\r\n    </div>\r\n    \r\n	<div class=\"row add-player\"></div>\r\n\r\n	<div class=\"row row-remove-padding sub-players\">\r\n	    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n	    	<p>Playing</p>\r\n	    	<div class=\"playing-players\"></div>\r\n	    </div>\r\n	    <div class=\"col-md-6\">\r\n	    	<p>Bench</p>\r\n	    	<div class=\"bench-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n	<div class=\"row\">\r\n		<div class=\"col-md-12\">\r\n	    	<div class=\"facebook-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":43}],35:[function(require,module,exports){
+},{"hbsfy/runtime":53}],44:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "";
+  
 
 
-  buffer += "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n	"
-    + "\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	"
-    + "\r\n\r\n</div>\r\n";
-  return buffer;
+  return "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":43}],36:[function(require,module,exports){
+},{"hbsfy/runtime":53}],45:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19764,15 +20210,35 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div style=\"background-color: #fff; margin: 15px;\">\r\n	";
+  buffer += "<div class=\"team-block ";
+  if (stack1 = helpers.playing) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.playing; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" style=\"background-color: ";
+  if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "; margin: 15px; padding: 15px\">\r\n	<div class=\"team-name\">";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n	<div class=\"home\" style=\"cursor: pointer\">HOME</div>\r\n	<div class=\"away\" style=\"cursor: pointer\">AWAY</div>\r\n</div>\r\n";
+    + "</div>\r\n	<div class=\"team-points team-data\">";
+  if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n	<div class=\"team-rebounds team-data\">";
+  if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n	<div class=\"team-steals team-data\">";
+  if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n	<div class=\"set-team-side\">\r\n        <button class=\"home btn team-settings-btn\" style=\"display: inline-block\">Home</button>\r\n		<button class=\"away btn team-settings-btn\" style=\"display: inline-block\">Away</button>\r\n	</div>\r\n</div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],37:[function(require,module,exports){
+},{"hbsfy/runtime":53}],46:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19781,23 +20247,52 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<!-- <form id=\"AddTeam\">\r\n    <input class=\"team_name\" type=\"text\" placeholder=\"add a team\" />\r\n    <button type=\"submit\">ADD</button>\r\n</form> -->";
+  return "<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n    <div class=\"col-md-6\">\r\n		<form id=\"AddTeam\">\r\n		    <input class=\"team_name\" type=\"text\" placeholder=\"add a new team\" />\r\n		    <button type=\"submit\">ADD</button>\r\n		</form> \r\n	</div>\r\n	</div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":43}],38:[function(require,module,exports){
+},{"hbsfy/runtime":53}],47:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+  
 
 
-  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-4 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            <img src=\"http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/";
-  if (stack1 = helpers.name_format) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.name_format; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  return "<div class=\"the-teams\"></div>\r\n\r\n<div class=\"the-playing-teams\"></div>";
+  });
+
+},{"hbsfy/runtime":53}],48:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n                <img src=\"";
+  if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + ".png\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n        \r\n        <div class=\"player-buttons\">\r\n            <div class=\"column buttons top-button one-point\">1</div>\r\n            <div class=\"column buttons middle-button two-point\">2</div>\r\n            <div class=\"column buttons bottom-button three-point\">3</div>\r\n        </div>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+    + "\" class=\"player-image img-responsive\"/>\r\n            ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "";
+  buffer += "\r\n                "
+    + "\r\n            ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-4 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        </span>\r\n        \r\n        <div class=\"player-buttons\">\r\n            <div class=\"column buttons top-button one-point\">1</div>\r\n            <div class=\"column buttons middle-button two-point\">2</div>\r\n            <div class=\"column buttons bottom-button three-point\">3</div>\r\n        </div>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -19833,20 +20328,20 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\r\n        <span class=\"steals\">";
+    + "</span>\r\n        <div class=\"stat-add-button add-rebound\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\r\n        <span class=\"steals\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\r\n        <span class=\"blocks\">";
+    + "</span>\r\n        <div class=\"stat-add-button add-steal\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\r\n        <span class=\"blocks\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n    </div>\r\n    "
+    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    "
     + "\r\n</div>    \r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],39:[function(require,module,exports){
+},{"hbsfy/runtime":53}],49:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -19864,15 +20359,16 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
     + "\r\n        </div>    \r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Pts</span>\r\n        <span class=\"long\">Points</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Rbs</span>\r\n        <span class=\"long\">Rebounds</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Stl</span>\r\n        <span class=\"long\">Steals</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Blk</span>\r\n        <span class=\"long\">Blocks</span>\r\n    </div>\r\n    "
-    + "\r\n</div>\r\n\r\n<div class=\"the-players ";
+    + "\r\n</div>\r\n\r\n"
+    + "\r\n\r\n<div class=\"the-players ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor hide\">\r\n    <div style=\"position:fixed;background-color: rgba(255,255,255,0.8);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;-webkit-filter: blur(20px);\"></div>\r\n</div>\r\n";
+    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":43}],40:[function(require,module,exports){
+},{"hbsfy/runtime":53}],50:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -20040,7 +20536,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],41:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -20148,7 +20644,7 @@ return Handlebars;
 
 };
 
-},{}],42:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -20233,7 +20729,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],43:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -20244,4 +20740,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":40,"handlebars/lib/handlebars/runtime":41,"handlebars/lib/handlebars/utils":42}]},{},[16])
+},{"handlebars/lib/handlebars/base":50,"handlebars/lib/handlebars/runtime":51,"handlebars/lib/handlebars/utils":52}]},{},[16])

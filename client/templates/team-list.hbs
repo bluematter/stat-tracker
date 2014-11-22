@@ -1,5 +1,10 @@
-<div style="background-color: #fff; margin: 15px;">
-	{{team_name}}
-	<div class="home" style="cursor: pointer">HOME</div>
-	<div class="away" style="cursor: pointer">AWAY</div>
+<div class="team-block {{playing}}" style="background-color: {{team_color}}; margin: 15px; padding: 15px">
+	<div class="team-name">{{team_name}}</div>
+	<div class="team-points team-data">{{points}}</div>
+	<div class="team-rebounds team-data">{{rebounds}}</div>
+	<div class="team-steals team-data">{{steals}}</div>
+	<div class="set-team-side">
+        <button class="home btn team-settings-btn" style="display: inline-block">Home</button>
+		<button class="away btn team-settings-btn" style="display: inline-block">Away</button>
+	</div>
 </div>

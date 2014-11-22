@@ -1,12 +1,12 @@
 .player-data {
 	background-color: #FFFFFF;
-    border-left: 1px solid #F5F5F5;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     height: 100%;
     opacity: 0.95;
     position: fixed;
     right: 0;
     top: 0;
+    width: 400px;
     transform: translate3d(400px, 0px, 0px);
     transition-duration: 0.75s;
     z-index: 99;

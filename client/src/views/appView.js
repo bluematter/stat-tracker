@@ -1,13 +1,15 @@
 var Marionette = require('backbone.marionette'),
     MenuView = require('./menu/menu'),
-    StatsView = require('./statsView/statsView');
+    StatsView = require('./statsView/statsView'),
+    ScoreboardView = require('./scoreboard/scoreboardView');
 
 module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 	template: require('../../templates/appView.hbs'),
 
 	regions: {
 		menu: ".menu",
-		stats: ".content"
+		stats: ".content",
+        scoreboard: ".scoreboard"
 	},
 
 	onRender: function() {
@@ -17,7 +19,12 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         var menuView = new MenuView();
         this.menu.show(menuView);
 
+        // render the app's scoreboard (always render the scoreboard, for now??)   
+        var scoreboardView = new ScoreboardView();
+        this.scoreboard.show(scoreboardView);
+
         this.snapper();
+
     },
     snapper: function() {
         setTimeout(function() {
@@ -30,6 +37,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
                 flickThreshold: 50,
                 transitionSpeed: 0.3,
                 easing: 'ease',
+                tapToClose: false,
                 maxPosition: 200
             });
             $('.custom-toggle').click(function(){

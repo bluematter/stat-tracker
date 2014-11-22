@@ -1,0 +1,22 @@
+.the-teams {
+	.team-block.dark { 
+		color: #fff; 
+	}
+	.team-block.light { 
+		color: #333; 
+	}
+	.true { 
+		border: 1px solid #0bf; 
+	}
+	.team-data {
+		font-size: 50px;
+		display: inline-block;
+		margin-left: 25px;
+	}
+	.team-settings-btn {
+		color: #015693;
+		background-color: transparent;
+		border-color: #015693;
+		border-radius: 100em;
+	}
+}
