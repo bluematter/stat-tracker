@@ -8,10 +8,7 @@ var listTeamsView = Marionette.ItemView.extend({
         'click .away': 'setAway'
     },
     onRender: function() {
-        var self = this;
-        setTimeout(function() {
-            self.$el.find('.team-block').colourBrightness();
-        },0);
+        this.$el.find('.team-block').colourBrightness();
     },
     setHome:function(e) { 
         App.vent.trigger('home-team-change', this.model.get('team_name'));
@@ -53,7 +50,7 @@ var ListTeamView = Marionette.CompositeView.extend({
 });
 
 module.exports = SettingsView = Marionette.Layout.extend({
-    className: 'row',
+    className: 'settingsView row',
     template: require('../../../templates/teamsView/teamsView.hbs'),
     initialize:function() {
         this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
@@ -72,5 +69,17 @@ module.exports = SettingsView = Marionette.Layout.extend({
         this.teams.show(listTeamView);
 
         // show another view, possibly the teams that are playing etc...
+
+        this.setScroll();
+    },
+    setScroll:function() {
+        var self = this;
+        setTimeout(function() {
+            $(self.$el).slimScroll({
+                height: $('.settingsView').height(), // 60 for margins
+                size: '5px',
+                railOpacity: 0.1
+            });
+        },0);
     }
 });

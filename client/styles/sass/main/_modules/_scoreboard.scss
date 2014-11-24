@@ -28,16 +28,19 @@
 				line-height: 38px;
 		    }
 		    .scoreboard-time {
-				border:2px solid #eee;
+				border: 2px solid #eee;
 				border-radius: 100em;
-				padding: 10px;
+				width: 55px;
+                height: 40px;
+				text-align: center;
+				line-height: 38px;
 		    }
 		}
 		&.center {
 			position: absolute;
 			left: 0;
 			right: 0;
-			top: 10px;
+			top: 12px;
 			margin: auto;
 			width: 0;
 			text-align: center;

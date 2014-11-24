@@ -72,7 +72,8 @@
     "backbone.marionette": "./bower_components/backbone.marionette/lib/backbone.marionette.js",
     "slimscroll": "./bower_components/slimScroll/jquery.slimscroll.js",
     "chartjs": "./bower_components/chartjs/Chart.js",
-    "colourBrightness": "./client/requires/colourBrightness.js-master/jquery.colourbrightness.js"
+    "colourBrightness": "./client/requires/colourBrightness.js-master/jquery.colourbrightness.js",
+    "timerjs": "./bower_components/timerjs/src/timer.js"
   },
   "browserify": {
     "transform": [

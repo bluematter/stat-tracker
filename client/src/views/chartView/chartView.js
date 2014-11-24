@@ -39,6 +39,19 @@ module.exports = statsView = Marionette.ItemView.extend({
 
         result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
         return result;
+    },
+    templateHelpers:function(){
+
+        // needs to be only playing teams, for now its all teams
+        var players = [];
+        App.data.players.each(function(player) {
+            players.push(player);
+        });
+        var maxPoints = _.max(players, function(player){ return player.attributes.points });
+
+        return {
+            maxPoints: maxPoints
+        }
     }
 });
 

@@ -1,1 +1,49 @@
-{{player_name}}
+<div class="player">
+
+    <div class="col-xs-6 column stat name">
+
+        <span class="column face">
+            {{#if player_picture}}
+                <img src="{{player_picture}}" class="player-image img-responsive"/>
+            {{else}}
+                {{!-- <img src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{name_format}}.png" class="player-image img-responsive"/> --}}
+            {{/if}}
+        </span>
+
+        <div class="column the-name editable" data-change="player_name" contenteditable="true">
+            {{player_name}}
+        </div>
+
+    </div>
+
+    <div class="col-xs-1 column stat data makes-misses">
+        <div class="active-add-stat">
+            <span class="points editable" data-change="points" contenteditable="true">{{points}}</span>
+        </div>
+    </div>
+
+    <div class="col-xs-1 column stat data makes-misses">
+        <div class="active-add-stat">
+            <span class="rebounds editable" data-change="rebounds" contenteditable="true">{{rebounds}}</span>
+        </div>
+    </div>
+
+    <div class="col-xs-1 column stat data makes-misses">
+        <div class="active-add-stat">
+            <span class="steals editable" data-change="steals" contenteditable="true">{{steals}}</span>
+        </div>
+    </div>
+
+    <div class="col-xs-1 column stat data makes-misses">
+        <div class="active-add-stat">
+            <span class="blocks editable" data-change="blocks" contenteditable="true">{{blocks}}</span>
+        </div>
+    </div>
+
+    <div class="col-xs-1 column stat data">
+        <div class="delete-player">
+            <button class="btn btn-danger delete" style="color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;">Delete</div>
+        </div>
+    </div>
+
+</div>    

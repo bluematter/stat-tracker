@@ -36,11 +36,11 @@ module.exports = {
         });
     },
     delete: function(req, res) {
-        models.Team.findOne({ _id: req.params.id }, function(err, team) {
+        models.Team.findOne({ _id: req.params.id }, req.body, function(err, team) {
             if (err) {
                 res.json({error: 'Team not found.'});
             } else {
-                player.remove(function(err, player){
+                team.remove(function(err, team){
                     res.json(200, {status: 'Success'});
                 })
             }

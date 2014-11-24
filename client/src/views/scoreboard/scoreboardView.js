@@ -25,6 +25,9 @@ var ScoreboardScoreView = Backbone.Marionette.CollectionView.extend({
 // USE LAYOUT VIEW??
 module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     template: require('../../../templates/scoreboard/scoreboard.hbs'),
+    events: {
+        'click .scoreboard-time': 'startClock'
+    },
     regions: {
         scores: '.scores'
     },
@@ -36,20 +39,42 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
         // as of now the only way we can update playingTeam collection??
         App.vent.on('home-team-change', function(data){ self.render() });
         App.vent.on('away-team-change', function(data){ self.render() });
+
     },
     onRender: function(){
 
-        var scoreboardScoreView = new ScoreboardScoreView({collection: this.playingTeam()});
+        var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byPlaying() });
         this.scores.show(scoreboardScoreView);
+        
+        $timer = this.$el.find('.timer');
+
+        window.myTimer = new Timer({
+            onstart : function(sec) {
+                var minutes = Math.floor(sec / 60);
+                var seconds = sec - minutes * 60;
+                $timer.text(minutes +':'+ seconds);
+            },
+            ontick  : function(sec) {
+                var minutes = Math.floor(sec / 60);
+                var seconds = sec - minutes * 60;
+                $timer.text(minutes +':'+ seconds);
+            },
+            onpause : function() {
+                //$timer.text('pause');
+            },
+            onstop  : function() {
+                //$timer.text('stop');
+            },
+            onend   : function() {
+                //$timer.text('end');
+            }
+        });
 
     },
-    playingTeam: function (value) {
-        // get playing team from backbone.collection.extend filter??
-
-        // determine who is playing by looking for the team models
-        // that have "playing" set to true
-        var models = App.data.teams.where({playing: true});
-        return new TeamsCollection(models);
-
-    },
+    startClock: function() {
+        myTimer.start(1200);
+    }
 });
+
+
+

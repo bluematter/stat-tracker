@@ -15,6 +15,9 @@ module.exports = {
     "colourBrightness": {
         "exports": "colourBrightness"
     },
+    "timerjs": {
+        "exports": "timerjs"
+    },
     "underscore": "_",
     "backbone": {
         "exports": "Backbone",

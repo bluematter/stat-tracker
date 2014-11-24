@@ -46,5 +46,16 @@ module.exports = {
                 res.json(player);
             }
         });
-    } 
+    },
+    delete: function(req, res) {
+        models.Player.findOne({ _id: req.params.pid }, function(err, player) {
+            if (err) {
+                res.json({error: 'Player not found.'});
+            } else {
+                player.remove(function(err, player){
+                    res.json(200, {status: 'Success'});
+                });
+            }
+        });
+    }
 };

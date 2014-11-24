@@ -4,6 +4,7 @@ module.exports = Router = Marionette.AppRouter.extend({
     appRoutes: {
         ''      : 'home',
         'teams' : 'teams',
-        'players' : 'players'
+        'players' : 'players',
+        'settings' : 'settings'
     }
 });

@@ -5,31 +5,69 @@ var Marionette = require('backbone.marionette'),
     StatsView  = require('./views/statsView/statsView');
 
 module.exports = Controller = Marionette.Controller.extend({
+
+    /*
+    |--------------------------------------------------------------------------
+    | Initialize and render main app layout view
+    |--------------------------------------------------------------------------
+    */
+
     initialize: function(options) {
-        App.core.vent.trigger('app:log', 'Controller: Initializing');
+        App.core.vent.trigger('app:log', 'Controller: Initializing, rendering appView');
         window.App.views.appView  = new AppLayoutView();
 
-        // render appLayoutView
         var view = window.App.views.appView;
         this.renderView(view);
     },
 
+    /*
+    |--------------------------------------------------------------------------
+    | On home route show statsView
+    |--------------------------------------------------------------------------
+    */
+
     home: function() {
-        App.core.vent.trigger('app:log', 'Controller: "Home" route hit.');
+        App.core.vent.trigger('app:log', 'Controller: "Home" route hit, appView showing StatsView.');
         window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
         window.App.router.navigate('#');
     },
+    
+    /*
+    |--------------------------------------------------------------------------
+    | On teams route show SetTeamsView
+    |--------------------------------------------------------------------------
+    */
 
     teams: function() {
-        App.core.vent.trigger('app:log', 'Controller: "Teams" route hit.');
+        App.core.vent.trigger('app:log', 'Controller: "Teams Settings" route hit, appView showing SetTeamsView.');
         window.App.views.appView.stats.show(new SetTeamsView({ collection: window.App.data.teams }));
         window.App.router.navigate('#teams');
     },
 
+    /*
+    |--------------------------------------------------------------------------
+    | On players route show PlayersSettingsView
+    |--------------------------------------------------------------------------
+    */
+
     players: function() {
-        App.core.vent.trigger('app:log', 'Controller: "Players" route hit.');
+        App.core.vent.trigger('app:log', 'Controller: "Players Settings" route hit, appView showing PlayersSettingsView.');
         window.App.views.appView.stats.show(new PlayersSettingsView({ collection: window.App.data.players }));
         window.App.router.navigate('#players');
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | On settings route show UserSettingsView
+    |--------------------------------------------------------------------------
+    */
+
+    settings: function() {
+        // TODO: Need to build a me api? So user can change his/her personal settings
+        // like user name, image and other stuff this can be put off for later. 
+        App.core.vent.trigger('app:log', 'Controller: "User Settings" route hit, appView showing UserSettingsView.');
+        window.App.views.appView.stats.show(new UserSettingsView({ collection: window.App.data.players }));
+        window.App.router.navigate('#settings');
     },
 
     renderView: function(view) {

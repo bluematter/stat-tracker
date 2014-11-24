@@ -3,6 +3,10 @@ var Backbone = require('backbone'),
 
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
-    url: '/api/players'
+    url: '/api/players',
+    byPlaying:function(teamID) {
+    	var Playingresults = this.where({ team_id: teamID, bench: false });
+        return new PlayersCollection(Playingresults);
+    }
 
 });

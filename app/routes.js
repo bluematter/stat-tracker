@@ -49,6 +49,7 @@ module.exports.initialize = function(app, router, passport) {
     router.get('/api/players/:tid/:pid', player.getById);
     router.post('/api/players', player.add);
     router.put('/api/players/:pid', player.update);
+    router.delete('/api/players/:pid', player.delete);
     
 
 

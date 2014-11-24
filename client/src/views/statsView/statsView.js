@@ -5,7 +5,13 @@ var Marionette   = require('backbone.marionette'),
     ChartView     = require('../chartView/chartView'),
     TeamsCollection = require('../../collections/teams');
 
-// Turn this into a Layout!!!!!
+/*
+|--------------------------------------------------------------------------
+| Layout for the home route that contains the main apps purpose.
+| This layout shows the two teams byPlaying().
+|--------------------------------------------------------------------------
+*/
+
 module.exports = statsView = Marionette.Layout.extend({
     className: 'statsView',
     template: require('../../../templates/statsView.hbs'),
@@ -18,7 +24,7 @@ module.exports = statsView = Marionette.Layout.extend({
     
     initialize: function() {
 
-        // temp height
+        // statsView needs a height for the slimscroll to work.. this is beta could be better
         this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
 
     },
@@ -33,10 +39,5 @@ module.exports = statsView = Marionette.Layout.extend({
         //this.data.show(App.views.dataView);
         this.chart.show(App.views.chartView);
 
-        // append the view's to the DOM (turn into LayoutView??)
-        // this.$el.find('.app .teams-box').prepend(App.views.teamsView.render().el); // teams/players view
-        // this.$el.find('.app').prepend(App.views.dataView.render().el); // data view
-        // this.$el.find('.app .chart').prepend(App.views.chartView.render().el); // chart view
-        
     }
 });

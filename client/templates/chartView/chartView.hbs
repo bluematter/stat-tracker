@@ -1,5 +1,11 @@
-<div class="leader" style="height: 270px;">
-    <div class="leader-points" style="font-size: 50px;">60</div>
-	<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/10710809_10204199750268310_5779538399511018533_n.jpg?oh=c176cb01f5804c3d4e704c23290bb65c&amp;oe=54DD3C58&amp;__gda__=1423605202_4cc8840862010ed3f96a1cb504d6da5e" class="img-circle img-responsive" style="height: 65px; width: 65px;">
+<div class="leader" style="height: 270px; background-color: #fafafa;">
+    <div class="points-leader" style="padding: 50px;">
+	    <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+	    <div class="leader-points" style="text-align: center; padding: 20px;">
+	        {{maxPoints.attributes.player_name}}
+	        <h1 style="font-size: 50px; margin: 0;">{{maxPoints.attributes.points}}</h1> 
+	        points
+	    </div>
+	</div>
 </div>
 <canvas id="canvas" height="341" width="350"></canvas>

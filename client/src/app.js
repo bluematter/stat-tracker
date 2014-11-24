@@ -1,9 +1,10 @@
 var Marionette        = require('backbone.marionette'),
-    //DualStorage       = require('backbone.dualStorage'),
+    //DualStorage       = require('backbone.dualStorage'), // possibly use this
     Bootsrap          = require('bootstrap'),
     slimscroll        = require('slimscroll'),
     chartjs           = require('chartjs'), 
-    colourBrightness  = require('colourBrightness'), 
+    colourBrightness  = require('colourBrightness'),
+    timerjs           = require('timerjs'), 
     Controller        = require('./controller'),
     Router            = require('./router'),
     PlayerModel       = require('./models/player'),
@@ -26,6 +27,9 @@ App.prototype.start = function(){
 
         // temp set wrap height, sloppy?
         $('#wrap').height($(window).height());
+        $(window).resize(function() {
+            $('#wrap').height($(window).height());
+        });
         
         // work with the facebook graph api
         window.fbAsyncInit = function() {

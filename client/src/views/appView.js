@@ -1,4 +1,5 @@
 var Marionette = require('backbone.marionette'),
+    PlayersCollection = require('../collections/players'),
     MenuView = require('./menu/menu'),
     StatsView = require('./statsView/statsView'),
     ScoreboardView = require('./scoreboard/scoreboardView');
@@ -13,17 +14,36 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 	},
 
 	onRender: function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Render main app region views
+        |--------------------------------------------------------------------------
+        */
+
 		// possibly add a headerView here?
 
 	    // render the app's menu (always render the menu)	
         var menuView = new MenuView();
         this.menu.show(menuView);
 
+        // stats view renders inside the controller because its dynamic
+
         // render the app's scoreboard (always render the scoreboard, for now??)   
         var scoreboardView = new ScoreboardView();
         this.scoreboard.show(scoreboardView);
+        
+        /*
+        |--------------------------------------------------------------------------
+        | Initalize third party stuff
+        |--------------------------------------------------------------------------
+        */
 
         this.snapper();
+        this.facebook(function (response) {
+            var testCollection = new PlayersCollection(response);
+            window.App.data.facebookPlayers = testCollection;
+        }); // builds a backbone collection from facebook API
 
     },
     snapper: function() {
@@ -57,5 +77,28 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
                 }
             });
         },0);
+    },
+    facebook: function(callback) {
+        // Build object from facebook suitable for playersCollection
+        $(document).on('fbStatusChange', function (event, data) {
+            if (data.status === 'connected') {
+                console.log('facebook api connected')
+                
+                var facebookPlayers = [];
+
+                FB.api('/554870764588961?fields=members{id,name,picture.type(large)}', function (response) {
+                    for (i = 0; i < response.members.data.length; i++) { 
+                        facebookPlayers.push({
+                            player_name:response.members.data[i].name ,
+                            player_picture:response.members.data[i].picture.data.url
+                        });
+                    }
+                    callback(facebookPlayers);
+                });
+
+            } else {
+                console.log('facebook api not connected')
+            }
+        });
     }
 });

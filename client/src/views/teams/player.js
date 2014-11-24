@@ -1,6 +1,13 @@
 var Marionette = require('backbone.marionette');
 var TeamsCollection = require('../../collections/teams');
 
+/*
+|--------------------------------------------------------------------------
+| ItemView for each player, contains logic to add stats to the player, 
+| and adds to the global teams collection for team stats.
+|--------------------------------------------------------------------------
+*/
+
 var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
     template: require('../../../templates/teams/player.hbs'),
@@ -146,6 +153,13 @@ var playerView = Marionette.ItemView.extend({
     }
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| CollectionView for all the players the parent Teams Layout filters the 
+| players, so this view only returns players that match a team_id
+|--------------------------------------------------------------------------
+*/
 
 module.exports = PlayersView = Marionette.CollectionView.extend({ 
     initialize:function() {
