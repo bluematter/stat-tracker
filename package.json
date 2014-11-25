@@ -14,16 +14,16 @@
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.2",
     "connect-flash": "latest",
-    "cookie-parser": "~1.0.1",
+    "cookie-parser": "^1.0.1",
     "cookie-session": "~1.0.1",
     "easy-session": "latest",
     "express": "latest",
     "express-session": "~1.0.4",
     "express3-handlebars": "~0.5.0",
     "handlebars-runtime": "~1.0.12",
-    "method-override": "~1.0.0",
+    "method-override": "^1.0.2",
     "mongoose": "~3.8.3",
-    "morgan": "~1.0.0",
+    "morgan": "^1.0.1",
     "passport": "~0.2.0",
     "passport-facebook": "~1.0.3",
     "passport-google-oauth": "~0.1.5",
@@ -83,4 +83,6 @@
     ]
   },
   "browserify-shim": "./config/shim.js"
+}
+him": "./config/shim.js"
 }
