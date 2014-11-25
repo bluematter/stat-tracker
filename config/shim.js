@@ -39,12 +39,20 @@ module.exports = {
             "underscore":"_"
         }
     },
+    "backbone.memento": {
+        "exports": "Backbone.Memento",
+        "depends": {
+            "backbone":"Backbone",
+            "underscore":"_"
+        }
+    },
     "backbone.marionette": {
         "exports": "Marionette",
         "depends": {
             "backbone":"Backbone",
             "backbone.wreqr":"Backbone.Wreqr",
-            "backbone.babysitter":"Backbone.BabySitter"
+            "backbone.babysitter":"Backbone.BabySitter",
+            "backbone.memento":"Backbone.Memento"
         }
     }
 };

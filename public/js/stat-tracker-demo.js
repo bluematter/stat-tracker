@@ -4,6 +4,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
 Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
 Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
+Backbone.Memento = global.Backbone.Memento = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js");
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.4.1
@@ -2475,7 +2476,7 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],2:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":2,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":3,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js":4,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":11}],2:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -2641,7 +2642,7 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],3:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":11}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -2917,7 +2918,176 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":10}],4:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":10,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":11}],4:[function(require,module,exports){
+var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
+
+; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+_ = global._ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+// Backbone.Memento v0.4.1
+//
+// Copyright (C)2011 Derick Bailey, Muted Solutions, LLC
+// Distributed Under MIT Liscene
+//
+// Documentation and Full Licence Availabe at:
+// http://github.com/derickbailey/backbone.memento
+
+Backbone.Memento = (function(Backbone, _){
+  'use strict';
+
+  // ----------------------------
+  // Memento: the public API
+  // ----------------------------
+  var Memento = function(structure, config){
+    this.version = "0.4.1";
+
+    config = _.extend({ignore: []}, config);
+
+    var serializer = new Serializer(structure, config);
+    var mementoStack = new MementoStack(structure, config);
+
+    var restoreState = function (previousState, restoreConfig){
+      if (!previousState){ return; }
+      serializer.deserialize(previousState, restoreConfig);
+    };
+
+    this.store = function(){
+      var currentState = serializer.serialize();
+      mementoStack.push(currentState);
+    };
+
+    this.restore = function(restoreConfig){
+      var previousState = mementoStack.pop();
+      restoreState(previousState, restoreConfig);
+    };
+
+    this.restart = function(restoreConfig){
+      var previousState = mementoStack.rewind();
+      restoreState(previousState, restoreConfig);
+    };
+  };
+
+  // ----------------------------
+  // TypeHelper: a consistent API for removing attributes and
+  // restoring attributes, on models and collections
+  // ----------------------------
+  var TypeHelper = function(structure){
+    if (structure instanceof Backbone.Model) {
+      this.removeAttr = function(data){ structure.unset(data); };
+      this.restore = function(data){ structure.set(data); };
+    } else {
+      this.removeAttr = function(data){ structure.remove(data); };
+      this.restore = function(data){ structure.reset(data); };
+    }
+  };
+
+  // ----------------------------
+  // Serializer: serializer and deserialize model and collection state
+  // ----------------------------
+  var Serializer = function(structure, config){
+    var typeHelper = new TypeHelper(structure);
+
+    function dropIgnored(attrs, restoreConfig){
+      attrs = _.clone(attrs);
+      if (restoreConfig.hasOwnProperty("ignore") && restoreConfig.ignore.length > 0){
+        for(var index in restoreConfig.ignore){
+          var ignore = restoreConfig.ignore[index];
+          delete attrs[ignore];
+        }
+      }
+      return attrs;
+    }
+
+    function getAddedAttrDiff(newAttrs, oldAttrs){
+      var removedAttrs = [];
+
+      // guard clause to ensure we have attrs to compare
+      if (!newAttrs || !oldAttrs){
+        return removedAttrs;
+      }
+
+      // if the attr is found in the old set but not in
+      // the new set, then it was remove in the new set
+      for (var attr in oldAttrs){
+        if (oldAttrs.hasOwnProperty(attr)){
+          if (!newAttrs.hasOwnProperty(attr)){
+            removedAttrs.push(attr);
+          }
+        }
+      }
+
+      return removedAttrs;
+    }
+
+    function removeAttributes(structure, attrsToRemove){
+      for (var index in attrsToRemove){
+        var attr = attrsToRemove[index];
+        typeHelper.removeAttr(attr);
+      }
+    }
+
+    function restoreState(previousState, restoreConfig){
+      var oldAttrs = dropIgnored(previousState, restoreConfig);
+
+      //get the current state
+      var currentAttrs = structure.toJSON();
+      currentAttrs = dropIgnored(currentAttrs, restoreConfig);
+
+      //handle removing attributes that were added
+      var removedAttrs = getAddedAttrDiff(oldAttrs, currentAttrs);
+      removeAttributes(structure, removedAttrs);
+
+      typeHelper.restore(oldAttrs);
+    }
+
+    this.serialize = function(){
+      var attrs = structure.toJSON();
+      attrs = dropIgnored(attrs, config);
+      return attrs;
+    }
+
+    this.deserialize = function(previousState, restoreConfig){
+      restoreConfig = _.extend({}, config, restoreConfig);
+      restoreState(previousState, restoreConfig);
+    }
+      
+  };
+
+  // ----------------------------
+  // MementoStack: push / pop model and collection states
+  // ----------------------------
+  var MementoStack = function(structure, config){
+    var attributeStack;
+
+    function initialize(){
+      attributeStack = [];
+    }
+
+    this.push = function(attrs){
+      attributeStack.push(attrs);
+    }
+    
+    this.pop = function(restoreConfig){
+      var oldAttrs = attributeStack.pop();
+      return oldAttrs;
+    }
+
+    this.rewind = function(){
+      var oldAttrs = attributeStack[0];
+      initialize();
+      return oldAttrs;
+    }
+
+    initialize();
+  };
+
+  return Memento;
+})(Backbone, _);
+
+; browserify_shim__define__module__export__(typeof Backbone.Memento != "undefined" ? Backbone.Memento : window.Backbone.Memento);
+
+}).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
+
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":10,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":11}],5:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*!
  * Chart.js
@@ -4350,7 +4520,7 @@ window.Chart = function(context){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*!
  * jQuery JavaScript Library v1.10.2
@@ -14144,7 +14314,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 }).call(global, module, undefined);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -14623,7 +14793,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],7:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],8:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*
  * Snap.js
@@ -15196,7 +15366,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 (function(root, factory){
   if (typeof define === 'function' && define.amd)
@@ -15343,7 +15513,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 //     Underscore.js 1.5.2
 //     http://underscorejs.org
@@ -16624,7 +16794,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, module, undefined);
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -18215,7 +18385,7 @@ underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":9,"underscore":9}],11:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6,"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\underscore\\underscore.js":10,"underscore":10}],12:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -18742,7 +18912,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":5}],12:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\stat-tracker\\bower_components\\jquery\\jquery.js":6}],13:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*
  *  colourBrightness.js
@@ -18792,7 +18962,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var Marionette        = require('backbone.marionette'),
     //DualStorage       = require('backbone.dualStorage'), // possibly use this
     Bootsrap          = require('bootstrap'),
@@ -18880,7 +19050,7 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":14,"./collections/teams":15,"./controller":16,"./models/player":18,"./models/team":19,"./router":20,"backbone.marionette":1,"bootstrap":11,"chartjs":4,"colourBrightness":12,"slimscroll":6,"timerjs":8}],14:[function(require,module,exports){
+},{"./collections/players":15,"./collections/teams":16,"./controller":17,"./models/player":19,"./models/team":20,"./router":21,"backbone.marionette":1,"bootstrap":12,"chartjs":5,"colourBrightness":13,"slimscroll":7,"timerjs":9}],15:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
@@ -18894,7 +19064,7 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
 
 });
 
-},{"../models/player":18,"backbone":10}],15:[function(require,module,exports){
+},{"../models/player":19,"backbone":11}],16:[function(require,module,exports){
 var Backbone = require('backbone'),
     TeamModel = require('../models/team'),
     PlayersCollection = require('./players');
@@ -18913,7 +19083,7 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
     }
 });
 
-},{"../models/team":19,"./players":14,"backbone":10}],16:[function(require,module,exports){
+},{"../models/team":20,"./players":15,"backbone":11}],17:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
     SetTeamsView = require('./views/teamsView/setTeams'),
@@ -19001,14 +19171,14 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/appView":21,"./views/playersView/playersView":26,"./views/statsView/statsView":29,"./views/teamsView/setTeams":30,"backbone.marionette":1}],17:[function(require,module,exports){
+},{"./views/appView":22,"./views/playersView/playersView":27,"./views/statsView/statsView":30,"./views/teamsView/setTeams":31,"backbone.marionette":1}],18:[function(require,module,exports){
 var App = require('./app');
 var StatApp = new App();
 
 StatApp.start();
 
-},{"./app":13}],18:[function(require,module,exports){
-var Backbone     = require('backbone');
+},{"./app":14}],19:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
 //var NestedModel  = require('backbone.nested');
 //var Relational = require('backbone.relational');
 
@@ -19035,7 +19205,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     }
 });
 
-},{"backbone":10}],19:[function(require,module,exports){
+},{"backbone.marionette":1}],20:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
 //var NestedModel       = require('backbone.nested');
@@ -19064,7 +19234,7 @@ module.exports = TeamModel = Backbone.Model.extend({
 });
 
 
-},{"../collections/players":14,"backbone":10}],20:[function(require,module,exports){
+},{"../collections/players":15,"backbone":11}],21:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = Router = Marionette.AppRouter.extend({
@@ -19076,7 +19246,7 @@ module.exports = Router = Marionette.AppRouter.extend({
     }
 });
 
-},{"backbone.marionette":1}],21:[function(require,module,exports){
+},{"backbone.marionette":1}],22:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../collections/players'),
     MenuView = require('./menu/menu'),
@@ -19181,7 +19351,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         });
     }
 });
-},{"../../templates/appView.hbs":33,"../collections/players":14,"./menu/menu":25,"./scoreboard/scoreboardView":27,"./statsView/statsView":29,"backbone.marionette":1}],22:[function(require,module,exports){
+},{"../../templates/appView.hbs":34,"../collections/players":15,"./menu/menu":26,"./scoreboard/scoreboardView":28,"./statsView/statsView":30,"backbone.marionette":1}],23:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     TeamsCollection = require('../../collections/teams');
 
@@ -19405,7 +19575,7 @@ var settings = {
      legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
  }
-},{"../../../templates/chartView/chartView.hbs":34,"../../collections/teams":15,"backbone.marionette":1}],23:[function(require,module,exports){
+},{"../../../templates/chartView/chartView.hbs":35,"../../collections/teams":16,"backbone.marionette":1}],24:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = playerData = Marionette.ItemView.extend({
@@ -19432,7 +19602,7 @@ module.exports = playerData = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/data/playerData.hbs":35,"backbone.marionette":1}],24:[function(require,module,exports){
+},{"../../../templates/data/playerData.hbs":36,"backbone.marionette":1}],25:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     playerData = require('./playerData'),
     PlayersCollection = require('../../collections/players');
@@ -19455,7 +19625,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: playerData
 });
 
-},{"../../collections/players":14,"./playerData":23,"backbone.marionette":1}],25:[function(require,module,exports){
+},{"../../collections/players":15,"./playerData":24,"backbone.marionette":1}],26:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = MenuView = Backbone.Marionette.Layout.extend({
@@ -19468,11 +19638,11 @@ module.exports = MenuView = Backbone.Marionette.Layout.extend({
     onShow: function(){
     }
 });
-},{"../../../templates/menu/menu.hbs":36,"backbone.marionette":1}],26:[function(require,module,exports){
+},{"../../../templates/menu/menu.hbs":37,"backbone.marionette":1}],27:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listPlayersView = Marionette.ItemView.extend({
-    className: 'players-wrap row',
+    className: 'players-wrap row playerSettings',
     template: require('../../../templates/playersView/playerView.hbs'),
     events: {
         'focusout .editable': 'saveEdit',
@@ -19501,6 +19671,7 @@ var listPlayersView = Marionette.ItemView.extend({
 });
 
 var ListPlayersView = Marionette.CollectionView.extend({
+    className: 'col-xs-12',
     itemView:listPlayersView
 });
 
@@ -19541,7 +19712,7 @@ module.exports = PlayersSettingsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/playersView/playerView.hbs":37,"../../../templates/playersView/playersView.hbs":38,"backbone.marionette":1}],27:[function(require,module,exports){
+},{"../../../templates/playersView/playerView.hbs":38,"../../../templates/playersView/playersView.hbs":39,"backbone.marionette":1}],28:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     TeamsCollection = require('../../collections/teams');
 
@@ -19604,13 +19775,10 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
                 $timer.text(minutes +':'+ seconds);
             },
             onpause : function() {
-                //$timer.text('pause');
             },
             onstop  : function() {
-                //$timer.text('stop');
             },
             onend   : function() {
-                //$timer.text('end');
             }
         });
 
@@ -19623,7 +19791,7 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
 
 
 
-},{"../../../templates/scoreboard/scoreboard.hbs":39,"../../../templates/scoreboard/scores.hbs":40,"../../collections/teams":15,"backbone.marionette":1}],28:[function(require,module,exports){
+},{"../../../templates/scoreboard/scoreboard.hbs":40,"../../../templates/scoreboard/scores.hbs":41,"../../collections/teams":16,"backbone.marionette":1}],29:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../../collections/players');
 
@@ -19680,7 +19848,8 @@ var playingPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-var PlayingPlayersSettingsView = Marionette.CollectionView.extend({
+var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
+    template: require('../../../templates/settings/playingPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
@@ -19715,8 +19884,8 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-var BenchPlayersSettingsView = Marionette.CollectionView.extend({
-
+var BenchPlayersSettingsView = Marionette.CompositeView.extend({
+    template: require('../../../templates/settings/benchPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
@@ -19871,7 +20040,7 @@ module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
         this.benchPlayers.$el.show();
     }
 });
-},{"../../../templates/settings/addFacebookPlayer.hbs":41,"../../../templates/settings/addplayerSettings.hbs":42,"../../../templates/settings/playerSettings.hbs":43,"../../../templates/settings/teamSettings.hbs":44,"../../collections/players":14,"backbone.marionette":1}],29:[function(require,module,exports){
+},{"../../../templates/settings/addFacebookPlayer.hbs":42,"../../../templates/settings/addplayerSettings.hbs":43,"../../../templates/settings/benchPlayersSettings.hbs":44,"../../../templates/settings/playerSettings.hbs":45,"../../../templates/settings/playingPlayersSettings.hbs":46,"../../../templates/settings/teamSettings.hbs":47,"../../collections/players":15,"backbone.marionette":1}],30:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('../teams/teams'),
@@ -19916,7 +20085,7 @@ module.exports = statsView = Marionette.Layout.extend({
     }
 });
 
-},{"../../../templates/statsView.hbs":45,"../../collections/teams":15,"../chartView/chartView":22,"../data/teamData":24,"../teams/teams":32,"backbone.marionette":1,"snapjs":7}],30:[function(require,module,exports){
+},{"../../../templates/statsView.hbs":48,"../../collections/teams":16,"../chartView/chartView":23,"../data/teamData":25,"../teams/teams":33,"backbone.marionette":1,"snapjs":8}],31:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listTeamsView = Marionette.ItemView.extend({
@@ -20002,7 +20171,7 @@ module.exports = SettingsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/team-list.hbs":46,"../../../templates/teamsView/addTeamsView.hbs":47,"../../../templates/teamsView/teamsView.hbs":48,"backbone.marionette":1}],31:[function(require,module,exports){
+},{"../../../templates/team-list.hbs":49,"../../../templates/teamsView/addTeamsView.hbs":50,"../../../templates/teamsView/teamsView.hbs":51,"backbone.marionette":1}],32:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 var TeamsCollection = require('../../collections/teams');
 
@@ -20151,6 +20320,9 @@ var playerView = Marionette.ItemView.extend({
             }
 		}
 	},
+    removePoint: function() {
+        
+    },
     templateHelpers:function(){
         return {
             name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
@@ -20173,7 +20345,7 @@ module.exports = PlayersView = Marionette.CollectionView.extend({
     itemView: playerView
 });
 
-},{"../../../templates/teams/player.hbs":49,"../../collections/teams":15,"backbone.marionette":1}],32:[function(require,module,exports){
+},{"../../../templates/teams/player.hbs":52,"../../collections/teams":16,"backbone.marionette":1}],33:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
     PlayersCollection = require('../../collections/players'),
@@ -20252,7 +20424,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/teams/team.hbs":50,"../../collections/players":14,"../settings/teamSettings":28,"./player":31,"backbone.marionette":1}],33:[function(require,module,exports){
+},{"../../../templates/teams/team.hbs":53,"../../collections/players":15,"../settings/teamSettings":29,"./player":32,"backbone.marionette":1}],34:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20264,7 +20436,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
   });
 
-},{"hbsfy/runtime":54}],34:[function(require,module,exports){
+},{"hbsfy/runtime":57}],35:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20283,7 +20455,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],35:[function(require,module,exports){
+},{"hbsfy/runtime":57}],36:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20326,7 +20498,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],36:[function(require,module,exports){
+},{"hbsfy/runtime":57}],37:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20338,7 +20510,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":54}],37:[function(require,module,exports){
+},{"hbsfy/runtime":57}],38:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20368,7 +20540,7 @@ function program3(depth0,data) {
   buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name editable\" data-change=\"player_name\" contenteditable=\"true\">\r\n            ";
+  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name editable settings-name\" data-change=\"player_name\" contenteditable=\"true\">\r\n            ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20392,7 +20564,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],38:[function(require,module,exports){
+},{"hbsfy/runtime":57}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20404,7 +20576,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"the-players\"></div>";
   });
 
-},{"hbsfy/runtime":54}],39:[function(require,module,exports){
+},{"hbsfy/runtime":57}],40:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20416,7 +20588,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n	    <div class=\"scores\"></div>\r\n	    <div class=\"clock center\">\r\n		  <div class=\"score-data-circle\">\r\n			  <div class=\"scoreboard-time\">\r\n			      <div class=\"timer\"></div>\r\n			  </div>\r\n		  </div>\r\n	    </div>\r\n	</div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":54}],40:[function(require,module,exports){
+},{"hbsfy/runtime":57}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20437,7 +20609,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],41:[function(require,module,exports){
+},{"hbsfy/runtime":57}],42:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20450,7 +20622,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+    + "\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name subbing-name\">\r\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20462,7 +20634,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],42:[function(require,module,exports){
+},{"hbsfy/runtime":57}],43:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20471,7 +20643,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<span class=\"close-team-editor\">X</span>\r\n\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n    <div class=\"col-md-6\">\r\n		<form id=\"AddPlayer\">\r\n		    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
+  buffer += "<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n    <div class=\"col-md-6\">\r\n		<form id=\"AddPlayer\">\r\n		    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20479,7 +20651,19 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],43:[function(require,module,exports){
+},{"hbsfy/runtime":57}],44:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<p>Bench</p>";
+  });
+
+},{"hbsfy/runtime":57}],45:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20509,7 +20693,7 @@ function program3(depth0,data) {
   buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name subbing-name\">\r\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20521,7 +20705,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],44:[function(require,module,exports){
+},{"hbsfy/runtime":57}],46:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20530,10 +20714,22 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <div class=\"row\">\r\n	    <div class=\"col-md-6 list-facebookers\">Facebookers</div>\r\n	    <a class=\"col-md-6 go-back\"><</a>\r\n    </div>\r\n    \r\n	<div class=\"row add-player\"></div>\r\n\r\n	<div class=\"row row-remove-padding sub-players\">\r\n	    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n	    	<p>Playing</p>\r\n	    	<div class=\"playing-players\"></div>\r\n	    </div>\r\n	    <div class=\"col-md-6\">\r\n	    	<p>Bench</p>\r\n	    	<div class=\"bench-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n	<div class=\"row\">\r\n		<div class=\"col-md-12\">\r\n	    	<div class=\"facebook-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n</div>\r\n";
+  return "<p>Playing</p>";
   });
 
-},{"hbsfy/runtime":54}],45:[function(require,module,exports){
+},{"hbsfy/runtime":57}],47:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <span class=\"close-team-editor\">X</span>\r\n\r\n    <div class=\"row player-addition-actions\">\r\n        <div class=\"col-md-4 add-player\"></div>\r\n	    <div class=\"col-md-4 list-facebookers\">\r\n	    	<button class=\"btn-default btn\">Facebookers</button>\r\n	    </div>\r\n	    <a class=\"col-md-4 go-back\"><</a>\r\n    </div>\r\n\r\n	<div class=\"row row-remove-padding sub-players\">\r\n	    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n	    	<div class=\"playing-players\"></div>\r\n	    </div>\r\n	    <div class=\"col-md-6\">\r\n	    	<div class=\"bench-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n	<div class=\"row\">\r\n		<div class=\"col-md-12\">\r\n	    	<div class=\"facebook-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n</div>\r\n";
+  });
+
+},{"hbsfy/runtime":57}],48:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20545,7 +20741,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":54}],46:[function(require,module,exports){
+},{"hbsfy/runtime":57}],49:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20562,7 +20758,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "; margin: 15px; padding: 15px\">\r\n    <div class=\"team-changes\">\r\n        <i class=\"ti-settings\"></i>\r\n    </div>\r\n	<div class=\"team-name\">";
+    + "; margin: 15px; padding: 15px\">\r\n    <div class=\"team-changes pull-right\" style=\"cursor:pointer\">\r\n        <i class=\"ti-settings\"></i>\r\n    </div>\r\n	<div class=\"team-name\">";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20582,7 +20778,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],47:[function(require,module,exports){
+},{"hbsfy/runtime":57}],50:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20596,7 +20792,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],48:[function(require,module,exports){
+},{"hbsfy/runtime":57}],51:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20608,7 +20804,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"the-teams\"></div>\r\n\r\n<div class=\"the-playing-teams\"></div>";
   });
 
-},{"hbsfy/runtime":54}],49:[function(require,module,exports){
+},{"hbsfy/runtime":57}],52:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20635,10 +20831,10 @@ function program3(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-4 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-3 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n        \r\n        <div class=\"player-buttons\">\r\n            <div class=\"column buttons top-button one-point\">1</div>\r\n            <div class=\"column buttons middle-button two-point\">2</div>\r\n            <div class=\"column buttons bottom-button three-point\">3</div>\r\n        </div>\r\n\r\n        <div class=\"column the-name\">\r\n            <span style=\"margin: auto;\"> ";
+  buffer += "\r\n        </span>\r\n        \r\n        <div class=\"player-buttons\">\r\n            <div class=\"column buttons top-button one-point\">1</div>\r\n            <div class=\"column buttons middle-button two-point\">2</div>\r\n            <div class=\"column buttons bottom-button three-point\">3</div>\r\n        </div>\r\n\r\n        <div class=\"column the-name\">\r\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20682,12 +20878,11 @@ function program3(depth0,data) {
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    "
-    + "\r\n</div>    \r\n";
+    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            </div>\r\n        </div>\r\n</div>    \r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],50:[function(require,module,exports){
+},{"hbsfy/runtime":57}],53:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20696,7 +20891,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"statisticals col-xs-12\">\r\n    <div class=\"col-xs-4 column\">\r\n        <div class=\"team-changes\">\r\n            <i class=\"ti-settings\"></i>\r\n        </div>\r\n        <div class=\"team-name\">\r\n            <div style=\"background-color: ";
+  buffer += "<div class=\"statisticals col-xs-12\">\r\n    <div class=\"col-xs-3 column\">\r\n        <div class=\"team-changes\">\r\n            <i class=\"ti-settings\"></i>\r\n        </div>\r\n        <div class=\"team-name\">\r\n            <div style=\"background-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -20704,8 +20899,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n        </div>    \r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Pts</span>\r\n        <span class=\"long\">Points</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Rbs</span>\r\n        <span class=\"long\">Rebounds</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Stl</span>\r\n        <span class=\"long\">Steals</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Blk</span>\r\n        <span class=\"long\">Blocks</span>\r\n    </div>\r\n    "
-    + "\r\n</div>\r\n\r\n"
+    + "\r\n        </div>    \r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Pts</span>\r\n        <span class=\"long\">Points</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Rbs</span>\r\n        <span class=\"long\">Rebounds</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Stl</span>\r\n        <span class=\"long\">Steals</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Blk</span>\r\n        <span class=\"long\">Blocks</span>\r\n    </div>\r\n    <div class=\"col-xs-1 column\" style=\"padding: 0px;\">\r\n        <span class=\"short\">Fls</span>\r\n        <span class=\"long\">Fouls</span>\r\n    </div>\r\n</div>\r\n\r\n"
     + "\r\n\r\n<div class=\"the-players ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
@@ -20714,7 +20908,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":54}],51:[function(require,module,exports){
+},{"hbsfy/runtime":57}],54:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -20882,7 +21076,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],52:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -20990,7 +21184,7 @@ return Handlebars;
 
 };
 
-},{}],53:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -21075,7 +21269,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],54:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -21086,4 +21280,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":51,"handlebars/lib/handlebars/runtime":52,"handlebars/lib/handlebars/utils":53}]},{},[17])
+},{"handlebars/lib/handlebars/base":54,"handlebars/lib/handlebars/runtime":55,"handlebars/lib/handlebars/utils":56}]},{},[18])

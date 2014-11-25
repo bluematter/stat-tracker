@@ -1,7 +1,7 @@
 var Marionette = require('backbone.marionette');
 
 var listPlayersView = Marionette.ItemView.extend({
-    className: 'players-wrap row',
+    className: 'players-wrap row playerSettings',
     template: require('../../../templates/playersView/playerView.hbs'),
     events: {
         'focusout .editable': 'saveEdit',
@@ -30,6 +30,7 @@ var listPlayersView = Marionette.ItemView.extend({
 });
 
 var ListPlayersView = Marionette.CollectionView.extend({
+    className: 'col-xs-12',
     itemView:listPlayersView
 });
 

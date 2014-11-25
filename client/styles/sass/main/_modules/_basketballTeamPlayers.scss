@@ -145,7 +145,7 @@
             }
             .column.stat {
 			    color: #435155;
-			    font-size: 14px;
+			    font-size: 13px;
             }
             .column.stat.name {
             	text-align: left;
@@ -168,6 +168,7 @@
                     position: relative;
                     height: 100%;
                     opacity: 0;
+                    z-index: 999;
                     .buttons {
                         cursor: pointer;
                         float: left;
@@ -203,9 +204,17 @@
                     }
                 }
                 .the-name {
-                    float: left;
-                    margin-left: 30px;
                     text-align: left;
+                    margin-left: 30px;
+                    span {
+                        margin-left: 10px;
+                    }
+                    &.settings-name {
+                        margin-left: 85px;
+                    }
+                    &.subbing-name {
+                        margin-left: 20px;
+                    }
                 }
             }
             .column.stat.data {

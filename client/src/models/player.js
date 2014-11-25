@@ -1,4 +1,4 @@
-var Backbone     = require('backbone');
+var Marionette = require('backbone.marionette');
 //var NestedModel  = require('backbone.nested');
 //var Relational = require('backbone.relational');
 

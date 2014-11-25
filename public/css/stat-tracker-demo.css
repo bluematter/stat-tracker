@@ -6229,8 +6229,9 @@ button {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1); }
   .chart canvas {
-    position: relative;
-    left: -2px; }
+    position: absolute;
+    left: -2px;
+    bottom: -23px; }
 
 @-webkit-keyframes myfirst {
   0% {
@@ -6346,7 +6347,7 @@ button {
         opacity: 1; }
     #basketball .team .player .column.stat {
       color: #435155;
-      font-size: 14px; }
+      font-size: 13px; }
     #basketball .team .player .column.stat.name {
       text-align: left;
       padding: 0;
@@ -6366,7 +6367,8 @@ button {
         float: left;
         position: relative;
         height: 100%;
-        opacity: 0; }
+        opacity: 0;
+        z-index: 999; }
         #basketball .team .player .column.stat.name .player-buttons .buttons {
           cursor: pointer;
           float: left;
@@ -6396,9 +6398,14 @@ button {
         #basketball .team .player .column.stat.name .player-buttons .button.bottom-button {
           border-bottom: 1px solid #ebebeb; }
       #basketball .team .player .column.stat.name .the-name {
-        float: left;
-        margin-left: 30px;
-        text-align: left; }
+        text-align: left;
+        margin-left: 30px; }
+        #basketball .team .player .column.stat.name .the-name span {
+          margin-left: 10px; }
+        #basketball .team .player .column.stat.name .the-name.settings-name {
+          margin-left: 85px; }
+        #basketball .team .player .column.stat.name .the-name.subbing-name {
+          margin-left: 20px; }
     #basketball .team .player .column.stat.data {
       text-align: center; }
       #basketball .team .player .column.stat.data .active-add-stat {
@@ -6494,6 +6501,8 @@ button {
   left: 0;
   -webkit-box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3); }
+  .team-editor .edit .editor .player-addition-actions {
+    background-color: #eee; }
 .team-editor .close-team-editor {
   position: absolute;
   right: 20px;
@@ -6504,15 +6513,10 @@ button {
   padding: 0px 5px;
   border-radius: 100em;
   color: #646f73; }
-.team-editor .add-new-player {
-  background-color: #f5f5f5;
-  display: inline-block;
-  width: 100%;
-  padding: 15px; }
-  .team-editor .add-new-player form#AddPlayer input.player_name {
-    border-color: transparent;
-    background-color: #fff;
-    padding: 5px 10px; }
+.team-editor .add-new-player form#AddPlayer input.player_name {
+  border-color: transparent;
+  background-color: #fff;
+  padding: 5px 10px; }
 .team-editor .row-remove-padding {
   margin: 0; }
   .team-editor .row-remove-padding .col-md-6 {
@@ -6625,8 +6629,7 @@ button {
   position: relative;
   -webkit-backface-visibility: hidden; }
   .scoreboard .sb.row {
-    max-width: 1270px;
-    margin: 0 auto;
+    margin: 0 65px;
     height: 65px; }
   .scoreboard .scores, .scoreboard .clock {
     color: #fff;

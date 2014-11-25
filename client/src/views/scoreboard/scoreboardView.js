@@ -60,13 +60,10 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
                 $timer.text(minutes +':'+ seconds);
             },
             onpause : function() {
-                //$timer.text('pause');
             },
             onstop  : function() {
-                //$timer.text('stop');
             },
             onend   : function() {
-                //$timer.text('end');
             }
         });
 

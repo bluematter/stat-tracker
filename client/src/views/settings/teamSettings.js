@@ -54,7 +54,8 @@ var playingPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-var PlayingPlayersSettingsView = Marionette.CollectionView.extend({
+var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
+    template: require('../../../templates/settings/playingPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
@@ -89,8 +90,8 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-var BenchPlayersSettingsView = Marionette.CollectionView.extend({
-
+var BenchPlayersSettingsView = Marionette.CompositeView.extend({
+    template: require('../../../templates/settings/benchPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
