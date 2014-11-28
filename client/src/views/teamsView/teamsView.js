@@ -1,11 +1,27 @@
-var Marionette = require('backbone.marionette');
+var Marionette = require('backbone.marionette'),
+    TeamSettingsLayoutView = require('./teamSettings');
 
-var listTeamsView = Marionette.ItemView.extend({
+/*
+|--------------------------------------------------------------------------
+| Layout view for a team in teamSettings rendered as an item, contains a 
+| region to display team settings, change colors, name, and stats.
+|--------------------------------------------------------------------------
+*/
+
+var listTeamsView = Marionette.Layout.extend({
     className: 'col-md-6',
-    template: require('../../../templates/team-list.hbs'),
+    template: require('../../../templates/teamsView/team-list.hbs'),
     events: {
         'click .home': 'setHome',
-        'click .away': 'setAway'
+        'click .away': 'setAway',
+        'click .team-changes': 'teamChanges',
+        'click .close-team-editor': 'closeTeamChanges'
+    },
+    regions: {
+        teamSettings: '.team-editor'
+    },
+    initialize: function() {
+        this.listenTo(this.model, 'change', this.render);
     },
     onRender: function() {
         this.$el.find('.team-block').colourBrightness();
@@ -33,6 +49,22 @@ var listTeamsView = Marionette.ItemView.extend({
         },this);
         this.model.set({playing: true, position: 2, side: 'away'});
         this.model.save();
+    },
+    teamChanges:function() {
+    
+        // event triggers another Layout to make subs and add players etc
+        var teamSettingsLayoutView = new TeamSettingsLayoutView({ 
+            teamModel: this.model
+        });
+        this.teamSettings.show(teamSettingsLayoutView);
+
+    },
+    closeTeamChanges:function() {
+        
+        // event renders this based on changes made in Layout above and closes the Layout
+        this.render();
+        this.teamSettings.close();
+
     }
 });
 
@@ -49,7 +81,7 @@ var ListTeamView = Marionette.CompositeView.extend({
     itemView:listTeamsView
 });
 
-module.exports = SettingsView = Marionette.Layout.extend({
+module.exports = TeamsView = Marionette.Layout.extend({
     className: 'settingsView row',
     template: require('../../../templates/teamsView/teamsView.hbs'),
     initialize:function() {

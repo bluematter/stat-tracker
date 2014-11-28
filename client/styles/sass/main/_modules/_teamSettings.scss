@@ -19,4 +19,13 @@
 		border-color: #015693;
 		border-radius: 100em;
 	}
+	.add-new-team {
+		margin: 0 15px;
+		.add-team-btn {
+            border: 1px solid #0bf;
+			border-radius: 100em;
+			margin-top: 15px;
+			color: #0bf;
+		}
+	}
 }

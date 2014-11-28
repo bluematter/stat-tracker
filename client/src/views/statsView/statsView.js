@@ -1,20 +1,20 @@
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
-    TeamsView    = require('../teams/teams'),
+    TeamsView    = require('./teams'),
     DataView     = require('../data/teamData'),
     ChartView     = require('../chartView/chartView'),
     TeamsCollection = require('../../collections/teams');
 
 /*
 |--------------------------------------------------------------------------
-| Layout for the home route that contains the main apps purpose.
+| Layout for the home route that contains the main purpose for the app.
 | This layout shows the two teams byPlaying().
 |--------------------------------------------------------------------------
 */
 
 module.exports = statsView = Marionette.Layout.extend({
     className: 'statsView',
-    template: require('../../../templates/statsView.hbs'),
+    template: require('../../../templates/statsView/statsView.hbs'),
 
     regions: {
         teams: ".teams-box",

@@ -1,10 +1,16 @@
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../../collections/players');
 
+/*
+|--------------------------------------------------------------------------
+| WARNING: Remember this is linking to statsView's teamEditor, this View 
+| needs it's own settings stuff. Doing it temporarily fix ASAP.
+|--------------------------------------------------------------------------
+*/
 
 /* Form to add player */
 var AddPlayerSettingsView = Marionette.ItemView.extend({
-    template: require('../../../templates/settings/addplayerSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/addplayerSettings.hbs'),
     events: {
         'submit #AddPlayer': 'addPlayer'
     },
@@ -34,7 +40,7 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
 /* Players who are playing */
 var playingPlayerSettingsView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/settings/playerSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
     events: {
         'click': 'putBench'
     },
@@ -55,7 +61,7 @@ var playingPlayerSettingsView = Marionette.ItemView.extend({
 });
 
 var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/settings/playingPlayersSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/playingPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
@@ -70,7 +76,7 @@ var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
 /* Players who are on the bench */
 var benchPlayerSettingsView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/settings/playerSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
     events: {
         'click': 'putGame'
     },
@@ -91,7 +97,7 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
 });
 
 var BenchPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/settings/benchPlayersSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/benchPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
@@ -114,7 +120,7 @@ var BenchPlayersSettingsView = Marionette.CompositeView.extend({
 /* Players from facebook */
 var addFacebookPlayersView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/settings/addFacebookPlayer.hbs'),
+    template: require('../../../templates/statsView/teamEditor/addFacebookPlayer.hbs'),
     events: {
         'click': 'addToRoster'
     },
@@ -163,14 +169,15 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
 
 module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
     className: 'edit',
-    template: require('../../../templates/settings/teamSettings.hbs'),
+    template: require('../../../templates/statsView/teamEditor/teamSettings.hbs'),
     events: {
+        'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
         'click .go-back': 'goBack'
     },
 
     regions: {
-        addPlayer: ".add-player",
+        addPlayer: ".add-player-section",
         playingPlayers: ".playing-players",
         benchPlayers: ".bench-players",
         facebookPlayers: ".facebook-players"
@@ -189,38 +196,36 @@ module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
 
         // set scrollbars, set height??
         this.$el.height(this.$el.height());
-        
-        // region to add players
-        var SpecificTeam = App.data.players.where({ team_id: this.options.teamModel.id });
-        var filteredByTeamCollection = new PlayersCollection(SpecificTeam); 
-
-        var addPlayerSettingsView = new AddPlayerSettingsView({ 
-            model: this.options.teamModel
-        });
-        this.addPlayer.show(addPlayerSettingsView);
-
 
 
         // region showing a list of playing players  
-        var Playingresults = App.data.players.where({ team_id: this.options.teamModel.id, bench: false });
-        var filteredPlayingCollection = new PlayersCollection(Playingresults); 
-
         var playingPlayersSettingsView = new PlayingPlayersSettingsView({ 
-            collection: filteredPlayingCollection
+            collection: App.data.players.byPlaying(this.options.teamModel.id)
         });
         this.playingPlayers.show(playingPlayersSettingsView);
 
 
-
-        // region showing a list of bench players  
-        var Benchresults = App.data.players.where({ team_id: this.options.teamModel.id, bench: true });
-        var filteredBenchCollection = new PlayersCollection(Benchresults); 
-
+        // region showing a list of bench players 
         var benchPlayersSettingsView = new BenchPlayersSettingsView({ 
-            collection: filteredBenchCollection
+            collection: App.data.players.byBench(this.options.teamModel.id)
         });
         this.benchPlayers.show(benchPlayersSettingsView);
 
+    },
+    addPlayerRegion: function() {
+        
+        // hide some region
+        this.playingPlayers.$el.hide();
+        this.benchPlayers.$el.hide();
+
+        // region to add players
+        var addPlayerSettingsView = new AddPlayerSettingsView({ 
+            model: this.options.teamModel
+        });
+        this.addPlayer.show(addPlayerSettingsView);
+        
+        // need to show the el after hiding
+        this.addPlayer.$el.show();
     },
     facebookRegion: function() {
         

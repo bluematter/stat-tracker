@@ -6037,6 +6037,13 @@ button {
   background-color: transparent;
   border-color: #015693;
   border-radius: 100em; }
+.the-teams .add-new-team {
+  margin: 0 15px; }
+  .the-teams .add-new-team .add-team-btn {
+    border: 1px solid #0bf;
+    border-radius: 100em;
+    margin-top: 15px;
+    color: #0bf; }
 
 .start-up .live-data {
   height: 729px; }

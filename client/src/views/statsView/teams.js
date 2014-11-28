@@ -1,7 +1,7 @@
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
-    PlayersCollection = require('../../collections/players'),
-    TeamSettingsLayoutView = require('../settings/teamSettings');
+    TeamEditorView = require('./teamEditor/teamEditor.js'),
+    PlayersCollection = require('../../collections/players');
 
 /*
 |--------------------------------------------------------------------------
@@ -12,14 +12,14 @@ var Marionette = require('backbone.marionette'),
 
 var teamView = Backbone.Marionette.Layout.extend({
 	className: 'team row',
-    template: require('../../../templates/teams/team.hbs'),
+    template: require('../../../templates/statsView/team.hbs'),
     events: {
         'click .team-changes': 'teamChanges',
         'click .close-team-editor': 'closeTeamChanges'
     },
     regions: {
         players: ".the-players",
-        teamSettings: '.team-editor'
+        teamEditor: '.team-editor'
     },
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
@@ -34,17 +34,17 @@ var teamView = Backbone.Marionette.Layout.extend({
     teamChanges:function() {
     
         // event triggers another Layout to make subs and add players etc
-        var teamSettingsLayoutView = new TeamSettingsLayoutView({ 
+        var teamEditorView = new TeamEditorView({ 
             teamModel: this.model
         });
-        this.teamSettings.show(teamSettingsLayoutView);
+        this.teamEditor.show(teamEditorView);
 
     },
     closeTeamChanges:function() {
         
         // event renders this based on changes made in Layout above and closes the Layout
         this.render();
-        this.teamSettings.close();
+        this.teamEditor.close();
 
     }
 });

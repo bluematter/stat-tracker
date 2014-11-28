@@ -17,7 +17,7 @@ var port     = process.env.PORT || appPort;
 var path     = require('path');
 var mongoose = require('mongoose');
 var passport = require('passport'); 
-var exphbs   = require('express3-handlebars');
+var exphbs   = require('express-handlebars');
 
 var bodyParser     = require('body-parser');
 var session        = require('cookie-session');
@@ -31,8 +31,6 @@ var flash    = require('connect-flash');
 
 var seeder   = require('./app/seeder');
 var routes   = require('./app/routes');
-
-var livereload = require('express-livereload');
 
 var configDB = require('./config/database.js');     
 
@@ -59,7 +57,8 @@ if ('development' == env) {
 
     // set up our express application
     app.use('/', express.static(path.join(__dirname, 'public')));
-    app.use(bodyParser()); // get information from html forms
+    app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
+    app.use(bodyParser.json()); // parse application/json
     app.use(morgan('dev'));
     app.use(cookieParser()); // required before session.
     app.use(session({ secret: 'keyboard cat' }));
@@ -117,8 +116,4 @@ console.log('The magic happens on port ' + port);
 */
 
 var router = express.Router();
-routes.initialize(app,router, passport); 
-
-
-//livereload(app, config={});
-//config.watchDir = "C:/wamp/www/BlueMatter/demo/public"
+routes.initialize(app,router, passport);

@@ -1,8 +1,8 @@
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
-    SetTeamsView = require('./views/teamsView/setTeams'),
-    PlayersSettingsView = require('./views/playersView/playersView'),
-    StatsView  = require('./views/statsView/statsView');
+    StatsView  = require('./views/statsView/statsView'),
+    TeamsView = require('./views/teamsView/teamsView'),
+    PlayersView = require('./views/playersView/playersView');
 
 module.exports = Controller = Marionette.Controller.extend({
 
@@ -40,7 +40,7 @@ module.exports = Controller = Marionette.Controller.extend({
 
     teams: function() {
         App.core.vent.trigger('app:log', 'Controller: "Teams Settings" route hit, appView showing SetTeamsView.');
-        window.App.views.appView.stats.show(new SetTeamsView({ collection: window.App.data.teams }));
+        window.App.views.appView.stats.show(new TeamsView({ collection: window.App.data.teams }));
         window.App.router.navigate('#teams');
     },
 
@@ -52,7 +52,7 @@ module.exports = Controller = Marionette.Controller.extend({
 
     players: function() {
         App.core.vent.trigger('app:log', 'Controller: "Players Settings" route hit, appView showing PlayersSettingsView.');
-        window.App.views.appView.stats.show(new PlayersSettingsView({ collection: window.App.data.players }));
+        window.App.views.appView.stats.show(new PlayersView({ collection: window.App.data.players }));
         window.App.router.navigate('#players');
     },
 

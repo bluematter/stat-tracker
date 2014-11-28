@@ -10,7 +10,7 @@ var TeamsCollection = require('../../collections/teams');
 
 var playerView = Marionette.ItemView.extend({
 	className: 'players-wrap row',
-    template: require('../../../templates/teams/player.hbs'),
+    template: require('../../../templates/statsView/player.hbs'),
     events: {
     	'mouseenter .player-image': 'playerOn',
         'mouseleave .player-image': 'playerOff',
