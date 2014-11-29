@@ -26,3 +26,7 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Database & auth files I don't want changed
+config/auth.js
+config/database.js
