@@ -26,14 +26,25 @@ var teamView = Backbone.Marionette.Layout.extend({
     },
     onRender: function() {
 
-        // region showing a list of playing players  
+        /*
+        |--------------------------------------------------------------------------
+        | List all the playing players, passing in the team_id associates the 
+        | players to thier team.
+        |--------------------------------------------------------------------------
+        */
+
         var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id) });
         this.players.show(playersView);
 
     },
     teamChanges:function() {
     
-        // event triggers another Layout to make subs and add players etc
+        /*
+        |--------------------------------------------------------------------------
+        | When .team-changes is clicked we render an editor within this view.
+        |--------------------------------------------------------------------------
+        */
+
         var teamEditorView = new TeamEditorView({ 
             teamModel: this.model
         });
@@ -42,7 +53,13 @@ var teamView = Backbone.Marionette.Layout.extend({
     },
     closeTeamChanges:function() {
         
-        // event renders this based on changes made in Layout above and closes the Layout
+        /*
+        |--------------------------------------------------------------------------
+        | When .close-team-editor is clicked we re-render this view so that it can
+        | form any changes made by the editor, then we close the editor.
+        |--------------------------------------------------------------------------
+        */
+
         this.render();
         this.teamEditor.close();
 

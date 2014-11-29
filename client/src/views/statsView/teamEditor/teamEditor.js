@@ -172,7 +172,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         });
         this.addPlayer.show(addPlayerSettingsView);
         
-        // need to show the el after hiding
+        // need to show the el if its been hidden
         this.addPlayer.$el.show();
     },
     facebookRegion: function() {
@@ -190,7 +190,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         });
         this.facebookPlayers.show(addFacebookPlayersView);
         
-        // need to show the el after hiding
+        // need to show the el if its been hidden
         this.facebookPlayers.$el.show();
     },
     goBack: function() {
