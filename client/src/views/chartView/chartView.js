@@ -4,6 +4,10 @@ var Marionette   = require('backbone.marionette'),
 module.exports = statsView = Marionette.ItemView.extend({
     className: 'chartView',
     template: require('../../../templates/chartView/chartView.hbs'),
+
+    events: {
+        'click .post-stats': 'postStatsFacebook'
+    },
     
     initialize: function() {
         this.listenTo(App.data.teams, 'change', this.render);
@@ -30,6 +34,34 @@ module.exports = statsView = Marionette.ItemView.extend({
         var ctx = $('#canvas', this.el)[0].getContext("2d");
         var myLineChart = new Chart(ctx).Line(lineChartData, settings);
         
+    },
+    postStatsFacebook: function() {
+
+        this.collection.each(function(team) {
+            
+            var playersMessage = [];
+            var players = App.data.players.byTeam(team.id);
+            players.each(function(player) {
+                var playerMessage = "\n "+ player.get('player_name')+": "+ player.get('points') +" pts " + player.get('rebounds') +" rbs " + player.get('steals') +" stls " + player.get('blocks') +" blks "
+                playersMessage.push(playerMessage);
+            });
+            
+            var playersStatsMessage = playersMessage.join();
+
+            var message = "Stats for: "+team.get('team_name')+ playersStatsMessage
+
+            FB.api("/554870764588961/feed/", "POST",
+                {
+                    "message": message
+                },
+                function (response) {
+                  if (response && !response.error) {
+                    console.log(response);
+                    alert('Stats posted to facebook!');
+                  }
+                }
+            );
+        });
     },
     convertHex: function(hex,opacity) {
         hex = hex.replace('#','');

@@ -19366,6 +19366,10 @@ var Marionette   = require('backbone.marionette'),
 module.exports = statsView = Marionette.ItemView.extend({
     className: 'chartView',
     template: require('../../../templates/chartView/chartView.hbs'),
+
+    events: {
+        'click .post-stats': 'postStatsFacebook'
+    },
     
     initialize: function() {
         this.listenTo(App.data.teams, 'change', this.render);
@@ -19392,6 +19396,34 @@ module.exports = statsView = Marionette.ItemView.extend({
         var ctx = $('#canvas', this.el)[0].getContext("2d");
         var myLineChart = new Chart(ctx).Line(lineChartData, settings);
         
+    },
+    postStatsFacebook: function() {
+
+        this.collection.each(function(team) {
+            
+            var playersMessage = [];
+            var players = App.data.players.byTeam(team.id);
+            players.each(function(player) {
+                var playerMessage = "\n "+ player.get('player_name')+": "+ player.get('points') +" pts " + player.get('rebounds') +" rbs " + player.get('steals') +" stls " + player.get('blocks') +" blks "
+                playersMessage.push(playerMessage);
+            });
+            
+            var playersStatsMessage = playersMessage.join();
+
+            var message = "Stats for: "+team.get('team_name')+ playersStatsMessage
+
+            FB.api("/554870764588961/feed/", "POST",
+                {
+                    "message": message
+                },
+                function (response) {
+                  if (response && !response.error) {
+                    console.log(response);
+                    alert('Stats posted to facebook!');
+                  }
+                }
+            );
+        });
     },
     convertHex: function(hex,opacity) {
         hex = hex.replace('#','');
@@ -20851,7 +20883,7 @@ function program3(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span>\r\n	        <h1 style=\"font-size: 50px; margin: 0;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"281\" width=\"350\"></canvas>";
+    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn post-stats\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"281\" width=\"350\"></canvas>";
   return buffer;
   });
 
