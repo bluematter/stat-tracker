@@ -20811,7 +20811,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\r\n	        <h1 style=\"font-size: 50px; margin: 0;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"341\" width=\"350\"></canvas>";
+    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"281\" width=\"350\"></canvas>";
   return buffer;
   });
 
