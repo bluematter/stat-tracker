@@ -20978,19 +20978,19 @@ function program3(depth0,data) {
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " pts</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
+    + "</span>pts\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " rbs</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
+    + "</span>rbs\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " stls</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
+    + "</span>stls\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " blks</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data\">\r\n        <div class=\"delete-player\">\r\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n        </div>\r\n    </div>\r\n\r\n</div>    \r\n";
+    + "</span>blks\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data\">\r\n        <div class=\"delete-player\">\r\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n        </div>\r\n    </div>\r\n\r\n</div>    \r\n";
   return buffer;
   });
 
