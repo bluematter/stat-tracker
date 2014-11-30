@@ -39,13 +39,26 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        models.Player.update({ _id: req.params.pid }, req.body, function(err, player) {
+        // have to create the object prehand for some reason now.
+        var player = {
+            player_name : req.body.player_name,
+            player_picture : req.body.player_picture,
+            bench : req.body.bench,
+            points : req.body.points,
+            rebounds : req.body.rebounds,
+            steals : req.body.steals,
+            blocks : req.body.blocks,
+            fouls : req.body.fouls,
+            team_id : req.body.team_id,
+        }
+        models.Player.update({ _id: req.params.pid }, player, function(err, player) {
             if (err) {
                 res.json({error: 'Player not found.'});
             } else {
                 res.json(player);
             }
         });
+
     },
     delete: function(req, res) {
         models.Player.findOne({ _id: req.params.pid }, function(err, player) {

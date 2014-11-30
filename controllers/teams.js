@@ -27,7 +27,20 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        models.Team.update({ _id: req.params.id }, req.body, function(err, updated) {
+        // have to create the object prehand for some reason now.
+        var team = {
+            team_name : req.body.team_name,
+            team_color : req.body.team_color,
+            playing : req.body.playing,
+            side : req.body.side,
+            position : req.body.position,
+            points : req.body.points,
+            rebounds : req.body.rebounds,
+            steals : req.body.steals,
+            blocks : req.body.blocks,
+            fouls : req.body.fouls
+        }
+        models.Team.update({ _id: req.params.id }, team, function(err, updated) {
             if (err) {
                 res.json({error: 'Team not found.'});
             } else {
