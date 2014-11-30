@@ -1,5 +1,5 @@
 var Marionette = require('backbone.marionette'),
-    TeamSettingsLayoutView = require('./teamSettings');
+    TeamSettingsLayoutView = require('./teamEditor/teamEditor');
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +52,12 @@ var listTeamsView = Marionette.Layout.extend({
     },
     teamChanges:function() {
     
-        // event triggers another Layout to make subs and add players etc
+        /*
+        |--------------------------------------------------------------------------
+        | When .team-changes is clicked we render an editor within this view.
+        |--------------------------------------------------------------------------
+        */
+
         var teamSettingsLayoutView = new TeamSettingsLayoutView({ 
             teamModel: this.model
         });
@@ -61,50 +66,110 @@ var listTeamsView = Marionette.Layout.extend({
     },
     closeTeamChanges:function() {
         
-        // event renders this based on changes made in Layout above and closes the Layout
+        /*
+        |--------------------------------------------------------------------------
+        | When .close-team-editor is clicked we re-render this view so that it can
+        | form any changes made by the editor, then we close the editor.
+        |--------------------------------------------------------------------------
+        */
+
         this.render();
         this.teamSettings.close();
 
     }
 });
 
-var ListTeamView = Marionette.CompositeView.extend({
-    template: require('../../../templates/teamsView/addTeamsView.hbs'),
-    events: {
-        'submit #AddTeam': 'addTeam'
-    },
-    addTeam: function(e) {
-        e.preventDefault();
-        var newTeam = this.$el.find('input.team_name').val();
-        this.collection.create({team_name: newTeam})
-    },
+var ListTeamView = Marionette.CollectionView.extend({
     itemView:listTeamsView
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| View to create a new team
+|--------------------------------------------------------------------------
+*/
+
+var CreateTeamView = Marionette.ItemView.extend({
+    template: require('../../../templates/teamsView/teamEditor/createTeamView.hbs'),
+    initialize: function() {
+
+        // do stuff to add a team to App.data.teams.create({team_name: 'Input Info here'})
+
+    }
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Layout to manage the TeamsView, contains a list of teams, and another
+| view to create teams.
+|--------------------------------------------------------------------------
+*/
 
 module.exports = TeamsView = Marionette.Layout.extend({
     className: 'settingsView row',
     template: require('../../../templates/teamsView/teamsView.hbs'),
+    events: {
+        'click .create-team-btn': 'createTeam',
+        'click .close-team-editor': 'closeCreateTeam'
+    },
     initialize:function() {
         this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
     },
     regions: {
-        teams: ".the-teams"
+        teams: ".the-teams",
+        createTeamRegion: ".new-team-editor"
     },
     onRender: function() {
 
-        // show another view, add a new team??
+        /*
+        |--------------------------------------------------------------------------
+        | Show the teams CollectionView inside .the-teams div
+        |--------------------------------------------------------------------------
+        */
 
-        // show all the teams, thier data, and modification buttons
         var listTeamView = new ListTeamView({ 
             collection: this.collection
         });
         this.teams.show(listTeamView);
-
-        // show another view, possibly the teams that are playing etc...
+        
 
         this.setScroll();
     },
+    createTeam: function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | View to add a new team model to App.data.teams collection
+        |--------------------------------------------------------------------------
+        */
+
+        var createTeamView = new CreateTeamView();
+        this.createTeamRegion.show(createTeamView);
+
+    },
+    closeCreateTeam: function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Just re-render a fresh view upon closing of createTeam.. good practice 
+        | to close?? 
+        |--------------------------------------------------------------------------
+        */
+
+        this.render();
+        this.createTeamRegion.close();
+
+    },
     setScroll:function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Set scrollbar in case amount of teams is bigger than screen size
+        |--------------------------------------------------------------------------
+        */
+
         var self = this;
         setTimeout(function() {
             $(self.$el).slimScroll({

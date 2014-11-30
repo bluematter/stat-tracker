@@ -49,9 +49,20 @@
 
         // inside statisticals move that here
         .statisticals {
-            color: #99a5a8;
+            // color: #99a5a8;
+            // border-bottom: 1px solid #F1F2F4;
+            // font-family: "brandon-grotesque",Helvetica, Arial, sans-serif;
+            // font-size: 11px;
+            // height: 45px;
+            // letter-spacing: 1px;
+            // background-color: #fff;
+            // line-height: 24px;
+            // padding: 10px 0;
+            // text-transform: uppercase;
+            // z-index: 10;
+            // border-radius: 3px 3px 0 0;
+            color: #646f73;
             border-bottom: 1px solid #F1F2F4;
-            font-family: "brandon-grotesque",Helvetica, Arial, sans-serif;
             font-size: 11px;
             height: 45px;
             letter-spacing: 1px;
@@ -69,8 +80,8 @@
                 color: #646f73;
                 cursor: pointer;
                 display: inline;
-                left: 30px;
-                font-size: 17px;
+                left: 24px;
+                font-size: 13px;
                 position: absolute;
             }
             .team-name {
@@ -146,13 +157,13 @@
             .column.stat {
 			    color: #435155;
 			    font-size: 13px;
+                white-space: nowrap;
             }
             .column.stat.name {
             	text-align: left;
                 padding: 0;
                 height: 100%;
                 font-weight: 600;
-                font-family: Source Sans Pro;
                 span.face {
                     background-color: #fff;
                     display: block;
@@ -174,8 +185,9 @@
                         float: left;
                         color: #777;
                         text-align: center;
-                        font-size: 10px;
-                        line-height: 23px; 
+                        font-size: 12px;
+                        line-height: 23px;
+                        font-family: monospace;
                     }
                     .buttons.top-button, .buttons.bottom-button {
                         width: 39px; 
@@ -196,7 +208,7 @@
                         right: 25px;
                         color: #fff;
                         border: 4px solid #fff;
-                        background-color: #00c8d7;
+                        background-color: #4BA0F1;
                         border-radius: 100em;
                     } 
                     .button.bottom-button{
@@ -213,7 +225,7 @@
                         margin-left: 85px;
                     }
                     &.subbing-name {
-                        margin-left: 20px;
+                        margin-left: 100px;
                     }
                 }
             }
@@ -240,7 +252,7 @@
                     line-height: 20px;
                     z-index: 9;
                     color: #fff;
-                    background-color: #00c8d7;
+                    background-color: #4BA0F1;
                     border-radius: 100em;
                     opacity: 0;
                 } 
@@ -267,6 +279,19 @@
             	font-size: 10px;
             	padding: 0;
             	text-shadow: none;
+                .foul-circle {
+                    background-color: #aed991;
+                    width: 6px;
+                    height: 6px;
+                    border: 1px solid #aed991;
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 2px;
+                    &.has-foul {
+                        background-color: #f38079;
+                        border: 1px solid #f38079;
+                    }
+                }
             }
             .column.stat.filler {
             	background-color: #fff;

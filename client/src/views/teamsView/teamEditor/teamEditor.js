@@ -10,7 +10,7 @@ var Marionette         = require('backbone.marionette'),
 */
 
 var RosterSettingsView = Marionette.Layout.extend({
-    template: require('../../../../templates/statsView/teamEditor/rosterSettings.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/rosterSettings.hbs'),
     regions: {
         playingRegion: '.playing-players',
         benchRegion: '.bench-players'
@@ -38,7 +38,7 @@ var RosterSettingsView = Marionette.Layout.extend({
 */
 
 var AddPlayerSettingsView = Marionette.ItemView.extend({
-    template: require('../../../../templates/statsView/teamEditor/addplayerSettings.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/addplayerSettings.hbs'),
     events: {
         'submit #AddPlayer': 'addPlayer'
     },
@@ -71,7 +71,7 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
 
 var addFacebookPlayersView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs'),
     events: {
         'click': 'addToRoster'
     },
@@ -125,7 +125,7 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
 
 module.exports = teamEditor = Backbone.Marionette.Layout.extend({
     className: 'edit',
-    template: require('../../../../templates/statsView/teamEditor/teamSettings.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/teamSettings.hbs'),
     events: {
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
@@ -159,8 +159,8 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
-        this.managePlayers.show(rosterSettingsView);
+        // var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
+        // this.managePlayers.show(rosterSettingsView);
 
     },
     addPlayerRegion: function() {

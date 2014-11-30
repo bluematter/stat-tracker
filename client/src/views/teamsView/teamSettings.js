@@ -1,16 +1,9 @@
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../../collections/players');
 
-/*
-|--------------------------------------------------------------------------
-| WARNING: Remember this is linking to statsView's teamEditor, this View 
-| needs it's own settings stuff. Doing it temporarily fix ASAP.
-|--------------------------------------------------------------------------
-*/
-
 /* Form to add player */
 var AddPlayerSettingsView = Marionette.ItemView.extend({
-    template: require('../../../templates/statsView/teamEditor/addplayerSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/addplayerSettings.hbs'),
     events: {
         'submit #AddPlayer': 'addPlayer'
     },
@@ -40,7 +33,7 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
 /* Players who are playing */
 var playingPlayerSettingsView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/playerSettings.hbs'),
     events: {
         'click': 'putBench'
     },
@@ -61,7 +54,7 @@ var playingPlayerSettingsView = Marionette.ItemView.extend({
 });
 
 var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/statsView/teamEditor/playingPlayersSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/playingPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
@@ -76,7 +69,7 @@ var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
 /* Players who are on the bench */
 var benchPlayerSettingsView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/playerSettings.hbs'),
     events: {
         'click': 'putGame'
     },
@@ -97,7 +90,7 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
 });
 
 var BenchPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/statsView/teamEditor/benchPlayersSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/benchPlayersSettings.hbs'),
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
@@ -120,7 +113,7 @@ var BenchPlayersSettingsView = Marionette.CompositeView.extend({
 /* Players from facebook */
 var addFacebookPlayersView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/statsView/teamEditor/addFacebookPlayer.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs'),
     events: {
         'click': 'addToRoster'
     },
@@ -169,7 +162,7 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
 
 module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
     className: 'edit',
-    template: require('../../../templates/statsView/teamEditor/teamSettings.hbs'),
+    template: require('../../../templates/teamsView/teamEditor/teamSettings.hbs'),
     events: {
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',

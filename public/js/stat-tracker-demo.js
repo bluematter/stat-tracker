@@ -19179,7 +19179,7 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/appView":22,"./views/playersView/playersView":27,"./views/statsView/statsView":30,"./views/teamsView/teamsView":36,"backbone.marionette":1}],18:[function(require,module,exports){
+},{"./views/appView":22,"./views/playersView/playersView":27,"./views/statsView/statsView":30,"./views/teamsView/teamsView":38,"backbone.marionette":1}],18:[function(require,module,exports){
 var App = require('./app');
 var StatApp = new App();
 
@@ -19359,7 +19359,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         });
     }
 });
-},{"../../templates/appView.hbs":37,"../collections/players":15,"./menu/menu":26,"./scoreboard/scoreboardView":28,"./statsView/statsView":30,"backbone.marionette":1}],23:[function(require,module,exports){
+},{"../../templates/appView.hbs":39,"../collections/players":15,"./menu/menu":26,"./scoreboard/scoreboardView":28,"./statsView/statsView":30,"backbone.marionette":1}],23:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     TeamsCollection = require('../../collections/teams');
 
@@ -19583,7 +19583,7 @@ var settings = {
      legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
  }
-},{"../../../templates/chartView/chartView.hbs":38,"../../collections/teams":16,"backbone.marionette":1}],24:[function(require,module,exports){
+},{"../../../templates/chartView/chartView.hbs":40,"../../collections/teams":16,"backbone.marionette":1}],24:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = playerData = Marionette.ItemView.extend({
@@ -19610,7 +19610,7 @@ module.exports = playerData = Marionette.ItemView.extend({
     }
 });
 
-},{"../../../templates/data/playerData.hbs":39,"backbone.marionette":1}],25:[function(require,module,exports){
+},{"../../../templates/data/playerData.hbs":41,"backbone.marionette":1}],25:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     playerData = require('./playerData'),
     PlayersCollection = require('../../collections/players');
@@ -19646,7 +19646,7 @@ module.exports = MenuView = Backbone.Marionette.Layout.extend({
     onShow: function(){
     }
 });
-},{"../../../templates/menu/menu.hbs":40,"backbone.marionette":1}],27:[function(require,module,exports){
+},{"../../../templates/menu/menu.hbs":42,"backbone.marionette":1}],27:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listPlayersView = Marionette.ItemView.extend({
@@ -19720,7 +19720,7 @@ module.exports = PlayersSettingsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/playersView/playerView.hbs":41,"../../../templates/playersView/playersView.hbs":42,"backbone.marionette":1}],28:[function(require,module,exports){
+},{"../../../templates/playersView/playerView.hbs":43,"../../../templates/playersView/playersView.hbs":44,"backbone.marionette":1}],28:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     TeamsCollection = require('../../collections/teams');
 
@@ -19799,7 +19799,7 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
 
 
 
-},{"../../../templates/scoreboard/scoreboard.hbs":43,"../../../templates/scoreboard/scores.hbs":44,"../../collections/teams":16,"backbone.marionette":1}],29:[function(require,module,exports){
+},{"../../../templates/scoreboard/scoreboard.hbs":45,"../../../templates/scoreboard/scores.hbs":46,"../../collections/teams":16,"backbone.marionette":1}],29:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 var TeamsCollection = require('../../collections/teams');
 
@@ -19973,7 +19973,7 @@ module.exports = PlayersView = Marionette.CollectionView.extend({
     itemView: playerView
 });
 
-},{"../../../templates/statsView/player.hbs":45,"../../collections/teams":16,"backbone.marionette":1}],30:[function(require,module,exports){
+},{"../../../templates/statsView/player.hbs":47,"../../collections/teams":16,"backbone.marionette":1}],30:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('./teams'),
@@ -20018,7 +20018,7 @@ module.exports = statsView = Marionette.Layout.extend({
     }
 });
 
-},{"../../../templates/statsView/statsView.hbs":46,"../../collections/teams":16,"../chartView/chartView":23,"../data/teamData":25,"./teams":34,"backbone.marionette":1,"snapjs":8}],31:[function(require,module,exports){
+},{"../../../templates/statsView/statsView.hbs":48,"../../collections/teams":16,"../chartView/chartView":23,"../data/teamData":25,"./teams":34,"backbone.marionette":1,"snapjs":8}],31:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are on the bench */
@@ -20062,7 +20062,7 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
-},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":50,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"backbone.marionette":1}],32:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"backbone.marionette":1}],32:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are playing */
@@ -20097,11 +20097,39 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     itemView: playingPlayerView
 });
 /* end players who are playing */
-},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":52,"backbone.marionette":1}],33:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":54,"backbone.marionette":1}],33:[function(require,module,exports){
 var Marionette         = require('backbone.marionette'),
     PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
     BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
 
+
+/*
+|--------------------------------------------------------------------------
+| A layout view that merges PlayingPlayers and BenchPlayers into one
+|--------------------------------------------------------------------------
+*/
+
+var RosterSettingsView = Marionette.Layout.extend({
+    template: require('../../../../templates/statsView/teamEditor/rosterSettings.hbs'),
+    regions: {
+        playingRegion: '.playing-players',
+        benchRegion: '.bench-players'
+    },
+    onRender: function() {
+
+        var playingPlayersSettingsView = new PlayingPlayersView({ 
+            collection: App.data.players.byPlaying(this.model.id)
+        });
+        this.playingRegion.show(playingPlayersSettingsView);
+
+
+        var benchPlayersSettingsView = new BenchPlayersView({ 
+            collection: App.data.players.byBench(this.model.id)
+        });
+        this.benchRegion.show(benchPlayersSettingsView);
+
+    }
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -20119,7 +20147,7 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
     },
     addPlayer: function(e) {
         
-        // move this??
+        // move this form??
         e.preventDefault();
         
         var $newPlayer = this.$el.find('input.player_name')
@@ -20167,10 +20195,14 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
         this.team = this.options.teamModel
     },
     onRender: function() {
+        this.setScroll();
+    },
+    setScroll: function() {
         var self = this;
+        this.$el.height($('.editor').height() - 48);
         setTimeout(function() {
             $(self.$el).slimScroll({
-                height: $('.editor').height() - $('.sub-players').height() - $('.add-player').height(),
+                height: $('.editor').height() - 48,
                 size: '5px',
                 railOpacity: 0.1
             });
@@ -20201,10 +20233,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
     },
 
     regions: {
-        addPlayer: ".add-player-section",
-        playingPlayers: ".playing-players",
-        benchPlayers: ".bench-players",
-        facebookPlayers: ".facebook-players"
+        managePlayers: '.manage-players-area'
     },
 
     initialize: function() {
@@ -20223,86 +20252,54 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
 
     onRender: function() {
 
-        /*
-        |--------------------------------------------------------------------------
-        | This area needs a height for slimScroll to work, could be improved.
-        |--------------------------------------------------------------------------
-        */
-
-        this.$el.height(this.$el.height());
-
 
         /*
         |--------------------------------------------------------------------------
-        | Create an instance of PlayingPlayers and show it in the proper region.
-        | Pass a collection of the players that are playing.
+        | Create an instance of RosterSettingsView and pass it into managePlayers
         |--------------------------------------------------------------------------
         */
 
-        var playingPlayersSettingsView = new PlayingPlayersView({ 
-            collection: App.data.players.byPlaying(this.options.teamModel.id)
-        });
-        this.playingPlayers.show(playingPlayersSettingsView);
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Create an instance of BenchPlayers and show it in the proper region.
-        | Pass a collection of the players that are on the bench.
-        |--------------------------------------------------------------------------
-        */
-
-        var benchPlayersSettingsView = new BenchPlayersView({ 
-            collection: App.data.players.byBench(this.options.teamModel.id)
-        });
-        this.benchPlayers.show(benchPlayersSettingsView);
+        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
+        this.managePlayers.show(rosterSettingsView);
 
     },
     addPlayerRegion: function() {
-
-        //TODO: This is sloppy, improve this stackoverflow??
         
-        // hide some region
-        this.playingPlayers.$el.hide();
-        this.benchPlayers.$el.hide();
-
-        // region to add players
-        var addPlayerSettingsView = new AddPlayerSettingsView({ 
-            model: this.options.teamModel
-        });
-        this.addPlayer.show(addPlayerSettingsView);
+        /*
+        |--------------------------------------------------------------------------
+        | Destroy old managePlayers, create a instance of AddPlayerSettingsView
+        | then show it into new managePlayers
+        |--------------------------------------------------------------------------
+        */
         
-        // need to show the el after hiding
-        this.addPlayer.$el.show();
+        var addPlayerSettingsView = new AddPlayerSettingsView({model: this.options.teamModel});
+        this.managePlayers.show(addPlayerSettingsView);
+
     },
     facebookRegion: function() {
-
-        //TODO: This is sloppy, improve this stackoverflow??
         
-        // hide some region
-        this.playingPlayers.$el.hide();
-        this.benchPlayers.$el.hide();
-
-        // region showing a list of facebookers  
+        /*
+        |--------------------------------------------------------------------------
+        | Destroy old managePlayers, create a instance of AddFacebookPlayersView
+        | then show it into new managePlayers
+        |--------------------------------------------------------------------------
+        */
+        
         var addFacebookPlayersView = new AddFacebookPlayersView({ 
             collection: App.data.facebookPlayers,
             teamModel: this.options.teamModel
         });
-        this.facebookPlayers.show(addFacebookPlayersView);
-        
-        // need to show the el after hiding
-        this.facebookPlayers.$el.show();
+        this.managePlayers.show(addFacebookPlayersView);
+
     },
     goBack: function() {
+        
+        // freshen up the view???
+        this.render();
 
-        //TODO: This is sloppy, improve this stackoverflow??
-
-        this.facebookPlayers.$el.hide();
-        this.playingPlayers.$el.show();
-        this.benchPlayers.$el.show();
     }
 });
-},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":48,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":49,"../../../../templates/statsView/teamEditor/teamSettings.hbs":53,"./benchPlayers/benchPlayers.js":31,"./playingPlayers/playingPlayers.js":32,"backbone.marionette":1}],34:[function(require,module,exports){
+},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":50,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":51,"../../../../templates/statsView/teamEditor/rosterSettings.hbs":55,"../../../../templates/statsView/teamEditor/teamSettings.hbs":56,"./benchPlayers/benchPlayers.js":31,"./playingPlayers/playingPlayers.js":32,"backbone.marionette":1}],34:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
     TeamEditorView = require('./teamEditor/teamEditor.js'),
@@ -20331,14 +20328,25 @@ var teamView = Backbone.Marionette.Layout.extend({
     },
     onRender: function() {
 
-        // region showing a list of playing players  
+        /*
+        |--------------------------------------------------------------------------
+        | List all the playing players, passing in the team_id associates the 
+        | players to thier team.
+        |--------------------------------------------------------------------------
+        */
+
         var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id) });
         this.players.show(playersView);
 
     },
     teamChanges:function() {
     
-        // event triggers another Layout to make subs and add players etc
+        /*
+        |--------------------------------------------------------------------------
+        | When .team-changes is clicked we render an editor within this view.
+        |--------------------------------------------------------------------------
+        */
+
         var teamEditorView = new TeamEditorView({ 
             teamModel: this.model
         });
@@ -20347,7 +20355,13 @@ var teamView = Backbone.Marionette.Layout.extend({
     },
     closeTeamChanges:function() {
         
-        // event renders this based on changes made in Layout above and closes the Layout
+        /*
+        |--------------------------------------------------------------------------
+        | When .close-team-editor is clicked we re-render this view so that it can
+        | form any changes made by the editor, then we close the editor.
+        |--------------------------------------------------------------------------
+        */
+
         this.render();
         this.teamEditor.close();
 
@@ -20381,20 +20395,52 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/statsView/team.hbs":47,"../../collections/players":15,"./player":29,"./teamEditor/teamEditor.js":33,"backbone.marionette":1}],35:[function(require,module,exports){
-var Marionette = require('backbone.marionette'),
-    PlayersCollection = require('../../collections/players');
+},{"../../../templates/statsView/team.hbs":49,"../../collections/players":15,"./player":29,"./teamEditor/teamEditor.js":33,"backbone.marionette":1}],35:[function(require,module,exports){
+module.exports=require(31)
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"backbone.marionette":1}],36:[function(require,module,exports){
+module.exports=require(32)
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":54,"backbone.marionette":1}],37:[function(require,module,exports){
+var Marionette         = require('backbone.marionette'),
+    PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
+    BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
+
 
 /*
 |--------------------------------------------------------------------------
-| WARNING: Remember this is linking to statsView's teamEditor, this View 
-| needs it's own settings stuff. Doing it temporarily fix ASAP.
+| A layout view that merges PlayingPlayers and BenchPlayers into one
 |--------------------------------------------------------------------------
 */
 
-/* Form to add player */
+var RosterSettingsView = Marionette.Layout.extend({
+    template: require('../../../../templates/teamsView/teamEditor/rosterSettings.hbs'),
+    regions: {
+        playingRegion: '.playing-players',
+        benchRegion: '.bench-players'
+    },
+    onRender: function() {
+
+        var playingPlayersSettingsView = new PlayingPlayersView({ 
+            collection: App.data.players.byPlaying(this.model.id)
+        });
+        this.playingRegion.show(playingPlayersSettingsView);
+
+
+        var benchPlayersSettingsView = new BenchPlayersView({ 
+            collection: App.data.players.byBench(this.model.id)
+        });
+        this.benchRegion.show(benchPlayersSettingsView);
+
+    }
+});
+
+/*
+|--------------------------------------------------------------------------
+| A simple ItemView that contains actions to create a player from scratch
+|--------------------------------------------------------------------------
+*/
+
 var AddPlayerSettingsView = Marionette.ItemView.extend({
-    template: require('../../../templates/statsView/teamEditor/addplayerSettings.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/addplayerSettings.hbs'),
     events: {
         'submit #AddPlayer': 'addPlayer'
     },
@@ -20403,7 +20449,7 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
     },
     addPlayer: function(e) {
         
-        // move this??
+        // move this form??
         e.preventDefault();
         
         var $newPlayer = this.$el.find('input.player_name')
@@ -20415,96 +20461,19 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
 
     }
 });
-/* Form to add player */
 
 
 
+/*
+|--------------------------------------------------------------------------
+| A collection of facebookers that contains a click to add a player 
+| from the FB api.
+|--------------------------------------------------------------------------
+*/
 
-
-/* Players who are playing */
-var playingPlayerSettingsView = Marionette.ItemView.extend({
-    className: 'player',
-    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
-    events: {
-        'click': 'putBench'
-    },
-
-    initialize:function() {
-        this.listenTo(this.model, 'change', this.render);
-    },
-    putBench:function() {
-        this.model.set({bench:true});
-        this.model.save();
-        App.vent.trigger('subbed');
-    },
-    templateHelpers:function(){
-        return {
-            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
-        }
-    }
-});
-
-var PlayingPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/statsView/teamEditor/playingPlayersSettings.hbs'),
-    initialize:function() {
-        this.listenTo(this.collection, 'change', this.render);
-        this.listenTo(this.collection, "reset", this.render, this);
-    },
-    itemView: playingPlayerSettingsView
-});
-/* end players who are playing */
-
-
-
-
-/* Players who are on the bench */
-var benchPlayerSettingsView = Marionette.ItemView.extend({
-    className: 'player',
-    template: require('../../../templates/statsView/teamEditor/playerSettings.hbs'),
-    events: {
-        'click': 'putGame'
-    },
-
-    initialize:function() {
-        this.listenTo(this.model, 'change', this.render);
-    },
-    putGame:function() {
-        this.model.set({bench:false});
-        this.model.save();
-        App.vent.trigger('subbed');
-    },
-    templateHelpers:function(){
-        return {
-            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
-        }
-    }
-});
-
-var BenchPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../templates/statsView/teamEditor/benchPlayersSettings.hbs'),
-    initialize:function() {
-        this.listenTo(this.collection, 'change', this.render);
-    },
-    onRender: function() {
-        var self = this;
-        setTimeout(function() {
-            $(self.$el).slimScroll({
-                height: $('.editor').height(),
-                size: '5px',
-                railOpacity: 0.1
-            });
-        },0);
-    },
-    itemView: benchPlayerSettingsView
-});
-/* end players who are on the bench */
-
-
-
-/* Players from facebook */
 var addFacebookPlayersView = Marionette.ItemView.extend({
     className: 'player',
-    template: require('../../../templates/statsView/teamEditor/addFacebookPlayer.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs'),
     events: {
         'click': 'addToRoster'
     },
@@ -20528,10 +20497,14 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
         this.team = this.options.teamModel
     },
     onRender: function() {
+        this.setScroll();
+    },
+    setScroll: function() {
         var self = this;
+        this.$el.height($('.editor').height() - 48);
         setTimeout(function() {
             $(self.$el).slimScroll({
-                height: $('.editor').height() - $('.sub-players').height() - $('.add-player').height(),
+                height: $('.editor').height() - 48,
                 size: '5px',
                 railOpacity: 0.1
             });
@@ -20544,16 +20517,17 @@ var AddFacebookPlayersView = Marionette.CollectionView.extend({
         }
     }
 });
-/* end players from facebook */
 
 
+/*
+|--------------------------------------------------------------------------
+| A Layout view that handles the team editor stuff.
+|--------------------------------------------------------------------------
+*/
 
-
-
-
-module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
+module.exports = teamEditor = Backbone.Marionette.Layout.extend({
     className: 'edit',
-    template: require('../../../templates/statsView/teamEditor/teamSettings.hbs'),
+    template: require('../../../../templates/teamsView/teamEditor/teamSettings.hbs'),
     events: {
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
@@ -20561,16 +20535,18 @@ module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
     },
 
     regions: {
-        addPlayer: ".add-player-section",
-        playingPlayers: ".playing-players",
-        benchPlayers: ".bench-players",
-        facebookPlayers: ".facebook-players"
+        managePlayers: '.manage-players-area'
     },
 
     initialize: function() {
         var self = this;
 
-        // temp re render regions bench/playing collections
+        /*
+        |--------------------------------------------------------------------------
+        | This App.vent triggers a re render if a new player was subbed or added.
+        |--------------------------------------------------------------------------
+        */
+
         App.vent.on('newPlayer', function(data) { self.render() });
         App.vent.on('subbed', function(data) { self.render() });
 
@@ -20578,66 +20554,56 @@ module.exports = teamSettingsLayoutView = Backbone.Marionette.Layout.extend({
 
     onRender: function() {
 
-        // set scrollbars, set height??
-        this.$el.height(this.$el.height());
 
+        /*
+        |--------------------------------------------------------------------------
+        | Create an instance of RosterSettingsView and pass it into managePlayers
+        |--------------------------------------------------------------------------
+        */
 
-        // region showing a list of playing players  
-        var playingPlayersSettingsView = new PlayingPlayersSettingsView({ 
-            collection: App.data.players.byPlaying(this.options.teamModel.id)
-        });
-        this.playingPlayers.show(playingPlayersSettingsView);
-
-
-        // region showing a list of bench players 
-        var benchPlayersSettingsView = new BenchPlayersSettingsView({ 
-            collection: App.data.players.byBench(this.options.teamModel.id)
-        });
-        this.benchPlayers.show(benchPlayersSettingsView);
+        // var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
+        // this.managePlayers.show(rosterSettingsView);
 
     },
     addPlayerRegion: function() {
         
-        // hide some region
-        this.playingPlayers.$el.hide();
-        this.benchPlayers.$el.hide();
-
-        // region to add players
-        var addPlayerSettingsView = new AddPlayerSettingsView({ 
-            model: this.options.teamModel
-        });
-        this.addPlayer.show(addPlayerSettingsView);
+        /*
+        |--------------------------------------------------------------------------
+        | Destroy old managePlayers, create a instance of AddPlayerSettingsView
+        | then show it into new managePlayers
+        |--------------------------------------------------------------------------
+        */
         
-        // need to show the el after hiding
-        this.addPlayer.$el.show();
+        var addPlayerSettingsView = new AddPlayerSettingsView({model: this.options.teamModel});
+        this.managePlayers.show(addPlayerSettingsView);
+
     },
     facebookRegion: function() {
         
-        // hide some region
-        this.playingPlayers.$el.hide();
-        this.benchPlayers.$el.hide();
-
-        // region showing a list of facebookers  
+        /*
+        |--------------------------------------------------------------------------
+        | Destroy old managePlayers, create a instance of AddFacebookPlayersView
+        | then show it into new managePlayers
+        |--------------------------------------------------------------------------
+        */
+        
         var addFacebookPlayersView = new AddFacebookPlayersView({ 
             collection: App.data.facebookPlayers,
             teamModel: this.options.teamModel
         });
-        this.facebookPlayers.show(addFacebookPlayersView);
-        
-        // need to show the el after hiding
-        this.facebookPlayers.$el.show();
+        this.managePlayers.show(addFacebookPlayersView);
+
     },
     goBack: function() {
+        
+        // freshen up the view???
+        this.render();
 
-        this.facebookPlayers.$el.hide();
-
-        this.playingPlayers.$el.show();
-        this.benchPlayers.$el.show();
     }
 });
-},{"../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":48,"../../../templates/statsView/teamEditor/addplayerSettings.hbs":49,"../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":50,"../../../templates/statsView/teamEditor/playerSettings.hbs":51,"../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":52,"../../../templates/statsView/teamEditor/teamSettings.hbs":53,"../../collections/players":15,"backbone.marionette":1}],36:[function(require,module,exports){
+},{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":58,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":59,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":61,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":62,"./benchPlayers/benchPlayers.js":35,"./playingPlayers/playingPlayers.js":36,"backbone.marionette":1}],38:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
-    TeamSettingsLayoutView = require('./teamSettings');
+    TeamSettingsLayoutView = require('./teamEditor/teamEditor');
 
 /*
 |--------------------------------------------------------------------------
@@ -20690,7 +20656,12 @@ var listTeamsView = Marionette.Layout.extend({
     },
     teamChanges:function() {
     
-        // event triggers another Layout to make subs and add players etc
+        /*
+        |--------------------------------------------------------------------------
+        | When .team-changes is clicked we render an editor within this view.
+        |--------------------------------------------------------------------------
+        */
+
         var teamSettingsLayoutView = new TeamSettingsLayoutView({ 
             teamModel: this.model
         });
@@ -20699,50 +20670,110 @@ var listTeamsView = Marionette.Layout.extend({
     },
     closeTeamChanges:function() {
         
-        // event renders this based on changes made in Layout above and closes the Layout
+        /*
+        |--------------------------------------------------------------------------
+        | When .close-team-editor is clicked we re-render this view so that it can
+        | form any changes made by the editor, then we close the editor.
+        |--------------------------------------------------------------------------
+        */
+
         this.render();
         this.teamSettings.close();
 
     }
 });
 
-var ListTeamView = Marionette.CompositeView.extend({
-    template: require('../../../templates/teamsView/addTeamsView.hbs'),
-    events: {
-        'submit #AddTeam': 'addTeam'
-    },
-    addTeam: function(e) {
-        e.preventDefault();
-        var newTeam = this.$el.find('input.team_name').val();
-        this.collection.create({team_name: newTeam})
-    },
+var ListTeamView = Marionette.CollectionView.extend({
     itemView:listTeamsView
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| View to create a new team
+|--------------------------------------------------------------------------
+*/
+
+var CreateTeamView = Marionette.ItemView.extend({
+    template: require('../../../templates/teamsView/teamEditor/createTeamView.hbs'),
+    initialize: function() {
+
+        // do stuff to add a team to App.data.teams.create({team_name: 'Input Info here'})
+
+    }
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Layout to manage the TeamsView, contains a list of teams, and another
+| view to create teams.
+|--------------------------------------------------------------------------
+*/
 
 module.exports = TeamsView = Marionette.Layout.extend({
     className: 'settingsView row',
     template: require('../../../templates/teamsView/teamsView.hbs'),
+    events: {
+        'click .create-team-btn': 'createTeam',
+        'click .close-team-editor': 'closeCreateTeam'
+    },
     initialize:function() {
         this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
     },
     regions: {
-        teams: ".the-teams"
+        teams: ".the-teams",
+        createTeamRegion: ".new-team-editor"
     },
     onRender: function() {
 
-        // show another view, add a new team??
+        /*
+        |--------------------------------------------------------------------------
+        | Show the teams CollectionView inside .the-teams div
+        |--------------------------------------------------------------------------
+        */
 
-        // show all the teams, thier data, and modification buttons
         var listTeamView = new ListTeamView({ 
             collection: this.collection
         });
         this.teams.show(listTeamView);
-
-        // show another view, possibly the teams that are playing etc...
+        
 
         this.setScroll();
     },
+    createTeam: function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | View to add a new team model to App.data.teams collection
+        |--------------------------------------------------------------------------
+        */
+
+        var createTeamView = new CreateTeamView();
+        this.createTeamRegion.show(createTeamView);
+
+    },
+    closeCreateTeam: function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Just re-render a fresh view upon closing of createTeam.. good practice 
+        | to close?? 
+        |--------------------------------------------------------------------------
+        */
+
+        this.render();
+        this.createTeamRegion.close();
+
+    },
     setScroll:function() {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Set scrollbar in case amount of teams is bigger than screen size
+        |--------------------------------------------------------------------------
+        */
+
         var self = this;
         setTimeout(function() {
             $(self.$el).slimScroll({
@@ -20753,7 +20784,7 @@ module.exports = TeamsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/teamsView/addTeamsView.hbs":54,"../../../templates/teamsView/team-list.hbs":55,"../../../templates/teamsView/teamsView.hbs":56,"./teamSettings":35,"backbone.marionette":1}],37:[function(require,module,exports){
+},{"../../../templates/teamsView/team-list.hbs":57,"../../../templates/teamsView/teamEditor/createTeamView.hbs":60,"../../../templates/teamsView/teamsView.hbs":63,"./teamEditor/teamEditor":37,"backbone.marionette":1}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20765,7 +20796,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
   });
 
-},{"hbsfy/runtime":60}],38:[function(require,module,exports){
+},{"hbsfy/runtime":67}],40:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20774,17 +20805,17 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"leader\" style=\"height: 270px; background-color: #fafafa;\">\r\n    <div class=\"points-leader\" style=\"padding: 50px;\">\r\n	    <img src=\""
+  buffer += "<div class=\"leader\" style=\"height: 240px; background-color: #fafafa;\">\r\n    <div class=\"points-leader\" style=\"padding: 50px;\">\r\n	    <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n	        "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\r\n	        <h1 style=\"font-size: 50px; margin: 0;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n<canvas id=\"canvas\" height=\"341\" width=\"350\"></canvas>";
+    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"341\" width=\"350\"></canvas>";
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],39:[function(require,module,exports){
+},{"hbsfy/runtime":67}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20827,7 +20858,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],40:[function(require,module,exports){
+},{"hbsfy/runtime":67}],42:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20839,7 +20870,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":60}],41:[function(require,module,exports){
+},{"hbsfy/runtime":67}],43:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20877,23 +20908,23 @@ function program3(depth0,data) {
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
+    + " pts</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
+    + " rbs</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
+    + " stls</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data\">\r\n        <div class=\"delete-player\">\r\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n        </div>\r\n    </div>\r\n\r\n</div>    \r\n";
+    + " blks</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data\">\r\n        <div class=\"delete-player\">\r\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n        </div>\r\n    </div>\r\n\r\n</div>    \r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],42:[function(require,module,exports){
+},{"hbsfy/runtime":67}],44:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20905,7 +20936,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"the-players\"></div>";
   });
 
-},{"hbsfy/runtime":60}],43:[function(require,module,exports){
+},{"hbsfy/runtime":67}],45:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20914,10 +20945,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n	    <div class=\"scores\"></div>\r\n	    <div class=\"clock center\">\r\n		  <div class=\"score-data-circle\">\r\n			  <div class=\"scoreboard-time\">\r\n			      <div class=\"timer\"></div>\r\n			  </div>\r\n		  </div>\r\n	    </div>\r\n	</div>\r\n</div>";
+  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n	    <div class=\"scores\"></div>\r\n	    <div class=\"clock center\">\r\n		  <div class=\"score-data-circle\">\r\n			  <div class=\"scoreboard-time\">\r\n			      <div class=\"timer\">20:00</div>\r\n			  </div>\r\n		  </div>\r\n	    </div>\r\n	</div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":60}],44:[function(require,module,exports){
+},{"hbsfy/runtime":67}],46:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -20938,7 +20969,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],45:[function(require,module,exports){
+},{"hbsfy/runtime":67}],47:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21012,11 +21043,11 @@ function program3(depth0,data) {
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            <div style=\"border-radius: 100em;color: #0bf;width: 5px;height: 5px;border: 1px solid #0bf;position: relative; display: inline-block;\"></div>\r\n            </div>\r\n        </div>\r\n</div>    \r\n";
+    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            <div class=\"foul-circle\"></div>\r\n            <div class=\"foul-circle\"></div>\r\n            <div class=\"foul-circle\"></div>\r\n            <div class=\"foul-circle\"></div>\r\n            <div class=\"foul-circle\"></div>\r\n            </div>\r\n        </div>\r\n</div>    \r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],46:[function(require,module,exports){
+},{"hbsfy/runtime":67}],48:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21028,7 +21059,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"app row\" style=\"max-width: 1270px; margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":60}],47:[function(require,module,exports){
+},{"hbsfy/runtime":67}],49:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21054,7 +21085,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],48:[function(require,module,exports){
+},{"hbsfy/runtime":67}],50:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21079,7 +21110,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],49:[function(require,module,exports){
+},{"hbsfy/runtime":67}],51:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21096,7 +21127,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],50:[function(require,module,exports){
+},{"hbsfy/runtime":67}],52:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21108,7 +21139,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Bench</p>";
   });
 
-},{"hbsfy/runtime":60}],51:[function(require,module,exports){
+},{"hbsfy/runtime":67}],53:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21150,7 +21181,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],52:[function(require,module,exports){
+},{"hbsfy/runtime":67}],54:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21162,7 +21193,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Playing</p>";
   });
 
-},{"hbsfy/runtime":60}],53:[function(require,module,exports){
+},{"hbsfy/runtime":67}],55:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21171,22 +21202,24 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <span class=\"close-team-editor\">X</span>\r\n\r\n    <div class=\"row player-addition-actions\">\r\n        <div class=\"col-md-6 add-player\">\r\n        	Add Regular Player\r\n        </div>\r\n	    <div class=\"col-md-6 list-facebookers\">\r\n	    	Add Facebook Player\r\n	    </div>\r\n    </div>\r\n\r\n	<div class=\"row row-remove-padding sub-players\">\r\n	    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n	    	<div class=\"playing-players\"></div>\r\n	    </div>\r\n	    <div class=\"col-md-6\">\r\n	    	<div class=\"bench-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n	<div class=\"row\">\r\n		<div class=\"col-md-12\">\r\n	    	<div class=\"facebook-players\"></div>\r\n	    </div>\r\n	</div>\r\n\r\n</div>\r\n";
+  return "<div class=\"sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":60}],54:[function(require,module,exports){
+},{"hbsfy/runtime":67}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "";
 
 
-  return "<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n		<button class=\"btn add-team-btn\">+ add team</button>\r\n	</div>\r\n</div>";
+  buffer += "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <div class=\"player-addition-actions\">\r\n        <div class=\"col-md-6 player-addition-button add-player\">Add Regular Player</div>\r\n	    <div class=\"col-md-6 player-addition-button list-facebookers\">Add Facebook Player</div>\r\n    </div>\r\n\r\n	"
+    + "\r\n\r\n	<div class=\"manage-players-area col-md-12\"></div>\r\n\r\n</div>\r\n";
+  return buffer;
   });
 
-},{"hbsfy/runtime":60}],55:[function(require,module,exports){
+},{"hbsfy/runtime":67}],57:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21203,27 +21236,31 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "; margin: 15px; padding: 15px\">\r\n    <div class=\"team-changes pull-right\" style=\"cursor:pointer\">\r\n        <i class=\"ti-settings\"></i>\r\n    </div>\r\n	<div class=\"team-name\">";
+    + "; margin: 15px; padding: 15px\">\r\n    <div class=\"team-changes pull-right\" style=\"cursor:pointer\">\r\n        <i class=\"ti-settings\"></i>\r\n    </div>\r\n	<div class=\"team-name\"><h2>";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<div class=\"team-points team-data\">";
+    + "</h2></div>\r\n	<div class=\"team-points team-data\"><h1>";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<div class=\"team-rebounds team-data\">";
+    + "</h1> <p>pts</p></div>\r\n	<div class=\"team-rebounds team-data\"><h1>";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<div class=\"team-steals team-data\">";
+    + "</h1> <p>rbs</p></div>\r\n	<div class=\"team-steals team-data\"><h1>";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<div class=\"set-team-side\">\r\n        <button class=\"home btn team-settings-btn\" style=\"display: inline-block\">Home</button>\r\n		<button class=\"away btn team-settings-btn\" style=\"display: inline-block\">Away</button>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
+    + "</h1> <p>stls</p></div>\r\n</div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":60}],56:[function(require,module,exports){
+},{"hbsfy/runtime":67}],58:[function(require,module,exports){
+module.exports=require(50)
+},{"hbsfy/runtime":67}],59:[function(require,module,exports){
+module.exports=require(51)
+},{"hbsfy/runtime":67}],60:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21232,10 +21269,36 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"the-teams\"></div>\r\n\r\n<div class=\"the-playing-teams\"></div>";
+  return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"\">FORM AND STUFF TO Create A TEAM</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":60}],57:[function(require,module,exports){
+},{"hbsfy/runtime":67}],61:[function(require,module,exports){
+module.exports=require(55)
+},{"hbsfy/runtime":67}],62:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-players-area col-md-12\"></div>\r\n\r\n</div>\r\n";
+  });
+
+},{"hbsfy/runtime":67}],63:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<!-- div to display teamCreator -->\r\n<div class=\"new-team-editor\"></div>\r\n\r\n<!-- div to display teamCreator button -->\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n		<button class=\"btn create-team-btn\">+ create team</button>\r\n	</div>\r\n</div>\r\n\r\n<!-- div to display all the teams -->\r\n<div class=\"the-teams\"></div>";
+  });
+
+},{"hbsfy/runtime":67}],64:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -21403,7 +21466,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],58:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -21511,7 +21574,7 @@ return Handlebars;
 
 };
 
-},{}],59:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -21596,7 +21659,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],60:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -21607,4 +21670,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":57,"handlebars/lib/handlebars/runtime":58,"handlebars/lib/handlebars/utils":59}]},{},[18])
+},{"handlebars/lib/handlebars/base":64,"handlebars/lib/handlebars/runtime":65,"handlebars/lib/handlebars/utils":66}]},{},[18])

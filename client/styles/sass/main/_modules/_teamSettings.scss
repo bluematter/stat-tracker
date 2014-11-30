@@ -5,13 +5,24 @@
 	.team-block.light { 
 		color: #333; 
 	}
+	.team-block {
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	}
 	.true { 
-		border: 1px solid #0bf; 
+		//border: 1px solid #0bf; 
 	}
 	.team-data {
-		font-size: 50px;
 		display: inline-block;
 		margin-left: 25px;
+		h1, h2, p {
+			display: inline-block;
+		}
+		h1 {
+			font-size: 50px;
+		}
+		h2 {
+			font-size: 30px;
+		}
 	}
 	.team-settings-btn {
 		color: #015693;
@@ -19,13 +30,14 @@
 		border-color: #015693;
 		border-radius: 100em;
 	}
-	.add-new-team {
-		margin: 0 15px;
-		.add-team-btn {
-            border: 1px solid #0bf;
-			border-radius: 100em;
-			margin-top: 15px;
-			color: #0bf;
-		}
+}
+
+.add-new-team {
+	margin: 0 15px;
+	.create-team-btn {
+        border: 1px solid #4BA0F1;
+		border-radius: 100em;
+		margin-top: 15px;
+		color: #4BA0F1;
 	}
 }
