@@ -53,7 +53,7 @@ module.exports = {
                 res.json({error: 'Player not found.'});
             } else {
                 player.remove(function(err, player){
-                    res.json(200, {status: 'Success'});
+                    res.status(200).json({status: 'Success'});
                 });
             }
         });

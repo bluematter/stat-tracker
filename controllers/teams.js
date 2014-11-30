@@ -41,7 +41,7 @@ module.exports = {
                 res.json({error: 'Team not found.'});
             } else {
                 team.remove(function(err, team){
-                    res.json(200, {status: 'Success'});
+                    res.status(200).json({status: 'Success'});
                 })
             }
         });
