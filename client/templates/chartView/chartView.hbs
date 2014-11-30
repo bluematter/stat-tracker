@@ -1,8 +1,12 @@
-<div class="leader" style="height: 240px; background-color: #fafafa;">
-    <div class="points-leader" style="padding: 50px;">
-	    <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+<div class="leader" style="background-color: #fafafa; padding: 20px;">
+    <div class="points-leader">
+        {{#if maxPoints.attributes.player_picture}}
+            <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+        {{else}}
+            <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
+        {{/if}}
 	    <div class="leader-points" style="text-align: center; padding: 20px;">
-	        {{maxPoints.attributes.player_name}}
+	        <span style="border: 2px solid transparent">{{maxPoints.attributes.player_name}}</span>
 	        <h1 style="font-size: 50px; margin: 0;">{{maxPoints.attributes.points}}</h1> 
 	        points
 	    </div>

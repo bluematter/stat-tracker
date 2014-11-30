@@ -50,12 +50,18 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
         // move this form??
         e.preventDefault();
         
-        var $newPlayer = this.$el.find('input.player_name')
-        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
+        var playerName = this.$el.find('input.player_name');
 
+        var newPlayer = {
+            player_name : playerName.val(), 
+            team_id : this.model.id, 
+            bench: true
+        }
+        //App.data.players.create(newPlayer);
+        App.data.players.add(newPlayer);
         App.vent.trigger('newPlayer');
 
-        $newPlayer.val('');
+        playerName.val('');
 
     }
 });

@@ -90,12 +90,24 @@ var ListTeamView = Marionette.CollectionView.extend({
 |--------------------------------------------------------------------------
 */
 
-var CreateTeamView = Marionette.ItemView.extend({
+var CreateTeamView = Marionette.Layout.extend({
     template: require('../../../templates/teamsView/teamEditor/createTeamView.hbs'),
+    events: {
+        'submit #CreateTeam': 'createTheTeam'
+    },
     initialize: function() {
 
         // do stuff to add a team to App.data.teams.create({team_name: 'Input Info here'})
 
+    },
+    createTheTeam: function(e) {
+        e.preventDefault();
+
+        // add some validation??
+        App.data.teams.create({
+            team_name: $('.team_name').val(),
+            team_color: $('.team_color').val()
+        });
     }
 });
 

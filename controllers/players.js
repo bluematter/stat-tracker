@@ -39,19 +39,16 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        // have to create the object prehand for some reason now.
-        var player = {
+        // have to create the object for some reason now req.body not working.
+        models.Player.update({ _id: req.params.pid }, {
             player_name : req.body.player_name,
-            player_picture : req.body.player_picture,
             bench : req.body.bench,
-            points : req.body.points,
+            points: req.body.points, 
             rebounds : req.body.rebounds,
             steals : req.body.steals,
             blocks : req.body.blocks,
-            fouls : req.body.fouls,
-            team_id : req.body.team_id,
-        }
-        models.Player.update({ _id: req.params.pid }, player, function(err, player) {
+            fouls : req.body.fouls
+        }, function(err, player) {
             if (err) {
                 res.json({error: 'Player not found.'});
             } else {

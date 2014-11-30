@@ -129,11 +129,12 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
     events: {
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
-        'click .go-back': 'goBack'
+        'click .go-back': 'goBack',
+        'click .delete': 'deleteTeam'
     },
 
     regions: {
-        managePlayers: '.manage-players-area'
+        managePlayers: '.manage-team-area'
     },
 
     initialize: function() {
@@ -197,5 +198,11 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         // freshen up the view???
         this.render();
 
+    },
+    deleteTeam: function() {
+
+        // this should be placed in a better place??
+        this.options.teamModel.destroy();
+        
     }
 });

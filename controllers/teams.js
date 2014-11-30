@@ -27,8 +27,8 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        // have to create the object prehand for some reason now.
-        var team = {
+        // have to create the object for some reason now req.body not working.
+        models.Team.update({ _id: req.params.id }, {
             team_name : req.body.team_name,
             team_color : req.body.team_color,
             playing : req.body.playing,
@@ -39,8 +39,7 @@ module.exports = {
             steals : req.body.steals,
             blocks : req.body.blocks,
             fouls : req.body.fouls
-        }
-        models.Team.update({ _id: req.params.id }, team, function(err, updated) {
+        }, function(err, updated) {
             if (err) {
                 res.json({error: 'Team not found.'});
             } else {

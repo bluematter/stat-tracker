@@ -20150,12 +20150,18 @@ var AddPlayerSettingsView = Marionette.ItemView.extend({
         // move this form??
         e.preventDefault();
         
-        var $newPlayer = this.$el.find('input.player_name')
-        var newPlayer = App.data.players.create({player_name : $newPlayer.val(), team_id : this.model.id, bench: true});
+        var playerName = this.$el.find('input.player_name');
 
+        var newPlayer = {
+            player_name : playerName.val(), 
+            team_id : this.model.id, 
+            bench: true
+        }
+        //App.data.players.create(newPlayer);
+        App.data.players.add(newPlayer);
         App.vent.trigger('newPlayer');
 
-        $newPlayer.val('');
+        playerName.val('');
 
     }
 });
@@ -20531,11 +20537,12 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
     events: {
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
-        'click .go-back': 'goBack'
+        'click .go-back': 'goBack',
+        'click .delete': 'deleteTeam'
     },
 
     regions: {
-        managePlayers: '.manage-players-area'
+        managePlayers: '.manage-team-area'
     },
 
     initialize: function() {
@@ -20599,6 +20606,12 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         // freshen up the view???
         this.render();
 
+    },
+    deleteTeam: function() {
+
+        // this should be placed in a better place??
+        this.options.teamModel.destroy();
+        
     }
 });
 },{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":58,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":59,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":61,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":62,"./benchPlayers/benchPlayers.js":35,"./playingPlayers/playingPlayers.js":36,"backbone.marionette":1}],38:[function(require,module,exports){
@@ -20694,12 +20707,24 @@ var ListTeamView = Marionette.CollectionView.extend({
 |--------------------------------------------------------------------------
 */
 
-var CreateTeamView = Marionette.ItemView.extend({
+var CreateTeamView = Marionette.Layout.extend({
     template: require('../../../templates/teamsView/teamEditor/createTeamView.hbs'),
+    events: {
+        'submit #CreateTeam': 'createTheTeam'
+    },
     initialize: function() {
 
         // do stuff to add a team to App.data.teams.create({team_name: 'Input Info here'})
 
+    },
+    createTheTeam: function(e) {
+        e.preventDefault();
+
+        // add some validation??
+        App.data.teams.create({
+            team_name: $('.team_name').val(),
+            team_color: $('.team_color').val()
+        });
     }
 });
 
@@ -20802,14 +20827,29 @@ var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
-
-  buffer += "<div class=\"leader\" style=\"height: 240px; background-color: #fafafa;\">\r\n    <div class=\"points-leader\" style=\"padding: 50px;\">\r\n	    <img src=\""
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n	        "
+    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n        ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\r\n            <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\"/> \r\n        ";
+  }
+
+  buffer += "<div class=\"leader\" style=\"background-color: #fafafa; padding: 20px;\">\r\n    <div class=\"points-leader\">\r\n        ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\r\n	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n	        <span style=\"border: 2px solid transparent\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\r\n	        <h1 style=\"font-size: 50px; margin: 0;\">"
+    + "</span>\r\n	        <h1 style=\"font-size: 50px; margin: 0;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"\" style=\"text-align: center;padding: 30px;background-color: #fff;\">\r\n    <button class=\"btn\" style=\"border-radius: 100em; border: 1px solid;\">Share this game?</button>\r\n</div>\r\n\r\n<canvas id=\"canvas\" height=\"281\" width=\"350\"></canvas>";
   return buffer;
@@ -20891,10 +20931,8 @@ function program1(depth0,data) {
 
 function program3(depth0,data) {
   
-  var buffer = "";
-  buffer += "\r\n                "
-    + "\r\n            ";
-  return buffer;
+  
+  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
   }
 
   buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
@@ -20990,10 +21028,8 @@ function program1(depth0,data) {
 
 function program3(depth0,data) {
   
-  var buffer = "";
-  buffer += "\r\n                "
-    + "\r\n            ";
-  return buffer;
+  
+  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
   }
 
   buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-3 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
@@ -21160,10 +21196,8 @@ function program1(depth0,data) {
 
 function program3(depth0,data) {
   
-  var buffer = "";
-  buffer += "\r\n                "
-    + "\r\n            ";
-  return buffer;
+  
+  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
   }
 
   buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
@@ -21259,7 +21293,22 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 },{"hbsfy/runtime":67}],58:[function(require,module,exports){
 module.exports=require(50)
 },{"hbsfy/runtime":67}],59:[function(require,module,exports){
-module.exports=require(51)
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n	    <div class=\"col-md-6\">\r\n			<form id=\"AddPlayer\">\r\n			    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
+  if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" />\r\n			    <button type=\"submit\">ADD</button>\r\n			</form> \r\n		</div>\r\n	</div>\r\n</div>";
+  return buffer;
+  });
+
 },{"hbsfy/runtime":67}],60:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
@@ -21269,7 +21318,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"\">FORM AND STUFF TO Create A TEAM</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
+  return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"create-new-player\">\r\n		        <form id=\"CreateTeam\">\r\n				    <div class=\"col-md-6\">\r\n					    <input class=\"team_name\" type=\"text\" />\r\n					</div>\r\n					<div class=\"col-md-6\">\r\n						<input class=\"team_color\" type=\"text\" />\r\n					</div>\r\n					<button type=\"submit\">Create</button>\r\n				</form>\r\n			</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
   });
 
 },{"hbsfy/runtime":67}],61:[function(require,module,exports){
@@ -21283,7 +21332,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-players-area col-md-12\"></div>\r\n\r\n</div>\r\n";
+  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n\r\n    <!-- temp throw delete button here -->\r\n    <div class=\"delete-player\">\r\n        <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n    </div>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-team-area col-md-12\"></div>\r\n\r\n</div>\r\n";
   });
 
 },{"hbsfy/runtime":67}],63:[function(require,module,exports){
