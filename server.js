@@ -57,7 +57,8 @@ if ('development' == env) {
 
     // set up our express application
     app.use('/', express.static(path.join(__dirname, 'public')));
-    app.use(bodyParser);
+    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.json());
     app.use(morgan('dev'));
     app.use(cookieParser()); // required before session.
     app.use(session({ secret: 'keyboard cat' }));
