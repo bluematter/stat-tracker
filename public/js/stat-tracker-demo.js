@@ -19692,8 +19692,6 @@ var listPlayersView = Marionette.ItemView.extend({
     },
     saveEdit: function(e) {
 
-        console.log(e.currentTarget)
-
         //get the editable element
         var editElem = $(e.currentTarget);
 
@@ -19759,11 +19757,27 @@ var Marionette = require('backbone.marionette'),
 var ScoresView = Backbone.Marionette.ItemView.extend({
     className: 'score-data-circle',
     template: require('../../../templates/scoreboard/scores.hbs'),
+    events: {
+        'focusout .editable': 'saveEdit'
+    },
     initialize: function(){
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
     },
     onRender: function(){
+    },
+    saveEdit: function(e) {
+
+        //get the editable element
+        var editElem = $(e.currentTarget);
+
+        //get the edited element content
+        var userVersion = editElem.html();
+
+        //save the edited model
+        this.model.set('points', userVersion);
+        this.model.save();
+
     }
 });
 
@@ -21027,11 +21041,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"scoreboard-points\" style=\"border-color: ";
+  buffer += "<div class=\"scoreboard-points editable\" style=\"border-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">";
+    + "\" contenteditable=\"true\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)

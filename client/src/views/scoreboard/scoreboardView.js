@@ -4,11 +4,27 @@ var Marionette = require('backbone.marionette'),
 var ScoresView = Backbone.Marionette.ItemView.extend({
     className: 'score-data-circle',
     template: require('../../../templates/scoreboard/scores.hbs'),
+    events: {
+        'focusout .editable': 'saveEdit'
+    },
     initialize: function(){
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
     },
     onRender: function(){
+    },
+    saveEdit: function(e) {
+
+        //get the editable element
+        var editElem = $(e.currentTarget);
+
+        //get the edited element content
+        var userVersion = editElem.html();
+
+        //save the edited model
+        this.model.set('points', userVersion);
+        this.model.save();
+
     }
 });
 

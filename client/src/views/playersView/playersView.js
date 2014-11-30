@@ -11,8 +11,6 @@ var listPlayersView = Marionette.ItemView.extend({
     },
     saveEdit: function(e) {
 
-        console.log(e.currentTarget)
-
         //get the editable element
         var editElem = $(e.currentTarget);
 
