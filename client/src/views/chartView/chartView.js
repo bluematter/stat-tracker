@@ -37,11 +37,12 @@ module.exports = statsView = Marionette.ItemView.extend({
                 },
                 function (response) {
                   if (response.error) {
-                    alert(response.error)
+                    console.log(response.error);
+                    alert('Sorry Diz there was an error!')
                   }
                   if (response && !response.error) {
                     console.log(response);
-                    alert('Stats posted to facebook!');
+                    alert('Stats posted to facebook Diz!');
                   }
                 }
             );
