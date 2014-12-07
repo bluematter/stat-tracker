@@ -21,7 +21,8 @@ var playerView = Marionette.ItemView.extend({
         'click .three-point': 'threePoint',
         'click .add-rebound': 'addRebound',
         'click .add-steal': 'addSteal',
-        'click .add-block': 'addBlock'
+        'click .add-block': 'addBlock',
+        'click .add-foul': 'addFoul'
     },
     initialize:function() {
         this.listenTo(this.model, 'change', this.render);
@@ -121,6 +122,19 @@ var playerView = Marionette.ItemView.extend({
         var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
         thisPlayersTeam.each(function(theTeam) {
             theTeam.save({blocks: parseInt(theTeam.get('blocks')) + 1 });
+        });
+    },
+    addFoul:function(e) {
+        //$(e.currentTarget).css({'background-color': '#f38079', 'border-color': '#f38079'});
+        var addStat = parseInt(this.model.get('fouls')) + 1;        
+        this.model.set('fouls', addStat);
+        this.model.save();
+
+        //better way to update team stats from new player stats... still BETA
+        var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
+        var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
+        thisPlayersTeam.each(function(theTeam) {
+            theTeam.save({fouls: parseInt(theTeam.get('fouls')) + 1 });
         });
     },
     on_keypress:function(e) {

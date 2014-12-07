@@ -4,8 +4,8 @@ module.exports = {
     'facebookAuth' : {
         'clientID'      : '446186442184074', // your App ID
         'clientSecret'  : 'bcd77abd0fade8e9fb4da85b01bfdedf', // your App Secret
-        //'callbackURL'   : 'http://localhost:4568/auth/facebook/callback' // local
-        'callbackURL'   : 'http://stats.bluematter.io/auth/facebook/callback' // production
+        'callbackURL'   : 'http://localhost:4568/auth/facebook/callback' // local
+        //'callbackURL'   : 'http://stats.bluematter.io/auth/facebook/callback' // production
     },
 
     'twitterAuth' : {

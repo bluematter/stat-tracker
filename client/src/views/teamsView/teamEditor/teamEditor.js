@@ -130,7 +130,8 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         'click .add-player': 'addPlayerRegion',
         'click .list-facebookers': 'facebookRegion',
         'click .go-back': 'goBack',
-        'click .delete': 'deleteTeam'
+        'click .delete': 'deleteTeam',
+        'submit .change-color': 'changeTeamColor'
     },
 
     regions: {
@@ -204,5 +205,11 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         // this should be placed in a better place??
         this.options.teamModel.destroy();
         
+    },
+    changeTeamColor: function(e) {
+        e.preventDefault();
+        var color = $('.team_color').val();
+        this.options.teamModel.set('team_color', color);
+        this.options.teamModel.save();
     }
 });

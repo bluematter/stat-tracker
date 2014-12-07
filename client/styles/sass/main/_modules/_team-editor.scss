@@ -4,7 +4,26 @@
 	}
 }
 
+@keyframes animateEditor {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .team-editor {
+    &.editor {
+        transition: 0.4s all ease;
+        animation-name: animateEditor;
+        animation-duration: 0.4s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+	}
 	.edit {
 		.editor {
 			display: block;
@@ -37,7 +56,7 @@
 			}
 	    }
     }
-    .close-team-editor, .go-back {
+    .close-team-editor {
     	text-align: center;
 		position: absolute;
 		cursor: pointer;
@@ -55,7 +74,6 @@
         right: -40px;
 	}
 	.go-back {
-		left: -40px;
 	}
 	.add-new-player {
 		form#AddPlayer {

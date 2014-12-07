@@ -11,29 +11,10 @@ module.exports = statsView = Marionette.ItemView.extend({
     
     initialize: function() {
         this.listenTo(App.data.teams, 'change', this.render);
+        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
     },
     onRender: function() {
-         
-        var teamsData = [];
-
-        this.collection.each(function(team) {
-            teamsData.push ({
-                fillColor : this.convertHex(team.get('team_color'),80),
-                strokeColor : this.convertHex(team.get('team_color'),0),
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [team.get('points'),team.get('rebounds'),team.get('steals'),team.get('blocks')]
-            });
-        }, this);
-
-        var lineChartData = {
-           labels : ["","","",""],
-           datasets : teamsData  
-        }
-        
-        var ctx = $('#canvas', this.el)[0].getContext("2d");
-        var myLineChart = new Chart(ctx).Line(lineChartData, settings);
-        
+        this.buildChart();        
     },
     postStatsFacebook: function() {
 
@@ -63,6 +44,34 @@ module.exports = statsView = Marionette.ItemView.extend({
             );
         });
     },
+    buildChart: function() {
+        var teamsData = [];
+
+        this.collection.each(function(team) {
+            teamsData.push ({
+                fillColor : this.convertHex(team.get('team_color'),80),
+                strokeColor : this.convertHex(team.get('team_color'),0),
+                pointColor : "rgba(220,220,220,1)",
+                pointStrokeColor : "#fff",
+                data : [team.get('points'),team.get('rebounds'),team.get('steals'),team.get('blocks')]
+            });
+        }, this);
+
+        var lineChartData = {
+           labels : ["","","",""],
+           datasets : teamsData  
+        }
+        
+        var c = $('#canvas', this.el)[0];
+        var ctx = c.getContext("2d");
+        
+        var self = this;
+        setTimeout(function() {
+            c.width = 350;
+            c.height = self.$el.find('.chart-wrapper').height();
+            var myLineChart = new Chart(ctx).Line(lineChartData, settings);
+        },0);
+    },
     convertHex: function(hex,opacity) {
         hex = hex.replace('#','');
         r = parseInt(hex.substring(0,2), 16);
@@ -80,9 +89,16 @@ module.exports = statsView = Marionette.ItemView.extend({
             players.push(player);
         });
         var maxPoints = _.max(players, function(player){ return player.attributes.points });
+        
+        var teams = [];
+        this.collection.each(function(team) {
+            teams.push(team);
+        });
 
         return {
-            maxPoints: maxPoints
+            maxPoints: maxPoints,
+            homeTeam: teams[0],
+            awayTeam: teams[1]
         }
     }
 });

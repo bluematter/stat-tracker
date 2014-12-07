@@ -11,7 +11,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 		menu: ".menu",
 		stats: ".content",
         scoreboard: ".scoreboard"
-	},
+	}, 
 
 	onRender: function() {
 

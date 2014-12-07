@@ -91,6 +91,7 @@ require('./config/passport')(passport); // pass passport for configuration
 mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose...");
     seeder.check();
+    seeder.testWeek();
 });
 
 

@@ -23,9 +23,6 @@ var listTeamsView = Marionette.Layout.extend({
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
     },
-    onRender: function() {
-        this.$el.find('.team-block').colourBrightness();
-    },
     setHome:function(e) { 
         App.vent.trigger('home-team-change', this.model.get('team_name'));
         App.data.teams.each(function(team) {
@@ -76,6 +73,23 @@ var listTeamsView = Marionette.Layout.extend({
         this.render();
         this.teamSettings.close();
 
+    },
+    convertHex: function(hex,opacity) {
+        hex = hex.replace('#','');
+        r = parseInt(hex.substring(0,2), 16);
+        g = parseInt(hex.substring(2,4), 16);
+        b = parseInt(hex.substring(4,6), 16);
+
+        result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+        return result;
+    },
+    templateHelpers:function(){
+        
+        var hex2rgba = this.convertHex(this.model.get('team_color'),80);
+
+        return {
+            opaqueTeam_color: hex2rgba
+        }
     }
 });
 

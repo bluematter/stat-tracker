@@ -29,6 +29,20 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
     },
+    onRender: function() {
+        this.setScroll(); 
+    },
+    setScroll: function() {
+        var self = this;
+        this.$el.height($('.editor').height() - 48);
+        setTimeout(function() {
+            $(self.$el).slimScroll({
+                height: $('.editor').height() - 48,
+                size: '5px',
+                railOpacity: 0.1
+            });
+        },0);
+    },
     itemView: playingPlayerView
 });
 /* end players who are playing */

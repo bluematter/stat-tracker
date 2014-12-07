@@ -64,11 +64,12 @@
     </div>
     <div class="col-xs-1 column stat data fouls" data-stat="fouls">
         <div style="">
-            <div class="foul-circle"></div>
-            <div class="foul-circle"></div>
-            <div class="foul-circle"></div>
-            <div class="foul-circle"></div>
-            <div class="foul-circle"></div>
-            </div>
+            {{#foulCount fouls}}
+                <div style="background-color:#f38079;border-color:#f38079" class="foul-circle add-foul"></div>
+            {{/foulCount}}
+            {{#remainingfouls fouls}}
+                <div class="foul-circle add-foul"></div>
+            {{/remainingfouls}}
         </div>
+    </div>
 </div>    

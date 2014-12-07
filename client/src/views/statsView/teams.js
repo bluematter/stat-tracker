@@ -50,6 +50,12 @@ var teamView = Backbone.Marionette.Layout.extend({
         });
         this.teamEditor.show(teamEditorView);
 
+        this.teamEditor.on("before:show", function(view){
+          // manipulate the `view` or do something extra
+          // with the region via `this`
+          this.$el.addClass('Animate')
+        });
+
     },
     closeTeamChanges:function() {
         
@@ -80,15 +86,18 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
         this.setScroll();
     },
     setScroll: function() {
-        var self = this;
-        this.$el.height($('.statsView').height());
+        // fix for resize??
+        var $playing = this.$el;
+
+        $playing.height($('.statsView').height());
         setTimeout(function() {
-            $(self.$el).slimScroll({
+            $($playing).slimScroll({
                 height: $('.statsView').height() - 62, // 60 for margins
                 size: '5px',
                 railOpacity: 0.1
             });
         },0);
+
     },
     itemView: teamView
 });

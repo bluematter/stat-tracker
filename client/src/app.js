@@ -1,5 +1,6 @@
 var Marionette        = require('backbone.marionette'),
-    //DualStorage       = require('backbone.dualStorage'), // possibly use this
+    DualStorage       = require('backbone.dualStorage'),
+    Handlebars        = require('hbsfy/runtime'),
     Bootsrap          = require('bootstrap'),
     slimscroll        = require('slimscroll'),
     chartjs           = require('chartjs'), 
@@ -11,6 +12,28 @@ var Marionette        = require('backbone.marionette'),
     PlayersCollection = require('./collections/players'),
     TeamModel         = require('./models/team'),
     TeamsCollection   = require('./collections/teams');
+
+// Handlebars helpers
+Handlebars.registerHelper('shorten', function(str) {
+    if (str.length > 8)
+      return str.substring(0,8) + '...';
+    return str;
+}); 
+
+Handlebars.registerHelper('foulCount', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+}); 
+
+Handlebars.registerHelper('remainingfouls', function(n, block) {
+    var accum = '';
+    var remainingFouls = 5 - n;
+    for(var i = 0; i < remainingFouls; ++i)
+        accum += block.fn(i);
+    return accum;
+});     
 
 module.exports = App = function App() {};
 
@@ -24,12 +47,6 @@ App.prototype.start = function(){
         App.data  = {};
         App.vent  = new Backbone.Wreqr.EventAggregator();
         App.fb    = {};
-
-        // temp set wrap height, sloppy?
-        $('#wrap').height($(window).height());
-        $(window).resize(function() {
-            $('#wrap').height($(window).height());
-        });
         
         // work with the facebook graph api
         window.fbAsyncInit = function() {
@@ -47,12 +64,14 @@ App.prototype.start = function(){
         
         // grab our applications data the order is important
         var teams = new TeamsCollection();
+        teams.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
         teams.fetch({
             reset: true,
             success: function(team) {
                 App.data.teams = teams;
 
                 var players = new PlayersCollection();
+                players.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
                 players.fetch({
                     success: function(player) {
                         App.data.players = players;

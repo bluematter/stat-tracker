@@ -4,20 +4,20 @@ var gulp       = require('gulp'),
     bower      = require('bower'),
     source     = require('vinyl-source-stream'),
     watch      = require('gulp-watch'),
-    //connect    = require('gulp-connect'),
+    //connect  = require('gulp-connect'),
     tasks      = require("gulp-load-plugins")(),
-    demo       = require('./package.json');
+    app        = require('./package.json');
 
 /*
 |--------------------------------------------------------------------------
-| Demo name / Read package.json
+| app name / Read package.json
 |--------------------------------------------------------------------------
 |
 |
 */
 
 
-var demoName = demo.name;
+var appName = app.name;
 
 
 /*
@@ -70,7 +70,7 @@ gulp.task('browserify', function() {
             transform: ['hbsfy', 'browserify-shim']
         }))
         //.pipe(tasks.uglify())
-        .pipe(tasks.concat(demoName + '.js'))
+        .pipe(tasks.concat(appName + '.js'))
         .pipe(gulp.dest('./public/js/'));
 });
 
@@ -89,7 +89,7 @@ gulp.task('sass', function () {
         'client/styles/sass/main.scss' ])
         .pipe(tasks.sass())
         .pipe(tasks.autoprefixer())
-        .pipe(tasks.concat(demoName + '.css'))
+        .pipe(tasks.concat(appName + '.css'))
         .pipe(gulp.dest('./public/css'));
 });
 

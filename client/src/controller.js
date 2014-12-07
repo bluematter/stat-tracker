@@ -10,7 +10,7 @@ module.exports = Controller = Marionette.Controller.extend({
     |--------------------------------------------------------------------------
     | Initialize and render main app layout view
     |--------------------------------------------------------------------------
-    */
+    */ 
 
     initialize: function(options) {
         App.core.vent.trigger('app:log', 'Controller: Initializing, rendering appView');

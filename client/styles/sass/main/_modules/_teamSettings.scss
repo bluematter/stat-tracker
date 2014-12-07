@@ -1,15 +1,12 @@
 .the-teams {
-	.team-block.dark { 
-		color: #fff; 
-	}
-	.team-block.light { 
-		color: #333; 
-	}
 	.team-block {
+		color: #fff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		border-radius: 1px 1px 3px 3px;
+        border-bottom: 4px solid;
 	}
 	.true { 
-		//border: 1px solid #0bf; 
+		box-shadow: inset 0 0 0 4px #0bf; 
 	}
 	.team-data {
 		display: inline-block;
@@ -25,10 +22,11 @@
 		}
 	}
 	.team-settings-btn {
-		color: #015693;
-		background-color: transparent;
-		border-color: #015693;
-		border-radius: 100em;
+		background-color: #0bf;
+		border-color: #0BD;
+		border-radius: 0;
+		padding: 10px !important;
+		color: #fff;
 	}
 }
 

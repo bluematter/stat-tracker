@@ -3,6 +3,9 @@ var mongoose = require('mongoose'),
     md5 = require('MD5');
 
 module.exports = {
+    testWeek: function() {
+
+    },
     check: function() {
         models.Team.find({}, function(err, teams) {
             if (teams.length === 0) {

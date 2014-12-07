@@ -29,10 +29,14 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
         this.listenTo(this.collection, 'change', this.render);
     },
     onRender: function() {
+        this.setScroll();
+    },
+    setScroll: function() {
         var self = this;
+        this.$el.height($('.editor').height() - 48);
         setTimeout(function() {
             $(self.$el).slimScroll({
-                height: $('.editor').height(),
+                height: $('.editor').height() - 48,
                 size: '5px',
                 railOpacity: 0.1
             });

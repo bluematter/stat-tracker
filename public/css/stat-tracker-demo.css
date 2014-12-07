@@ -6024,13 +6024,15 @@ button {
     text-decoration: none;
     outline: 0 none; }
 
-.the-teams .team-block.dark {
-  color: #fff; }
-.the-teams .team-block.light {
-  color: #333; }
 .the-teams .team-block {
+  color: #fff;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 1px 1px 3px 3px;
+  border-bottom: 4px solid; }
+.the-teams .true {
+  -webkit-box-shadow: inset 0 0 0 4px #0bf;
+  box-shadow: inset 0 0 0 4px #0bf; }
 .the-teams .team-data {
   display: inline-block;
   margin-left: 25px; }
@@ -6041,10 +6043,11 @@ button {
   .the-teams .team-data h2 {
     font-size: 30px; }
 .the-teams .team-settings-btn {
-  color: #015693;
-  background-color: transparent;
-  border-color: #015693;
-  border-radius: 100em; }
+  background-color: #0bf;
+  border-color: #0BD;
+  border-radius: 0;
+  padding: 10px !important;
+  color: #fff; }
 
 .add-new-team {
   margin: 0 15px; }
@@ -6513,6 +6516,41 @@ button {
 .snapjs-left .team-editor .edit .editor {
   right: 200px; }
 
+@-webkit-keyframes animateEditor {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5); }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes animateEditor {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5); }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+.team-editor.editor {
+  -webkit-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  -webkit-animation-name: animateEditor;
+  animation-name: animateEditor;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 .team-editor .edit .editor {
   display: block;
   position: fixed;
@@ -6539,7 +6577,7 @@ button {
       .team-editor .edit .editor .player-addition-actions .player-addition-button.list-facebookers {
         color: #fff;
         background-color: #4BA0F1; }
-.team-editor .close-team-editor, .team-editor .go-back {
+.team-editor .close-team-editor {
   text-align: center;
   position: absolute;
   cursor: pointer;
@@ -6554,8 +6592,6 @@ button {
   line-height: 30px; }
 .team-editor .close-team-editor {
   right: -40px; }
-.team-editor .go-back {
-  left: -40px; }
 .team-editor .add-new-player form#AddPlayer input.player_name {
   border-color: transparent;
   background-color: #fff;

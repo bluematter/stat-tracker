@@ -23,9 +23,14 @@ module.exports = statsView = Marionette.Layout.extend({
     },
     
     initialize: function() {
-
-        // statsView needs a height for the slimscroll to work.. this is beta could be better
-        this.$el.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+        
+        var $statsView = this.$el;
+        
+        // statsView needs a height for the slimscroll to work.. this is beta could be better?
+        $statsView.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+        $(window).resize(function() {
+            $statsView.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
+        });
 
     },
     onRender: function() {

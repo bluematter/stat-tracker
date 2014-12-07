@@ -151,8 +151,12 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        App.vent.on('newPlayer', function(data) { self.render() });
-        App.vent.on('subbed', function(data) { self.render() });
+        App.vent.on('newPlayer', function(data) { 
+            self.render();
+        });
+        App.vent.on('subbed', function(data) { 
+            self.render();
+        });
 
     },
 
@@ -203,5 +207,10 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         // freshen up the view???
         this.render();
 
+    },
+    templateHelpers:function(){
+        return {
+            team_color: this.options.teamModel.get('team_color')
+        }
     }
 });
