@@ -36,6 +36,9 @@ module.exports = statsView = Marionette.ItemView.extend({
                     "message": message
                 },
                 function (response) {
+                  if (response.error) {
+                    alert(response.error)
+                  }
                   if (response && !response.error) {
                     console.log(response);
                     alert('Stats posted to facebook!');

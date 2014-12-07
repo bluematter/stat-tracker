@@ -19454,7 +19454,38 @@ Handlebars.registerHelper('remainingfouls', function(n, block) {
     for(var i = 0; i < remainingFouls; ++i)
         accum += block.fn(i);
     return accum;
-});     
+});
+
+Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
+
+    if (arguments.length < 3)
+        throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+
+    operator = options.hash.operator || "==";
+
+    var operators = {
+        '==':       function(l,r) { return l == r; },
+        '===':      function(l,r) { return l === r; },
+        '!=':       function(l,r) { return l != r; },
+        '<':        function(l,r) { return l < r; },
+        '>':        function(l,r) { return l > r; },
+        '<=':       function(l,r) { return l <= r; },
+        '>=':       function(l,r) { return l >= r; },
+        'typeof':   function(l,r) { return typeof l == r; }
+    }
+
+    if (!operators[operator])
+        throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
+
+    var result = operators[operator](lvalue,rvalue);
+
+    if( result ) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+
+});
 
 module.exports = App = function App() {};
 
@@ -19873,6 +19904,9 @@ module.exports = statsView = Marionette.ItemView.extend({
                     "message": message
                 },
                 function (response) {
+                  if (response.error) {
+                    alert(response.error)
+                  }
                   if (response && !response.error) {
                     console.log(response);
                     alert('Stats posted to facebook!');
@@ -21699,11 +21733,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n</div>\r\n\r\n<div class=\"team-fouls\" style=\"display: inline-block;margin-left: 15px;\">";
+    + "\r\n</div>\r\n\r\n<div class=\"team-fouls\">";
   if (stack1 = helpers.fouls) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.fouls; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n";
+    + "</div>\r\n\r\n";
   return buffer;
   });
 

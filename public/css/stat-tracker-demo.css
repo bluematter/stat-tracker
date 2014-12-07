@@ -6718,6 +6718,13 @@ button {
       float: left; }
       .scoreboard .scores .score-data-circle:last-child, .scoreboard .clock .score-data-circle:last-child {
         float: right; }
+        .scoreboard .scores .score-data-circle:last-child .scoreboard-points, .scoreboard .clock .score-data-circle:last-child .scoreboard-points {
+          float: right; }
+        .scoreboard .scores .score-data-circle:last-child .team-fouls, .scoreboard .clock .score-data-circle:last-child .team-fouls {
+          display: inline-block;
+          margin-right: 15px;
+          float: left;
+          margin-top: 10px; }
       .scoreboard .scores .score-data-circle .scoreboard-points, .scoreboard .clock .score-data-circle .scoreboard-points {
         border: 2px solid #eee;
         border-radius: 100em;
@@ -6725,6 +6732,9 @@ button {
         height: 40px;
         text-align: center;
         line-height: 38px; }
+      .scoreboard .scores .score-data-circle .team-fouls, .scoreboard .clock .score-data-circle .team-fouls {
+        display: inline-block;
+        margin-left: 15px; }
       .scoreboard .scores .score-data-circle .scoreboard-time, .scoreboard .clock .score-data-circle .scoreboard-time {
         border: 2px solid #eee;
         border-radius: 100em;

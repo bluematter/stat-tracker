@@ -57,5 +57,28 @@ module.exports = {
                 })
             }
         });
+    },
+    reset: function(req,res) {
+        models.Team.find({}, function(err, team) {
+            for (i = 0; i < team.length; i++) { 
+                models.Team.update({ _id: team[i]._id }, 
+                    { 
+                        points: 0, 
+                        rebounds : 0,
+                        steals : 0,
+                        blocks : 0,
+                        fouls : 0
+                    }, 
+                    { multi: true }, 
+                    function(err, team) {
+                        if (err) {
+                            res.json({error: 'Team not found.'});
+                        } else {
+                            console.log('Successful reset')
+                        }
+                    }
+                );
+            }
+        });
     }
 };
