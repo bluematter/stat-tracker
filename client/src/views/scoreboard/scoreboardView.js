@@ -1,5 +1,4 @@
-var Marionette = require('backbone.marionette'),
-    TeamsCollection = require('../../collections/teams');
+var Marionette = require('backbone.marionette');
 
 var ScoresView = Backbone.Marionette.ItemView.extend({
     className: 'score-data-circle',
@@ -10,8 +9,6 @@ var ScoresView = Backbone.Marionette.ItemView.extend({
     initialize: function(){
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
-    },
-    onRender: function(){
     },
     saveEdit: function(e) {
 
@@ -33,12 +30,9 @@ var ScoreboardScoreView = Backbone.Marionette.CollectionView.extend({
     initialize: function(){
         this.listenTo(this.collection, 'change', this.render);
     },
-    onRender: function(){
-    },
     itemView: ScoresView
 });
 
-// USE LAYOUT VIEW??
 module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     template: require('../../../templates/scoreboard/scoreboard.hbs'),
     events: {
@@ -61,31 +55,7 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
 
         var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byPlaying() });
         this.scores.show(scoreboardScoreView);
-        
-        $timer = this.$el.find('.timer');
 
-        window.myTimer = new Timer({
-            onstart : function(sec) {
-                var minutes = Math.floor(sec / 60);
-                var seconds = sec - minutes * 60;
-                $timer.text(minutes +':'+ seconds);
-            },
-            ontick  : function(sec) {
-                var minutes = Math.floor(sec / 60);
-                var seconds = sec - minutes * 60;
-                $timer.text(minutes +':'+ seconds);
-            },
-            onpause : function() {
-            },
-            onstop  : function() {
-            },
-            onend   : function() {
-            }
-        });
-
-    },
-    startClock: function() {
-        myTimer.start(1200);
     }
 });
 

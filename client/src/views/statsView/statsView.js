@@ -1,7 +1,6 @@
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('./teams'),
-    DataView     = require('../data/teamData'),
     ChartView     = require('../chartView/chartView'),
     TeamsCollection = require('../../collections/teams');
 
@@ -32,16 +31,15 @@ module.exports = statsView = Marionette.Layout.extend({
             $statsView.height($(window).height() - $('.navbar').outerHeight() - $('.scoreboard').height());
         });
 
+        // initialize subviews for statsView
+        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying() });
+        window.App.views.chartView = new ChartView({ collection: this.collection.byPlaying() });
+
     },
     onRender: function() {
         
-        // initialize subviews for statsView
-        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying() });
-        //window.App.views.dataView  = new DataView({ collection: App.data.players });
-        window.App.views.chartView = new ChartView({ collection: this.collection.byPlaying() });
-        
+        // render the sub views in the regions
         this.teams.show(App.views.teamsView);
-        //this.data.show(App.views.dataView);
         this.chart.show(App.views.chartView);
 
     }

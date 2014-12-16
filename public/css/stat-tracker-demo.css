@@ -6392,9 +6392,8 @@ button {
           float: left;
           color: #777;
           text-align: center;
-          font-size: 12px;
-          line-height: 23px;
-          font-family: monospace; }
+          font-size: 9px;
+          line-height: 25px; }
         #basketball .team .player .column.stat.name .player-buttons .buttons.top-button, #basketball .team .player .column.stat.name .player-buttons .buttons.bottom-button {
           width: 39px;
           height: 50%;
@@ -6718,6 +6717,9 @@ button {
       float: left; }
       .scoreboard .scores .score-data-circle:last-child, .scoreboard .clock .score-data-circle:last-child {
         float: right; }
+        .scoreboard .scores .score-data-circle:last-child .team-timeouts, .scoreboard .clock .score-data-circle:last-child .team-timeouts {
+          float: right;
+          margin-left: 15px; }
         .scoreboard .scores .score-data-circle:last-child .scoreboard-points, .scoreboard .clock .score-data-circle:last-child .scoreboard-points {
           float: right; }
         .scoreboard .scores .score-data-circle:last-child .team-fouls, .scoreboard .clock .score-data-circle:last-child .team-fouls {
@@ -6725,6 +6727,20 @@ button {
           margin-right: 15px;
           float: left;
           margin-top: 10px; }
+          .scoreboard .scores .score-data-circle:last-child .team-fouls .bonus, .scoreboard .clock .score-data-circle:last-child .team-fouls .bonus {
+            float: left;
+            margin-right: 20px; }
+      .scoreboard .scores .score-data-circle .team-timeouts, .scoreboard .clock .score-data-circle .team-timeouts {
+        float: left;
+        margin-right: 15px; }
+        .scoreboard .scores .score-data-circle .team-timeouts .timeout-circle, .scoreboard .clock .score-data-circle .team-timeouts .timeout-circle {
+          margin: 10px 0;
+          background-color: #FFE701;
+          width: 6px;
+          height: 6px;
+          border: 1px solid #FFE701;
+          position: relative;
+          cursor: pointer; }
       .scoreboard .scores .score-data-circle .scoreboard-points, .scoreboard .clock .score-data-circle .scoreboard-points {
         border: 2px solid #eee;
         border-radius: 100em;
@@ -6735,6 +6751,21 @@ button {
       .scoreboard .scores .score-data-circle .team-fouls, .scoreboard .clock .score-data-circle .team-fouls {
         display: inline-block;
         margin-left: 15px; }
+        .scoreboard .scores .score-data-circle .team-fouls .foul-circle, .scoreboard .clock .score-data-circle .team-fouls .foul-circle {
+          border-radius: 100em;
+          background-color: #D2261E;
+          border-color: #D2261E;
+          width: 6px;
+          height: 6px;
+          border: 1px solid transparent;
+          position: relative;
+          display: inline-block;
+          margin: 0 2px; }
+        .scoreboard .scores .score-data-circle .team-fouls .bonus, .scoreboard .clock .score-data-circle .team-fouls .bonus {
+          margin-left: 20px;
+          opacity: 0; }
+          .scoreboard .scores .score-data-circle .team-fouls .bonus.true, .scoreboard .clock .score-data-circle .team-fouls .bonus.true {
+            opacity: 1; }
       .scoreboard .scores .score-data-circle .scoreboard-time, .scoreboard .clock .score-data-circle .scoreboard-time {
         border: 2px solid #eee;
         border-radius: 100em;
@@ -6744,11 +6775,14 @@ button {
         line-height: 38px; }
     .scoreboard .scores.center, .scoreboard .clock.center {
       position: absolute;
+      top: 50%;
+      margin: 0 auto;
+      float: none;
+      -webkit-transform: translate(0%, -50%);
+      -ms-transform: translate(0%, -50%);
+      transform: translate(0%, -50%);
       left: 0;
       right: 0;
-      top: 12px;
-      margin: auto;
-      width: 0;
       text-align: center; }
 
 .new-app {

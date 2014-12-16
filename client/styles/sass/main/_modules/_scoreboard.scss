@@ -17,6 +17,10 @@
 			float: left;
 			&:last-child {
 			    float: right;
+			    .team-timeouts {
+					float: right;
+					margin-left: 15px;
+			    }
 			    .scoreboard-points {
 			    	float: right;
 			    }
@@ -25,6 +29,23 @@
 					margin-right: 15px;
 					float: left;
 					margin-top: 10px;
+					.bonus {
+						float: left;
+			    		margin-right: 20px;
+			    	}
+				}
+			}
+			.team-timeouts {
+				float: left;
+				margin-right: 15px;
+				.timeout-circle {
+					margin: 10px 0;
+					background-color:#FFE701;
+					width:6px;
+					height:6px;
+					border:1px solid #FFE701;
+					position: relative;
+					cursor: pointer;
 				}
 			}
 			.scoreboard-points {
@@ -38,6 +59,24 @@
 		    .team-fouls {
 		    	display: inline-block;
 		    	margin-left: 15px;
+		    	.foul-circle {
+		    		border-radius: 100em;
+		    		background-color:#D2261E;
+		    		border-color:#D2261E;
+		    		width:6px;
+		    		height:6px;
+		    		border:1px solid transparent;
+		    		position: relative;
+		    		display: inline-block;
+		    		margin: 0 2px;
+		    	}
+		    	.bonus {
+		    		margin-left: 20px;
+		    		opacity: 0;
+		    		&.true {
+		    			opacity: 1;
+		    		}
+		    	}
 		    }
 		    .scoreboard-time {
 				border: 2px solid #eee;
@@ -50,13 +89,13 @@
 		}
 		&.center {
 			position: absolute;
+			top: 50%;
+			margin: 0 auto;
+			float: none;
+			transform: translate(0%, -50%);
 			left: 0;
 			right: 0;
-			top: 12px;
-			margin: auto;
-			width: 0;
 			text-align: center;
-
 		}
 	}
 }

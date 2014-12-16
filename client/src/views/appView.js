@@ -54,10 +54,11 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
             var snapper = new Snap({ element: document.getElementById('stats') });
             snapper.settings({
                 resistance: 0.5,
+                disable: 'right',
                 flickThreshold: 50,
                 transitionSpeed: 0.3,
                 easing: 'ease',
-                tapToClose: false,
+                tapToClose: true,
                 maxPosition: 200
             });
             $('.custom-toggle').click(function(){

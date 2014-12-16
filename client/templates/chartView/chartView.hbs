@@ -1,4 +1,4 @@
-<div class="leader" style="background-color: #fafafa; padding: 20px; height: 40%;">
+<div class="leader" style="background-color: #eee; padding: 20px;">
     <div class="points-leader">
         {{#if maxPoints.attributes.player_picture}}
             <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
@@ -6,15 +6,15 @@
             <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
         {{/if}}
 	    <div class="leader-points" style="text-align: center; padding: 20px;">
-	        <span style="border: 2px solid transparent">{{maxPoints.attributes.player_name}}</span>
-	        <h1 style="font-size: 50px; margin: 0;">{{maxPoints.attributes.points}}</h1> 
+	        <span style="border: 2px solid;padding: 7px;">{{maxPoints.attributes.player_name}}</span>
+	        <h1 style="font-size: 50px; margin: 15px 0 0 0;">{{maxPoints.attributes.points}}</h1> 
 	        points
 	    </div>
 	</div>
 </div>
 
-<div class="share-game" style="height: 20%;text-align: center;padding: 12.2%;background-color: #fff;">
-    <button class="btn post-stats" style="border-radius: 100em; border: 1px solid; color: #0a46cd;">Share this game?</button>
+<div class="share-game" style="text-align: center;padding: 20px 0;background-color: #fff;">
+    <button class="btn post-stats" style="border-radius: 0; border: 1px solid; color: #0a46cd;">Share this game?</button>
 </div>
 
 <div class="chart-wrapper" style="height: 40%;">
