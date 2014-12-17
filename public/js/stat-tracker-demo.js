@@ -2932,7 +2932,7 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":3,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":4,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js":5,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":12}],3:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":3,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":4,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js":5,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -3098,7 +3098,7 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":12}],4:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],4:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -3374,7 +3374,7 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":12}],5:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],5:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
@@ -3543,7 +3543,7 @@ Backbone.Memento = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":12}],6:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],6:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*!
  * Chart.js
@@ -17251,6 +17251,256 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 }).call(global, module, undefined);
 
 },{}],12:[function(require,module,exports){
+/**
+ *   Unslider by @idiot and @damirfoy
+ *   Contributors:
+ *   - @ShamoX
+ *
+ */
+
+(function($, f) {
+	var Unslider = function() {
+		//  Object clone
+		var _ = this;
+
+		//  Set some options
+		_.o = {
+			speed: 500,     // animation speed, false for no transition (integer or boolean)
+			delay: 3000,    // delay between slides, false for no autoplay (integer or boolean)
+			init: 0,        // init delay, false for no delay (integer or boolean)
+			pause: !f,      // pause on hover (boolean)
+			loop: !f,       // infinitely looping (boolean)
+			keys: f,        // keyboard shortcuts (boolean)
+			dots: f,        // display dots pagination (boolean)
+			arrows: f,      // display prev/next arrows (boolean)
+			prev: '&larr;', // text or html inside prev button (string)
+			next: '&rarr;', // same as for prev option
+			fluid: f,       // is it a percentage width? (boolean)
+			starting: f,    // invoke before animation (function with argument)
+			complete: f,    // invoke after animation (function with argument)
+			items: '>ul',   // slides container selector
+			item: '>li',    // slidable items selector
+			easing: 'swing',// easing function to use for animation
+			autoplay: true  // enable autoplay on initialisation
+		};
+
+		_.init = function(el, o) {
+			//  Check whether we're passing any options in to Unslider
+			_.o = $.extend(_.o, o);
+
+			_.el = el;
+			_.ul = el.find(_.o.items);
+			_.max = [el.outerWidth() | 0, el.outerHeight() | 0];
+			_.li = _.ul.find(_.o.item).each(function(index) {
+				var me = $(this),
+					width = me.outerWidth(),
+					height = me.outerHeight();
+
+				//  Set the max values
+				if (width > _.max[0]) _.max[0] = width;
+				if (height > _.max[1]) _.max[1] = height;
+			});
+
+
+			//  Cached vars
+			var o = _.o,
+				ul = _.ul,
+				li = _.li,
+				len = li.length;
+
+			//  Current indeed
+			_.i = 0;
+
+			//  Set the main element
+			el.css({width: _.max[0], height: li.first().outerHeight(), overflow: 'hidden'});
+
+			//  Set the relative widths
+			ul.css({position: 'relative', left: 0, width: (len * 100) + '%'});
+			if(o.fluid) {
+				li.css({'float': 'left', width: (100 / len) + '%'});
+			} else {
+				li.css({'float': 'left', width: (_.max[0]) + 'px'});
+			}
+
+			//  Autoslide
+			o.autoplay && setTimeout(function() {
+				if (o.delay | 0) {
+					_.play();
+
+					if (o.pause) {
+						el.on('mouseover mouseout', function(e) {
+							_.stop();
+							e.type == 'mouseout' && _.play();
+						});
+					};
+				};
+			}, o.init | 0);
+
+			//  Keypresses
+			if (o.keys) {
+				$(document).keydown(function(e) {
+					var key = e.which;
+
+					if (key == 37)
+						_.prev(); // Left
+					else if (key == 39)
+						_.next(); // Right
+					else if (key == 27)
+						_.stop(); // Esc
+				});
+			};
+
+			//  Dot pagination
+			o.dots && nav('dot');
+
+			//  Arrows support
+			o.arrows && nav('arrow');
+
+			//  Patch for fluid-width sliders. Screw those guys.
+			if (o.fluid) {
+				$(window).resize(function() {
+					_.r && clearTimeout(_.r);
+
+					_.r = setTimeout(function() {
+						var styl = {height: li.eq(_.i).outerHeight()},
+							width = el.outerWidth();
+
+						ul.css(styl);
+						styl['width'] = Math.min(Math.round((width / el.parent().width()) * 100), 100) + '%';
+						el.css(styl);
+						li.css({ width: width + 'px' });
+					}, 50);
+				}).resize();
+			};
+
+			//  Move support
+			if ($.event.special['move'] || $.Event('move')) {
+				el.on('movestart', function(e) {
+					if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
+						e.preventDefault();
+					}else{
+						el.data("left", _.ul.offset().left / el.width() * 100);
+					}
+				}).on('move', function(e) {
+					var left = 100 * e.distX / el.width();
+					_.ul.css("left", el.data("left") + left + "%");
+					_.ul.data("left", left);
+				}).on('moveend', function(e) {
+					var left = _.ul.data("left");
+					if (Math.abs(left) > 30){
+						var i = left > 0 ? _.i-1 : _.i+1;
+						if (i < 0 || i >= len) i = _.i;
+						_.to(i);
+					}else{
+						_.to(_.i);
+					}
+				});
+			};
+
+			return _;
+		};
+
+		//  Move Unslider to a slide index
+		_.to = function(index, callback) {
+			if (_.t) {
+				_.stop();
+				_.play();
+	                }
+			var o = _.o,
+				el = _.el,
+				ul = _.ul,
+				li = _.li,
+				current = _.i,
+				target = li.eq(index);
+
+			$.isFunction(o.starting) && !callback && o.starting(el, li.eq(current));
+
+			//  To slide or not to slide
+			if ((!target.length || index < 0) && o.loop == f) return;
+
+			//  Check if it's out of bounds
+			if (!target.length) index = 0;
+			if (index < 0) index = li.length - 1;
+			target = li.eq(index);
+
+			var speed = callback ? 5 : o.speed | 0,
+				easing = o.easing,
+				obj = {height: target.outerHeight()};
+
+			if (!ul.queue('fx').length) {
+				//  Handle those pesky dots
+				el.find('.dot').eq(index).addClass('active').siblings().removeClass('active');
+
+				el.animate(obj, speed, easing) && ul.animate($.extend({left: '-' + index + '00%'}, obj), speed, easing, function(data) {
+					_.i = index;
+
+					$.isFunction(o.complete) && !callback && o.complete(el, target);
+				});
+			};
+		};
+
+		//  Autoplay functionality
+		_.play = function() {
+			_.t = setInterval(function() {
+				_.to(_.i + 1);
+			}, _.o.delay | 0);
+		};
+
+		//  Stop autoplay
+		_.stop = function() {
+			_.t = clearInterval(_.t);
+			return _;
+		};
+
+		//  Move to previous/next slide
+		_.next = function() {
+			return _.stop().to(_.i + 1);
+		};
+
+		_.prev = function() {
+			return _.stop().to(_.i - 1);
+		};
+
+		//  Create dots and arrows
+		function nav(name, html) {
+			if (name == 'dot') {
+				html = '<ol class="dots">';
+					$.each(_.li, function(index) {
+						html += '<li class="' + (index == _.i ? name + ' active' : name) + '">' + ++index + '</li>';
+					});
+				html += '</ol>';
+			} else {
+				html = '<div class="';
+				html = html + name + 's">' + html + name + ' prev">' + _.o.prev + '</div>' + html + name + ' next">' + _.o.next + '</div></div>';
+			};
+
+			_.el.addClass('has-' + name + 's').append(html).find('.' + name).click(function() {
+				var me = $(this);
+				me.hasClass('dot') ? _.stop().to(me.index()) : me.hasClass('prev') ? _.prev() : _.next();
+			});
+		};
+	};
+
+	//  Create a jQuery plugin
+	$.fn.unslider = function(o) {
+		var len = this.length;
+
+		//  Enable multiple-slider support
+		return this.each(function(index) {
+			//  Cache a copy of $(this), so it
+			var me = $(this),
+				key = 'unslider' + (len > 1 ? '-' + ++index : ''),
+				instance = (new Unslider).init(me, o);
+
+			//  Invoke an Unslider instance
+			me.data(key, instance).data('key', key);
+		});
+	};
+
+	Unslider.version = "1.0.0";
+})(jQuery, false);
+
+},{}],13:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -18841,7 +19091,7 @@ underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"underscore":11}],13:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"underscore":11}],14:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
 ; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
@@ -19368,7 +19618,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7}],14:[function(require,module,exports){
+},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7}],15:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*
  *  colourBrightness.js
@@ -19418,12 +19668,13 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var Marionette        = require('backbone.marionette'),
     DualStorage       = require('backbone.dualStorage'),
     Handlebars        = require('hbsfy/runtime'),
     Bootsrap          = require('bootstrap'),
     slimscroll        = require('slimscroll'),
+    unslider          = require('unslider'),
     chartjs           = require('chartjs'), 
     colourBrightness  = require('colourBrightness'),
     timerjs           = require('timerjs'), 
@@ -19525,7 +19776,7 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":16,"./collections/teams":17,"./controller":18,"./models/player":20,"./models/team":21,"./router":22,"backbone.dualStorage":1,"backbone.marionette":2,"bootstrap":13,"chartjs":6,"colourBrightness":14,"hbsfy/runtime":65,"slimscroll":8,"timerjs":10}],16:[function(require,module,exports){
+},{"./collections/players":17,"./collections/teams":18,"./controller":19,"./models/player":21,"./models/team":22,"./router":23,"backbone.dualStorage":1,"backbone.marionette":2,"bootstrap":14,"chartjs":6,"colourBrightness":15,"hbsfy/runtime":66,"slimscroll":8,"timerjs":10,"unslider":12}],17:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
@@ -19547,7 +19798,7 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
 
 });
 
-},{"../models/player":20,"backbone":12}],17:[function(require,module,exports){
+},{"../models/player":21,"backbone":13}],18:[function(require,module,exports){
 var Backbone = require('backbone'),
     TeamModel = require('../models/team'),
     PlayersCollection = require('./players');
@@ -19566,7 +19817,7 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
     }
 });
 
-},{"../models/team":21,"./players":16,"backbone":12}],18:[function(require,module,exports){
+},{"../models/team":22,"./players":17,"backbone":13}],19:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
     StatsView  = require('./views/statsView/statsView'),
@@ -19654,13 +19905,13 @@ module.exports = Controller = Marionette.Controller.extend({
     }
 });
 
-},{"./views/appView":23,"./views/playersView/playersView":26,"./views/statsView/statsView":29,"./views/teamsView/teamsView":37,"backbone.marionette":2}],19:[function(require,module,exports){
+},{"./views/appView":24,"./views/playersView/playersView":27,"./views/statsView/statsView":30,"./views/teamsView/teamsView":38,"backbone.marionette":2}],20:[function(require,module,exports){
 var App = require('./app');
 var StatApp = new App();
 
 StatApp.start();
 
-},{"./app":15}],20:[function(require,module,exports){
+},{"./app":16}],21:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 //var NestedModel  = require('backbone.nested');
 //var Relational = require('backbone.relational');
@@ -19688,7 +19939,7 @@ module.exports = PlayerModel = Backbone.Model.extend({
     }
 });
 
-},{"backbone.marionette":2}],21:[function(require,module,exports){
+},{"backbone.marionette":2}],22:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
 //var NestedModel       = require('backbone.nested');
@@ -19717,7 +19968,7 @@ module.exports = TeamModel = Backbone.Model.extend({
 });
 
 
-},{"../collections/players":16,"backbone":12}],22:[function(require,module,exports){
+},{"../collections/players":17,"backbone":13}],23:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = Router = Marionette.AppRouter.extend({
@@ -19729,7 +19980,7 @@ module.exports = Router = Marionette.AppRouter.extend({
     }
 });
 
-},{"backbone.marionette":2}],23:[function(require,module,exports){
+},{"backbone.marionette":2}],24:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersCollection = require('../collections/players'),
     MenuView = require('./menu/menu'),
@@ -19835,7 +20086,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
         });
     }
 });
-},{"../../templates/appView.hbs":38,"../collections/players":16,"./menu/menu":25,"./scoreboard/scoreboardView":27,"./statsView/statsView":29,"backbone.marionette":2}],24:[function(require,module,exports){
+},{"../../templates/appView.hbs":39,"../collections/players":17,"./menu/menu":26,"./scoreboard/scoreboardView":28,"./statsView/statsView":30,"backbone.marionette":2}],25:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     TeamsCollection = require('../../collections/teams');
 
@@ -19930,8 +20181,16 @@ module.exports = statsView = Marionette.ItemView.extend({
         App.data.players.each(function(player) {
             players.push(player);
         });
+
+        // get points leader
         var maxPoints = _.max(players, function(player){ return player.attributes.points });
         
+        // get rebounds leader
+        var maxRebounds = _.max(players, function(player){ return player.attributes.rebounds });
+        
+        // get steals leader
+        var maxSteals = _.max(players, function(player){ return player.attributes.steals });
+
         var teams = [];
         this.collection.each(function(team) {
             teams.push(team);
@@ -19939,6 +20198,8 @@ module.exports = statsView = Marionette.ItemView.extend({
 
         return {
             maxPoints: maxPoints,
+            maxRebounds: maxRebounds,
+            maxSteals: maxSteals,
             homeTeam: teams[0],
             awayTeam: teams[1]
         }
@@ -20111,7 +20372,7 @@ var settings = {
      legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
  }
-},{"../../../templates/chartView/chartView.hbs":39,"../../collections/teams":17,"backbone.marionette":2}],25:[function(require,module,exports){
+},{"../../../templates/chartView/chartView.hbs":40,"../../collections/teams":18,"backbone.marionette":2}],26:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 module.exports = MenuView = Backbone.Marionette.Layout.extend({
@@ -20124,7 +20385,7 @@ module.exports = MenuView = Backbone.Marionette.Layout.extend({
     onShow: function(){
     }
 });
-},{"../../../templates/menu/menu.hbs":40,"backbone.marionette":2}],26:[function(require,module,exports){
+},{"../../../templates/menu/menu.hbs":41,"backbone.marionette":2}],27:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 var listPlayersView = Marionette.ItemView.extend({
@@ -20196,9 +20457,8 @@ module.exports = PlayersSettingsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/playersView/playerView.hbs":41,"../../../templates/playersView/playersView.hbs":42,"backbone.marionette":2}],27:[function(require,module,exports){
-var Marionette = require('backbone.marionette'),
-    TeamsCollection = require('../../collections/teams');
+},{"../../../templates/playersView/playerView.hbs":42,"../../../templates/playersView/playersView.hbs":43,"backbone.marionette":2}],28:[function(require,module,exports){
+var Marionette = require('backbone.marionette');
 
 var ScoresView = Backbone.Marionette.ItemView.extend({
     className: 'score-data-circle',
@@ -20222,6 +20482,17 @@ var ScoresView = Backbone.Marionette.ItemView.extend({
         this.model.set('points', userVersion);
         this.model.save();
 
+    },
+    templateHelpers:function(){
+        
+        var foulcount = this.model.get('fouls');
+        var bonus = foulcount >= 7 && foulcount < 10;
+        var dblbonus = foulcount >= 10;
+
+        return {
+            bonus: bonus,
+            dblbonus: dblbonus
+        }
     }
 });
 
@@ -20233,7 +20504,6 @@ var ScoreboardScoreView = Backbone.Marionette.CollectionView.extend({
     itemView: ScoresView
 });
 
-// USE LAYOUT VIEW??
 module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     template: require('../../../templates/scoreboard/scoreboard.hbs'),
     events: {
@@ -20256,38 +20526,14 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
 
         var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byPlaying() });
         this.scores.show(scoreboardScoreView);
-        
-        $timer = this.$el.find('.timer');
 
-        window.myTimer = new Timer({
-            onstart : function(sec) {
-                var minutes = Math.floor(sec / 60);
-                var seconds = sec - minutes * 60;
-                $timer.text(minutes +':'+ seconds);
-            },
-            ontick  : function(sec) {
-                var minutes = Math.floor(sec / 60);
-                var seconds = sec - minutes * 60;
-                $timer.text(minutes +':'+ seconds);
-            },
-            onpause : function() {
-            },
-            onstop  : function() {
-            },
-            onend   : function() {
-            }
-        });
-
-    },
-    startClock: function() {
-        myTimer.start(1200);
     }
 });
 
 
 
 
-},{"../../../templates/scoreboard/scoreboard.hbs":43,"../../../templates/scoreboard/scores.hbs":44,"../../collections/teams":17,"backbone.marionette":2}],28:[function(require,module,exports){
+},{"../../../templates/scoreboard/scoreboard.hbs":44,"../../../templates/scoreboard/scores.hbs":45,"backbone.marionette":2}],29:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 var TeamsCollection = require('../../collections/teams');
 
@@ -20475,7 +20721,7 @@ module.exports = PlayersView = Marionette.CollectionView.extend({
     itemView: playerView
 });
 
-},{"../../../templates/statsView/player.hbs":45,"../../collections/teams":17,"backbone.marionette":2}],29:[function(require,module,exports){
+},{"../../../templates/statsView/player.hbs":46,"../../collections/teams":18,"backbone.marionette":2}],30:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('./teams'),
@@ -20523,7 +20769,7 @@ module.exports = statsView = Marionette.Layout.extend({
     }
 });
 
-},{"../../../templates/statsView/statsView.hbs":46,"../../collections/teams":17,"../chartView/chartView":24,"./teams":33,"backbone.marionette":2,"snapjs":9}],30:[function(require,module,exports){
+},{"../../../templates/statsView/statsView.hbs":47,"../../collections/teams":18,"../chartView/chartView":25,"./teams":34,"backbone.marionette":2,"snapjs":9}],31:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are on the bench */
@@ -20571,7 +20817,7 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
-},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":50,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"backbone.marionette":2}],31:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"backbone.marionette":2}],32:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are playing */
@@ -20620,7 +20866,7 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     itemView: playingPlayerView
 });
 /* end players who are playing */
-},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":52,"backbone.marionette":2}],32:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":53,"backbone.marionette":2}],33:[function(require,module,exports){
 var Marionette         = require('backbone.marionette'),
     PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
     BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
@@ -20837,7 +21083,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         }
     }
 });
-},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":48,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":49,"../../../../templates/statsView/teamEditor/rosterSettings.hbs":53,"../../../../templates/statsView/teamEditor/teamSettings.hbs":54,"./benchPlayers/benchPlayers.js":30,"./playingPlayers/playingPlayers.js":31,"backbone.marionette":2}],33:[function(require,module,exports){
+},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":49,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":50,"../../../../templates/statsView/teamEditor/rosterSettings.hbs":54,"../../../../templates/statsView/teamEditor/teamSettings.hbs":55,"./benchPlayers/benchPlayers.js":31,"./playingPlayers/playingPlayers.js":32,"backbone.marionette":2}],34:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
     TeamEditorView = require('./teamEditor/teamEditor.js'),
@@ -20942,7 +21188,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/statsView/team.hbs":47,"../../collections/players":16,"./player":28,"./teamEditor/teamEditor.js":32,"backbone.marionette":2}],34:[function(require,module,exports){
+},{"../../../templates/statsView/team.hbs":48,"../../collections/players":17,"./player":29,"./teamEditor/teamEditor.js":33,"backbone.marionette":2}],35:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are on the bench */
@@ -20986,7 +21232,7 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
-},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":50,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"backbone.marionette":2}],35:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"backbone.marionette":2}],36:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are playing */
@@ -21021,7 +21267,7 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     itemView: playingPlayerView
 });
 /* end players who are playing */
-},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":52,"backbone.marionette":2}],36:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":53,"backbone.marionette":2}],37:[function(require,module,exports){
 var Marionette         = require('backbone.marionette'),
     PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
     BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
@@ -21237,7 +21483,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         this.options.teamModel.save();
     }
 });
-},{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":56,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":57,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":59,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":60,"./benchPlayers/benchPlayers.js":34,"./playingPlayers/playingPlayers.js":35,"backbone.marionette":2}],37:[function(require,module,exports){
+},{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":57,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":58,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":60,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":61,"./benchPlayers/benchPlayers.js":35,"./playingPlayers/playingPlayers.js":36,"backbone.marionette":2}],38:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     TeamSettingsLayoutView = require('./teamEditor/teamEditor');
 
@@ -21446,7 +21692,7 @@ module.exports = TeamsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/teamsView/team-list.hbs":55,"../../../templates/teamsView/teamEditor/createTeamView.hbs":58,"../../../templates/teamsView/teamsView.hbs":61,"./teamEditor/teamEditor":36,"backbone.marionette":2}],38:[function(require,module,exports){
+},{"../../../templates/teamsView/team-list.hbs":56,"../../../templates/teamsView/teamEditor/createTeamView.hbs":59,"../../../templates/teamsView/teamsView.hbs":62,"./teamEditor/teamEditor":37,"backbone.marionette":2}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21458,7 +21704,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
   });
 
-},{"hbsfy/runtime":65}],39:[function(require,module,exports){
+},{"hbsfy/runtime":66}],40:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21469,26 +21715,58 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n            <img src=\""
+  buffer += "\r\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n        ";
+    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n            ";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n            <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\"/> \r\n        ";
+  return "\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\"/> \r\n            ";
   }
 
-  buffer += "<div class=\"leader\" style=\"background-color: #eee; padding: 20px;\">\r\n    <div class=\"points-leader\">\r\n        ";
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n                <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n            ";
+  return buffer;
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n                <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" class=\"img-circle img-responsive\" style=\"height: 65px; width: 65px; margin: auto;\">\r\n            ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"leader\" style=\"background-color: #eee; padding: 20px;height: 230px;\">\r\n    <div class=\"leader-block\">\r\n        <div class=\"points-leader\">\r\n            ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n	        <span style=\"border: 2px solid;padding: 7px;\">"
+  buffer += "\r\n    	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n    	        <span style=\"border: 2px solid;padding: 7px;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\r\n	        <h1 style=\"font-size: 50px; margin: 15px 0 0 0;\">"
+    + "</span>\r\n    	        <h1 style=\"font-size: 50px; margin: 15px 0 0 0;\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n	        points\r\n	    </div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"share-game\" style=\"text-align: center;padding: 20px 0;background-color: #fff;\">\r\n    <button class=\"btn post-stats\" style=\"border-radius: 0; border: 1px solid; color: #0a46cd;\">Share this game?</button>\r\n</div>\r\n\r\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\r\n    <div style=\"margin-top: 15px;text-transform: uppercase;font-size: 11px;text-align: center;\">\r\n        <span style=\"background-color: "
+    + "</h1> \r\n    	        points\r\n    	    </div>\r\n    	</div>\r\n    </div>\r\n    <div class=\"leader-block\">\r\n        <div class=\"rebounds-leader\">\r\n            ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\r\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n                <span style=\"border: 2px solid;padding: 7px;\">"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\r\n                <h1 style=\"font-size: 50px; margin: 15px 0 0 0;\">"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.rebounds)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</h1> \r\n                rebounds\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"leader-block\">\r\n        <div class=\"steals-leader\">\r\n            ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(3, program3, data),fn:self.program(7, program7, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\r\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n                <span style=\"border: 2px solid;padding: 7px;\">"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\r\n                <h1 style=\"font-size: 50px; margin: 15px 0 0 0;\">"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.steals)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</h1> \r\n                steals\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"share-game\" style=\"text-align: center;padding: 20px 0;background-color: #fff;\">\r\n    <button class=\"btn post-stats\" style=\"border-radius: 0; border: 1px solid; color: #0a46cd;\">Share this game?</button>\r\n</div>\r\n\r\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\r\n    <div style=\"margin-top: 15px;text-transform: uppercase;font-size: 11px;text-align: center;\">\r\n        <span style=\"background-color: "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_color)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "; width: 5px; height: 5px; border-radius: 100em;margin-right: 5px;display: inline-block;margin-bottom: 3px;\"></span>\r\n        "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -21500,7 +21778,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],40:[function(require,module,exports){
+},{"hbsfy/runtime":66}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21512,7 +21790,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":65}],41:[function(require,module,exports){
+},{"hbsfy/runtime":66}],42:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21564,7 +21842,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],42:[function(require,module,exports){
+},{"hbsfy/runtime":66}],43:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21576,20 +21854,19 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"the-players\"></div>";
   });
 
-},{"hbsfy/runtime":65}],43:[function(require,module,exports){
+},{"hbsfy/runtime":66}],44:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "";
+  
 
 
-  buffer += "\r\n\r\n\r\n<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n\r\n	    <div class=\"scores\"></div>\r\n\r\n	    <div class=\"clock center\">\r\n		    <div style=\"display: inline-block;\">1</div>\r\n		    <div style=\"display: inline-block;\">2</div>\r\n	    </div>\r\n\r\n	</div>\r\n</div>";
-  return buffer;
+  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n\r\n	    <div class=\"scores\"></div>\r\n\r\n	    <div class=\"clock center\">\r\n		    <div style=\"display: inline-block;\">1</div>\r\n		    <div style=\"display: inline-block;\">2</div>\r\n	    </div>\r\n\r\n	</div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":65}],44:[function(require,module,exports){
+},{"hbsfy/runtime":66}],45:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21601,6 +21878,18 @@ function program1(depth0,data) {
   
   
   return "\r\n        <div style=\"\" class=\"foul-circle add-foul\"></div>\r\n    ";
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\r\n        <span class=\"bonus true\">bonus</span>\r\n    ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\r\n        <span class=\"bonus true\">double bonus</span>\r\n    ";
   }
 
   buffer += "<!-- timeouts for each team -->\r\n<div class=\"team-timeouts\">\r\n	<div class=\"timeout-circle add-timeout\"></div>\r\n	<div class=\"timeout-circle add-timeout\"></div>\r\n</div>\r\n\r\n<!-- score for each team -->\r\n<div class=\"scoreboard-points editable\" style=\"border-color: ";
@@ -21615,11 +21904,17 @@ function program1(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.foulCount || depth0.foulCount),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "foulCount", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n    <span class=\"bonus true\">bonus</span>\r\n</div>\r\n\r\n";
+  buffer += "\r\n\r\n    ";
+  stack2 = helpers['if'].call(depth0, depth0.bonus, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\r\n\r\n    ";
+  stack2 = helpers['if'].call(depth0, depth0.dblbonus, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\r\n\r\n</div>\r\n\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],45:[function(require,module,exports){
+},{"hbsfy/runtime":66}],46:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21715,7 +22010,7 @@ function program7(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],46:[function(require,module,exports){
+},{"hbsfy/runtime":66}],47:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21727,7 +22022,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"app row\" style=\"margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":65}],47:[function(require,module,exports){
+},{"hbsfy/runtime":66}],48:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21753,7 +22048,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],48:[function(require,module,exports){
+},{"hbsfy/runtime":66}],49:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21778,7 +22073,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],49:[function(require,module,exports){
+},{"hbsfy/runtime":66}],50:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21795,7 +22090,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],50:[function(require,module,exports){
+},{"hbsfy/runtime":66}],51:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21807,7 +22102,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Bench</p>";
   });
 
-},{"hbsfy/runtime":65}],51:[function(require,module,exports){
+},{"hbsfy/runtime":66}],52:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21847,7 +22142,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],52:[function(require,module,exports){
+},{"hbsfy/runtime":66}],53:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21859,7 +22154,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Playing</p>";
   });
 
-},{"hbsfy/runtime":65}],53:[function(require,module,exports){
+},{"hbsfy/runtime":66}],54:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21871,7 +22166,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":65}],54:[function(require,module,exports){
+},{"hbsfy/runtime":66}],55:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21890,7 +22185,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],55:[function(require,module,exports){
+},{"hbsfy/runtime":66}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21927,9 +22222,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],56:[function(require,module,exports){
-module.exports=require(48)
-},{"hbsfy/runtime":65}],57:[function(require,module,exports){
+},{"hbsfy/runtime":66}],57:[function(require,module,exports){
+module.exports=require(49)
+},{"hbsfy/runtime":66}],58:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21946,7 +22241,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":65}],58:[function(require,module,exports){
+},{"hbsfy/runtime":66}],59:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21958,9 +22253,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"create-new-player\">\r\n		        <form id=\"CreateTeam\">\r\n				    <div class=\"col-md-6\">\r\n					    <input class=\"team_name\" type=\"text\" />\r\n					</div>\r\n					<div class=\"col-md-6\">\r\n						<input class=\"team_color\" type=\"text\" />\r\n					</div>\r\n					<button type=\"submit\">Create</button>\r\n				</form>\r\n			</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":65}],59:[function(require,module,exports){
-module.exports=require(53)
-},{"hbsfy/runtime":65}],60:[function(require,module,exports){
+},{"hbsfy/runtime":66}],60:[function(require,module,exports){
+module.exports=require(54)
+},{"hbsfy/runtime":66}],61:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21972,7 +22267,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n\r\n    <!-- temp throw delete button here -->\r\n    <div class=\"delete-player\">\r\n        <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</button>\r\n    </div>\r\n\r\n    <!-- temp throw change color form -->\r\n    <form class=\"change-color\">\r\n        <input class=\"team_color\" name=\"team_color\" type=\"text\" placeholder=\"change team color\" />\r\n        <button type=\"submit\">Change</button>\r\n    </form>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-team-area col-md-12\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":65}],61:[function(require,module,exports){
+},{"hbsfy/runtime":66}],62:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21984,7 +22279,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<!-- div to display teamCreator -->\r\n<div class=\"new-team-editor\"></div>\r\n\r\n<!-- div to display teamCreator button -->\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n		<button class=\"btn create-team-btn\">+ create team</button>\r\n	</div>\r\n</div>\r\n\r\n<!-- div to display all the teams -->\r\n<div class=\"the-teams\"></div>";
   });
 
-},{"hbsfy/runtime":65}],62:[function(require,module,exports){
+},{"hbsfy/runtime":66}],63:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -22152,7 +22447,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -22260,7 +22555,7 @@ return Handlebars;
 
 };
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -22345,7 +22640,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -22356,4 +22651,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":62,"handlebars/lib/handlebars/runtime":63,"handlebars/lib/handlebars/utils":64}]},{},[19])
+},{"handlebars/lib/handlebars/base":63,"handlebars/lib/handlebars/runtime":64,"handlebars/lib/handlebars/utils":65}]},{},[20])

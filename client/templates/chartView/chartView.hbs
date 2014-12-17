@@ -1,16 +1,46 @@
-<div class="leader" style="background-color: #eee; padding: 20px;">
-    <div class="points-leader">
-        {{#if maxPoints.attributes.player_picture}}
-            <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
-        {{else}}
-            <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
-        {{/if}}
-	    <div class="leader-points" style="text-align: center; padding: 20px;">
-	        <span style="border: 2px solid;padding: 7px;">{{maxPoints.attributes.player_name}}</span>
-	        <h1 style="font-size: 50px; margin: 15px 0 0 0;">{{maxPoints.attributes.points}}</h1> 
-	        points
-	    </div>
-	</div>
+<div class="leader" style="background-color: #eee; padding: 20px;height: 230px;">
+    <div class="leader-block">
+        <div class="points-leader">
+            {{#if maxPoints.attributes.player_picture}}
+                <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+            {{else}}
+                <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
+            {{/if}}
+    	    <div class="leader-points" style="text-align: center; padding: 20px;">
+    	        <span style="border: 2px solid;padding: 7px;">{{maxPoints.attributes.player_name}}</span>
+    	        <h1 style="font-size: 50px; margin: 15px 0 0 0;">{{maxPoints.attributes.points}}</h1> 
+    	        points
+    	    </div>
+    	</div>
+    </div>
+    <div class="leader-block">
+        <div class="rebounds-leader">
+            {{#if maxRebounds.attributes.player_picture}}
+                <img src="{{maxRebounds.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+            {{else}}
+                <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
+            {{/if}}
+            <div class="leader-points" style="text-align: center; padding: 20px;">
+                <span style="border: 2px solid;padding: 7px;">{{maxRebounds.attributes.player_name}}</span>
+                <h1 style="font-size: 50px; margin: 15px 0 0 0;">{{maxRebounds.attributes.rebounds}}</h1> 
+                rebounds
+            </div>
+        </div>
+    </div>
+    <div class="leader-block">
+        <div class="steals-leader">
+            {{#if maxSteals.attributes.player_picture}}
+                <img src="{{maxSteals.attributes.player_picture}}" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;">
+            {{else}}
+                <img src="./img/default.jpg" class="img-circle img-responsive" style="height: 65px; width: 65px; margin: auto;"/> 
+            {{/if}}
+            <div class="leader-points" style="text-align: center; padding: 20px;">
+                <span style="border: 2px solid;padding: 7px;">{{maxSteals.attributes.player_name}}</span>
+                <h1 style="font-size: 50px; margin: 15px 0 0 0;">{{maxSteals.attributes.steals}}</h1> 
+                steals
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="share-game" style="text-align: center;padding: 20px 0;background-color: #fff;">

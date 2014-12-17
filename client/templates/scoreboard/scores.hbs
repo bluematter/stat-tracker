@@ -14,6 +14,14 @@
     {{#foulCount fouls}}
         <div style="" class="foul-circle add-foul"></div>
     {{/foulCount}}
-    <span class="bonus true">bonus</span>
+
+    {{#if bonus}}
+        <span class="bonus true">bonus</span>
+    {{/if}}
+
+    {{#if dblbonus}}
+        <span class="bonus true">double bonus</span>
+    {{/if}}
+
 </div>
 

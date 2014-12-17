@@ -1,3 +1,8 @@
+@keyframes round{   
+  25%{opacity:1;}
+  40%{opacity:0;}
+} 
+
 .chart {
 	position: absolute;
 	right: 0;
@@ -11,4 +16,19 @@
 		left: -2px;
 		bottom: -23px;
 	}
+
+	.leader-block {
+	    position: absolute;
+		animation: round 16s infinite;
+		opacity: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.leader-block:nth-child(4){animation-delay:12s;}
+	.leader-block:nth-child(3){animation-delay:8s;}
+	.leader-block:nth-child(2){animation-delay:4s;}
+	.leader-block:nth-child(1){animation-delay:0s;}
+
+
 }

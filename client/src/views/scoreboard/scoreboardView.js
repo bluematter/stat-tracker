@@ -22,6 +22,17 @@ var ScoresView = Backbone.Marionette.ItemView.extend({
         this.model.set('points', userVersion);
         this.model.save();
 
+    },
+    templateHelpers:function(){
+        
+        var foulcount = this.model.get('fouls');
+        var bonus = foulcount >= 7 && foulcount < 10;
+        var dblbonus = foulcount >= 10;
+
+        return {
+            bonus: bonus,
+            dblbonus: dblbonus
+        }
     }
 });
 

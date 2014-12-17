@@ -6238,6 +6238,20 @@ button {
     margin: 4px 10px 0 0;
     width: 50px; }
 
+@-webkit-keyframes round {
+  25% {
+    opacity: 1; }
+
+  40% {
+    opacity: 0; } }
+
+@keyframes round {
+  25% {
+    opacity: 1; }
+
+  40% {
+    opacity: 0; } }
+
 .chart {
   position: absolute;
   right: 0;
@@ -6251,6 +6265,25 @@ button {
     position: absolute;
     left: -2px;
     bottom: -23px; }
+  .chart .leader-block {
+    position: absolute;
+    -webkit-animation: round 16s infinite;
+    animation: round 16s infinite;
+    opacity: 0;
+    left: 0;
+    right: 0; }
+  .chart .leader-block:nth-child(4) {
+    -webkit-animation-delay: 12s;
+    animation-delay: 12s; }
+  .chart .leader-block:nth-child(3) {
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s; }
+  .chart .leader-block:nth-child(2) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s; }
+  .chart .leader-block:nth-child(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s; }
 
 @-webkit-keyframes myfirst {
   0% {

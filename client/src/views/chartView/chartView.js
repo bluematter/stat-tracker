@@ -92,8 +92,16 @@ module.exports = statsView = Marionette.ItemView.extend({
         App.data.players.each(function(player) {
             players.push(player);
         });
+
+        // get points leader
         var maxPoints = _.max(players, function(player){ return player.attributes.points });
         
+        // get rebounds leader
+        var maxRebounds = _.max(players, function(player){ return player.attributes.rebounds });
+        
+        // get steals leader
+        var maxSteals = _.max(players, function(player){ return player.attributes.steals });
+
         var teams = [];
         this.collection.each(function(team) {
             teams.push(team);
@@ -101,6 +109,8 @@ module.exports = statsView = Marionette.ItemView.extend({
 
         return {
             maxPoints: maxPoints,
+            maxRebounds: maxRebounds,
+            maxSteals: maxSteals,
             homeTeam: teams[0],
             awayTeam: teams[1]
         }

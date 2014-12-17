@@ -78,7 +78,8 @@
     "slimscroll": "./bower_components/slimScroll/jquery.slimscroll.js",
     "chartjs": "./bower_components/chartjs/Chart.js",
     "colourBrightness": "./client/requires/colourBrightness.js-master/jquery.colourbrightness.js",
-    "timerjs": "./bower_components/timerjs/src/timer.js"
+    "timerjs": "./bower_components/timerjs/src/timer.js",
+    "unslider": "./bower_components/unslider/src/unslider.js"
   },
   "browserify": {
     "transform": [
