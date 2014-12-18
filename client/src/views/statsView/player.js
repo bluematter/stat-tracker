@@ -134,7 +134,18 @@ var playerView = Marionette.ItemView.extend({
         var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
         var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
         thisPlayersTeam.each(function(theTeam) {
-            theTeam.save({fouls: parseInt(theTeam.get('fouls')) + 1 });
+            if(theTeam.get('half') === 1) {
+                theTeam.save({
+                    fouls: parseInt(theTeam.get('fouls')) + 1, 
+                    firstHalf_fouls: parseInt(theTeam.get('firstHalf_fouls')) + 1
+                });
+            } 
+            if(theTeam.get('half') === 2) {
+                theTeam.save({
+                    fouls: parseInt(theTeam.get('fouls')) + 1, 
+                    secondHalf_fouls: parseInt(theTeam.get('secondHalf_fouls')) + 1
+                }); 
+            }
         });
     },
     on_keypress:function(e) {

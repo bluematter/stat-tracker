@@ -19686,9 +19686,16 @@ var Marionette        = require('backbone.marionette'),
     TeamsCollection   = require('./collections/teams');
 
 // Handlebars helpers
+Handlebars.registerHelper('is', function(v1, v2, options) {
+    if(v1 === v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
 Handlebars.registerHelper('shorten', function(str) {
     if (str.length > 8)
-      return str.substring(0,8) + '...';
+        return str.substring(0,8) + '...';
     return str;
 }); 
 
@@ -19776,7 +19783,7 @@ App.prototype.start = function(){
     App.core.start();
 };
 
-},{"./collections/players":17,"./collections/teams":18,"./controller":19,"./models/player":21,"./models/team":22,"./router":23,"backbone.dualStorage":1,"backbone.marionette":2,"bootstrap":14,"chartjs":6,"colourBrightness":15,"hbsfy/runtime":66,"slimscroll":8,"timerjs":10,"unslider":12}],17:[function(require,module,exports){
+},{"./collections/players":17,"./collections/teams":18,"./controller":19,"./models/player":21,"./models/team":22,"./router":23,"backbone.dualStorage":1,"backbone.marionette":2,"bootstrap":14,"chartjs":6,"colourBrightness":15,"hbsfy/runtime":67,"slimscroll":8,"timerjs":10,"unslider":12}],17:[function(require,module,exports){
 var Backbone = require('backbone'),
     PlayerModel = require('../models/player');
 
@@ -19942,14 +19949,12 @@ module.exports = PlayerModel = Backbone.Model.extend({
 },{"backbone.marionette":2}],22:[function(require,module,exports){
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
-//var NestedModel       = require('backbone.nested');
-//var Relational = require('backbone.relational');
 
 module.exports = TeamModel = Backbone.Model.extend({
     idAttribute: '_id',
     defaults: {
         team_name: '',
-        team_color:   '#ffffff',         
+        team_color:   '#777',         
         points:       0, 
         made_one:     0, 
         made_two:     0, 
@@ -19962,8 +19967,12 @@ module.exports = TeamModel = Backbone.Model.extend({
         rebounds:     0, 
         steals:       0, 
         blocks:       0, 
-        fouls:        0, 
-        feed: ''
+        fouls:        0,
+        half:         1,
+        firstHalf_timeout: false,
+        secondHalf_timeout: false,
+        firstHalf_fouls: 0,
+        secondHalf_fouls: 0
     }
 });
 
@@ -20464,19 +20473,28 @@ var ScoresView = Backbone.Marionette.ItemView.extend({
     className: 'score-data-circle',
     template: require('../../../templates/scoreboard/scores.hbs'),
     events: {
+        'click .timeout-circle': 'teamTimeout',
         'focusout .editable': 'saveEdit'
     },
     initialize: function(){
         // anytime something within this specific team changes, render
         this.listenTo(this.model, 'change', this.render);
     },
+    teamTimeout: function() {
+        
+        if(this.model.get('half') === 1) {
+            this.model.set('firstHalf_timeout', true);
+            this.model.save();
+        } else {
+            this.model.set('secondHalf_timeout', true);
+            this.model.save();
+        }
+
+    },
     saveEdit: function(e) {
 
-        //get the editable element
-        var editElem = $(e.currentTarget);
-
         //get the edited element content
-        var userVersion = editElem.html();
+        var userVersion = $(e.currentTarget).html();
 
         //save the edited model
         this.model.set('points', userVersion);
@@ -20484,46 +20502,93 @@ var ScoresView = Backbone.Marionette.ItemView.extend({
 
     },
     templateHelpers:function(){
-        
-        var foulcount = this.model.get('fouls');
-        var bonus = foulcount >= 7 && foulcount < 10;
-        var dblbonus = foulcount >= 10;
+
+        // evaluate fouls by half
+        if(this.model.get('half') === 1) {
+
+            // is first half timeout used?
+            var timeout = this.model.get('firstHalf_timeout');
+            
+            // evaluate first half fouls
+            var fouls = this.model.get('firstHalf_fouls');
+            var bonus = fouls >= 7 && fouls < 10;
+            var dblbonus = fouls >= 10;
+
+        } else {
+
+            // is second half timeout used?
+            var timeout = this.model.get('secondHalf_timeout');
+
+            // evaluate second half fouls
+            var fouls = this.model.get('secondHalf_fouls');
+            var bonus = fouls >= 7 && fouls < 10;
+            var dblbonus = fouls >= 10;
+
+        }
 
         return {
+            fouls: fouls,
             bonus: bonus,
-            dblbonus: dblbonus
+            dblbonus: dblbonus,
+            timeout: timeout
         }
+
     }
 });
 
-var ScoreboardScoreView = Backbone.Marionette.CollectionView.extend({
+var ScoreboardScoreView = Backbone.Marionette.CompositeView.extend({
     className: 'scores',
+    template: require('../../../templates/scoreboard/halfs.hbs'),
+    events: {
+        'click .half-button': 'changeHalf',
+    },
     initialize: function(){
         this.listenTo(this.collection, 'change', this.render);
+    },
+    changeHalf: function() {
+        
+        // change half by listening to changes to global filtered collexction
+        this.collection.each(function(team) {
+            if(team.get('half') === 1) {
+                team.set('half', 2);
+                team.save();
+            } else {
+                team.set('half', 1);
+                team.save();
+            }
+        });
+
+    },
+    templateHelpers:function(){
+        
+        // get current half by listening to changes to global filtered collexction
+        var half = ''
+        this.collection.each(function(team) {
+            half = team.get('half');
+        });
+
+        return {
+            half: half
+        }
+
     },
     itemView: ScoresView
 });
 
 module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     template: require('../../../templates/scoreboard/scoreboard.hbs'),
-    events: {
-        'click .scoreboard-time': 'startClock'
-    },
     regions: {
         scores: '.scores'
     },
     initialize: function(){
-        this.listenTo(App.data.teams, 'change', this.render);
 
-        var self = this;
-        
-        // as of now the only way we can update playingTeam collection??
-        App.vent.on('home-team-change', function(data){ self.render() });
-        App.vent.on('away-team-change', function(data){ self.render() });
+        // listen to when a new team is playing
+        this.listenTo(App.data.teams, 'change:playing', this.render);
 
     },
     onRender: function(){
-
+        
+        // listen to global collection of playing teams
         var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byPlaying() });
         this.scores.show(scoreboardScoreView);
 
@@ -20533,7 +20598,10 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
 
 
 
-},{"../../../templates/scoreboard/scoreboard.hbs":44,"../../../templates/scoreboard/scores.hbs":45,"backbone.marionette":2}],29:[function(require,module,exports){
+
+
+
+},{"../../../templates/scoreboard/halfs.hbs":44,"../../../templates/scoreboard/scoreboard.hbs":45,"../../../templates/scoreboard/scores.hbs":46,"backbone.marionette":2}],29:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 var TeamsCollection = require('../../collections/teams');
 
@@ -20670,7 +20738,18 @@ var playerView = Marionette.ItemView.extend({
         var getPlayersTeam = App.data.teams.where({_id: this.model.get('team_id')});
         var thisPlayersTeam = new TeamsCollection(getPlayersTeam);
         thisPlayersTeam.each(function(theTeam) {
-            theTeam.save({fouls: parseInt(theTeam.get('fouls')) + 1 });
+            if(theTeam.get('half') === 1) {
+                theTeam.save({
+                    fouls: parseInt(theTeam.get('fouls')) + 1, 
+                    firstHalf_fouls: parseInt(theTeam.get('firstHalf_fouls')) + 1
+                });
+            } 
+            if(theTeam.get('half') === 2) {
+                theTeam.save({
+                    fouls: parseInt(theTeam.get('fouls')) + 1, 
+                    secondHalf_fouls: parseInt(theTeam.get('secondHalf_fouls')) + 1
+                }); 
+            }
         });
     },
     on_keypress:function(e) {
@@ -20721,7 +20800,7 @@ module.exports = PlayersView = Marionette.CollectionView.extend({
     itemView: playerView
 });
 
-},{"../../../templates/statsView/player.hbs":46,"../../collections/teams":18,"backbone.marionette":2}],30:[function(require,module,exports){
+},{"../../../templates/statsView/player.hbs":47,"../../collections/teams":18,"backbone.marionette":2}],30:[function(require,module,exports){
 var Marionette   = require('backbone.marionette'),
     Snap         = require('snapjs'),
     TeamsView    = require('./teams'),
@@ -20769,7 +20848,7 @@ module.exports = statsView = Marionette.Layout.extend({
     }
 });
 
-},{"../../../templates/statsView/statsView.hbs":47,"../../collections/teams":18,"../chartView/chartView":25,"./teams":34,"backbone.marionette":2,"snapjs":9}],31:[function(require,module,exports){
+},{"../../../templates/statsView/statsView.hbs":48,"../../collections/teams":18,"../chartView/chartView":25,"./teams":34,"backbone.marionette":2,"snapjs":9}],31:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are on the bench */
@@ -20817,7 +20896,7 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
-},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"backbone.marionette":2}],32:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"backbone.marionette":2}],32:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are playing */
@@ -20866,7 +20945,7 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     itemView: playingPlayerView
 });
 /* end players who are playing */
-},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":53,"backbone.marionette":2}],33:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":54,"backbone.marionette":2}],33:[function(require,module,exports){
 var Marionette         = require('backbone.marionette'),
     PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
     BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
@@ -21083,7 +21162,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         }
     }
 });
-},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":49,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":50,"../../../../templates/statsView/teamEditor/rosterSettings.hbs":54,"../../../../templates/statsView/teamEditor/teamSettings.hbs":55,"./benchPlayers/benchPlayers.js":31,"./playingPlayers/playingPlayers.js":32,"backbone.marionette":2}],34:[function(require,module,exports){
+},{"../../../../templates/statsView/teamEditor/addFacebookPlayer.hbs":50,"../../../../templates/statsView/teamEditor/addplayerSettings.hbs":51,"../../../../templates/statsView/teamEditor/rosterSettings.hbs":55,"../../../../templates/statsView/teamEditor/teamSettings.hbs":56,"./benchPlayers/benchPlayers.js":31,"./playingPlayers/playingPlayers.js":32,"backbone.marionette":2}],34:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     PlayersView = require('./player'),
     TeamEditorView = require('./teamEditor/teamEditor.js'),
@@ -21188,7 +21267,7 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     itemView: teamView
 });
 
-},{"../../../templates/statsView/team.hbs":48,"../../collections/players":17,"./player":29,"./teamEditor/teamEditor.js":33,"backbone.marionette":2}],35:[function(require,module,exports){
+},{"../../../templates/statsView/team.hbs":49,"../../collections/players":17,"./player":29,"./teamEditor/teamEditor.js":33,"backbone.marionette":2}],35:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are on the bench */
@@ -21232,7 +21311,7 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     itemView: benchPlayerSettingsView
 });
 /* end players who are on the bench */
-},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":51,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"backbone.marionette":2}],36:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"backbone.marionette":2}],36:[function(require,module,exports){
 var Marionette = require('backbone.marionette');
 
 /* Players who are playing */
@@ -21267,7 +21346,7 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     itemView: playingPlayerView
 });
 /* end players who are playing */
-},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":52,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":53,"backbone.marionette":2}],37:[function(require,module,exports){
+},{"../../../../../templates/statsView/teamEditor/playerSettings.hbs":53,"../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs":54,"backbone.marionette":2}],37:[function(require,module,exports){
 var Marionette         = require('backbone.marionette'),
     PlayingPlayersView = require('./playingPlayers/playingPlayers.js'),
     BenchPlayersView   = require('./benchPlayers/benchPlayers.js');
@@ -21483,7 +21562,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         this.options.teamModel.save();
     }
 });
-},{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":57,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":58,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":60,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":61,"./benchPlayers/benchPlayers.js":35,"./playingPlayers/playingPlayers.js":36,"backbone.marionette":2}],38:[function(require,module,exports){
+},{"../../../../templates/teamsView/teamEditor/addFacebookPlayer.hbs":58,"../../../../templates/teamsView/teamEditor/addplayerSettings.hbs":59,"../../../../templates/teamsView/teamEditor/rosterSettings.hbs":61,"../../../../templates/teamsView/teamEditor/teamSettings.hbs":62,"./benchPlayers/benchPlayers.js":35,"./playingPlayers/playingPlayers.js":36,"backbone.marionette":2}],38:[function(require,module,exports){
 var Marionette = require('backbone.marionette'),
     TeamSettingsLayoutView = require('./teamEditor/teamEditor');
 
@@ -21692,7 +21771,7 @@ module.exports = TeamsView = Marionette.Layout.extend({
         },0);
     }
 });
-},{"../../../templates/teamsView/team-list.hbs":56,"../../../templates/teamsView/teamEditor/createTeamView.hbs":59,"../../../templates/teamsView/teamsView.hbs":62,"./teamEditor/teamEditor":37,"backbone.marionette":2}],39:[function(require,module,exports){
+},{"../../../templates/teamsView/team-list.hbs":57,"../../../templates/teamsView/teamEditor/createTeamView.hbs":60,"../../../templates/teamsView/teamsView.hbs":63,"./teamEditor/teamEditor":37,"backbone.marionette":2}],39:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21704,7 +21783,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
   });
 
-},{"hbsfy/runtime":66}],40:[function(require,module,exports){
+},{"hbsfy/runtime":67}],40:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21778,7 +21857,7 @@ function program7(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],41:[function(require,module,exports){
+},{"hbsfy/runtime":67}],41:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21790,7 +21869,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
   });
 
-},{"hbsfy/runtime":66}],42:[function(require,module,exports){
+},{"hbsfy/runtime":67}],42:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21842,7 +21921,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],43:[function(require,module,exports){
+},{"hbsfy/runtime":67}],43:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -21854,45 +21933,80 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"the-players\"></div>";
   });
 
-},{"hbsfy/runtime":66}],44:[function(require,module,exports){
+},{"hbsfy/runtime":67}],44:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
-
-
-  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n\r\n	    <div class=\"scores\"></div>\r\n\r\n	    <div class=\"clock center\">\r\n		    <div style=\"display: inline-block;\">1</div>\r\n		    <div style=\"display: inline-block;\">2</div>\r\n	    </div>\r\n\r\n	</div>\r\n</div>";
-  });
-
-},{"hbsfy/runtime":66}],45:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var Handlebars = require('hbsfy/runtime');
-module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = "", stack1, stack2, options, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
   
-  return "\r\n        <div style=\"\" class=\"foul-circle add-foul\"></div>\r\n    ";
+  return "true";
+  }
+
+  buffer += "<div class=\"clock center\">\r\n    <div class=\"half-button ";
+  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
+  stack2 = ((stack1 = helpers.is || depth0.is),stack1 ? stack1.call(depth0, depth0.half, 1, options) : helperMissing.call(depth0, "is", depth0.half, 1, options));
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += " first-half\">1</div>\r\n    <div class=\"half-button ";
+  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
+  stack2 = ((stack1 = helpers.is || depth0.is),stack1 ? stack1.call(depth0, depth0.half, 2, options) : helperMissing.call(depth0, "is", depth0.half, 2, options));
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += " second-half\">2</div>\r\n</div>";
+  return buffer;
+  });
+
+},{"hbsfy/runtime":67}],45:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n\r\n	    <div class=\"scores\"></div>\r\n\r\n	</div>\r\n</div>";
+  });
+
+},{"hbsfy/runtime":67}],46:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var Handlebars = require('hbsfy/runtime');
+module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, stack2, options, self=this, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  
+  return "true";
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n        <span class=\"bonus true\">bonus</span>\r\n    ";
+  return "\r\n        <div style=\"\" class=\"foul-circle add-foul\"></div>\r\n    ";
   }
 
 function program5(depth0,data) {
   
   
+  return "\r\n        <span class=\"bonus true\">bonus</span>\r\n    ";
+  }
+
+function program7(depth0,data) {
+  
+  
   return "\r\n        <span class=\"bonus true\">double bonus</span>\r\n    ";
   }
 
-  buffer += "<!-- timeouts for each team -->\r\n<div class=\"team-timeouts\">\r\n	<div class=\"timeout-circle add-timeout\"></div>\r\n	<div class=\"timeout-circle add-timeout\"></div>\r\n</div>\r\n\r\n<!-- score for each team -->\r\n<div class=\"scoreboard-points editable\" style=\"border-color: ";
+  buffer += "<!-- timeouts for each team -->\r\n<div class=\"team-timeouts\">\r\n	<div class=\"timeout-circle ";
+  stack1 = helpers['if'].call(depth0, depth0.timeout, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " add-timeout\"></div>\r\n</div>\r\n\r\n<!-- score for each team -->\r\n<div class=\"scoreboard-points editable\" style=\"border-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -21901,20 +22015,20 @@ function program5(depth0,data) {
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
     + "\r\n</div>\r\n\r\n<!-- team fouls for each team -->\r\n<div class=\"team-fouls\">\r\n    ";
-  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
+  options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data};
   stack2 = ((stack1 = helpers.foulCount || depth0.foulCount),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "foulCount", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\r\n\r\n    ";
-  stack2 = helpers['if'].call(depth0, depth0.bonus, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  stack2 = helpers['if'].call(depth0, depth0.bonus, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\r\n\r\n    ";
-  stack2 = helpers['if'].call(depth0, depth0.dblbonus, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  stack2 = helpers['if'].call(depth0, depth0.dblbonus, {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\r\n\r\n</div>\r\n\r\n";
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],46:[function(require,module,exports){
+},{"hbsfy/runtime":67}],47:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22010,7 +22124,7 @@ function program7(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],47:[function(require,module,exports){
+},{"hbsfy/runtime":67}],48:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22022,7 +22136,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"app row\" style=\"margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":66}],48:[function(require,module,exports){
+},{"hbsfy/runtime":67}],49:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22048,7 +22162,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],49:[function(require,module,exports){
+},{"hbsfy/runtime":67}],50:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22073,7 +22187,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],50:[function(require,module,exports){
+},{"hbsfy/runtime":67}],51:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22090,7 +22204,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],51:[function(require,module,exports){
+},{"hbsfy/runtime":67}],52:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22102,7 +22216,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Bench</p>";
   });
 
-},{"hbsfy/runtime":66}],52:[function(require,module,exports){
+},{"hbsfy/runtime":67}],53:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22142,7 +22256,7 @@ function program3(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],53:[function(require,module,exports){
+},{"hbsfy/runtime":67}],54:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22154,7 +22268,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<p>Playing</p>";
   });
 
-},{"hbsfy/runtime":66}],54:[function(require,module,exports){
+},{"hbsfy/runtime":67}],55:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22166,7 +22280,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>";
   });
 
-},{"hbsfy/runtime":66}],55:[function(require,module,exports){
+},{"hbsfy/runtime":67}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22185,7 +22299,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],56:[function(require,module,exports){
+},{"hbsfy/runtime":67}],57:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22222,9 +22336,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],57:[function(require,module,exports){
-module.exports=require(49)
-},{"hbsfy/runtime":66}],58:[function(require,module,exports){
+},{"hbsfy/runtime":67}],58:[function(require,module,exports){
+module.exports=require(50)
+},{"hbsfy/runtime":67}],59:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22241,7 +22355,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":66}],59:[function(require,module,exports){
+},{"hbsfy/runtime":67}],60:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22253,9 +22367,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"create-new-player\">\r\n		        <form id=\"CreateTeam\">\r\n				    <div class=\"col-md-6\">\r\n					    <input class=\"team_name\" type=\"text\" />\r\n					</div>\r\n					<div class=\"col-md-6\">\r\n						<input class=\"team_color\" type=\"text\" />\r\n					</div>\r\n					<button type=\"submit\">Create</button>\r\n				</form>\r\n			</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":66}],60:[function(require,module,exports){
-module.exports=require(54)
-},{"hbsfy/runtime":66}],61:[function(require,module,exports){
+},{"hbsfy/runtime":67}],61:[function(require,module,exports){
+module.exports=require(55)
+},{"hbsfy/runtime":67}],62:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22267,7 +22381,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n\r\n    <!-- temp throw delete button here -->\r\n    <div class=\"delete-player\">\r\n        <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</button>\r\n    </div>\r\n\r\n    <!-- temp throw change color form -->\r\n    <form class=\"change-color\">\r\n        <input class=\"team_color\" name=\"team_color\" type=\"text\" placeholder=\"change team color\" />\r\n        <button type=\"submit\">Change</button>\r\n    </form>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-team-area col-md-12\"></div>\r\n\r\n</div>\r\n";
   });
 
-},{"hbsfy/runtime":66}],62:[function(require,module,exports){
+},{"hbsfy/runtime":67}],63:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var Handlebars = require('hbsfy/runtime');
 module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -22279,7 +22393,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<!-- div to display teamCreator -->\r\n<div class=\"new-team-editor\"></div>\r\n\r\n<!-- div to display teamCreator button -->\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n		<button class=\"btn create-team-btn\">+ create team</button>\r\n	</div>\r\n</div>\r\n\r\n<!-- div to display all the teams -->\r\n<div class=\"the-teams\"></div>";
   });
 
-},{"hbsfy/runtime":66}],63:[function(require,module,exports){
+},{"hbsfy/runtime":67}],64:[function(require,module,exports){
 /*jshint eqnull: true */
 
 module.exports.create = function() {
@@ -22447,7 +22561,7 @@ Handlebars.registerHelper('log', function(context, options) {
 return Handlebars;
 };
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 // BEGIN(BROWSER)
@@ -22555,7 +22669,7 @@ return Handlebars;
 
 };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 exports.attach = function(Handlebars) {
 
 var toString = Object.prototype.toString;
@@ -22640,7 +22754,7 @@ Handlebars.Utils = {
 return Handlebars;
 };
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 var hbsBase = require("handlebars/lib/handlebars/base");
 var hbsUtils = require("handlebars/lib/handlebars/utils");
 var hbsRuntime = require("handlebars/lib/handlebars/runtime");
@@ -22651,4 +22765,4 @@ hbsRuntime.attach(Handlebars);
 
 module.exports = Handlebars;
 
-},{"handlebars/lib/handlebars/base":63,"handlebars/lib/handlebars/runtime":64,"handlebars/lib/handlebars/utils":65}]},{},[20])
+},{"handlebars/lib/handlebars/base":64,"handlebars/lib/handlebars/runtime":65,"handlebars/lib/handlebars/utils":66}]},{},[20])

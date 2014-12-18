@@ -11,12 +11,24 @@
 	}
     .scores, .clock {
 		color: #fff;
-		position: relative;
-        top: 6px;
+        .half-button {
+        	cursor: pointer;
+        	display: inline-block;
+			border: 1px solid;
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			margin-right: 15px;
+			&.true {
+				border-color: #7AC141
+			}
+        }
 		.score-data-circle {
-			float: left;
+			position: absolute;
+			top: 50%;
+			transform: translate(0,-50%);
 			&:last-child {
-			    float: right;
+			    right: 65px;
 			    .team-timeouts {
 					float: right;
 					margin-left: 15px;
@@ -38,14 +50,18 @@
 			.team-timeouts {
 				float: left;
 				margin-right: 15px;
+				position: relative;
+                z-index: 9999;
 				.timeout-circle {
 					margin: 10px 0;
-					background-color:#FFE701;
 					width:6px;
 					height:6px;
 					border:1px solid #FFE701;
 					position: relative;
 					cursor: pointer;
+					&.true {
+                        background-color:#FFE701;
+					}
 				}
 			}
 			.scoreboard-points {

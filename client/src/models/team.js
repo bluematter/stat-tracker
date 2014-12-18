@@ -1,13 +1,11 @@
 var Backbone          = require('backbone');
 var PlayersCollection = require('../collections/players');
-//var NestedModel       = require('backbone.nested');
-//var Relational = require('backbone.relational');
 
 module.exports = TeamModel = Backbone.Model.extend({
     idAttribute: '_id',
     defaults: {
         team_name: '',
-        team_color:   '#ffffff',         
+        team_color:   '#777',         
         points:       0, 
         made_one:     0, 
         made_two:     0, 
@@ -20,8 +18,12 @@ module.exports = TeamModel = Backbone.Model.extend({
         rebounds:     0, 
         steals:       0, 
         blocks:       0, 
-        fouls:        0, 
-        feed: ''
+        fouls:        0,
+        half:         1,
+        firstHalf_timeout: false,
+        secondHalf_timeout: false,
+        firstHalf_fouls: 0,
+        secondHalf_fouls: 0
     }
 });
 

@@ -20,8 +20,12 @@ var Team = new Schema({
     rebounds:     { type: Number },
     steals:       { type: Number },
     blocks:       { type: Number },
-    fouls:        { type: Number },  
-    feed:         { type: String }
+    fouls:        { type: Number },
+    half:         { type: Number },
+    firstHalf_timeout: { type: Boolean },
+    secondHalf_timeout: { type: Boolean },
+    firstHalf_fouls: { type: Number },
+    secondHalf_fouls: { type: Number }
 });
 
 var Player = new Schema({

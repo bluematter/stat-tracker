@@ -6743,13 +6743,25 @@ button {
     margin: 0 65px;
     height: 65px; }
   .scoreboard .scores, .scoreboard .clock {
-    color: #fff;
-    position: relative;
-    top: 6px; }
+    color: #fff; }
+    .scoreboard .scores .half-button, .scoreboard .clock .half-button {
+      cursor: pointer;
+      display: inline-block;
+      border: 1px solid;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      margin-right: 15px; }
+      .scoreboard .scores .half-button.true, .scoreboard .clock .half-button.true {
+        border-color: #7AC141; }
     .scoreboard .scores .score-data-circle, .scoreboard .clock .score-data-circle {
-      float: left; }
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%); }
       .scoreboard .scores .score-data-circle:last-child, .scoreboard .clock .score-data-circle:last-child {
-        float: right; }
+        right: 65px; }
         .scoreboard .scores .score-data-circle:last-child .team-timeouts, .scoreboard .clock .score-data-circle:last-child .team-timeouts {
           float: right;
           margin-left: 15px; }
@@ -6765,15 +6777,18 @@ button {
             margin-right: 20px; }
       .scoreboard .scores .score-data-circle .team-timeouts, .scoreboard .clock .score-data-circle .team-timeouts {
         float: left;
-        margin-right: 15px; }
+        margin-right: 15px;
+        position: relative;
+        z-index: 9999; }
         .scoreboard .scores .score-data-circle .team-timeouts .timeout-circle, .scoreboard .clock .score-data-circle .team-timeouts .timeout-circle {
           margin: 10px 0;
-          background-color: #FFE701;
           width: 6px;
           height: 6px;
           border: 1px solid #FFE701;
           position: relative;
           cursor: pointer; }
+          .scoreboard .scores .score-data-circle .team-timeouts .timeout-circle.true, .scoreboard .clock .score-data-circle .team-timeouts .timeout-circle.true {
+            background-color: #FFE701; }
       .scoreboard .scores .score-data-circle .scoreboard-points, .scoreboard .clock .score-data-circle .scoreboard-points {
         border: 2px solid #eee;
         border-radius: 100em;

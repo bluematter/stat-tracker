@@ -15,9 +15,16 @@ var Marionette        = require('backbone.marionette'),
     TeamsCollection   = require('./collections/teams');
 
 // Handlebars helpers
+Handlebars.registerHelper('is', function(v1, v2, options) {
+    if(v1 === v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
 Handlebars.registerHelper('shorten', function(str) {
     if (str.length > 8)
-      return str.substring(0,8) + '...';
+        return str.substring(0,8) + '...';
     return str;
 }); 
 

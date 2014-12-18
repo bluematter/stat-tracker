@@ -38,7 +38,12 @@ module.exports = {
             rebounds : req.body.rebounds,
             steals : req.body.steals,
             blocks : req.body.blocks,
-            fouls : req.body.fouls
+            fouls : req.body.fouls,
+            half : req.body.half,
+            firstHalf_timeout: req.body.firstHalf_timeout,
+            secondHalf_timeout: req.body.secondHalf_timeout,
+            firstHalf_fouls: req.body.firstHalf_fouls,
+            secondHalf_fouls: req.body.secondHalf_fouls
         }, function(err, updated) {
             if (err) {
                 res.json({error: 'Team not found.'});
@@ -67,7 +72,13 @@ module.exports = {
                         rebounds : 0,
                         steals : 0,
                         blocks : 0,
-                        fouls : 0
+                        fouls : 0,
+                        half: 1,
+                        firstHalf_timeout: false,
+                        secondHalf_timeout: false,
+                        firstHalf_fouls: 0,
+                        secondHalf_fouls: 0
+
                     }, 
                     { multi: true }, 
                     function(err, team) {
