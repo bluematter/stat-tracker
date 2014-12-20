@@ -3,8 +3,10 @@
         <div class="points-leader">
 
             {{#if maxPoints.attributes.player_picture}}
+                <div class="image-underlay" style="background-image: url({{maxPoints.attributes.player_picture}})"></div>
                 <img src="{{maxPoints.attributes.player_picture}}" class="img-circle img-responsive">
             {{else}}
+                <div class="image-underlay" style="background-image: url(./img/default.jpg)"></div>
                 <img src="./img/default.jpg" class="img-circle img-responsive" /> 
             {{/if}}
 
@@ -20,8 +22,10 @@
         <div class="rebounds-leader">
 
             {{#if maxRebounds.attributes.player_picture}}
+                <div class="image-underlay" style="background-image: url({{maxRebounds.attributes.player_picture}})"></div>
                 <img src="{{maxRebounds.attributes.player_picture}}" class="img-circle img-responsive">
             {{else}}
+                <div class="image-underlay" style="background-image: url(./img/default.jpg)"></div>
                 <img src="./img/default.jpg" class="img-circle img-responsive"/> 
             {{/if}}
 
@@ -37,8 +41,10 @@
         <div class="steals-leader">
 
             {{#if maxSteals.attributes.player_picture}}
+                <div class="image-underlay" style="background-image: url({{maxSteals.attributes.player_picture}})"></div>
                 <img src="{{maxSteals.attributes.player_picture}}" class="img-circle img-responsive">
             {{else}}
+                <div class="image-underlay" style="background-image: url(./img/default.jpg)"></div>
                 <img src="./img/default.jpg" class="img-circle img-responsive"/> 
             {{/if}}
 

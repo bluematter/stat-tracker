@@ -21785,7 +21785,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\""
+  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + ")\"></div>\r\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" class=\"img-circle img-responsive\">\r\n            ";
   return buffer;
@@ -21794,13 +21796,15 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" /> \r\n            ";
+  return "\r\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" /> \r\n            ";
   }
 
 function program5(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\""
+  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + ")\"></div>\r\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" class=\"img-circle img-responsive\">\r\n            ";
   return buffer;
@@ -21809,13 +21813,15 @@ function program5(depth0,data) {
 function program7(depth0,data) {
   
   
-  return "\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\"/> \r\n            ";
+  return "\r\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\"/> \r\n            ";
   }
 
 function program9(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\""
+  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + ")\"></div>\r\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" class=\"img-circle img-responsive\">\r\n            ";
   return buffer;
