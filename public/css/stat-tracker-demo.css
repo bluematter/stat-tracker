@@ -6265,13 +6265,27 @@ button {
     position: absolute;
     left: -2px;
     bottom: -23px; }
-  .chart .leader-block {
-    position: absolute;
-    -webkit-animation: round 16s infinite;
-    animation: round 16s infinite;
-    opacity: 0;
-    left: 0;
-    right: 0; }
+  .chart .leader {
+    background-color: #eee;
+    padding: 20px;
+    height: 230px; }
+    .chart .leader .leader-block {
+      position: absolute;
+      -webkit-animation: round 16s infinite;
+      animation: round 16s infinite;
+      opacity: 0;
+      left: 0;
+      right: 0; }
+      .chart .leader .leader-block img {
+        height: 49px;
+        width: 49px;
+        margin: auto; }
+      .chart .leader .leader-block .player-name {
+        border: 2px solid;
+        padding: 4px; }
+      .chart .leader .leader-block h1 {
+        font-size: 50px;
+        margin: 15px 0 0 0; }
   .chart .leader-block:nth-child(4) {
     -webkit-animation-delay: 12s;
     animation-delay: 12s; }
@@ -6284,6 +6298,33 @@ button {
   .chart .leader-block:nth-child(1) {
     -webkit-animation-delay: 0s;
     animation-delay: 0s; }
+  .chart .share-game {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff; }
+    .chart .share-game .post-stats {
+      border-radius: 0;
+      border: 1px solid;
+      color: #0a46cd; }
+  .chart .chart-wrapper .chart-game-info {
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-align: center; }
+    .chart .chart-wrapper .chart-game-info span.first {
+      width: 5px;
+      height: 5px;
+      border-radius: 100em;
+      margin-right: 5px;
+      display: inline-block;
+      margin-bottom: 3px; }
+    .chart .chart-wrapper .chart-game-info span.second {
+      width: 5px;
+      height: 5px;
+      border-radius: 100em;
+      display: inline-block;
+      margin-left: 5px;
+      margin-bottom: 3px; }
 
 @-webkit-keyframes myfirst {
   0% {
@@ -6778,6 +6819,7 @@ button {
       .scoreboard .scores .score-data-circle .team-timeouts, .scoreboard .clock .score-data-circle .team-timeouts {
         float: left;
         margin-right: 15px;
+        top: 9px;
         position: relative;
         z-index: 9999; }
         .scoreboard .scores .score-data-circle .team-timeouts .timeout-circle, .scoreboard .clock .score-data-circle .team-timeouts .timeout-circle {

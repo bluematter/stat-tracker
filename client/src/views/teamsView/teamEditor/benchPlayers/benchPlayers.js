@@ -23,8 +23,7 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs'),
+module.exports = BenchPlayersSettingsView = Marionette.CollectionView.extend({
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },

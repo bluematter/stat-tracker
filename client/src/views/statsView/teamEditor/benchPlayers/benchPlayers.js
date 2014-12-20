@@ -23,8 +23,7 @@ var benchPlayerSettingsView = Marionette.ItemView.extend({
     }
 });
 
-module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
-    template: require('../../../../../templates/statsView/teamEditor/benchPlayersSettings.hbs'),
+module.exports = BenchPlayersSettingsView = Marionette.CollectionView.extend({
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
     },
@@ -33,10 +32,10 @@ module.exports = BenchPlayersSettingsView = Marionette.CompositeView.extend({
     },
     setScroll: function() {
         var self = this;
-        this.$el.height($('.editor').height() - 48);
+        this.$el.height($('.editor').height() - 48 - $('.roster-side').height());
         setTimeout(function() {
             $(self.$el).slimScroll({
-                height: $('.editor').height() - 48,
+                height: $('.editor').height() - 48 - $('.roster-side').height(),
                 size: '5px',
                 railOpacity: 0.1
             });

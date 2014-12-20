@@ -173,11 +173,6 @@ var playerView = Marionette.ItemView.extend({
 	},
     removePoint: function() {
         
-    },
-    templateHelpers:function(){
-        return {
-            name_format: this.model.get('player_name').replace(/\s+/g, '_').toLowerCase()
-        }
     }
 });
 

@@ -23,8 +23,7 @@ var playingPlayerView = Marionette.ItemView.extend({
     }
 });
 
-module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
-    template: require('../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs'),
+module.exports = PlayingPlayersView = Marionette.CollectionView.extend({
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);

@@ -16,19 +16,72 @@
 		left: -2px;
 		bottom: -23px;
 	}
-
-	.leader-block {
-	    position: absolute;
-		animation: round 16s infinite;
-		opacity: 0;
-		left: 0;
-		right: 0;
+    
+    .leader {
+    	background-color: #eee; 
+    	padding: 20px;
+    	height: 230px;
+		.leader-block {
+		    position: absolute;
+			animation: round 16s infinite;
+			opacity: 0;
+			left: 0;
+			right: 0;
+			img {
+				height: 49px; 
+				width: 49px; 
+				margin: auto;
+			}
+			.player-name {
+				border: 2px solid;
+				padding: 4px;
+			}
+			h1 {
+				font-size: 50px; 
+				margin: 15px 0 0 0;
+			}
+		}
 	}
 
 	.leader-block:nth-child(4){animation-delay:12s;}
 	.leader-block:nth-child(3){animation-delay:8s;}
 	.leader-block:nth-child(2){animation-delay:4s;}
 	.leader-block:nth-child(1){animation-delay:0s;}
+
+	.share-game {
+		text-align: center;
+		padding: 20px 0;
+		background-color: #fff;
+		.post-stats {
+			border-radius: 0; 
+			border: 1px solid; 
+			color: #0a46cd;
+		}
+	}
+
+	.chart-wrapper {
+		.chart-game-info {
+			margin-top: 15px;
+			text-transform: uppercase;
+			font-size: 11px;
+			text-align: center;
+			span.first {
+				width: 5px; height: 5px; 
+				border-radius: 100em;
+				margin-right: 5px;
+				display: inline-block;
+				margin-bottom: 3px;
+			}
+			span.second {
+				width: 5px; 
+				height: 5px; 
+				border-radius: 100em;
+				display: inline-block;
+				margin-left: 5px;
+				margin-bottom: 3px;
+			}
+		}
+	}
 
 
 }

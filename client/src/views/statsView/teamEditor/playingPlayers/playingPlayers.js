@@ -23,8 +23,7 @@ var playingPlayerView = Marionette.ItemView.extend({
     }
 });
 
-module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
-    template: require('../../../../../templates/statsView/teamEditor/playingPlayersSettings.hbs'),
+module.exports = PlayingPlayersView = Marionette.CollectionView.extend({
     initialize:function() {
         this.listenTo(this.collection, 'change', this.render);
         this.listenTo(this.collection, "reset", this.render, this);
@@ -34,10 +33,10 @@ module.exports = PlayingPlayersView = Marionette.CompositeView.extend({
     },
     setScroll: function() {
         var self = this;
-        this.$el.height($('.editor').height() - 48);
+        this.$el.height($('.editor').height() - 48 - $('.roster-side').height());
         setTimeout(function() {
             $(self.$el).slimScroll({
-                height: $('.editor').height() - 48,
+                height: $('.editor').height() - 48 - $('.roster-side').height(),
                 size: '5px',
                 railOpacity: 0.1
             });
