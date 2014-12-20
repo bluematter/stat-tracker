@@ -40,6 +40,8 @@
 	.team{
 	    background-color: #FEFEFE;
         box-shadow: 0 1px 2px rgba(0,0,0,.1);
+        border-left: 1px solid #e5e5e5;
+        border-right: 1px solid #e5e5e5;
         border-radius: 3px;
 	    margin: 0 0 2px 0;
 	    text-align: center;
@@ -155,7 +157,7 @@
                 }
             }
             .column.stat {
-			    color: #435155;
+			    color: #000;
 			    font-size: 13px;
                 white-space: nowrap;
             }
