@@ -21848,7 +21848,7 @@ function program9(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span>\r\n                <h1>"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.steals)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n                steals\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"share-game\">\r\n    <button class=\"btn post-stats\">Share this game?</button>\r\n</div>\r\n\r\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\r\n    <div class=\"chart-game-info\">\r\n        <span class=\"first\" style=\"background-color: "
+    + "</h1> \r\n                steals\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"share-game\">\r\n    <button class=\"btn post-stats\"><i class=\"ti-stats-up\"></i>Share this game?</button>\r\n</div>\r\n\r\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\r\n    <div class=\"chart-game-info\">\r\n        <span class=\"first\" style=\"background-color: "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_color)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + ";\"></span>\r\n        "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -22107,15 +22107,15 @@ function program7(depth0,data) {
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-rebound\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\r\n        <span class=\"steals\">";
+    + "</span>\r\n        <div class=\"stat-add-button add-rebound\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\r\n        <span class=\"steals\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-steal\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\r\n        <span class=\"blocks\">";
+    + "</span>\r\n        <div class=\"stat-add-button add-steal\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\r\n        <span class=\"blocks\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-block\">+</div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            ";
+    + "</span>\r\n        <div class=\"stat-add-button add-block\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data};
   stack2 = ((stack1 = helpers.foulCount || depth0.foulCount),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "foulCount", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }

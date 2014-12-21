@@ -1,11 +1,14 @@
-@keyframes myfirst {
+@keyframes statButton {
     0% {
         left: 67px;
         top: 0px;
     }
     100% {
-        left: 87px;
+        left: 97px;
         top: -20px;
+        width: 23px;
+        height: 23px;
+        line-height: 23px;
     }
 }
 
@@ -256,12 +259,15 @@
                     background-color: #4BA0F1;
                     border-radius: 100em;
                     opacity: 0;
+                    i {
+                        font-size: 8px;
+                    }
                 } 
                 &:hover {
                     cursor: pointer;
                     .stat-add-button {
                         opacity: 1;
-                        animation-name: myfirst;
+                        animation-name: statButton;
                         animation-duration: 0.4s;
                         animation-timing-function: linear;
                         animation-delay: 0s;

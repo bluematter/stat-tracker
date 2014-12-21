@@ -41,7 +41,7 @@
     "browserify": "~3.19.1",
     "browserify-shim": "~3.1.4",
     "express-livereload": "0.0.24",
-    "gulp": "^3.3.4",
+    "gulp": "^3.8.10",
     "gulp-autoprefixer": "0.0.7",
     "gulp-browserify": "~0.2.4",
     "gulp-clean": "~0.2.2",

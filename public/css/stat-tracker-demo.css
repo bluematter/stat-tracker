@@ -6321,6 +6321,8 @@ button {
       border-radius: 0;
       border: 1px solid;
       color: #0a46cd; }
+      .chart .share-game .post-stats i {
+        margin-right: 15px; }
   .chart .chart-wrapper .chart-game-info {
     margin-top: 15px;
     text-transform: uppercase;
@@ -6341,23 +6343,29 @@ button {
       margin-left: 5px;
       margin-bottom: 3px; }
 
-@-webkit-keyframes myfirst {
+@-webkit-keyframes statButton {
   0% {
     left: 67px;
     top: 0px; }
 
   100% {
-    left: 87px;
-    top: -20px; } }
+    left: 97px;
+    top: -20px;
+    width: 23px;
+    height: 23px;
+    line-height: 23px; } }
 
-@keyframes myfirst {
+@keyframes statButton {
   0% {
     left: 67px;
     top: 0px; }
 
   100% {
-    left: 87px;
-    top: -20px; } }
+    left: 97px;
+    top: -20px;
+    width: 23px;
+    height: 23px;
+    line-height: 23px; } }
 
 #basketball .test {
   -webkit-transition: 1s all ease;
@@ -6539,12 +6547,14 @@ button {
         background-color: #4BA0F1;
         border-radius: 100em;
         opacity: 0; }
+        #basketball .team .player .column.stat.data .stat-add-button i {
+          font-size: 8px; }
       #basketball .team .player .column.stat.data:hover {
         cursor: pointer; }
         #basketball .team .player .column.stat.data:hover .stat-add-button {
           opacity: 1;
-          -webkit-animation-name: myfirst;
-          animation-name: myfirst;
+          -webkit-animation-name: statButton;
+          animation-name: statButton;
           -webkit-animation-duration: 0.4s;
           animation-duration: 0.4s;
           -webkit-animation-timing-function: linear;
@@ -6805,10 +6815,10 @@ button {
     .scoreboard .scores .half-button, .scoreboard .clock .half-button {
       cursor: pointer;
       display: inline-block;
-      border: 1px solid;
-      width: 25px;
-      height: 25px;
-      line-height: 25px;
+      border: 2px solid;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
       margin-right: 15px; }
       .scoreboard .scores .half-button.true, .scoreboard .clock .half-button.true {
         border-color: #7AC141; }
