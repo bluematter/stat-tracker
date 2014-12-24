@@ -6270,8 +6270,8 @@ button {
     height: 230px; }
     .chart .leader .leader-block {
       position: absolute;
-      -webkit-animation: round 16s infinite;
-      animation: round 16s infinite;
+      -webkit-animation: round 12s infinite;
+      animation: round 12s infinite;
       opacity: 0;
       left: 0;
       height: 230px;
@@ -6301,9 +6301,6 @@ button {
       .chart .leader .leader-block h1 {
         font-size: 50px;
         margin: 15px 0 0 0; }
-  .chart .leader-block:nth-child(4) {
-    -webkit-animation-delay: 12s;
-    animation-delay: 12s; }
   .chart .leader-block:nth-child(3) {
     -webkit-animation-delay: 8s;
     animation-delay: 8s; }
