@@ -45,7 +45,34 @@ var configDB = require('./config/database.js');
 
 
 var env = process.env.NODE_ENV || 'development';
+
 if ('development' == env) {
+
+    // set up view engine {{handlebars}} 
+    app.set('views', __dirname + '/views');
+    app.engine('handlebars', exphbs({
+        defaultLayout: 'main',
+        layoutsDir: app.get('views') + '/layouts'
+    }));
+    app.set('view engine', 'handlebars');
+
+    // set up our express application
+    app.use('/', express.static(path.join(__dirname, 'public')));
+    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.json());
+    app.use(morgan('dev'));
+    app.use(cookieParser()); // required before session.
+    app.use(session({ secret: 'keyboard cat' }));
+    app.use(methodOverride());
+
+    // required for passport
+    app.use(passport.initialize());
+    app.use(passport.session()); // persistent login sessions
+    app.use(flash()); // use connect-flash for flash messages stored in session
+
+}
+
+if ('production' == env) {
 
     // set up view engine {{handlebars}} 
     app.set('views', __dirname + '/views');
