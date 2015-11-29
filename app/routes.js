@@ -27,7 +27,7 @@ module.exports.initialize = function(app, router, passport) {
 
     // facebook auth
     app.get('/auth/facebook', passport.authenticate('facebook', 
-        { scope : ['user_groups', 'publish_stream', 'publish_actions', 'read_stream', 'email', 'user_friends', 'user_about_me'] }
+        { scope : ['user_groups', 'publish_actions', 'read_stream', 'email', 'user_friends', 'user_about_me'] }
     ));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
