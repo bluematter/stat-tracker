@@ -15,6 +15,16 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
     byTeam:function(teamID) {
     	var SpecificTeam = App.data.players.where({ team_id: teamID });
         return new PlayersCollection(SpecificTeam); 
-    }
+    },
+    byPlayingTeam:function(teamID) {
+        console.log(teamID)
+        var playingPlayers = [];
+        for(var i = 0; i < teamID.length; i++) {
+            playingPlayers.push(this.where({ team_id: teamID[i] }));
+        }
+        var Playingresults = playingPlayers[0].concat(playingPlayers[1]);
+        console.log(Playingresults);
+        return new PlayersCollection(Playingresults);
+    },
 
 });

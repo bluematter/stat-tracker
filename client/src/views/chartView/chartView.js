@@ -89,7 +89,14 @@ module.exports = statsView = Marionette.ItemView.extend({
 
         // needs to be only playing teams, for now its all teams
         var players = [];
-        App.data.players.each(function(player) {
+        var teams = [];
+
+        // Grab the IDs of the playing teams
+        App.data.teams.byPlaying().each(function(team) {
+            teams.push(team.id);
+        });
+
+        App.data.players.byPlayingTeam(teams).each(function(player) {
             players.push(player);
         });
 

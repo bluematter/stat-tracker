@@ -1,0 +1,29 @@
+{
+  "name": "timer.js",
+  "main": "timer.js",
+  "version": "1.0.4",
+  "homepage": "https://github.com/husa/timer.js",
+  "authors": [
+    "Yuriy Husnay <husnaj23@gmail.com>"
+  ],
+  "description": "Simple and lightweight, event driven JavaScript timer",
+  "keywords": [
+    "timer.js",
+    "timer",
+    "time",
+    "measure",
+    "start",
+    "stop",
+    "pause"
+  ],
+  "license": "MIT",
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.4",
+    "commit": "bb96a598b3551304a29ce3eb60a28b6a0d73476f"
+  },
+  "_source": "git://github.com/husa/timer.js.git",
+  "_target": "*",
+  "_originalSource": "timerjs"
+}

@@ -457,10 +457,10 @@ as that.
 },{}],2:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-Backbone.Wreqr = global.Backbone.Wreqr = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js");
-Backbone.BabySitter = global.Backbone.BabySitter = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js");
-Backbone.Memento = global.Backbone.Memento = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js");
+; Backbone = global.Backbone = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js");
+Backbone.Wreqr = global.Backbone.Wreqr = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.marionette/public/javascripts/backbone.wreqr.js");
+Backbone.BabySitter = global.Backbone.BabySitter = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.marionette/public/javascripts/backbone.babysitter.js");
+Backbone.Memento = global.Backbone.Memento = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.memento/backbone.memento.js");
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.4.1
@@ -2932,10 +2932,10 @@ _.extend(Marionette.Module, {
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.babysitter.js":3,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.marionette\\public\\javascripts\\backbone.wreqr.js":4,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\backbone.memento\\backbone.memento.js":5,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],3:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.marionette/public/javascripts/backbone.babysitter.js":3,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.marionette/public/javascripts/backbone.wreqr.js":4,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/backbone.memento/backbone.memento.js":5,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js":13}],3:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
+; Backbone = global.Backbone = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js");
 // Backbone.BabySitter
 // -------------------
 // v0.0.6
@@ -3098,11 +3098,11 @@ Backbone.ChildViewContainer = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],4:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js":13}],4:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-_ = global._ = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; Backbone = global.Backbone = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js");
+_ = global._ = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js");
 // Backbone.Wreqr (Backbone.Marionette)
 // ----------------------------------
 // v0.2.0
@@ -3374,11 +3374,11 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],5:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js":11,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js":13}],5:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; Backbone = global.Backbone = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js");
-_ = global._ = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; Backbone = global.Backbone = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js");
+_ = global._ = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js");
 // Backbone.Memento v0.4.1
 //
 // Copyright (C)2011 Derick Bailey, Muted Solutions, LLC
@@ -3543,7 +3543,7 @@ Backbone.Memento = (function(Backbone, _){
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\client\\requires\\backbone\\js\\backbone.js":13}],6:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js":11,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/client/requires/backbone/js/backbone.js":13}],6:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*!
  * Chart.js
@@ -14773,12 +14773,12 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 },{}],8:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+; $ = global.$ = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js");
 /*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
- * Version: 1.3.3
+ * Version: 1.3.7
  *
  */
 (function($) {
@@ -14876,8 +14876,8 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
             var offset = me.scrollTop();
 
             // find bar and rail
-            bar = me.parent().find('.' + o.barClass);
-            rail = me.parent().find('.' + o.railClass);
+            bar = me.siblings('.' + o.barClass);
+            rail = me.siblings('.' + o.railClass);
 
             getBarHeight();
 
@@ -14891,6 +14891,10 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
                 var height = me.parent().parent().height();
                 me.parent().css('height', height);
                 me.css('height', height);
+              } else if ('height' in options) {
+                var h = options.height;
+                me.parent().css('height', h);
+                me.css('height', h);
               }
 
               if ('scrollTo' in options)
@@ -15085,7 +15089,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
         }
 
         // attach scroll events
-        attachWheel();
+        attachWheel(this);
 
         function _onWheel(e)
         {
@@ -15158,12 +15162,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
           hideBar();
         }
 
-        function attachWheel()
+        function attachWheel(target)
         {
           if (window.addEventListener)
           {
-            this.addEventListener('DOMMouseScroll', _onWheel, false );
-            this.addEventListener('mousewheel', _onWheel, false );
+            target.addEventListener('DOMMouseScroll', _onWheel, false );
+            target.addEventListener('mousewheel', _onWheel, false );
           }
           else
           {
@@ -15249,7 +15253,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7}],9:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js":7}],9:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
 /*
  * Snap.js
@@ -15824,14 +15828,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 },{}],10:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
-(function(root, factory){
-  if (typeof define === 'function' && define.amd)
-    define([], factory)
-  else if (typeof exports === 'object')
-    module.exports = factory()
-  else
-    root.Timer = factory()
-}(this, function(){
+(function (root, factory) {
+  'use strict'
+  if (typeof define === 'function' && define.amd) define([], factory)
+  else if (typeof exports === 'object') module.exports = factory()
+  else root.Timer = factory()
+}(this, function () {
   'use strict'
 
   var defaultOptions = {
@@ -15846,83 +15848,62 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   var Timer = function (options) {
     if (!(this instanceof Timer)) return new Timer(options)
     this._ = {
-        id       : +new Date(),
-        options  : {},
-        duration : 0,
-        status   : 'initialized',
-        start    : 0,
-        measures : []
-      }
-    for (var prop in defaultOptions)
-      this._.options[prop] = defaultOptions[prop]
+      id       : +new Date,
+      options  : {},
+      duration : 0,
+      status   : 'initialized',
+      start    : 0,
+      measures : []
+    }
+    for (var prop in defaultOptions) this._.options[prop] = defaultOptions[prop]
     this.options(options)
   }
 
-  Timer.prototype.start = function(duration) {
-      var instance = this
-      if (!+duration && !this._.duration)
-        return this._end()
-      else
-        duration *= 1000
-      if (this._.timeout && this._.status === 'started')
-        return this
-      this._.duration || (this._.duration = duration)
-      this._.timeout = setTimeout(function(){
-        instance._end.call(instance)
-      }, this._.duration)
-      if (this._.options.ontick !== defaultOptions.ontick)
-        this._.interval = setInterval(function() {
-          instance._trigger('ontick', instance, [instance.getDuration()])
-        }, +this._.options.tick * 1000)
-      this._.start = +new Date()
-      this._.status = 'started'
-      this._trigger('onstart', this, [this.getDuration()])
-      return this
-    }
+  Timer.prototype.start = function (duration) {
+    if (!+duration && !this._.duration) return this
+    duration && (duration *= 1000)
+    if (this._.timeout && this._.status === 'started') return this
+    this._.duration = duration || this._.duration
+    this._.timeout = setTimeout(end.bind(this), this._.duration)
+    if (typeof this._.options.ontick === 'function')
+      this._.interval = setInterval(function () {
+        trigger.call(this, 'ontick', this.getDuration())
+      }.bind(this), +this._.options.tick * 1000)
+    this._.start = +new Date
+    this._.status = 'started'
+    trigger.call(this, 'onstart', this.getDuration())
+    return this
+  }
 
-  Timer.prototype.pause = function() {
-    this._.duration -= (+new Date() - this._.start)
-    this._clear(false)
+  Timer.prototype.pause = function () {
+    if (this._.status !== 'started') return this
+    this._.duration -= (+new Date - this._.start)
+    clear.call(this, false)
     this._.status = 'paused'
-    this._trigger('onpause', this)
+    trigger.call(this, 'onpause')
     return this
   }
 
-  Timer.prototype.stop = function() {
-    this._clear(true)
+  Timer.prototype.stop = function () {
+    if (!/started|paused/.test(this._.status)) return this
+    clear.call(this, true)
     this._.status = 'stopped'
-    this._trigger('onstop', this)
+    trigger.call(this, 'onstop')
     return this
   }
 
-  Timer.prototype._end = function() {
-    this._clear(true)
-    this._.status = 'finished'
-    this._trigger('onend', this)
-    return this
+  Timer.prototype.getDuration = function () {
+    if (this._.status === 'started')
+      return this._.duration - (+new Date - this._.start)
+    if (this._.status === 'paused') return this._.duration
+    return 0
   }
 
-  Timer.prototype._clear = function(clearDuration) {
-    clearTimeout(this._.timeout)
-    clearInterval(this._.interval)
-    if (clearDuration)
-      this._.duration = 0
-  }
-
-  Timer.prototype._trigger = function(event, scope, params) {
-    typeof this._.options[event] === 'function' && this._.options[event].apply(scope, params)
-  }
-
-  Timer.prototype.getDuration = function() {
-    if (this._.status !== 'started') return 0
-    return Math.round((this._.duration - (+new Date() - this._.start)) / 1000)
-  }
-
-  Timer.prototype.getStatus = function() {
+  Timer.prototype.getStatus = function () {
     return this._.status
   }
 
-  Timer.prototype.options = function(option, value) {
+  Timer.prototype.options = function (option, value) {
     if (option && value) this._.options[option] = value
     if (!value && typeof option === 'object')
       for (var prop in option)
@@ -15931,8 +15912,8 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return this
   }
 
-  Timer.prototype.on = function(option, value) {
-    if (typeof option !== 'string' || typeof value !== 'function') return
+  Timer.prototype.on = function (option, value) {
+    if (typeof option !== 'string' || typeof value !== 'function') return this
     if (!(/^on/).test(option))
       option = 'on' + option
     if (this._.options.hasOwnProperty(option))
@@ -15940,12 +15921,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return this
   }
 
-  Timer.prototype.off = function(option) {
-    if (typeof option !== 'string') return
+  Timer.prototype.off = function (option) {
+    if (typeof option !== 'string') return this
     option = option.toLowerCase()
     if (option === 'all') {
       this._.options = defaultOptions
-      return
+      return this
     }
     if (!(/^on/).test(option)) option = 'on' + option
     if (this._.options.hasOwnProperty(option))
@@ -15953,17 +15934,35 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return this
   }
 
-  Timer.prototype.measureStart = function(label) {
-    this._.measures[label || ''] = +new Date()
+  Timer.prototype.measureStart = function (label) {
+    this._.measures[label || ''] = +new Date
     return this
   }
 
-  Timer.prototype.measureStop = function(label) {
-    return +new Date() - this._.measures[label || '']
+  Timer.prototype.measureStop = function (label) {
+    return +new Date - this._.measures[label || '']
+  }
+
+  function end () {
+    clear.call(this)
+    this._.status = 'stopped'
+    trigger.call(this, 'onend')
+  }
+
+  function trigger (event) {
+    var callback = this._.options[event],
+      args = [].slice.call(arguments, 1)
+    typeof callback === 'function' && callback.apply(this, args)
+  }
+
+  function clear (clearDuration) {
+    clearTimeout(this._.timeout)
+    clearInterval(this._.interval)
+    if (clearDuration === true) this._.duration = 0
   }
 
   return Timer
-}));
+}))
 
 ; browserify_shim__define__module__export__(typeof timerjs != "undefined" ? timerjs : window.timerjs);
 
@@ -15971,9 +15970,9 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 },{}],11:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, define) {
-//     Underscore.js 1.5.2
+//     Underscore.js 1.8.3
 //     http://underscorejs.org
-//     (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
 
 (function() {
@@ -15987,9 +15986,6 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // Save the previous value of the `_` variable.
   var previousUnderscore = root._;
 
-  // Establish the object that gets returned to break out of a loop iteration.
-  var breaker = {};
-
   // Save bytes in the minified (but not gzipped) version:
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
@@ -15997,25 +15993,19 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   var
     push             = ArrayProto.push,
     slice            = ArrayProto.slice,
-    concat           = ArrayProto.concat,
     toString         = ObjProto.toString,
     hasOwnProperty   = ObjProto.hasOwnProperty;
 
   // All **ECMAScript 5** native function implementations that we hope to use
   // are declared here.
   var
-    nativeForEach      = ArrayProto.forEach,
-    nativeMap          = ArrayProto.map,
-    nativeReduce       = ArrayProto.reduce,
-    nativeReduceRight  = ArrayProto.reduceRight,
-    nativeFilter       = ArrayProto.filter,
-    nativeEvery        = ArrayProto.every,
-    nativeSome         = ArrayProto.some,
-    nativeIndexOf      = ArrayProto.indexOf,
-    nativeLastIndexOf  = ArrayProto.lastIndexOf,
     nativeIsArray      = Array.isArray,
     nativeKeys         = Object.keys,
-    nativeBind         = FuncProto.bind;
+    nativeBind         = FuncProto.bind,
+    nativeCreate       = Object.create;
+
+  // Naked function reference for surrogate-prototype-swapping.
+  var Ctor = function(){};
 
   // Create a safe reference to the Underscore object for use below.
   var _ = function(obj) {
@@ -16026,8 +16016,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
   // Export the Underscore object for **Node.js**, with
   // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object via a string identifier,
-  // for Closure Compiler "advanced" mode.
+  // the browser, add `_` as a global object.
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -16038,160 +16027,217 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   }
 
   // Current version.
-  _.VERSION = '1.5.2';
+  _.VERSION = '1.8.3';
+
+  // Internal function that returns an efficient (for current engines) version
+  // of the passed-in callback, to be repeatedly applied in other Underscore
+  // functions.
+  var optimizeCb = function(func, context, argCount) {
+    if (context === void 0) return func;
+    switch (argCount == null ? 3 : argCount) {
+      case 1: return function(value) {
+        return func.call(context, value);
+      };
+      case 2: return function(value, other) {
+        return func.call(context, value, other);
+      };
+      case 3: return function(value, index, collection) {
+        return func.call(context, value, index, collection);
+      };
+      case 4: return function(accumulator, value, index, collection) {
+        return func.call(context, accumulator, value, index, collection);
+      };
+    }
+    return function() {
+      return func.apply(context, arguments);
+    };
+  };
+
+  // A mostly-internal function to generate callbacks that can be applied
+  // to each element in a collection, returning the desired result — either
+  // identity, an arbitrary callback, a property matcher, or a property accessor.
+  var cb = function(value, context, argCount) {
+    if (value == null) return _.identity;
+    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+    if (_.isObject(value)) return _.matcher(value);
+    return _.property(value);
+  };
+  _.iteratee = function(value, context) {
+    return cb(value, context, Infinity);
+  };
+
+  // An internal function for creating assigner functions.
+  var createAssigner = function(keysFunc, undefinedOnly) {
+    return function(obj) {
+      var length = arguments.length;
+      if (length < 2 || obj == null) return obj;
+      for (var index = 1; index < length; index++) {
+        var source = arguments[index],
+            keys = keysFunc(source),
+            l = keys.length;
+        for (var i = 0; i < l; i++) {
+          var key = keys[i];
+          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+        }
+      }
+      return obj;
+    };
+  };
+
+  // An internal function for creating a new object that inherits from another.
+  var baseCreate = function(prototype) {
+    if (!_.isObject(prototype)) return {};
+    if (nativeCreate) return nativeCreate(prototype);
+    Ctor.prototype = prototype;
+    var result = new Ctor;
+    Ctor.prototype = null;
+    return result;
+  };
+
+  var property = function(key) {
+    return function(obj) {
+      return obj == null ? void 0 : obj[key];
+    };
+  };
+
+  // Helper for collection methods to determine whether a collection
+  // should be iterated as an array or as an object
+  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+  var getLength = property('length');
+  var isArrayLike = function(collection) {
+    var length = getLength(collection);
+    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+  };
 
   // Collection Functions
   // --------------------
 
   // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles objects with the built-in `forEach`, arrays, and raw objects.
-  // Delegates to **ECMAScript 5**'s native `forEach` if available.
-  var each = _.each = _.forEach = function(obj, iterator, context) {
-    if (obj == null) return;
-    if (nativeForEach && obj.forEach === nativeForEach) {
-      obj.forEach(iterator, context);
-    } else if (obj.length === +obj.length) {
-      for (var i = 0, length = obj.length; i < length; i++) {
-        if (iterator.call(context, obj[i], i, obj) === breaker) return;
+  // Handles raw objects in addition to array-likes. Treats all
+  // sparse array-likes as if they were dense.
+  _.each = _.forEach = function(obj, iteratee, context) {
+    iteratee = optimizeCb(iteratee, context);
+    var i, length;
+    if (isArrayLike(obj)) {
+      for (i = 0, length = obj.length; i < length; i++) {
+        iteratee(obj[i], i, obj);
       }
     } else {
       var keys = _.keys(obj);
-      for (var i = 0, length = keys.length; i < length; i++) {
-        if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker) return;
+      for (i = 0, length = keys.length; i < length; i++) {
+        iteratee(obj[keys[i]], keys[i], obj);
       }
     }
+    return obj;
   };
 
-  // Return the results of applying the iterator to each element.
-  // Delegates to **ECMAScript 5**'s native `map` if available.
-  _.map = _.collect = function(obj, iterator, context) {
-    var results = [];
-    if (obj == null) return results;
-    if (nativeMap && obj.map === nativeMap) return obj.map(iterator, context);
-    each(obj, function(value, index, list) {
-      results.push(iterator.call(context, value, index, list));
-    });
+  // Return the results of applying the iteratee to each element.
+  _.map = _.collect = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length,
+        results = Array(length);
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      results[index] = iteratee(obj[currentKey], currentKey, obj);
+    }
     return results;
   };
 
-  var reduceError = 'Reduce of empty array with no initial value';
+  // Create a reducing function iterating left or right.
+  function createReduce(dir) {
+    // Optimized iterator function as using arguments.length
+    // in the main function will deoptimize the, see #1991.
+    function iterator(obj, iteratee, memo, keys, index, length) {
+      for (; index >= 0 && index < length; index += dir) {
+        var currentKey = keys ? keys[index] : index;
+        memo = iteratee(memo, obj[currentKey], currentKey, obj);
+      }
+      return memo;
+    }
+
+    return function(obj, iteratee, memo, context) {
+      iteratee = optimizeCb(iteratee, context, 4);
+      var keys = !isArrayLike(obj) && _.keys(obj),
+          length = (keys || obj).length,
+          index = dir > 0 ? 0 : length - 1;
+      // Determine the initial value if none is provided.
+      if (arguments.length < 3) {
+        memo = obj[keys ? keys[index] : index];
+        index += dir;
+      }
+      return iterator(obj, iteratee, memo, keys, index, length);
+    };
+  }
 
   // **Reduce** builds up a single result from a list of values, aka `inject`,
-  // or `foldl`. Delegates to **ECMAScript 5**'s native `reduce` if available.
-  _.reduce = _.foldl = _.inject = function(obj, iterator, memo, context) {
-    var initial = arguments.length > 2;
-    if (obj == null) obj = [];
-    if (nativeReduce && obj.reduce === nativeReduce) {
-      if (context) iterator = _.bind(iterator, context);
-      return initial ? obj.reduce(iterator, memo) : obj.reduce(iterator);
-    }
-    each(obj, function(value, index, list) {
-      if (!initial) {
-        memo = value;
-        initial = true;
-      } else {
-        memo = iterator.call(context, memo, value, index, list);
-      }
-    });
-    if (!initial) throw new TypeError(reduceError);
-    return memo;
-  };
+  // or `foldl`.
+  _.reduce = _.foldl = _.inject = createReduce(1);
 
   // The right-associative version of reduce, also known as `foldr`.
-  // Delegates to **ECMAScript 5**'s native `reduceRight` if available.
-  _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
-    var initial = arguments.length > 2;
-    if (obj == null) obj = [];
-    if (nativeReduceRight && obj.reduceRight === nativeReduceRight) {
-      if (context) iterator = _.bind(iterator, context);
-      return initial ? obj.reduceRight(iterator, memo) : obj.reduceRight(iterator);
-    }
-    var length = obj.length;
-    if (length !== +length) {
-      var keys = _.keys(obj);
-      length = keys.length;
-    }
-    each(obj, function(value, index, list) {
-      index = keys ? keys[--length] : --length;
-      if (!initial) {
-        memo = obj[index];
-        initial = true;
-      } else {
-        memo = iterator.call(context, memo, obj[index], index, list);
-      }
-    });
-    if (!initial) throw new TypeError(reduceError);
-    return memo;
-  };
+  _.reduceRight = _.foldr = createReduce(-1);
 
   // Return the first value which passes a truth test. Aliased as `detect`.
-  _.find = _.detect = function(obj, iterator, context) {
-    var result;
-    any(obj, function(value, index, list) {
-      if (iterator.call(context, value, index, list)) {
-        result = value;
-        return true;
-      }
-    });
-    return result;
+  _.find = _.detect = function(obj, predicate, context) {
+    var key;
+    if (isArrayLike(obj)) {
+      key = _.findIndex(obj, predicate, context);
+    } else {
+      key = _.findKey(obj, predicate, context);
+    }
+    if (key !== void 0 && key !== -1) return obj[key];
   };
 
   // Return all the elements that pass a truth test.
-  // Delegates to **ECMAScript 5**'s native `filter` if available.
   // Aliased as `select`.
-  _.filter = _.select = function(obj, iterator, context) {
+  _.filter = _.select = function(obj, predicate, context) {
     var results = [];
-    if (obj == null) return results;
-    if (nativeFilter && obj.filter === nativeFilter) return obj.filter(iterator, context);
-    each(obj, function(value, index, list) {
-      if (iterator.call(context, value, index, list)) results.push(value);
+    predicate = cb(predicate, context);
+    _.each(obj, function(value, index, list) {
+      if (predicate(value, index, list)) results.push(value);
     });
     return results;
   };
 
   // Return all the elements for which a truth test fails.
-  _.reject = function(obj, iterator, context) {
-    return _.filter(obj, function(value, index, list) {
-      return !iterator.call(context, value, index, list);
-    }, context);
+  _.reject = function(obj, predicate, context) {
+    return _.filter(obj, _.negate(cb(predicate)), context);
   };
 
   // Determine whether all of the elements match a truth test.
-  // Delegates to **ECMAScript 5**'s native `every` if available.
   // Aliased as `all`.
-  _.every = _.all = function(obj, iterator, context) {
-    iterator || (iterator = _.identity);
-    var result = true;
-    if (obj == null) return result;
-    if (nativeEvery && obj.every === nativeEvery) return obj.every(iterator, context);
-    each(obj, function(value, index, list) {
-      if (!(result = result && iterator.call(context, value, index, list))) return breaker;
-    });
-    return !!result;
+  _.every = _.all = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length;
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+    }
+    return true;
   };
 
   // Determine if at least one element in the object matches a truth test.
-  // Delegates to **ECMAScript 5**'s native `some` if available.
   // Aliased as `any`.
-  var any = _.some = _.any = function(obj, iterator, context) {
-    iterator || (iterator = _.identity);
-    var result = false;
-    if (obj == null) return result;
-    if (nativeSome && obj.some === nativeSome) return obj.some(iterator, context);
-    each(obj, function(value, index, list) {
-      if (result || (result = iterator.call(context, value, index, list))) return breaker;
-    });
-    return !!result;
+  _.some = _.any = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length;
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      if (predicate(obj[currentKey], currentKey, obj)) return true;
+    }
+    return false;
   };
 
-  // Determine if the array or object contains a given value (using `===`).
-  // Aliased as `include`.
-  _.contains = _.include = function(obj, target) {
-    if (obj == null) return false;
-    if (nativeIndexOf && obj.indexOf === nativeIndexOf) return obj.indexOf(target) != -1;
-    return any(obj, function(value) {
-      return value === target;
-    });
+  // Determine if the array or object contains a given item (using `===`).
+  // Aliased as `includes` and `include`.
+  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+    if (!isArrayLike(obj)) obj = _.values(obj);
+    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+    return _.indexOf(obj, item, fromIndex) >= 0;
   };
 
   // Invoke a method (with arguments) on every item in a collection.
@@ -16199,100 +16245,111 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     var args = slice.call(arguments, 2);
     var isFunc = _.isFunction(method);
     return _.map(obj, function(value) {
-      return (isFunc ? method : value[method]).apply(value, args);
+      var func = isFunc ? method : value[method];
+      return func == null ? func : func.apply(value, args);
     });
   };
 
   // Convenience version of a common use case of `map`: fetching a property.
   _.pluck = function(obj, key) {
-    return _.map(obj, function(value){ return value[key]; });
+    return _.map(obj, _.property(key));
   };
 
   // Convenience version of a common use case of `filter`: selecting only objects
   // containing specific `key:value` pairs.
-  _.where = function(obj, attrs, first) {
-    if (_.isEmpty(attrs)) return first ? void 0 : [];
-    return _[first ? 'find' : 'filter'](obj, function(value) {
-      for (var key in attrs) {
-        if (attrs[key] !== value[key]) return false;
-      }
-      return true;
-    });
+  _.where = function(obj, attrs) {
+    return _.filter(obj, _.matcher(attrs));
   };
 
   // Convenience version of a common use case of `find`: getting the first object
   // containing specific `key:value` pairs.
   _.findWhere = function(obj, attrs) {
-    return _.where(obj, attrs, true);
+    return _.find(obj, _.matcher(attrs));
   };
 
-  // Return the maximum element or (element-based computation).
-  // Can't optimize arrays of integers longer than 65,535 elements.
-  // See [WebKit Bug 80797](https://bugs.webkit.org/show_bug.cgi?id=80797)
-  _.max = function(obj, iterator, context) {
-    if (!iterator && _.isArray(obj) && obj[0] === +obj[0] && obj.length < 65535) {
-      return Math.max.apply(Math, obj);
+  // Return the maximum element (or element-based computation).
+  _.max = function(obj, iteratee, context) {
+    var result = -Infinity, lastComputed = -Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = isArrayLike(obj) ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value > result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
     }
-    if (!iterator && _.isEmpty(obj)) return -Infinity;
-    var result = {computed : -Infinity, value: -Infinity};
-    each(obj, function(value, index, list) {
-      var computed = iterator ? iterator.call(context, value, index, list) : value;
-      computed > result.computed && (result = {value : value, computed : computed});
-    });
-    return result.value;
+    return result;
   };
 
   // Return the minimum element (or element-based computation).
-  _.min = function(obj, iterator, context) {
-    if (!iterator && _.isArray(obj) && obj[0] === +obj[0] && obj.length < 65535) {
-      return Math.min.apply(Math, obj);
+  _.min = function(obj, iteratee, context) {
+    var result = Infinity, lastComputed = Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = isArrayLike(obj) ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value < result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
     }
-    if (!iterator && _.isEmpty(obj)) return Infinity;
-    var result = {computed : Infinity, value: Infinity};
-    each(obj, function(value, index, list) {
-      var computed = iterator ? iterator.call(context, value, index, list) : value;
-      computed < result.computed && (result = {value : value, computed : computed});
-    });
-    return result.value;
+    return result;
   };
 
-  // Shuffle an array, using the modern version of the 
+  // Shuffle a collection, using the modern version of the
   // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
   _.shuffle = function(obj) {
-    var rand;
-    var index = 0;
-    var shuffled = [];
-    each(obj, function(value) {
-      rand = _.random(index++);
-      shuffled[index - 1] = shuffled[rand];
-      shuffled[rand] = value;
-    });
+    var set = isArrayLike(obj) ? obj : _.values(obj);
+    var length = set.length;
+    var shuffled = Array(length);
+    for (var index = 0, rand; index < length; index++) {
+      rand = _.random(0, index);
+      if (rand !== index) shuffled[index] = shuffled[rand];
+      shuffled[rand] = set[index];
+    }
     return shuffled;
   };
 
-  // Sample **n** random values from an array.
-  // If **n** is not specified, returns a single random element from the array.
+  // Sample **n** random values from a collection.
+  // If **n** is not specified, returns a single random element.
   // The internal `guard` argument allows it to work with `map`.
   _.sample = function(obj, n, guard) {
-    if (arguments.length < 2 || guard) {
+    if (n == null || guard) {
+      if (!isArrayLike(obj)) obj = _.values(obj);
       return obj[_.random(obj.length - 1)];
     }
     return _.shuffle(obj).slice(0, Math.max(0, n));
   };
 
-  // An internal function to generate lookup iterators.
-  var lookupIterator = function(value) {
-    return _.isFunction(value) ? value : function(obj){ return obj[value]; };
-  };
-
-  // Sort the object's values by a criterion produced by an iterator.
-  _.sortBy = function(obj, value, context) {
-    var iterator = lookupIterator(value);
+  // Sort the object's values by a criterion produced by an iteratee.
+  _.sortBy = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
     return _.pluck(_.map(obj, function(value, index, list) {
       return {
         value: value,
         index: index,
-        criteria: iterator.call(context, value, index, list)
+        criteria: iteratee(value, index, list)
       };
     }).sort(function(left, right) {
       var a = left.criteria;
@@ -16307,12 +16364,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
   // An internal function used for aggregate "group by" operations.
   var group = function(behavior) {
-    return function(obj, value, context) {
+    return function(obj, iteratee, context) {
       var result = {};
-      var iterator = value == null ? _.identity : lookupIterator(value);
-      each(obj, function(value, index) {
-        var key = iterator.call(context, value, index, obj);
-        behavior(result, key, value);
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index) {
+        var key = iteratee(value, index, obj);
+        behavior(result, value, key);
       });
       return result;
     };
@@ -16320,48 +16377,46 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
   // Groups the object's values by a criterion. Pass either a string attribute
   // to group by, or a function that returns the criterion.
-  _.groupBy = group(function(result, key, value) {
-    (_.has(result, key) ? result[key] : (result[key] = [])).push(value);
+  _.groupBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
   });
 
   // Indexes the object's values by a criterion, similar to `groupBy`, but for
   // when you know that your index values will be unique.
-  _.indexBy = group(function(result, key, value) {
+  _.indexBy = group(function(result, value, key) {
     result[key] = value;
   });
 
   // Counts instances of an object that group by a certain criterion. Pass
   // either a string attribute to count by, or a function that returns the
   // criterion.
-  _.countBy = group(function(result, key) {
-    _.has(result, key) ? result[key]++ : result[key] = 1;
+  _.countBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key]++; else result[key] = 1;
   });
-
-  // Use a comparator function to figure out the smallest index at which
-  // an object should be inserted so as to maintain order. Uses binary search.
-  _.sortedIndex = function(array, obj, iterator, context) {
-    iterator = iterator == null ? _.identity : lookupIterator(iterator);
-    var value = iterator.call(context, obj);
-    var low = 0, high = array.length;
-    while (low < high) {
-      var mid = (low + high) >>> 1;
-      iterator.call(context, array[mid]) < value ? low = mid + 1 : high = mid;
-    }
-    return low;
-  };
 
   // Safely create a real, live array from anything iterable.
   _.toArray = function(obj) {
     if (!obj) return [];
     if (_.isArray(obj)) return slice.call(obj);
-    if (obj.length === +obj.length) return _.map(obj, _.identity);
+    if (isArrayLike(obj)) return _.map(obj, _.identity);
     return _.values(obj);
   };
 
   // Return the number of elements in an object.
   _.size = function(obj) {
     if (obj == null) return 0;
-    return (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
+    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+  };
+
+  // Split a collection into two arrays: one whose elements all satisfy the given
+  // predicate, and one whose elements all do not satisfy the predicate.
+  _.partition = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var pass = [], fail = [];
+    _.each(obj, function(value, key, obj) {
+      (predicate(value, key, obj) ? pass : fail).push(value);
+    });
+    return [pass, fail];
   };
 
   // Array Functions
@@ -16372,34 +16427,30 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // allows it to work with `_.map`.
   _.first = _.head = _.take = function(array, n, guard) {
     if (array == null) return void 0;
-    return (n == null) || guard ? array[0] : slice.call(array, 0, n);
+    if (n == null || guard) return array[0];
+    return _.initial(array, array.length - n);
   };
 
   // Returns everything but the last entry of the array. Especially useful on
   // the arguments object. Passing **n** will return all the values in
-  // the array, excluding the last N. The **guard** check allows it to work with
-  // `_.map`.
+  // the array, excluding the last N.
   _.initial = function(array, n, guard) {
-    return slice.call(array, 0, array.length - ((n == null) || guard ? 1 : n));
+    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
   };
 
   // Get the last element of an array. Passing **n** will return the last N
-  // values in the array. The **guard** check allows it to work with `_.map`.
+  // values in the array.
   _.last = function(array, n, guard) {
     if (array == null) return void 0;
-    if ((n == null) || guard) {
-      return array[array.length - 1];
-    } else {
-      return slice.call(array, Math.max(array.length - n, 0));
-    }
+    if (n == null || guard) return array[array.length - 1];
+    return _.rest(array, Math.max(0, array.length - n));
   };
 
   // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
   // Especially useful on the arguments object. Passing an **n** will return
-  // the rest N values in the array. The **guard**
-  // check allows it to work with `_.map`.
+  // the rest N values in the array.
   _.rest = _.tail = _.drop = function(array, n, guard) {
-    return slice.call(array, (n == null) || guard ? 1 : n);
+    return slice.call(array, n == null || guard ? 1 : n);
   };
 
   // Trim out all falsy values from an array.
@@ -16408,23 +16459,28 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   };
 
   // Internal implementation of a recursive `flatten` function.
-  var flatten = function(input, shallow, output) {
-    if (shallow && _.every(input, _.isArray)) {
-      return concat.apply(output, input);
-    }
-    each(input, function(value) {
-      if (_.isArray(value) || _.isArguments(value)) {
-        shallow ? push.apply(output, value) : flatten(value, shallow, output);
-      } else {
-        output.push(value);
+  var flatten = function(input, shallow, strict, startIndex) {
+    var output = [], idx = 0;
+    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+      var value = input[i];
+      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+        //flatten current level of array or arguments object
+        if (!shallow) value = flatten(value, shallow, strict);
+        var j = 0, len = value.length;
+        output.length += len;
+        while (j < len) {
+          output[idx++] = value[j++];
+        }
+      } else if (!strict) {
+        output[idx++] = value;
       }
-    });
+    }
     return output;
   };
 
   // Flatten out an array, either recursively (by default), or just one level.
   _.flatten = function(array, shallow) {
-    return flatten(array, shallow, []);
+    return flatten(array, shallow, false);
   };
 
   // Return a version of the array that does not contain the specified value(s).
@@ -16435,66 +16491,88 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // Produce a duplicate-free version of the array. If the array has already
   // been sorted, you have the option of using a faster algorithm.
   // Aliased as `unique`.
-  _.uniq = _.unique = function(array, isSorted, iterator, context) {
-    if (_.isFunction(isSorted)) {
-      context = iterator;
-      iterator = isSorted;
+  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+    if (!_.isBoolean(isSorted)) {
+      context = iteratee;
+      iteratee = isSorted;
       isSorted = false;
     }
-    var initial = iterator ? _.map(array, iterator, context) : array;
-    var results = [];
+    if (iteratee != null) iteratee = cb(iteratee, context);
+    var result = [];
     var seen = [];
-    each(initial, function(value, index) {
-      if (isSorted ? (!index || seen[seen.length - 1] !== value) : !_.contains(seen, value)) {
-        seen.push(value);
-        results.push(array[index]);
+    for (var i = 0, length = getLength(array); i < length; i++) {
+      var value = array[i],
+          computed = iteratee ? iteratee(value, i, array) : value;
+      if (isSorted) {
+        if (!i || seen !== computed) result.push(value);
+        seen = computed;
+      } else if (iteratee) {
+        if (!_.contains(seen, computed)) {
+          seen.push(computed);
+          result.push(value);
+        }
+      } else if (!_.contains(result, value)) {
+        result.push(value);
       }
-    });
-    return results;
+    }
+    return result;
   };
 
   // Produce an array that contains the union: each distinct element from all of
   // the passed-in arrays.
   _.union = function() {
-    return _.uniq(_.flatten(arguments, true));
+    return _.uniq(flatten(arguments, true, true));
   };
 
   // Produce an array that contains every item shared between all the
   // passed-in arrays.
   _.intersection = function(array) {
-    var rest = slice.call(arguments, 1);
-    return _.filter(_.uniq(array), function(item) {
-      return _.every(rest, function(other) {
-        return _.indexOf(other, item) >= 0;
-      });
-    });
+    var result = [];
+    var argsLength = arguments.length;
+    for (var i = 0, length = getLength(array); i < length; i++) {
+      var item = array[i];
+      if (_.contains(result, item)) continue;
+      for (var j = 1; j < argsLength; j++) {
+        if (!_.contains(arguments[j], item)) break;
+      }
+      if (j === argsLength) result.push(item);
+    }
+    return result;
   };
 
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
-    var rest = concat.apply(ArrayProto, slice.call(arguments, 1));
-    return _.filter(array, function(value){ return !_.contains(rest, value); });
+    var rest = flatten(arguments, true, true, 1);
+    return _.filter(array, function(value){
+      return !_.contains(rest, value);
+    });
   };
 
   // Zip together multiple lists into a single array -- elements that share
   // an index go together.
   _.zip = function() {
-    var length = _.max(_.pluck(arguments, "length").concat(0));
-    var results = new Array(length);
-    for (var i = 0; i < length; i++) {
-      results[i] = _.pluck(arguments, '' + i);
+    return _.unzip(arguments);
+  };
+
+  // Complement of _.zip. Unzip accepts an array of arrays and groups
+  // each array's elements on shared indices
+  _.unzip = function(array) {
+    var length = array && _.max(array, getLength).length || 0;
+    var result = Array(length);
+
+    for (var index = 0; index < length; index++) {
+      result[index] = _.pluck(array, index);
     }
-    return results;
+    return result;
   };
 
   // Converts lists into objects. Pass either a single array of `[key, value]`
   // pairs, or two parallel arrays of the same length -- one of keys, and one of
   // the corresponding values.
   _.object = function(list, values) {
-    if (list == null) return {};
     var result = {};
-    for (var i = 0, length = list.length; i < length; i++) {
+    for (var i = 0, length = getLength(list); i < length; i++) {
       if (values) {
         result[list[i]] = values[i];
       } else {
@@ -16504,57 +16582,83 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return result;
   };
 
-  // If the browser doesn't supply us with indexOf (I'm looking at you, **MSIE**),
-  // we need this function. Return the position of the first occurrence of an
-  // item in an array, or -1 if the item is not included in the array.
-  // Delegates to **ECMAScript 5**'s native `indexOf` if available.
-  // If the array is large and already in sort order, pass `true`
-  // for **isSorted** to use binary search.
-  _.indexOf = function(array, item, isSorted) {
-    if (array == null) return -1;
-    var i = 0, length = array.length;
-    if (isSorted) {
-      if (typeof isSorted == 'number') {
-        i = (isSorted < 0 ? Math.max(0, length + isSorted) : isSorted);
-      } else {
-        i = _.sortedIndex(array, item);
-        return array[i] === item ? i : -1;
+  // Generator function to create the findIndex and findLastIndex functions
+  function createPredicateIndexFinder(dir) {
+    return function(array, predicate, context) {
+      predicate = cb(predicate, context);
+      var length = getLength(array);
+      var index = dir > 0 ? 0 : length - 1;
+      for (; index >= 0 && index < length; index += dir) {
+        if (predicate(array[index], index, array)) return index;
       }
+      return -1;
+    };
+  }
+
+  // Returns the first index on an array-like that passes a predicate test
+  _.findIndex = createPredicateIndexFinder(1);
+  _.findLastIndex = createPredicateIndexFinder(-1);
+
+  // Use a comparator function to figure out the smallest index at which
+  // an object should be inserted so as to maintain order. Uses binary search.
+  _.sortedIndex = function(array, obj, iteratee, context) {
+    iteratee = cb(iteratee, context, 1);
+    var value = iteratee(obj);
+    var low = 0, high = getLength(array);
+    while (low < high) {
+      var mid = Math.floor((low + high) / 2);
+      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
     }
-    if (nativeIndexOf && array.indexOf === nativeIndexOf) return array.indexOf(item, isSorted);
-    for (; i < length; i++) if (array[i] === item) return i;
-    return -1;
+    return low;
   };
 
-  // Delegates to **ECMAScript 5**'s native `lastIndexOf` if available.
-  _.lastIndexOf = function(array, item, from) {
-    if (array == null) return -1;
-    var hasIndex = from != null;
-    if (nativeLastIndexOf && array.lastIndexOf === nativeLastIndexOf) {
-      return hasIndex ? array.lastIndexOf(item, from) : array.lastIndexOf(item);
-    }
-    var i = (hasIndex ? from : array.length);
-    while (i--) if (array[i] === item) return i;
-    return -1;
-  };
+  // Generator function to create the indexOf and lastIndexOf functions
+  function createIndexFinder(dir, predicateFind, sortedIndex) {
+    return function(array, item, idx) {
+      var i = 0, length = getLength(array);
+      if (typeof idx == 'number') {
+        if (dir > 0) {
+            i = idx >= 0 ? idx : Math.max(idx + length, i);
+        } else {
+            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+        }
+      } else if (sortedIndex && idx && length) {
+        idx = sortedIndex(array, item);
+        return array[idx] === item ? idx : -1;
+      }
+      if (item !== item) {
+        idx = predicateFind(slice.call(array, i, length), _.isNaN);
+        return idx >= 0 ? idx + i : -1;
+      }
+      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+        if (array[idx] === item) return idx;
+      }
+      return -1;
+    };
+  }
+
+  // Return the position of the first occurrence of an item in an array,
+  // or -1 if the item is not included in the array.
+  // If the array is large and already in sort order, pass `true`
+  // for **isSorted** to use binary search.
+  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
+  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
 
   // Generate an integer Array containing an arithmetic progression. A port of
   // the native Python `range()` function. See
   // [the Python documentation](http://docs.python.org/library/functions.html#range).
   _.range = function(start, stop, step) {
-    if (arguments.length <= 1) {
+    if (stop == null) {
       stop = start || 0;
       start = 0;
     }
-    step = arguments[2] || 1;
+    step = step || 1;
 
     var length = Math.max(Math.ceil((stop - start) / step), 0);
-    var idx = 0;
-    var range = new Array(length);
+    var range = Array(length);
 
-    while(idx < length) {
-      range[idx++] = start;
-      start += step;
+    for (var idx = 0; idx < length; idx++, start += step) {
+      range[idx] = start;
     }
 
     return range;
@@ -16563,68 +16667,83 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // Function (ahem) Functions
   // ------------------
 
-  // Reusable constructor function for prototype setting.
-  var ctor = function(){};
+  // Determines whether to execute a function as a constructor
+  // or a normal function with the provided arguments
+  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
+    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+    var self = baseCreate(sourceFunc.prototype);
+    var result = sourceFunc.apply(self, args);
+    if (_.isObject(result)) return result;
+    return self;
+  };
 
   // Create a function bound to a given object (assigning `this`, and arguments,
   // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
   // available.
   _.bind = function(func, context) {
-    var args, bound;
     if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-    if (!_.isFunction(func)) throw new TypeError;
-    args = slice.call(arguments, 2);
-    return bound = function() {
-      if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
-      ctor.prototype = func.prototype;
-      var self = new ctor;
-      ctor.prototype = null;
-      var result = func.apply(self, args.concat(slice.call(arguments)));
-      if (Object(result) === result) return result;
-      return self;
+    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+    var args = slice.call(arguments, 2);
+    var bound = function() {
+      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
     };
+    return bound;
   };
 
   // Partially apply a function by creating a version that has had some of its
-  // arguments pre-filled, without changing its dynamic `this` context.
+  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+  // as a placeholder, allowing any combination of arguments to be pre-filled.
   _.partial = function(func) {
-    var args = slice.call(arguments, 1);
-    return function() {
-      return func.apply(this, args.concat(slice.call(arguments)));
+    var boundArgs = slice.call(arguments, 1);
+    var bound = function() {
+      var position = 0, length = boundArgs.length;
+      var args = Array(length);
+      for (var i = 0; i < length; i++) {
+        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+      }
+      while (position < arguments.length) args.push(arguments[position++]);
+      return executeBound(func, bound, this, this, args);
     };
+    return bound;
   };
 
-  // Bind all of an object's methods to that object. Useful for ensuring that
-  // all callbacks defined on an object belong to it.
+  // Bind a number of an object's methods to that object. Remaining arguments
+  // are the method names to be bound. Useful for ensuring that all callbacks
+  // defined on an object belong to it.
   _.bindAll = function(obj) {
-    var funcs = slice.call(arguments, 1);
-    if (funcs.length === 0) throw new Error("bindAll must be passed function names");
-    each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
+    var i, length = arguments.length, key;
+    if (length <= 1) throw new Error('bindAll must be passed function names');
+    for (i = 1; i < length; i++) {
+      key = arguments[i];
+      obj[key] = _.bind(obj[key], obj);
+    }
     return obj;
   };
 
   // Memoize an expensive function by storing its results.
   _.memoize = function(func, hasher) {
-    var memo = {};
-    hasher || (hasher = _.identity);
-    return function() {
-      var key = hasher.apply(this, arguments);
-      return _.has(memo, key) ? memo[key] : (memo[key] = func.apply(this, arguments));
+    var memoize = function(key) {
+      var cache = memoize.cache;
+      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+      return cache[address];
     };
+    memoize.cache = {};
+    return memoize;
   };
 
   // Delays a function for the given number of milliseconds, and then calls
   // it with the arguments supplied.
   _.delay = function(func, wait) {
     var args = slice.call(arguments, 2);
-    return setTimeout(function(){ return func.apply(null, args); }, wait);
+    return setTimeout(function(){
+      return func.apply(null, args);
+    }, wait);
   };
 
   // Defers a function, scheduling it to run after the current call stack has
   // cleared.
-  _.defer = function(func) {
-    return _.delay.apply(_, [func, 1].concat(slice.call(arguments, 1)));
-  };
+  _.defer = _.partial(_.delay, _, 1);
 
   // Returns a function, that, when invoked, will only be triggered at most once
   // during a given window of time. Normally, the throttled function will run
@@ -16635,23 +16754,27 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     var context, args, result;
     var timeout = null;
     var previous = 0;
-    options || (options = {});
+    if (!options) options = {};
     var later = function() {
-      previous = options.leading === false ? 0 : new Date;
+      previous = options.leading === false ? 0 : _.now();
       timeout = null;
       result = func.apply(context, args);
+      if (!timeout) context = args = null;
     };
     return function() {
-      var now = new Date;
+      var now = _.now();
       if (!previous && options.leading === false) previous = now;
       var remaining = wait - (now - previous);
       context = this;
       args = arguments;
-      if (remaining <= 0) {
-        clearTimeout(timeout);
-        timeout = null;
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
         previous = now;
         result = func.apply(context, args);
+        if (!timeout) context = args = null;
       } else if (!timeout && options.trailing !== false) {
         timeout = setTimeout(later, remaining);
       }
@@ -16665,38 +16788,33 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // leading edge, instead of the trailing.
   _.debounce = function(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
+
+    var later = function() {
+      var last = _.now() - timestamp;
+
+      if (last < wait && last >= 0) {
+        timeout = setTimeout(later, wait - last);
+      } else {
+        timeout = null;
+        if (!immediate) {
+          result = func.apply(context, args);
+          if (!timeout) context = args = null;
+        }
+      }
+    };
+
     return function() {
       context = this;
       args = arguments;
-      timestamp = new Date();
-      var later = function() {
-        var last = (new Date()) - timestamp;
-        if (last < wait) {
-          timeout = setTimeout(later, wait - last);
-        } else {
-          timeout = null;
-          if (!immediate) result = func.apply(context, args);
-        }
-      };
+      timestamp = _.now();
       var callNow = immediate && !timeout;
-      if (!timeout) {
-        timeout = setTimeout(later, wait);
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (callNow) {
+        result = func.apply(context, args);
+        context = args = null;
       }
-      if (callNow) result = func.apply(context, args);
-      return result;
-    };
-  };
 
-  // Returns a function that will be executed at most one time, no matter how
-  // often you call it. Useful for lazy initialization.
-  _.once = function(func) {
-    var ran = false, memo;
-    return function() {
-      if (ran) return memo;
-      ran = true;
-      memo = func.apply(this, arguments);
-      func = null;
-      return memo;
+      return result;
     };
   };
 
@@ -16704,27 +16822,30 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // allowing you to adjust arguments, run code before and after, and
   // conditionally execute the original function.
   _.wrap = function(func, wrapper) {
+    return _.partial(wrapper, func);
+  };
+
+  // Returns a negated version of the passed-in predicate.
+  _.negate = function(predicate) {
     return function() {
-      var args = [func];
-      push.apply(args, arguments);
-      return wrapper.apply(this, args);
+      return !predicate.apply(this, arguments);
     };
   };
 
   // Returns a function that is the composition of a list of functions, each
   // consuming the return value of the function that follows.
   _.compose = function() {
-    var funcs = arguments;
+    var args = arguments;
+    var start = args.length - 1;
     return function() {
-      var args = arguments;
-      for (var i = funcs.length - 1; i >= 0; i--) {
-        args = [funcs[i].apply(this, args)];
-      }
-      return args[0];
+      var i = start;
+      var result = args[start].apply(this, arguments);
+      while (i--) result = args[i].call(this, result);
+      return result;
     };
   };
 
-  // Returns a function that will only be executed after being called N times.
+  // Returns a function that will only be executed on and after the Nth call.
   _.after = function(times, func) {
     return function() {
       if (--times < 1) {
@@ -16733,15 +16854,66 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     };
   };
 
+  // Returns a function that will only be executed up to (but not including) the Nth call.
+  _.before = function(times, func) {
+    var memo;
+    return function() {
+      if (--times > 0) {
+        memo = func.apply(this, arguments);
+      }
+      if (times <= 1) func = null;
+      return memo;
+    };
+  };
+
+  // Returns a function that will be executed at most one time, no matter how
+  // often you call it. Useful for lazy initialization.
+  _.once = _.partial(_.before, 2);
+
   // Object Functions
   // ----------------
 
-  // Retrieve the names of an object's properties.
+  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+  function collectNonEnumProps(obj, keys) {
+    var nonEnumIdx = nonEnumerableProps.length;
+    var constructor = obj.constructor;
+    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
+
+    // Constructor is a special case.
+    var prop = 'constructor';
+    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+    while (nonEnumIdx--) {
+      prop = nonEnumerableProps[nonEnumIdx];
+      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+        keys.push(prop);
+      }
+    }
+  }
+
+  // Retrieve the names of an object's own properties.
   // Delegates to **ECMAScript 5**'s native `Object.keys`
-  _.keys = nativeKeys || function(obj) {
-    if (obj !== Object(obj)) throw new TypeError('Invalid object');
+  _.keys = function(obj) {
+    if (!_.isObject(obj)) return [];
+    if (nativeKeys) return nativeKeys(obj);
     var keys = [];
     for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    // Ahem, IE < 9.
+    if (hasEnumBug) collectNonEnumProps(obj, keys);
+    return keys;
+  };
+
+  // Retrieve all the property names of an object.
+  _.allKeys = function(obj) {
+    if (!_.isObject(obj)) return [];
+    var keys = [];
+    for (var key in obj) keys.push(key);
+    // Ahem, IE < 9.
+    if (hasEnumBug) collectNonEnumProps(obj, keys);
     return keys;
   };
 
@@ -16749,18 +16921,33 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   _.values = function(obj) {
     var keys = _.keys(obj);
     var length = keys.length;
-    var values = new Array(length);
+    var values = Array(length);
     for (var i = 0; i < length; i++) {
       values[i] = obj[keys[i]];
     }
     return values;
   };
 
+  // Returns the results of applying the iteratee to each element of the object
+  // In contrast to _.map it returns an object
+  _.mapObject = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
+    var keys =  _.keys(obj),
+          length = keys.length,
+          results = {},
+          currentKey;
+      for (var index = 0; index < length; index++) {
+        currentKey = keys[index];
+        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+      }
+      return results;
+  };
+
   // Convert an object into a list of `[key, value]` pairs.
   _.pairs = function(obj) {
     var keys = _.keys(obj);
     var length = keys.length;
-    var pairs = new Array(length);
+    var pairs = Array(length);
     for (var i = 0; i < length; i++) {
       pairs[i] = [keys[i], obj[keys[i]]];
     }
@@ -16788,47 +16975,65 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   };
 
   // Extend a given object with all the properties in passed-in object(s).
-  _.extend = function(obj) {
-    each(slice.call(arguments, 1), function(source) {
-      if (source) {
-        for (var prop in source) {
-          obj[prop] = source[prop];
-        }
-      }
-    });
-    return obj;
+  _.extend = createAssigner(_.allKeys);
+
+  // Assigns a given object with all the own properties in the passed-in object(s)
+  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+  _.extendOwn = _.assign = createAssigner(_.keys);
+
+  // Returns the first key on an object that passes a predicate test
+  _.findKey = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = _.keys(obj), key;
+    for (var i = 0, length = keys.length; i < length; i++) {
+      key = keys[i];
+      if (predicate(obj[key], key, obj)) return key;
+    }
   };
 
   // Return a copy of the object only containing the whitelisted properties.
-  _.pick = function(obj) {
-    var copy = {};
-    var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
-    each(keys, function(key) {
-      if (key in obj) copy[key] = obj[key];
-    });
-    return copy;
+  _.pick = function(object, oiteratee, context) {
+    var result = {}, obj = object, iteratee, keys;
+    if (obj == null) return result;
+    if (_.isFunction(oiteratee)) {
+      keys = _.allKeys(obj);
+      iteratee = optimizeCb(oiteratee, context);
+    } else {
+      keys = flatten(arguments, false, false, 1);
+      iteratee = function(value, key, obj) { return key in obj; };
+      obj = Object(obj);
+    }
+    for (var i = 0, length = keys.length; i < length; i++) {
+      var key = keys[i];
+      var value = obj[key];
+      if (iteratee(value, key, obj)) result[key] = value;
+    }
+    return result;
   };
 
    // Return a copy of the object without the blacklisted properties.
-  _.omit = function(obj) {
-    var copy = {};
-    var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
-    for (var key in obj) {
-      if (!_.contains(keys, key)) copy[key] = obj[key];
+  _.omit = function(obj, iteratee, context) {
+    if (_.isFunction(iteratee)) {
+      iteratee = _.negate(iteratee);
+    } else {
+      var keys = _.map(flatten(arguments, false, false, 1), String);
+      iteratee = function(value, key) {
+        return !_.contains(keys, key);
+      };
     }
-    return copy;
+    return _.pick(obj, iteratee, context);
   };
 
   // Fill in a given object with default properties.
-  _.defaults = function(obj) {
-    each(slice.call(arguments, 1), function(source) {
-      if (source) {
-        for (var prop in source) {
-          if (obj[prop] === void 0) obj[prop] = source[prop];
-        }
-      }
-    });
-    return obj;
+  _.defaults = createAssigner(_.allKeys, true);
+
+  // Creates an object that inherits from the given prototype object.
+  // If additional properties are provided then they will be added to the
+  // created object.
+  _.create = function(prototype, props) {
+    var result = baseCreate(prototype);
+    if (props) _.extendOwn(result, props);
+    return result;
   };
 
   // Create a (shallow-cloned) duplicate of an object.
@@ -16845,11 +17050,24 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return obj;
   };
 
+  // Returns whether an object has a given set of `key:value` pairs.
+  _.isMatch = function(object, attrs) {
+    var keys = _.keys(attrs), length = keys.length;
+    if (object == null) return !length;
+    var obj = Object(object);
+    for (var i = 0; i < length; i++) {
+      var key = keys[i];
+      if (attrs[key] !== obj[key] || !(key in obj)) return false;
+    }
+    return true;
+  };
+
+
   // Internal recursive comparison function for `isEqual`.
   var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-    if (a === b) return a !== 0 || 1 / a == 1 / b;
+    if (a === b) return a !== 0 || 1 / a === 1 / b;
     // A strict comparison is necessary because `null == undefined`.
     if (a == null || b == null) return a === b;
     // Unwrap any wrapped objects.
@@ -16857,97 +17075,98 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     if (b instanceof _) b = b._wrapped;
     // Compare `[[Class]]` names.
     var className = toString.call(a);
-    if (className != toString.call(b)) return false;
+    if (className !== toString.call(b)) return false;
     switch (className) {
-      // Strings, numbers, dates, and booleans are compared by value.
+      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+      case '[object RegExp]':
+      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
       case '[object String]':
         // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
         // equivalent to `new String("5")`.
-        return a == String(b);
+        return '' + a === '' + b;
       case '[object Number]':
-        // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
-        // other numeric values.
-        return a != +a ? b != +b : (a == 0 ? 1 / a == 1 / b : a == +b);
+        // `NaN`s are equivalent, but non-reflexive.
+        // Object(NaN) is equivalent to NaN
+        if (+a !== +a) return +b !== +b;
+        // An `egal` comparison is performed for other numeric values.
+        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
       case '[object Date]':
       case '[object Boolean]':
         // Coerce dates and booleans to numeric primitive values. Dates are compared by their
         // millisecond representations. Note that invalid dates with millisecond representations
         // of `NaN` are not equivalent.
-        return +a == +b;
-      // RegExps are compared by their source patterns and flags.
-      case '[object RegExp]':
-        return a.source == b.source &&
-               a.global == b.global &&
-               a.multiline == b.multiline &&
-               a.ignoreCase == b.ignoreCase;
+        return +a === +b;
     }
-    if (typeof a != 'object' || typeof b != 'object') return false;
+
+    var areArrays = className === '[object Array]';
+    if (!areArrays) {
+      if (typeof a != 'object' || typeof b != 'object') return false;
+
+      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+      // from different frames are.
+      var aCtor = a.constructor, bCtor = b.constructor;
+      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+                               _.isFunction(bCtor) && bCtor instanceof bCtor)
+                          && ('constructor' in a && 'constructor' in b)) {
+        return false;
+      }
+    }
     // Assume equality for cyclic structures. The algorithm for detecting cyclic
     // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+    // Initializing stack of traversed objects.
+    // It's done here since we only need them for objects and arrays comparison.
+    aStack = aStack || [];
+    bStack = bStack || [];
     var length = aStack.length;
     while (length--) {
       // Linear search. Performance is inversely proportional to the number of
       // unique nested structures.
-      if (aStack[length] == a) return bStack[length] == b;
+      if (aStack[length] === a) return bStack[length] === b;
     }
-    // Objects with different constructors are not equivalent, but `Object`s
-    // from different frames are.
-    var aCtor = a.constructor, bCtor = b.constructor;
-    if (aCtor !== bCtor && !(_.isFunction(aCtor) && (aCtor instanceof aCtor) &&
-                             _.isFunction(bCtor) && (bCtor instanceof bCtor))) {
-      return false;
-    }
+
     // Add the first object to the stack of traversed objects.
     aStack.push(a);
     bStack.push(b);
-    var size = 0, result = true;
+
     // Recursively compare objects and arrays.
-    if (className == '[object Array]') {
+    if (areArrays) {
       // Compare array lengths to determine if a deep comparison is necessary.
-      size = a.length;
-      result = size == b.length;
-      if (result) {
-        // Deep compare the contents, ignoring non-numeric properties.
-        while (size--) {
-          if (!(result = eq(a[size], b[size], aStack, bStack))) break;
-        }
+      length = a.length;
+      if (length !== b.length) return false;
+      // Deep compare the contents, ignoring non-numeric properties.
+      while (length--) {
+        if (!eq(a[length], b[length], aStack, bStack)) return false;
       }
     } else {
       // Deep compare objects.
-      for (var key in a) {
-        if (_.has(a, key)) {
-          // Count the expected number of properties.
-          size++;
-          // Deep compare each member.
-          if (!(result = _.has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
-        }
-      }
-      // Ensure that both objects contain the same number of properties.
-      if (result) {
-        for (key in b) {
-          if (_.has(b, key) && !(size--)) break;
-        }
-        result = !size;
+      var keys = _.keys(a), key;
+      length = keys.length;
+      // Ensure that both objects contain the same number of properties before comparing deep equality.
+      if (_.keys(b).length !== length) return false;
+      while (length--) {
+        // Deep compare each member
+        key = keys[length];
+        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
       }
     }
     // Remove the first object from the stack of traversed objects.
     aStack.pop();
     bStack.pop();
-    return result;
+    return true;
   };
 
   // Perform a deep comparison to check if two objects are equal.
   _.isEqual = function(a, b) {
-    return eq(a, b, [], []);
+    return eq(a, b);
   };
 
   // Is a given array, string, or object empty?
   // An "empty" object has no enumerable own-properties.
   _.isEmpty = function(obj) {
     if (obj == null) return true;
-    if (_.isArray(obj) || _.isString(obj)) return obj.length === 0;
-    for (var key in obj) if (_.has(obj, key)) return false;
-    return true;
+    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+    return _.keys(obj).length === 0;
   };
 
   // Is a given value a DOM element?
@@ -16958,33 +17177,35 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // Is a given value an array?
   // Delegates to ECMA5's native Array.isArray
   _.isArray = nativeIsArray || function(obj) {
-    return toString.call(obj) == '[object Array]';
+    return toString.call(obj) === '[object Array]';
   };
 
   // Is a given variable an object?
   _.isObject = function(obj) {
-    return obj === Object(obj);
+    var type = typeof obj;
+    return type === 'function' || type === 'object' && !!obj;
   };
 
-  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.
-  each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'], function(name) {
+  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
     _['is' + name] = function(obj) {
-      return toString.call(obj) == '[object ' + name + ']';
+      return toString.call(obj) === '[object ' + name + ']';
     };
   });
 
-  // Define a fallback version of the method in browsers (ahem, IE), where
+  // Define a fallback version of the method in browsers (ahem, IE < 9), where
   // there isn't any inspectable "Arguments" type.
   if (!_.isArguments(arguments)) {
     _.isArguments = function(obj) {
-      return !!(obj && _.has(obj, 'callee'));
+      return _.has(obj, 'callee');
     };
   }
 
-  // Optimize `isFunction` if appropriate.
-  if (typeof (/./) !== 'function') {
+  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
+  // IE 11 (#1621), and in Safari 8 (#1929).
+  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
     _.isFunction = function(obj) {
-      return typeof obj === 'function';
+      return typeof obj == 'function' || false;
     };
   }
 
@@ -16995,12 +17216,12 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
   // Is the given value `NaN`? (NaN is the only number which does not equal itself).
   _.isNaN = function(obj) {
-    return _.isNumber(obj) && obj != +obj;
+    return _.isNumber(obj) && obj !== +obj;
   };
 
   // Is a given value a boolean?
   _.isBoolean = function(obj) {
-    return obj === true || obj === false || toString.call(obj) == '[object Boolean]';
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
   };
 
   // Is a given value equal to null?
@@ -17016,7 +17237,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // Shortcut function for checking if an object has a given property directly
   // on itself (in other words, not on a prototype).
   _.has = function(obj, key) {
-    return hasOwnProperty.call(obj, key);
+    return obj != null && hasOwnProperty.call(obj, key);
   };
 
   // Utility Functions
@@ -17029,15 +17250,43 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return this;
   };
 
-  // Keep the identity function around for default iterators.
+  // Keep the identity function around for default iteratees.
   _.identity = function(value) {
     return value;
   };
 
+  // Predicate-generating functions. Often useful outside of Underscore.
+  _.constant = function(value) {
+    return function() {
+      return value;
+    };
+  };
+
+  _.noop = function(){};
+
+  _.property = property;
+
+  // Generates a function for a given object that returns a given property.
+  _.propertyOf = function(obj) {
+    return obj == null ? function(){} : function(key) {
+      return obj[key];
+    };
+  };
+
+  // Returns a predicate for checking whether an object has a given set of
+  // `key:value` pairs.
+  _.matcher = _.matches = function(attrs) {
+    attrs = _.extendOwn({}, attrs);
+    return function(obj) {
+      return _.isMatch(obj, attrs);
+    };
+  };
+
   // Run a function **n** times.
-  _.times = function(n, iterator, context) {
+  _.times = function(n, iteratee, context) {
     var accum = Array(Math.max(0, n));
-    for (var i = 0; i < n; i++) accum[i] = iterator.call(context, i);
+    iteratee = optimizeCb(iteratee, context, 1);
+    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
     return accum;
   };
 
@@ -17050,52 +17299,47 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     return min + Math.floor(Math.random() * (max - min + 1));
   };
 
-  // List of HTML entities for escaping.
-  var entityMap = {
-    escape: {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#x27;'
-    }
+  // A (possibly faster) way to get the current timestamp as an integer.
+  _.now = Date.now || function() {
+    return new Date().getTime();
   };
-  entityMap.unescape = _.invert(entityMap.escape);
 
-  // Regexes containing the keys and values listed immediately above.
-  var entityRegexes = {
-    escape:   new RegExp('[' + _.keys(entityMap.escape).join('') + ']', 'g'),
-    unescape: new RegExp('(' + _.keys(entityMap.unescape).join('|') + ')', 'g')
+   // List of HTML entities for escaping.
+  var escapeMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '`': '&#x60;'
   };
+  var unescapeMap = _.invert(escapeMap);
 
   // Functions for escaping and unescaping strings to/from HTML interpolation.
-  _.each(['escape', 'unescape'], function(method) {
-    _[method] = function(string) {
-      if (string == null) return '';
-      return ('' + string).replace(entityRegexes[method], function(match) {
-        return entityMap[method][match];
-      });
+  var createEscaper = function(map) {
+    var escaper = function(match) {
+      return map[match];
     };
-  });
+    // Regexes for identifying a key that needs to be escaped
+    var source = '(?:' + _.keys(map).join('|') + ')';
+    var testRegexp = RegExp(source);
+    var replaceRegexp = RegExp(source, 'g');
+    return function(string) {
+      string = string == null ? '' : '' + string;
+      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+    };
+  };
+  _.escape = createEscaper(escapeMap);
+  _.unescape = createEscaper(unescapeMap);
 
   // If the value of the named `property` is a function then invoke it with the
   // `object` as context; otherwise, return it.
-  _.result = function(object, property) {
-    if (object == null) return void 0;
-    var value = object[property];
+  _.result = function(object, property, fallback) {
+    var value = object == null ? void 0 : object[property];
+    if (value === void 0) {
+      value = fallback;
+    }
     return _.isFunction(value) ? value.call(object) : value;
-  };
-
-  // Add your own custom functions to the Underscore object.
-  _.mixin = function(obj) {
-    each(_.functions(obj), function(name) {
-      var func = _[name] = obj[name];
-      _.prototype[name] = function() {
-        var args = [this._wrapped];
-        push.apply(args, arguments);
-        return result.call(this, func.apply(_, args));
-      };
-    });
   };
 
   // Generate a unique integer id (unique within the entire client session).
@@ -17126,22 +17370,26 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     '\\':     '\\',
     '\r':     'r',
     '\n':     'n',
-    '\t':     't',
     '\u2028': 'u2028',
     '\u2029': 'u2029'
   };
 
-  var escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+  var escapeChar = function(match) {
+    return '\\' + escapes[match];
+  };
 
   // JavaScript micro-templating, similar to John Resig's implementation.
   // Underscore templating handles arbitrary delimiters, preserves whitespace,
   // and correctly escapes quotes within interpolated code.
-  _.template = function(text, data, settings) {
-    var render;
+  // NB: `oldSettings` only exists for backwards compatibility.
+  _.template = function(text, settings, oldSettings) {
+    if (!settings && oldSettings) settings = oldSettings;
     settings = _.defaults({}, settings, _.templateSettings);
 
     // Combine delimiters into one regular expression via alternation.
-    var matcher = new RegExp([
+    var matcher = RegExp([
       (settings.escape || noMatch).source,
       (settings.interpolate || noMatch).source,
       (settings.evaluate || noMatch).source
@@ -17151,19 +17399,18 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     var index = 0;
     var source = "__p+='";
     text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-      source += text.slice(index, offset)
-        .replace(escaper, function(match) { return '\\' + escapes[match]; });
+      source += text.slice(index, offset).replace(escaper, escapeChar);
+      index = offset + match.length;
 
       if (escape) {
         source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-      }
-      if (interpolate) {
+      } else if (interpolate) {
         source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-      }
-      if (evaluate) {
+      } else if (evaluate) {
         source += "';\n" + evaluate + "\n__p+='";
       }
-      index = offset + match.length;
+
+      // Adobe VMs need the match returned to produce the correct offest.
       return match;
     });
     source += "';\n";
@@ -17173,29 +17420,31 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
     source = "var __t,__p='',__j=Array.prototype.join," +
       "print=function(){__p+=__j.call(arguments,'');};\n" +
-      source + "return __p;\n";
+      source + 'return __p;\n';
 
     try {
-      render = new Function(settings.variable || 'obj', '_', source);
+      var render = new Function(settings.variable || 'obj', '_', source);
     } catch (e) {
       e.source = source;
       throw e;
     }
 
-    if (data) return render(data, _);
     var template = function(data) {
       return render.call(this, data, _);
     };
 
-    // Provide the compiled function source as a convenience for precompilation.
-    template.source = 'function(' + (settings.variable || 'obj') + '){\n' + source + '}';
+    // Provide the compiled source as a convenience for precompilation.
+    var argument = settings.variable || 'obj';
+    template.source = 'function(' + argument + '){\n' + source + '}';
 
     return template;
   };
 
-  // Add a "chain" function, which will delegate to the wrapper.
+  // Add a "chain" function. Start chaining a wrapped Underscore object.
   _.chain = function(obj) {
-    return _(obj).chain();
+    var instance = _(obj);
+    instance._chain = true;
+    return instance;
   };
 
   // OOP
@@ -17205,48 +17454,70 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   // underscore functions. Wrapped objects may be chained.
 
   // Helper function to continue chaining intermediate results.
-  var result = function(obj) {
-    return this._chain ? _(obj).chain() : obj;
+  var result = function(instance, obj) {
+    return instance._chain ? _(obj).chain() : obj;
+  };
+
+  // Add your own custom functions to the Underscore object.
+  _.mixin = function(obj) {
+    _.each(_.functions(obj), function(name) {
+      var func = _[name] = obj[name];
+      _.prototype[name] = function() {
+        var args = [this._wrapped];
+        push.apply(args, arguments);
+        return result(this, func.apply(_, args));
+      };
+    });
   };
 
   // Add all of the Underscore functions to the wrapper object.
   _.mixin(_);
 
   // Add all mutator Array functions to the wrapper.
-  each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
     var method = ArrayProto[name];
     _.prototype[name] = function() {
       var obj = this._wrapped;
       method.apply(obj, arguments);
-      if ((name == 'shift' || name == 'splice') && obj.length === 0) delete obj[0];
-      return result.call(this, obj);
+      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+      return result(this, obj);
     };
   });
 
   // Add all accessor Array functions to the wrapper.
-  each(['concat', 'join', 'slice'], function(name) {
+  _.each(['concat', 'join', 'slice'], function(name) {
     var method = ArrayProto[name];
     _.prototype[name] = function() {
-      return result.call(this, method.apply(this._wrapped, arguments));
+      return result(this, method.apply(this._wrapped, arguments));
     };
   });
 
-  _.extend(_.prototype, {
+  // Extracts the result from a wrapped and chained object.
+  _.prototype.value = function() {
+    return this._wrapped;
+  };
 
-    // Start chaining a wrapped Underscore object.
-    chain: function() {
-      this._chain = true;
-      return this;
-    },
+  // Provide unwrapping proxy for some methods used in engine operations
+  // such as arithmetic and JSON stringification.
+  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
 
-    // Extracts the result from a wrapped and chained object.
-    value: function() {
-      return this._wrapped;
-    }
+  _.prototype.toString = function() {
+    return '' + this._wrapped;
+  };
 
-  });
-
-}).call(this);
+  // AMD registration happens at the end for compatibility with AMD loaders
+  // that may not enforce next-turn semantics on modules. Even though general
+  // practice for AMD registration is to be anonymous, underscore registers
+  // as a named module because, like jQuery, it is a base library that is
+  // popular enough to be bundled in a third party lib, but not be part of
+  // an AMD load request. Those cases could generate an error when an
+  // anonymous define() is called outside of a loader request.
+  if (typeof define === 'function' && define.amd) {
+    define('underscore', [], function() {
+      return _;
+    });
+  }
+}.call(this));
 
 }).call(global, module, undefined);
 
@@ -17503,8 +17774,8 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 },{}],13:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; $ = global.$ = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
-underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js");
+; $ = global.$ = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js");
+underscore = global.underscore = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js");
 //     Backbone.js 1.1.0
 
 //     (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -19091,10 +19362,10 @@ underscore = global.underscore = require("C:\\Users\\Michael\\Desktop\\projects\
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7,"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\underscore\\underscore.js":11,"underscore":11}],14:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js":7,"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/underscore/underscore.js":11,"underscore":11}],14:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 
-; jQuery = global.jQuery = require("C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js");
+; jQuery = global.jQuery = require("/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js");
 /* ========================================================================
  * Bootstrap: dropdown.js v3.0.2
  * http://getbootstrap.com/javascript/#dropdowns
@@ -19618,7 +19889,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
 }).call(global, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-},{"C:\\Users\\Michael\\Desktop\\projects\\bluematter-projects\\stat-tracker\\bower_components\\jquery\\jquery.js":7}],15:[function(require,module,exports){
+},{"/Users/michaelaubry/Documents/projects/michaels-projects/stat-tracker/bower_components/jquery/jquery.js":7}],15:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};(function browserifyShim(module, exports, define, browserify_shim__define__module__export__) {
 /*
  *  colourBrightness.js
@@ -19801,7 +20072,17 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
     byTeam:function(teamID) {
     	var SpecificTeam = App.data.players.where({ team_id: teamID });
         return new PlayersCollection(SpecificTeam); 
-    }
+    },
+    byPlayingTeam:function(teamID) {
+        console.log(teamID)
+        var playingPlayers = [];
+        for(var i = 0; i < teamID.length; i++) {
+            playingPlayers.push(this.where({ team_id: teamID[i] }));
+        }
+        var Playingresults = playingPlayers[0].concat(playingPlayers[1]);
+        console.log(Playingresults);
+        return new PlayersCollection(Playingresults);
+    },
 
 });
 
@@ -20187,7 +20468,14 @@ module.exports = statsView = Marionette.ItemView.extend({
 
         // needs to be only playing teams, for now its all teams
         var players = [];
-        App.data.players.each(function(player) {
+        var teams = [];
+
+        // Grab the IDs of the playing teams
+        App.data.teams.byPlaying().each(function(team) {
+            teams.push(team.id);
+        });
+
+        App.data.players.byPlayingTeam(teams).each(function(player) {
             players.push(player);
         });
 
@@ -21771,7 +22059,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"menu\"></div>\r\n<div id=\"stats\" class=\"content\"></div>\r\n<div class=\"scoreboard\"></div>";
+  return "<div class=\"menu\"></div>\n<div id=\"stats\" class=\"content\"></div>\n<div class=\"scoreboard\"></div>";
   });
 
 },{"hbsfy/runtime":65}],40:[function(require,module,exports){
@@ -21785,78 +22073,78 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+  buffer += "\n                <div class=\"image-underlay\" style=\"background-image: url("
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ")\"></div>\r\n                <img src=\""
+    + ")\"></div>\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"img-circle img-responsive\">\r\n            ";
+    + "\" class=\"img-circle img-responsive\">\n            ";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" /> \r\n            ";
+  return "\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" /> \n            ";
   }
 
 function program5(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+  buffer += "\n                <div class=\"image-underlay\" style=\"background-image: url("
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ")\"></div>\r\n                <img src=\""
+    + ")\"></div>\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"img-circle img-responsive\">\r\n            ";
+    + "\" class=\"img-circle img-responsive\">\n            ";
   return buffer;
   }
 
 function program7(depth0,data) {
   
   
-  return "\r\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\r\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\"/> \r\n            ";
+  return "\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\"/> \n            ";
   }
 
 function program9(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <div class=\"image-underlay\" style=\"background-image: url("
+  buffer += "\n                <div class=\"image-underlay\" style=\"background-image: url("
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ")\"></div>\r\n                <img src=\""
+    + ")\"></div>\n                <img src=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"img-circle img-responsive\">\r\n            ";
+    + "\" class=\"img-circle img-responsive\">\n            ";
   return buffer;
   }
 
-  buffer += "<div class=\"leader\">\r\n    <div class=\"leader-block\">\r\n        <div class=\"points-leader\">\r\n\r\n            ";
+  buffer += "<div class=\"leader\">\n    <div class=\"leader-block\">\n        <div class=\"points-leader\">\n\n            ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n    	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n    	        <span class=\"player-name\">"
+  buffer += "\n\n    	    <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\n    	        <span class=\"player-name\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\r\n    	        <h1>"
+    + "</span>\n    	        <h1>"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxPoints),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.points)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n    	        points\r\n    	    </div>\r\n\r\n    	</div>\r\n    </div>\r\n    <div class=\"leader-block\">\r\n        <div class=\"rebounds-leader\">\r\n\r\n            ";
+    + "</h1> \n    	        points\n    	    </div>\n\n    	</div>\n    </div>\n    <div class=\"leader-block\">\n        <div class=\"rebounds-leader\">\n\n            ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n                <span class=\"player-name\">"
+  buffer += "\n\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\n                <span class=\"player-name\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\r\n                <h1>"
+    + "</span>\n                <h1>"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxRebounds),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.rebounds)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n                rebounds\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n    <div class=\"leader-block\">\r\n        <div class=\"steals-leader\">\r\n\r\n            ";
+    + "</h1> \n                rebounds\n            </div>\n\n        </div>\n    </div>\n    <div class=\"leader-block\">\n        <div class=\"steals-leader\">\n\n            ";
   stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_picture), {hash:{},inverse:self.program(7, program7, data),fn:self.program(9, program9, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\r\n                <span class=\"player-name\">"
+  buffer += "\n\n            <div class=\"leader-points\" style=\"text-align: center; padding: 20px;\">\n                <span class=\"player-name\">"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.player_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\r\n                <h1>"
+    + "</span>\n                <h1>"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.maxSteals),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.steals)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1> \r\n                steals\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"share-game\">\r\n    <button class=\"btn post-stats\"><i class=\"ti-stats-up\"></i>Share this game?</button>\r\n</div>\r\n\r\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\r\n    <div class=\"chart-game-info\">\r\n        <span class=\"first\" style=\"background-color: "
+    + "</h1> \n                steals\n            </div>\n\n        </div>\n    </div>\n</div>\n\n<div class=\"share-game\">\n    <button class=\"btn post-stats\"><i class=\"ti-stats-up\"></i>Share this game?</button>\n</div>\n\n<div class=\"chart-wrapper\" style=\"height: 40%;\">\n    <div class=\"chart-game-info\">\n        <span class=\"first\" style=\"background-color: "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_color)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ";\"></span>\r\n        "
+    + ";\"></span>\n        "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.homeTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " vs "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.awayTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\r\n        <span class=\"second\" style=\"background-color: "
+    + "\n        <span class=\"second\" style=\"background-color: "
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = depth0.awayTeam),stack1 == null || stack1 === false ? stack1 : stack1.attributes)),stack1 == null || stack1 === false ? stack1 : stack1.team_color)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ";\"></span>\r\n    </div>\r\n    <canvas id=\"canvas\"></canvas>\r\n</div>";
+    + ";\"></span>\n    </div>\n    <canvas id=\"canvas\"></canvas>\n</div>";
   return buffer;
   });
 
@@ -21869,7 +22157,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<aside class=\"sidebar sidebar--light offscreen-left\">\r\n    <!-- main navigation -->\r\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\r\n        <p class=\"nav-title\">MAIN</p>\r\n        <ul class=\"nav\">\r\n            <!-- dashboard -->\r\n            <li>\r\n                <a href=\"/#\">\r\n                    <i class=\"ti-layout-list-thumb\"></i>\r\n                    <span>Stat Tracker</span>\r\n                </a>\r\n            </li>\r\n            <!-- /dashboard -->\r\n        </ul>\r\n        <p class=\"nav-title\">MANAGE</p>\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <a href=\"/#teams\">\r\n                    <div class=\"action-circle red\"></div>\r\n                    <span>Teams</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/#players\">\r\n                    <div class=\"action-circle orange\"></div>\r\n                    <span>Players</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"javascript:;\">\r\n                    <div class=\"action-circle green\"></div>\r\n                    <span>Settings</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n    </nav>\r\n</aside>\r\n";
+  return "<aside class=\"sidebar sidebar--light offscreen-left\">\n    <!-- main navigation -->\n    <nav class=\"main-navigation\" data-height=\"auto\" data-size=\"6px\" data-distance=\"0\" data-rail-visible=\"true\" data-wheel-step=\"10\">\n        <p class=\"nav-title\">MAIN</p>\n        <ul class=\"nav\">\n            <!-- dashboard -->\n            <li>\n                <a href=\"/#\">\n                    <i class=\"ti-layout-list-thumb\"></i>\n                    <span>Stat Tracker</span>\n                </a>\n            </li>\n            <!-- /dashboard -->\n        </ul>\n        <p class=\"nav-title\">MANAGE</p>\n        <ul class=\"nav\">\n            <li>\n                <a href=\"/#teams\">\n                    <div class=\"action-circle red\"></div>\n                    <span>Teams</span>\n                </a>\n            </li>\n            <li>\n                <a href=\"/#players\">\n                    <div class=\"action-circle orange\"></div>\n                    <span>Players</span>\n                </a>\n            </li>\n            <li>\n                <a href=\"javascript:;\">\n                    <div class=\"action-circle green\"></div>\n                    <span>Settings</span>\n                </a>\n            </li>\n        </ul>\n\n    </nav>\n</aside>\n";
   });
 
 },{"hbsfy/runtime":65}],42:[function(require,module,exports){
@@ -21883,44 +22171,44 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\"";
+  buffer += "\n                <img src=\"";
   if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"player-image img-responsive\"/>\r\n            ";
+    + "\" class=\"player-image img-responsive\"/>\n            ";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
+  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
-  buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  buffer += "<div class=\"player\">\n\n    <div class=\"col-xs-6 column stat name\">\n\n        <span class=\"column face\">\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name editable settings-name\" data-change=\"player_name\" contenteditable=\"true\">\r\n            ";
+  buffer += "\n        </span>\n\n        <div class=\"column the-name editable settings-name\" data-change=\"player_name\" contenteditable=\"true\">\n            ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points editable\" data-change=\"points\" contenteditable=\"true\">";
+    + "\n        </div>\n\n    </div>\n\n    <div class=\"col-xs-1 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"points editable\" data-change=\"points\" contenteditable=\"true\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>pts\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
+    + "</span>pts\n        </div>\n    </div>\n\n    <div class=\"col-xs-1 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"rebounds editable\" data-change=\"rebounds\" contenteditable=\"true\">";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>rbs\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
+    + "</span>rbs\n        </div>\n    </div>\n\n    <div class=\"col-xs-1 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"steals editable\" data-change=\"steals\" contenteditable=\"true\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>stls\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
+    + "</span>stls\n        </div>\n    </div>\n\n    <div class=\"col-xs-1 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"blocks editable\" data-change=\"blocks\" contenteditable=\"true\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>blks\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-1 column stat data\">\r\n        <div class=\"delete-player\">\r\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\r\n        </div>\r\n    </div>\r\n\r\n</div>    \r\n";
+    + "</span>blks\n        </div>\n    </div>\n\n    <div class=\"col-xs-1 column stat data\">\n        <div class=\"delete-player\">\n            <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</div>\n        </div>\n    </div>\n\n</div>    \n";
   return buffer;
   });
 
@@ -21950,15 +22238,15 @@ function program1(depth0,data) {
   return "true";
   }
 
-  buffer += "<div class=\"clock center\">\r\n    <div class=\"half-button ";
+  buffer += "<div class=\"clock center\">\n    <div class=\"half-button ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.is || depth0.is),stack1 ? stack1.call(depth0, depth0.half, 1, options) : helperMissing.call(depth0, "is", depth0.half, 1, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += " first-half\">1</div>\r\n    <div class=\"half-button ";
+  buffer += " first-half\">1</div>\n    <div class=\"half-button ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.is || depth0.is),stack1 ? stack1.call(depth0, depth0.half, 2, options) : helperMissing.call(depth0, "is", depth0.half, 2, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += " second-half\">2</div>\r\n</div>";
+  buffer += " second-half\">2</div>\n</div>";
   return buffer;
   });
 
@@ -21971,7 +22259,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"scoreboard\">\r\n	<div class=\"sb row\">\r\n\r\n	    <div class=\"scores\"></div>\r\n\r\n	</div>\r\n</div>";
+  return "<div class=\"scoreboard\">\n	<div class=\"sb row\">\n\n	    <div class=\"scores\"></div>\n\n	</div>\n</div>";
   });
 
 },{"hbsfy/runtime":65}],46:[function(require,module,exports){
@@ -21991,43 +22279,43 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\r\n        <div style=\"\" class=\"foul-circle add-foul\"></div>\r\n    ";
+  return "\n        <div style=\"\" class=\"foul-circle add-foul\"></div>\n    ";
   }
 
 function program5(depth0,data) {
   
   
-  return "\r\n        <span class=\"bonus true\">bonus</span>\r\n    ";
+  return "\n        <span class=\"bonus true\">bonus</span>\n    ";
   }
 
 function program7(depth0,data) {
   
   
-  return "\r\n        <span class=\"bonus true\">double bonus</span>\r\n    ";
+  return "\n        <span class=\"bonus true\">double bonus</span>\n    ";
   }
 
-  buffer += "<!-- timeouts for each team -->\r\n<div class=\"team-timeouts\">\r\n	<div class=\"timeout-circle ";
+  buffer += "<!-- timeouts for each team -->\n<div class=\"team-timeouts\">\n	<div class=\"timeout-circle ";
   stack1 = helpers['if'].call(depth0, depth0.timeout, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " add-timeout\"></div>\r\n</div>\r\n\r\n<!-- score for each team -->\r\n<div class=\"scoreboard-points editable\" style=\"border-color: ";
+  buffer += " add-timeout\"></div>\n</div>\n\n<!-- score for each team -->\n<div class=\"scoreboard-points editable\" style=\"border-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + ";display: inline-block;\" contenteditable=\"true\">\r\n    ";
+    + ";display: inline-block;\" contenteditable=\"true\">\n    ";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n</div>\r\n\r\n<!-- team fouls for each team -->\r\n<div class=\"team-fouls\">\r\n    ";
+    + "\n</div>\n\n<!-- team fouls for each team -->\n<div class=\"team-fouls\">\n    ";
   options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data};
   stack2 = ((stack1 = helpers.foulCount || depth0.foulCount),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "foulCount", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n    ";
+  buffer += "\n\n    ";
   stack2 = helpers['if'].call(depth0, depth0.bonus, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n    ";
+  buffer += "\n\n    ";
   stack2 = helpers['if'].call(depth0, depth0.dblbonus, {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n\r\n</div>\r\n\r\n";
+  buffer += "\n\n</div>\n\n";
   return buffer;
   });
 
@@ -22042,88 +22330,88 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\"";
+  buffer += "\n                <img src=\"";
   if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"player-image img-responsive\"/>\r\n            ";
+    + "\" class=\"player-image img-responsive\"/>\n            ";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
+  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
 function program5(depth0,data) {
   
   
-  return "\r\n                <div style=\"background-color:#f38079;border-color:#f38079\" class=\"foul-circle add-foul\"></div>\r\n            ";
+  return "\n                <div style=\"background-color:#f38079;border-color:#f38079\" class=\"foul-circle add-foul\"></div>\n            ";
   }
 
 function program7(depth0,data) {
   
   
-  return "\r\n                <div class=\"foul-circle add-foul\"></div>\r\n            ";
+  return "\n                <div class=\"foul-circle add-foul\"></div>\n            ";
   }
 
-  buffer += "<div class=\"player col-xs-12\">\r\n\r\n    <div class=\"col-xs-3 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  buffer += "<div class=\"player col-xs-12\">\n\n    <div class=\"col-xs-3 column stat name\">\n\n        <span class=\"column face\">\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n        \r\n        <div class=\"player-buttons\">\r\n            <div class=\"column buttons top-button one-point\">1</div>\r\n            <div class=\"column buttons middle-button two-point\">2</div>\r\n            <div class=\"column buttons bottom-button three-point\">3</div>\r\n        </div>\r\n\r\n        <div class=\"column the-name\">\r\n            <span> ";
+  buffer += "\n        </span>\n        \n        <div class=\"player-buttons\">\n            <div class=\"column buttons top-button one-point\">1</div>\n            <div class=\"column buttons middle-button two-point\">2</div>\n            <div class=\"column buttons bottom-button three-point\">3</div>\n        </div>\n\n        <div class=\"column the-name\">\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " </span>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-2 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points\">";
+    + " </span>\n        </div>\n\n    </div>\n\n    <div class=\"col-xs-2 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"points\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n        <div class=\"row clearfix\" style=\"display: none;\">\r\n            <div class=\"col-xs-4 column points miss one\" data-stat=\"missed_one\" data-missedone=\"";
+    + "</span>\n        </div>\n        <div class=\"row clearfix\" style=\"display: none;\">\n            <div class=\"col-xs-4 column points miss one\" data-stat=\"missed_one\" data-missedone=\"";
   if (stack1 = helpers.missed_one) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.missed_one; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"\"></span>\r\n            </div>\r\n            <div class=\"col-xs-4 column points miss two\" data-stat=\"missed_two\" data-missedtwo=\"";
+    + "\">\n                <span class=\"\"></span>\n            </div>\n            <div class=\"col-xs-4 column points miss two\" data-stat=\"missed_two\" data-missedtwo=\"";
   if (stack1 = helpers.missed_two) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.missed_two; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"\"></span>\r\n            </div>\r\n            <div class=\"col-xs-4 column points miss three\" data-stat=\"missed_three\" data-missedthree=\"";
+    + "\">\n                <span class=\"\"></span>\n            </div>\n            <div class=\"col-xs-4 column points miss three\" data-stat=\"missed_three\" data-missedthree=\"";
   if (stack1 = helpers.missed_three) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.missed_three; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"\"></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"row clearfix\" style=\"display: none;\">\r\n            <div class=\"col-xs-4 column points make one\" data-stat=\"made_one\" data-madeone=\"";
+    + "\">\n                <span class=\"\"></span>\n            </div>\n        </div>\n        <div class=\"row clearfix\" style=\"display: none;\">\n            <div class=\"col-xs-4 column points make one\" data-stat=\"made_one\" data-madeone=\"";
   if (stack1 = helpers.made_one) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.made_one; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"fa-circle-o\"></span>\r\n            </div>\r\n            <div class=\"col-xs-4 column points make two\" data-stat=\"made_two\" data-madetwo=\"";
+    + "\">\n                <span class=\"fa-circle-o\"></span>\n            </div>\n            <div class=\"col-xs-4 column points make two\" data-stat=\"made_two\" data-madetwo=\"";
   if (stack1 = helpers.made_two) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.made_two; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"fa-circle-o\"></span>\r\n            </div>\r\n            <div class=\"col-xs-4 column points make three\" data-stat=\"made_three\" data-madethree=\"";
+    + "\">\n                <span class=\"fa-circle-o\"></span>\n            </div>\n            <div class=\"col-xs-4 column points make three\" data-stat=\"made_three\" data-madethree=\"";
   if (stack1 = helpers.made_three) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.made_three; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\r\n                <span class=\"fa-circle-o\"></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"col-xs-2 column stat data rebounds\" data-stat=\"rebounds\">\r\n        <span class=\"rebounds\">";
+    + "\">\n                <span class=\"fa-circle-o\"></span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"col-xs-2 column stat data rebounds\" data-stat=\"rebounds\">\n        <span class=\"rebounds\">";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-rebound\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\r\n        <span class=\"steals\">";
+    + "</span>\n        <div class=\"stat-add-button add-rebound\"><i class=\"ti-plus\"></i></div>\n    </div>\n    <div class=\"col-xs-2 column stat data steals\" data-stat=\"steals\">\n        <span class=\"steals\">";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-steal\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\r\n        <span class=\"blocks\">";
+    + "</span>\n        <div class=\"stat-add-button add-steal\"><i class=\"ti-plus\"></i></div>\n    </div>\n    <div class=\"col-xs-2 column stat data blocks\" data-stat=\"blocks\">\n        <span class=\"blocks\">";
   if (stack1 = helpers.blocks) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.blocks; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        <div class=\"stat-add-button add-block\"><i class=\"ti-plus\"></i></div>\r\n    </div>\r\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\r\n        <div style=\"\">\r\n            ";
+    + "</span>\n        <div class=\"stat-add-button add-block\"><i class=\"ti-plus\"></i></div>\n    </div>\n    <div class=\"col-xs-1 column stat data fouls\" data-stat=\"fouls\">\n        <div style=\"\">\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data};
   stack2 = ((stack1 = helpers.foulCount || depth0.foulCount),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "foulCount", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n            ";
+  buffer += "\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data};
   stack2 = ((stack1 = helpers.remainingfouls || depth0.remainingfouls),stack1 ? stack1.call(depth0, depth0.fouls, options) : helperMissing.call(depth0, "remainingfouls", depth0.fouls, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n        </div>\r\n    </div>\r\n</div>    \r\n";
+  buffer += "\n        </div>\n    </div>\n</div>    \n";
   return buffer;
   });
 
@@ -22136,7 +22424,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"app row\" style=\"margin: 0 auto;\">\r\n\r\n    <div class=\"col-md-9 teams-box\"></div>\r\n    \r\n	<div class=\"col-md-3 chart\"></div>\r\n\r\n</div>\r\n";
+  return "<div class=\"app row\" style=\"margin: 0 auto;\">\n\n    <div class=\"col-md-9 teams-box\"></div>\n    \n	<div class=\"col-md-3 chart\"></div>\n\n</div>\n";
   });
 
 },{"hbsfy/runtime":65}],49:[function(require,module,exports){
@@ -22148,20 +22436,20 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
 
-  buffer += "<div class=\"statisticals col-xs-12\">\r\n    <div class=\"col-xs-3 column\">\r\n        <div class=\"team-changes\">\r\n            <i class=\"ti-settings\"></i>\r\n        </div>\r\n        <div class=\"team-name\">\r\n            <div style=\"background-color: ";
+  buffer += "<div class=\"statisticals col-xs-12\">\n    <div class=\"col-xs-3 column\">\n        <div class=\"team-changes\">\n            <i class=\"ti-settings\"></i>\n        </div>\n        <div class=\"team-name\">\n            <div style=\"background-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + ";display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;\"></div>\r\n            ";
+    + ";display: inline-block;width: 10px;border-radius: 100em;height: 10px;position: relative;left: -15px;\"></div>\n            ";
   options = {hash:{},data:data};
   stack2 = ((stack1 = helpers.shorten || depth0.shorten),stack1 ? stack1.call(depth0, depth0.team_name, options) : helperMissing.call(depth0, "shorten", depth0.team_name, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n        </div>    \r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Pts</span>\r\n        <span class=\"long\">Points</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Rbs</span>\r\n        <span class=\"long\">Rebounds</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Stl</span>\r\n        <span class=\"long\">Steals</span>\r\n    </div>\r\n    <div class=\"col-xs-2 column\">\r\n        <span class=\"short\">Blk</span>\r\n        <span class=\"long\">Blocks</span>\r\n    </div>\r\n    <div class=\"col-xs-1 column\" style=\"padding: 0px;\">\r\n        <span class=\"short\">Fls</span>\r\n        <span class=\"long\">Fouls</span>\r\n    </div>\r\n</div>\r\n\r\n"
-    + "\r\n\r\n<div class=\"the-players ";
+  buffer += "\n        </div>    \n    </div>\n    <div class=\"col-xs-2 column\">\n        <span class=\"short\">Pts</span>\n        <span class=\"long\">Points</span>\n    </div>\n    <div class=\"col-xs-2 column\">\n        <span class=\"short\">Rbs</span>\n        <span class=\"long\">Rebounds</span>\n    </div>\n    <div class=\"col-xs-2 column\">\n        <span class=\"short\">Stl</span>\n        <span class=\"long\">Steals</span>\n    </div>\n    <div class=\"col-xs-2 column\">\n        <span class=\"short\">Blk</span>\n        <span class=\"long\">Blocks</span>\n    </div>\n    <div class=\"col-xs-1 column\" style=\"padding: 0px;\">\n        <span class=\"short\">Fls</span>\n        <span class=\"long\">Fouls</span>\n    </div>\n</div>\n\n"
+    + "\n\n<div class=\"the-players ";
   if (stack2 = helpers.team_name) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = depth0.team_name; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
   buffer += escapeExpression(stack2)
-    + " col-xs-12\"></div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
+    + " col-xs-12\"></div>\n\n<div class=\"team-editor\"></div>\n";
   return buffer;
   });
 
@@ -22174,19 +22462,19 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            <img src=\"";
+  buffer += "<div class=\"player\">\n\n    <div class=\"col-xs-6 column stat name\">\n\n        <span class=\"column face\">\n            <img src=\"";
   if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"player-image img-responsive\"/>\r\n        </span>\r\n\r\n        <div class=\"column the-name subbing-name\">\r\n            <span> ";
+    + "\" class=\"player-image img-responsive\"/>\n        </span>\n\n        <div class=\"column the-name subbing-name\">\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " </span>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-6 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points\">";
+    + " </span>\n        </div>\n\n    </div>\n\n    <div class=\"col-xs-6 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"points\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n</div>    \r\n";
+    + "</span>\n        </div>\n    </div>\n</div>    \n";
   return buffer;
   });
 
@@ -22199,11 +22487,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n    <div class=\"col-md-6\">\r\n		<form id=\"AddPlayer\">\r\n		    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
+  buffer += "<div class=\"col-md-12\">\n    <div class=\"add-new-player\">\n    <div class=\"col-md-6\">\n		<form id=\"AddPlayer\">\n		    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" />\r\n		    <button type=\"submit\">ADD</button>\r\n		</form> \r\n	</div>\r\n	</div>\r\n</div>";
+    + "\" />\n		    <button type=\"submit\">ADD</button>\n		</form> \n	</div>\n	</div>\n</div>";
   return buffer;
   });
 
@@ -22218,32 +22506,32 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n                <img src=\"";
+  buffer += "\n                <img src=\"";
   if (stack1 = helpers.player_picture) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_picture; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"player-image img-responsive\"/>\r\n            ";
+    + "\" class=\"player-image img-responsive\"/>\n            ";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   
-  return "\r\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \r\n            ";
+  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
-  buffer += "<div class=\"player\">\r\n\r\n    <div class=\"col-xs-6 column stat name\">\r\n\r\n        <span class=\"column face\">\r\n            ";
+  buffer += "<div class=\"player\">\n\n    <div class=\"col-xs-6 column stat name\">\n\n        <span class=\"column face\">\n            ";
   stack1 = helpers['if'].call(depth0, depth0.player_picture, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n        </span>\r\n\r\n        <div class=\"column the-name subbing-name\">\r\n            <span> ";
+  buffer += "\n        </span>\n\n        <div class=\"column the-name subbing-name\">\n            <span> ";
   if (stack1 = helpers.player_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.player_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + " </span>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-xs-6 column stat data makes-misses\">\r\n        <div class=\"active-add-stat\">\r\n            <span class=\"points\">";
+    + " </span>\n        </div>\n\n    </div>\n\n    <div class=\"col-xs-6 column stat data makes-misses\">\n        <div class=\"active-add-stat\">\n            <span class=\"points\">";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\r\n        </div>\r\n    </div>\r\n</div>    \r\n";
+    + "</span>\n        </div>\n    </div>\n</div>    \n";
   return buffer;
   });
 
@@ -22256,7 +22544,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"sub-players\">\r\n    <div class=\"col-md-6 roster-side\">\r\n    	<p>Playing</p>\r\n    </div>\r\n    <div class=\"col-md-6 roster-side\">\r\n    	<p>Bench</p>\r\n    </div>\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>";
+  return "<div class=\"sub-players\">\n    <div class=\"col-md-6 roster-side\">\n    	<p>Playing</p>\n    </div>\n    <div class=\"col-md-6 roster-side\">\n    	<p>Bench</p>\n    </div>\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\n    	<div class=\"playing-players\"></div>\n    </div>\n    <div class=\"col-md-6\">\n    	<div class=\"bench-players\"></div>\n    </div>\n</div>";
   });
 
 },{"hbsfy/runtime":65}],54:[function(require,module,exports){
@@ -22268,13 +22556,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	"
-    + "\r\n\r\n    <div class=\"player-addition-actions\">\r\n        <div class=\"col-md-1 player-addition-button go-back\" style=\"color: #fff;background-color: ";
+  buffer += "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\n\n<div class=\"editor\">\n    \n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\n	"
+    + "\n\n    <div class=\"player-addition-actions\">\n        <div class=\"col-md-1 player-addition-button go-back\" style=\"color: #fff;background-color: ";
   if (stack1 = helpers.team_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\"><i class=\"ti-angle-left\"></i></div>\r\n        <div class=\"col-md-5 player-addition-button add-player\">Create Player</div>\r\n	    <div class=\"col-md-6 player-addition-button list-facebookers\">Facebook Player</div>\r\n    </div>\r\n\r\n	"
-    + "\r\n\r\n	<div class=\"manage-players-area col-md-12\"></div>\r\n\r\n</div>\r\n";
+    + "\"><i class=\"ti-angle-left\"></i></div>\n        <div class=\"col-md-5 player-addition-button add-player\">Create Player</div>\n	    <div class=\"col-md-6 player-addition-button list-facebookers\">Facebook Player</div>\n    </div>\n\n	"
+    + "\n\n	<div class=\"manage-players-area col-md-12\"></div>\n\n</div>\n";
   return buffer;
   });
 
@@ -22287,7 +22575,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "\r\n<div class=\"team-block ";
+  buffer += "\n<div class=\"team-block ";
   if (stack1 = helpers.playing) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.playing; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -22295,23 +22583,23 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.opaqueTeam_color) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.opaqueTeam_color; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "; margin: 15px; padding: 15px\">\r\n    <div class=\"team-changes pull-right\" style=\"cursor:pointer\">\r\n        <i class=\"ti-settings\"></i>\r\n    </div>\r\n	<div class=\"team-name\"><h2>";
+    + "; margin: 15px; padding: 15px\">\n    <div class=\"team-changes pull-right\" style=\"cursor:pointer\">\n        <i class=\"ti-settings\"></i>\n    </div>\n	<div class=\"team-name\"><h2>";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h2></div>\r\n	<div class=\"team-points team-data\"><h1>";
+    + "</h2></div>\n	<div class=\"team-points team-data\"><h1>";
   if (stack1 = helpers.points) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.points; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h1> <p>pts</p></div>\r\n	<div class=\"team-rebounds team-data\"><h1>";
+    + "</h1> <p>pts</p></div>\n	<div class=\"team-rebounds team-data\"><h1>";
   if (stack1 = helpers.rebounds) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.rebounds; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h1> <p>rbs</p></div>\r\n	<div class=\"team-steals team-data\"><h1>";
+    + "</h1> <p>rbs</p></div>\n	<div class=\"team-steals team-data\"><h1>";
   if (stack1 = helpers.steals) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.steals; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h1> <p>stls</p></div>\r\n</div>\r\n\r\n<div class=\"team-editor\"></div>\r\n";
+    + "</h1> <p>stls</p></div>\n</div>\n\n<div class=\"team-editor\"></div>\n";
   return buffer;
   });
 
@@ -22326,11 +22614,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"col-md-12\">\r\n    <div class=\"add-new-player\">\r\n	    <div class=\"col-md-6\">\r\n			<form id=\"AddPlayer\">\r\n			    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
+  buffer += "<div class=\"col-md-12\">\n    <div class=\"add-new-player\">\n	    <div class=\"col-md-6\">\n			<form id=\"AddPlayer\">\n			    <input class=\"player_name\" type=\"text\" placeholder=\"add a player to the ";
   if (stack1 = helpers.team_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.team_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" />\r\n			    <button type=\"submit\">ADD</button>\r\n			</form> \r\n		</div>\r\n	</div>\r\n</div>";
+    + "\" />\n			    <button type=\"submit\">ADD</button>\n			</form> \n		</div>\n	</div>\n</div>";
   return buffer;
   });
 
@@ -22343,7 +22631,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"team-editor\">\r\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n    \r\n    <div class=\"edit\">\r\n		<div class=\"editor\">\r\n		    \r\n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n		    <div class=\"create-new-player\">\r\n		        <form id=\"CreateTeam\">\r\n				    <div class=\"col-md-6\">\r\n					    <input class=\"team_name\" type=\"text\" />\r\n					</div>\r\n					<div class=\"col-md-6\">\r\n						<input class=\"team_color\" type=\"text\" />\r\n					</div>\r\n					<button type=\"submit\">Create</button>\r\n				</form>\r\n			</div>\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n";
+  return "<div class=\"team-editor\">\n	<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\n    \n    <div class=\"edit\">\n		<div class=\"editor\">\n		    \n		    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\n		    <div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\n\n		    <div class=\"create-new-player\">\n		        <form id=\"CreateTeam\">\n				    <div class=\"col-md-6\">\n					    <input class=\"team_name\" type=\"text\" />\n					</div>\n					<div class=\"col-md-6\">\n						<input class=\"team_color\" type=\"text\" />\n					</div>\n					<button type=\"submit\">Create</button>\n				</form>\n			</div>\n\n		</div>\n	</div>\n</div>\n";
   });
 
 },{"hbsfy/runtime":65}],59:[function(require,module,exports){
@@ -22355,7 +22643,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"sub-players\">\r\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\r\n    	<div class=\"playing-players\"></div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n    	<div class=\"bench-players\"></div>\r\n    </div>\r\n</div>";
+  return "<div class=\"sub-players\">\n    <div class=\"col-md-6\" style=\"border-right: 1px solid #F1F2F4;\">\n    	<div class=\"playing-players\"></div>\n    </div>\n    <div class=\"col-md-6\">\n    	<div class=\"bench-players\"></div>\n    </div>\n</div>";
   });
 
 },{"hbsfy/runtime":65}],60:[function(require,module,exports){
@@ -22367,7 +22655,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\r\n\r\n<div class=\"editor\">\r\n    \r\n    <!-- editor controls -->\r\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\r\n	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\r\n\r\n    <!-- div to give user buttons to select if this team should be home or away -->\r\n    <div class=\"set-team-side\">\r\n        <div class=\"col-md-6 home btn team-settings-btn\">Home</div>\r\n		<div class=\"col-md-6 away btn team-settings-btn\">Away</div>\r\n	</div>\r\n\r\n    <!-- temp throw delete button here -->\r\n    <div class=\"delete-player\">\r\n        <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</button>\r\n    </div>\r\n\r\n    <!-- temp throw change color form -->\r\n    <form class=\"change-color\">\r\n        <input class=\"team_color\" name=\"team_color\" type=\"text\" placeholder=\"change team color\" />\r\n        <button type=\"submit\">Change</button>\r\n    </form>\r\n    \r\n    <!-- div to display a management region, displays views for the user to edit roster -->\r\n	<div class=\"manage-team-area col-md-12\"></div>\r\n\r\n</div>\r\n";
+  return "<div class=\"underlay\" style=\"position:fixed;background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;left: 0;top: 0;z-index: 99;\"></div>\n\n<div class=\"editor settings-editor\">\n    \n    <!-- editor controls -->\n    <div class=\"close-team-editor\"><i class=\"ti-close\"></i></div>\n    <div class=\"control-flex\">\n    	<div class=\"go-back\"><i class=\"ti-angle-left\"></i></div>\n        <div class=\"home btn team-settings-btn\">Home</div>\n        <div class=\"away btn team-settings-btn\">Away</div>\n    </div>\n\n    <!-- temp throw delete button here -->\n    <div class=\"delete-player\">\n        <button class=\"btn btn-danger delete\" style=\"color: #d43d3a;background-color: transparent;border-color: #d43d3a;border-radius: 100em;\">Delete</button>\n    </div>\n\n    <!-- temp throw change color form -->\n    <form class=\"change-color\">\n        <input class=\"team_color\" name=\"team_color\" type=\"text\" placeholder=\"change team color\" />\n        <button type=\"submit\">Change</button>\n    </form>\n    \n    <!-- div to display a management region, displays views for the user to edit roster -->\n	<div class=\"manage-team-area col-md-12\"></div>\n\n</div>\n";
   });
 
 },{"hbsfy/runtime":65}],61:[function(require,module,exports){
@@ -22379,7 +22667,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<!-- div to display teamCreator -->\r\n<div class=\"new-team-editor\"></div>\r\n\r\n<!-- div to display teamCreator button -->\r\n<div class=\"col-md-12\">\r\n    <div class=\"add-new-team\">\r\n		<button class=\"btn create-team-btn\">+ create team</button>\r\n	</div>\r\n</div>\r\n\r\n<!-- div to display all the teams -->\r\n<div class=\"the-teams\"></div>";
+  return "<!-- div to display teamCreator -->\n<div class=\"new-team-editor\"></div>\n\n<!-- div to display teamCreator button -->\n<div class=\"col-md-12\">\n    <div class=\"add-new-team\">\n		<button class=\"btn create-team-btn\">+ create team</button>\n	</div>\n</div>\n\n<!-- div to display all the teams -->\n<div class=\"the-teams\"></div>";
   });
 
 },{"hbsfy/runtime":65}],62:[function(require,module,exports){

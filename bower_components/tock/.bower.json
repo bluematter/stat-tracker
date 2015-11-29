@@ -1,0 +1,26 @@
+{
+  "name": "tock",
+  "version": "1.0.8",
+  "main": "./tock.min.js",
+  "ignore": [
+    "**/.md",
+    "**/.html",
+    "**/.*",
+    "**/.json"
+  ],
+  "keywords": [
+    "timer",
+    "clock",
+    "repetition"
+  ],
+  "homepage": "https://github.com/mrchimp/tock",
+  "_release": "1.0.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.8",
+    "commit": "2e298771da156ae89ffa80ae4a3b748e94a70bd7"
+  },
+  "_source": "git://github.com/mrchimp/tock.git",
+  "_target": "~1.0.4",
+  "_originalSource": "tock"
+}

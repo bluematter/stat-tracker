@@ -38,6 +38,10 @@
 			z-index: 999;
 			left: 0;
 			box-shadow: 0 2px 1px 0px rgba(0, 0, 0, 0.5);
+			&.settings-editor {
+				width: 40%;
+				height: 55%;
+			}
 			.player-addition-actions {
 				background-color: #eee;
 				.player-addition-button {
