@@ -71,7 +71,7 @@ module.exports = statsView = Marionette.ItemView.extend({
         
         var self = this;
         setTimeout(function() {
-            c.width = 350;
+            c.width = self.$el.find('.chart-wrapper').width() + 4;
             c.height = self.$el.find('.chart-wrapper').height();
             var myLineChart = new Chart(ctx).Line(lineChartData, settings);
         },0);
@@ -87,15 +87,15 @@ module.exports = statsView = Marionette.ItemView.extend({
     },
     templateHelpers:function(){
 
-        // needs to be only playing teams, for now its all teams
         var players = [];
         var teams = [];
 
-        // Grab the IDs of the playing teams
+        // grab the IDs of the playing teams
         App.data.teams.byPlaying().each(function(team) {
             teams.push(team.id);
         });
-
+        
+        // pass the playing teams id to see which players are on those teams
         App.data.players.byPlayingTeam(teams).each(function(player) {
             players.push(player);
         });
