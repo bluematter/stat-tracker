@@ -23,8 +23,7 @@ var listTeamsView = Marionette.Layout.extend({
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
     },
-    setHome:function(e) { 
-        App.vent.trigger('home-team-change', this.model.get('team_name'));
+    setHome:function(e) {
         App.data.teams.each(function(team) {
             // clear any team that has side:'home'
             if(team.get('side') === 'home') {
@@ -35,8 +34,7 @@ var listTeamsView = Marionette.Layout.extend({
         this.model.set({playing: true, position: 1, side: 'home'});
         this.model.save();
     },
-    setAway:function(e) { 
-        App.vent.trigger('away-team-change', this.model.get('team_name'));
+    setAway:function(e) {
         App.data.teams.each(function(team) {
             // clear any team that has side:'away'
             if(team.get('side') === 'away') {

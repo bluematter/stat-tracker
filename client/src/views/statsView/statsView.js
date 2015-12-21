@@ -32,7 +32,7 @@ module.exports = statsView = Marionette.Layout.extend({
         });
 
         // initialize subviews for statsView
-        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying(), wid: parseInt(this.options.week) });
+        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying() });
         window.App.views.chartView = new ChartView({ collection: this.collection.byPlaying() });
 
     },

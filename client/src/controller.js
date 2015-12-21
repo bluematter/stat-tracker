@@ -29,25 +29,8 @@ module.exports = Controller = Marionette.Controller.extend({
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit, appView showing StatsView.');
-        //window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
-        window.App.router.navigate('#');
-    },
-
-    /*
-    |--------------------------------------------------------------------------
-    | On week route show statsView by week
-    |--------------------------------------------------------------------------
-    */
-
-    week: function(wid) {
-        App.core.vent.trigger('app:log', 'Controller: "Week" route hit, appView showing StatsView by week '+ wid);
-        var week = window.App.data.teams.byWeek(parseInt(wid)).pluck('week');
-        if(parseInt(wid) === week[0]) {
-            window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams.byWeek(parseInt(wid)), week: wid }));
-        } else {
-            window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
-        }
-        window.App.router.navigate('#/week/'+wid);
+        window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
+        //window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
     },
     
     /*
@@ -59,7 +42,7 @@ module.exports = Controller = Marionette.Controller.extend({
     teams: function() {
         App.core.vent.trigger('app:log', 'Controller: "Teams Settings" route hit, appView showing SetTeamsView.');
         window.App.views.appView.stats.show(new TeamsView({ collection: window.App.data.teams }));
-        window.App.router.navigate('#teams');
+        window.App.router.navigate('/#teams');
     },
 
     /*
@@ -71,7 +54,7 @@ module.exports = Controller = Marionette.Controller.extend({
     players: function() {
         App.core.vent.trigger('app:log', 'Controller: "Players Settings" route hit, appView showing PlayersSettingsView.');
         window.App.views.appView.stats.show(new PlayersView({ collection: window.App.data.players }));
-        window.App.router.navigate('#players');
+        window.App.router.navigate('/#players');
     },
 
     /*

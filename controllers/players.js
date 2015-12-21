@@ -3,11 +3,11 @@ var models = require('../app/models'),
 
 module.exports = {
     index: function(req, res) {
-        models.Player.find({}, function(err, player) {
+        models.Player.find({ week: req.params.wid }, function(err, players) {
             if (err) {
                 res.json({error: 'players not found.'});
             } else {
-                res.json(player);    
+                res.json(players);    
             }
         });
     },

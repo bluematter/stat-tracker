@@ -29,7 +29,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 
         // stats view renders inside the controller because its dynamic
 
-        // render the app's scoreboard (always render the scoreboard, for now??)   
+        // render the app's scoreboard (always render the scoreboard, for now??)
         var scoreboardView = new ScoreboardView();
         this.scoreboard.show(scoreboardView);
         

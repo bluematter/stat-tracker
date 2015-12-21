@@ -1,5 +1,10 @@
 module.exports = {
     index: function(req, res) {
-        res.render('index');
+    	if(req.user) {
+    		console.log(req.cookies)
+            res.redirect('/week/7');
+        } else {
+        	res.redirect('/login');
+        }
     }
 };

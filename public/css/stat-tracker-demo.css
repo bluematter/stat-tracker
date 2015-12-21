@@ -6239,6 +6239,30 @@ p.sign-up {
   margin-right: 5px;
   margin-top: -5px; }
 
+.nav-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 15px; }
+  .nav-flex .nav-objects-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
 button {
   display: inline-block;
   margin: 0 1em;
@@ -6249,7 +6273,6 @@ button {
 
 /* ====================== lines button ==================================================*/
 .lines-button {
-  padding: 1.5rem 0.75rem;
   -webkit-transition: .3s;
   transition: .3s;
   cursor: pointer;
@@ -6360,6 +6383,29 @@ button {
   .lines-button.x2.close-menu .lines:after {
     -webkit-transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg); }
+
+.choose-week ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0; }
+  .choose-week ul li {
+    cursor: pointer;
+    width: 11px;
+    height: 11px;
+    border: 2px solid #aaa;
+    margin: 0 11px;
+    border-radius: 100%;
+    -webkit-transition: .2s border-color ease;
+    transition: .2s border-color ease; }
+    .choose-week ul li:hover {
+      border-color: #333; }
 
 .menu {
   position: absolute;

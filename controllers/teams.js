@@ -3,8 +3,12 @@ var models = require('../app/models'),
 
 module.exports = {
     index: function(req, res) {
-        models.Team.find({}, function(err, data) {
-            res.json(data);
+        models.Team.find({ week: req.params.wid }, function(err, teams) {
+            if (err) {
+                res.json({error: 'teams not found.'});
+            } else {
+                res.json(teams);    
+            }
         });
     },
     getById: function(req, res) {

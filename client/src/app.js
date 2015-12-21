@@ -53,6 +53,7 @@ App.prototype.start = function(){
 
         App.views = {};
         App.data  = {};
+        App.state = {};
         App.vent  = new Backbone.Wreqr.EventAggregator();
         App.fb    = {};
         

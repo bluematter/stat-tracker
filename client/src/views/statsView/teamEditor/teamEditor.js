@@ -18,13 +18,13 @@ var RosterSettingsView = Marionette.Layout.extend({
     onRender: function() {
 
         var playingPlayersSettingsView = new PlayingPlayersView({ 
-            collection: App.data.players.byPlaying(this.model.id)
+            collection: App.data.players.byPlaying(this.model.id, this.options.wid)
         });
         this.playingRegion.show(playingPlayersSettingsView);
 
 
         var benchPlayersSettingsView = new BenchPlayersView({ 
-            collection: App.data.players.byBench(this.model.id)
+            collection: App.data.players.byBench(this.model.id, this.options.wid)
         });
         this.benchRegion.show(benchPlayersSettingsView);
 
@@ -169,7 +169,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
+        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel, wid: this.options.wid});
         this.managePlayers.show(rosterSettingsView);
 
     },

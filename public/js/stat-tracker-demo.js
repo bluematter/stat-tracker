@@ -19995,6 +19995,7 @@ App.prototype.start = function(){
 
         App.views = {};
         App.data  = {};
+        App.state = {};
         App.vent  = new Backbone.Wreqr.EventAggregator();
         App.fb    = {};
         
@@ -20060,14 +20061,17 @@ var Backbone = require('backbone'),
 
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
-    url: '/api/players',
-    byPlaying:function(teamID, wid) {
-    	var Playingresults = this.where({ team_id: teamID, week: wid, bench: false });
+    url: function() {
+        var path = window.location.pathname.split('/');
+        return '/api/week/'+path[2]+'/players'
+    },
+    byPlaying:function(teamID) {
+    	var Playingresults = this.where({ team_id: teamID, bench: false });
         console.log('Playingresults', Playingresults)
         return new PlayersCollection(Playingresults);
     },
     byBench:function(teamID) {
-        var Benchresults = this.where({ team_id: teamID, week: wid, bench: true });
+        var Benchresults = this.where({ team_id: teamID, bench: true });
         return new PlayersCollection(Benchresults);
     },
     byTeam:function(teamID) {
@@ -20075,7 +20079,6 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
         return new PlayersCollection(SpecificTeam); 
     },
     byPlayingTeam:function(teamID) {
-        console.log(teamID)
         var playingPlayers = [];
         for(var i = 0; i < teamID.length; i++) {
             playingPlayers.push(this.where({ team_id: teamID[i] }));
@@ -20093,7 +20096,10 @@ var Backbone = require('backbone'),
 
 module.exports = TeamsCollection = Backbone.Collection.extend({
     model:  TeamModel,
-    url: '/api/teams',
+    url: function() {
+        var path = window.location.pathname.split('/');
+        return '/api/week/'+path[2]+'/teams'
+    },
     comparator: function(team) {
         return team.get('position');
     },
@@ -20104,11 +20110,17 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
         return new TeamsCollection(playing);
     },
     byWeek:function(wid) {
+        weeklyTeams = this.filter(function(team) {
+            return team.get('week') === wid;
+        });
+        return new TeamsCollection(weeklyTeams);
+    },
+    byWeekPlaying:function(wid) {
         var weekid = wid;
-        playing = this.filter(function(team) {
+        weekPlaying = this.filter(function(team) {
             return team.get('playing') === true && team.get('week') === wid;
         });
-        return new TeamsCollection(playing);
+        return new TeamsCollection(weekPlaying);
     }
 });
 
@@ -20144,25 +20156,8 @@ module.exports = Controller = Marionette.Controller.extend({
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit, appView showing StatsView.');
-        //window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
-        window.App.router.navigate('#');
-    },
-
-    /*
-    |--------------------------------------------------------------------------
-    | On week route show statsView by week
-    |--------------------------------------------------------------------------
-    */
-
-    week: function(wid) {
-        App.core.vent.trigger('app:log', 'Controller: "Week" route hit, appView showing StatsView by week '+ wid);
-        var week = window.App.data.teams.byWeek(parseInt(wid)).pluck('week');
-        if(parseInt(wid) === week[0]) {
-            window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams.byWeek(parseInt(wid)), week: wid }));
-        } else {
-            window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
-        }
-        window.App.router.navigate('#/week/'+wid);
+        window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
+        //window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
     },
     
     /*
@@ -20174,7 +20169,7 @@ module.exports = Controller = Marionette.Controller.extend({
     teams: function() {
         App.core.vent.trigger('app:log', 'Controller: "Teams Settings" route hit, appView showing SetTeamsView.');
         window.App.views.appView.stats.show(new TeamsView({ collection: window.App.data.teams }));
-        window.App.router.navigate('#teams');
+        window.App.router.navigate('/#teams');
     },
 
     /*
@@ -20186,7 +20181,7 @@ module.exports = Controller = Marionette.Controller.extend({
     players: function() {
         App.core.vent.trigger('app:log', 'Controller: "Players Settings" route hit, appView showing PlayersSettingsView.');
         window.App.views.appView.stats.show(new PlayersView({ collection: window.App.data.players }));
-        window.App.router.navigate('#players');
+        window.App.router.navigate('/#players');
     },
 
     /*
@@ -20289,7 +20284,6 @@ var Marionette = require('backbone.marionette');
 module.exports = Router = Marionette.AppRouter.extend({
     appRoutes: {
         ''      : 'home',
-        'week/:week' : 'week',
         'teams' : 'teams',
         'players' : 'players',
         'settings' : 'settings'
@@ -20328,7 +20322,7 @@ module.exports = AppLayoutView = Backbone.Marionette.Layout.extend({
 
         // stats view renders inside the controller because its dynamic
 
-        // render the app's scoreboard (always render the scoreboard, for now??)   
+        // render the app's scoreboard (always render the scoreboard, for now??)
         var scoreboardView = new ScoreboardView();
         this.scoreboard.show(scoreboardView);
         
@@ -20903,7 +20897,7 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     onRender: function(){
         
         // listen to global collection of playing teams
-        var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byPlaying() });
+        var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byWeekPlaying(1) });
         this.scores.show(scoreboardScoreView);
 
     }
@@ -21167,7 +21161,7 @@ module.exports = statsView = Marionette.Layout.extend({
         });
 
         // initialize subviews for statsView
-        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying(), wid: parseInt(this.options.week) });
+        window.App.views.teamsView = new TeamsView({ collection: this.collection.byPlaying() });
         window.App.views.chartView = new ChartView({ collection: this.collection.byPlaying() });
 
     },
@@ -21296,13 +21290,13 @@ var RosterSettingsView = Marionette.Layout.extend({
     onRender: function() {
 
         var playingPlayersSettingsView = new PlayingPlayersView({ 
-            collection: App.data.players.byPlaying(this.model.id)
+            collection: App.data.players.byPlaying(this.model.id, this.options.wid)
         });
         this.playingRegion.show(playingPlayersSettingsView);
 
 
         var benchPlayersSettingsView = new BenchPlayersView({ 
-            collection: App.data.players.byBench(this.model.id)
+            collection: App.data.players.byBench(this.model.id, this.options.wid)
         });
         this.benchRegion.show(benchPlayersSettingsView);
 
@@ -21447,7 +21441,7 @@ module.exports = teamEditor = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel});
+        var rosterSettingsView = new RosterSettingsView({model: this.options.teamModel, wid: this.options.wid});
         this.managePlayers.show(rosterSettingsView);
 
     },
@@ -21528,7 +21522,9 @@ var teamView = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id, this.options.wid) });
+        console.log('Team ID', this.model.id)
+
+        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id) });
         this.players.show(playersView);
 
     },
@@ -21540,9 +21536,7 @@ var teamView = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var teamEditorView = new TeamEditorView({ 
-            teamModel: this.model
-        });
+        var teamEditorView = new TeamEditorView({ teamModel: this.model });
         this.teamEditor.show(teamEditorView);
 
         this.teamEditor.on("before:show", function(view){
@@ -21921,8 +21915,7 @@ var listTeamsView = Marionette.Layout.extend({
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
     },
-    setHome:function(e) { 
-        App.vent.trigger('home-team-change', this.model.get('team_name'));
+    setHome:function(e) {
         App.data.teams.each(function(team) {
             // clear any team that has side:'home'
             if(team.get('side') === 'home') {
@@ -21933,8 +21926,7 @@ var listTeamsView = Marionette.Layout.extend({
         this.model.set({playing: true, position: 1, side: 'home'});
         this.model.save();
     },
-    setAway:function(e) { 
-        App.vent.trigger('away-team-change', this.model.get('team_name'));
+    setAway:function(e) {
         App.data.teams.each(function(team) {
             // clear any team that has side:'away'
             if(team.get('side') === 'away') {
@@ -22138,7 +22130,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\" /> \n            ";
+  return "\n                <div class=\"image-underlay\" style=\"background-image: url(/img/default.jpg)\"></div>\n                <img src=\"/img/default.jpg\" class=\"img-circle img-responsive\" /> \n            ";
   }
 
 function program5(depth0,data) {
@@ -22155,7 +22147,7 @@ function program5(depth0,data) {
 function program7(depth0,data) {
   
   
-  return "\n                <div class=\"image-underlay\" style=\"background-image: url(./img/default.jpg)\"></div>\n                <img src=\"./img/default.jpg\" class=\"img-circle img-responsive\"/> \n            ";
+  return "\n                <div class=\"image-underlay\" style=\"background-image: url(/img/default.jpg)\"></div>\n                <img src=\"/img/default.jpg\" class=\"img-circle img-responsive\"/> \n            ";
   }
 
 function program9(depth0,data) {
@@ -22236,7 +22228,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
+  return "\n                <img src=\"/img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
   buffer += "<div class=\"player\">\n\n    <div class=\"col-xs-6 column stat name\">\n\n        <span class=\"column face\">\n            ";
@@ -22407,7 +22399,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
+  return "\n                <img src=\"/img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
 function program5(depth0,data) {
@@ -22583,7 +22575,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\n                <img src=\"./img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
+  return "\n                <img src=\"/img/default.jpg\" class=\"player-image img-responsive\"/> \n            ";
   }
 
   buffer += "<div class=\"player\">\n\n    <div class=\"col-xs-6 column stat name\">\n\n        <span class=\"column face\">\n            ";

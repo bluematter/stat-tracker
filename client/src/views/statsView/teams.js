@@ -33,7 +33,9 @@ var teamView = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id, this.options.wid) });
+        console.log('Team ID', this.model.id)
+
+        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id) });
         this.players.show(playersView);
 
     },
@@ -45,9 +47,7 @@ var teamView = Backbone.Marionette.Layout.extend({
         |--------------------------------------------------------------------------
         */
 
-        var teamEditorView = new TeamEditorView({ 
-            teamModel: this.model
-        });
+        var teamEditorView = new TeamEditorView({ teamModel: this.model });
         this.teamEditor.show(teamEditorView);
 
         this.teamEditor.on("before:show", function(view){

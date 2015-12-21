@@ -4,6 +4,17 @@
     margin-top: -5px;
 }
 
+.nav-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  .nav-objects-flex {
+    display: flex;
+    align-items: center;
+  }
+}
+
 // =========== General button styles & variables =======================================//
 button{
   display:inline-block;
@@ -26,7 +37,6 @@ $transition: .3s;// increase this to see the transformations happen in slow moti
 $button-size : 3rem; 
 //common to all three-liners
 .lines-button {
-  padding: $button-size/2 $button-size/4;
   transition: .3s;
   cursor: pointer;
   user-select: none;
@@ -190,6 +200,27 @@ $button-size : 3rem;
     &:after{
       -webkit-transform: rotate3d(0,0,1,-45deg); 
               transform: rotate3d(0,0,1,-45deg); 
+    }
+  }
+}
+
+.choose-week {
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    li {
+      cursor: pointer;
+      width: 11px;
+      height: 11px;
+      border: 2px solid #aaa;
+      margin: 0 11px;
+      border-radius: 100%;
+      transition: .2s border-color ease;
+      &:hover {
+        border-color: #333;
+      }
     }
   }
 }

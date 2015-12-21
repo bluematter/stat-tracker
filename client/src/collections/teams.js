@@ -4,7 +4,10 @@ var Backbone = require('backbone'),
 
 module.exports = TeamsCollection = Backbone.Collection.extend({
     model:  TeamModel,
-    url: '/api/teams',
+    url: function() {
+        var path = window.location.pathname.split('/');
+        return '/api/week/'+path[2]+'/teams'
+    },
     comparator: function(team) {
         return team.get('position');
     },
@@ -15,10 +18,16 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
         return new TeamsCollection(playing);
     },
     byWeek:function(wid) {
+        weeklyTeams = this.filter(function(team) {
+            return team.get('week') === wid;
+        });
+        return new TeamsCollection(weeklyTeams);
+    },
+    byWeekPlaying:function(wid) {
         var weekid = wid;
-        playing = this.filter(function(team) {
+        weekPlaying = this.filter(function(team) {
             return team.get('playing') === true && team.get('week') === wid;
         });
-        return new TeamsCollection(playing);
+        return new TeamsCollection(weekPlaying);
     }
 });

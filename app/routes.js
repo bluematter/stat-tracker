@@ -7,7 +7,7 @@ module.exports.initialize = function(app, router, passport) {
 
     
     // routing
-    router.get('/',       user.index);
+    router.get('/week/:wid', user.index);
     router.get('/login',  user.login);
     router.get('/signup', user.signup);
     router.get('/logout', user.logout);
@@ -36,32 +36,24 @@ module.exports.initialize = function(app, router, passport) {
         })
     );
 
-    
     // api for teams
     router.get('/', home.index);
-    router.get('/api/teams', team.index);
-    router.get('/api/teams/:id', team.getById);
-    router.post('/api/teams', team.add);
-    router.put('/api/teams/:id', team.update);
-    router.delete('/api/teams/:id', team.delete);
+    router.get('/api/week/:wid/teams', team.index);
+    router.get('/api/week/:wid/teams/:id', team.getById);
+    router.post('/api/week/:wid/teams', team.add);
+    router.put('/api/week/:wid/teams/:id', team.update);
+    router.delete('/api/week/:wid/teams/:id', team.delete);
     
     // start new week route
     router.post('/api/newWeek', team.newWeek);
-
-    // temp reset stats route
-    //router.get('/api/reset/teams', team.reset);
     
     // api for players
-    router.get('/api/players', player.index);
-    router.get('/api/players/:tid', player.getByTeamId);
-    router.get('/api/players/:tid/:pid', player.getById);
-    router.post('/api/players', player.add);
-    router.put('/api/players/:pid', player.update);
-    router.delete('/api/players/:pid', player.delete);
-
-    // temp reset stats route
-    router.get('/api/reset/players', player.reset);
-    
+    router.get('/api/week/:wid/players', player.index);
+    router.get('/api/week/:wid/players/:tid', player.getByTeamId);
+    router.get('/api/week/:wid/players/:tid/:pid', player.getById);
+    router.post('/api/week/:wid/players', player.add);
+    router.put('/api/week/:wid/players/:pid', player.update);
+    router.delete('/api/week/:wid/players/:pid', player.delete);
 
 
 

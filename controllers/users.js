@@ -18,10 +18,10 @@ module.exports = {
 
         }
         else
-            res.render('login', { user: req.cookies.RMME }); 
+            res.redirect('/login'); 
     },
     login: function(req, res) {
-        res.render('login');
+        res.render('login', { user: req.cookies.RMME });
     },
     signup: function(req, res) {
         res.render('signup');
@@ -37,7 +37,7 @@ module.exports = {
                     else
                         console.log('success');
                         req.logout();
-                        res.redirect('/');
+                        res.redirect('/login');
                 });
             });
             
