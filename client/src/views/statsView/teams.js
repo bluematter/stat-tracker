@@ -21,7 +21,7 @@ var teamView = Backbone.Marionette.Layout.extend({
         players: ".the-players",
         teamEditor: '.team-editor'
     },
-    initialize: function() {
+    initialize: function(options) {
         this.listenTo(this.model, 'change', this.render);
     },
     onRender: function() {
@@ -29,11 +29,11 @@ var teamView = Backbone.Marionette.Layout.extend({
         /*
         |--------------------------------------------------------------------------
         | List all the playing players, passing in the team_id associates the 
-        | players to thier team.
+        | players to team.
         |--------------------------------------------------------------------------
         */
 
-        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id) });
+        var playersView = new PlayersView({ collection: App.data.players.byPlaying(this.model.id, this.options.wid) });
         this.players.show(playersView);
 
     },
@@ -99,5 +99,10 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
         },0);
 
     },
-    itemView: teamView
+    itemView: teamView,
+    itemViewOptions: function(model,index){
+        return{
+             wid: parseInt(this.options.wid)
+        }
+    }
 });

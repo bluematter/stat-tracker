@@ -1,6 +1,7 @@
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
     StatsView  = require('./views/statsView/statsView'),
+    NextWeekView = require('./views/statsView/nextWeek'),
     TeamsView = require('./views/teamsView/teamsView'),
     PlayersView = require('./views/playersView/playersView');
 
@@ -28,8 +29,25 @@ module.exports = Controller = Marionette.Controller.extend({
 
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit, appView showing StatsView.');
-        window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
+        //window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
         window.App.router.navigate('#');
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | On week route show statsView by week
+    |--------------------------------------------------------------------------
+    */
+
+    week: function(wid) {
+        App.core.vent.trigger('app:log', 'Controller: "Week" route hit, appView showing StatsView by week '+ wid);
+        var week = window.App.data.teams.byWeek(parseInt(wid)).pluck('week');
+        if(parseInt(wid) === week[0]) {
+            window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams.byWeek(parseInt(wid)), week: wid }));
+        } else {
+            window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
+        }
+        window.App.router.navigate('#/week/'+wid);
     },
     
     /*

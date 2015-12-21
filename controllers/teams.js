@@ -16,6 +16,87 @@ module.exports = {
             }
         });
     },
+    newWeek: function(req, res) {
+        models.Team.find({week: 1}, function(err, teams) {
+            if (err) {
+                res.json({error: err});
+            } else {
+
+                teams.forEach(function(team) {
+                    var oldTeamID = team['_id'];
+                    var newTeamCopy = {
+                        week: req.body.wid,
+                        team_name: team['team_name'],
+                        team_color: team['team_color'],
+                        playing: team['playing'],
+                        side: team['side'],
+                        position: team['position'],
+                        fouls: 0,
+                        blocks: 0,
+                        steals: 0,
+                        rebounds: 0,
+                        assists: 0,
+                        percentage: 0,
+                        missed_three: 0,
+                        missed_two: 0,
+                        missed_one: 0,
+                        made_three: 0,
+                        made_two: 0,
+                        made_one: 0,
+                        points: 0
+                    }
+                    var newTeam = new models.Team(newTeamCopy);
+
+                    newTeam.save(function(err, team) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log('New copy of team '+team.id+' saved for week '+team.week+' adding players now...');
+
+                            // find players before saving teams
+                            models.Player.find({ team_id: oldTeamID }, function(err, players) {
+                                players.forEach(function(player) {
+                                    var newPlayerCopy = {
+                                        player_name: player['player_name'],
+                                        team_id: team.id,
+                                        bench: player['bench'],
+                                        points: 0,
+                                        made_one: 0,
+                                        made_two: 0,
+                                        made_three: 0,
+                                        missed_one: 0,
+                                        missed_two: 0,
+                                        missed_three: 0,
+                                        percentage: 0,
+                                        assists: 0,
+                                        rebounds: 0,
+                                        steals: 0,
+                                        blocks: 0,
+                                        fouls: 0,
+                                        feed: null,
+                                        week: req.body.wid,
+                                        facebook_id: player['facebook_id']
+                                    }
+                                    var newPlayer = new models.Player(newPlayerCopy);
+
+                                    newPlayer.save(function(err, player) {
+                                        if(err) {
+                                            console.log(err);
+                                        } else {
+                                            console.log('New Copy of player '+player.id)
+                                        }
+                                    });
+                                });
+                            });
+                        }
+                    });
+                });
+
+                // take teams in loop and create new copy of teams
+                res.json({creation: 'done'});
+            }
+        });
+    },
     add: function(req, res) {
         var newTeam = new models.Team(req.body);
         newTeam.save(function(err, team) {

@@ -25,7 +25,8 @@ var Team = new Schema({
     firstHalf_timeout: { type: Boolean },
     secondHalf_timeout: { type: Boolean },
     firstHalf_fouls: { type: Number },
-    secondHalf_fouls: { type: Number }
+    secondHalf_fouls: { type: Number },
+    week:         { type: Number }
 });
 
 var Player = new Schema({
@@ -47,7 +48,8 @@ var Player = new Schema({
     blocks:       { type: Number },
     fouls:        { type: Number },  
     feed:         { type: String },
-    facebook_id:  { type: Number }
+    facebook_id:  { type: Number },
+    week:         { type: Number }
 });
 
 module.exports = {

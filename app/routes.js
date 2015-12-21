@@ -44,9 +44,12 @@ module.exports.initialize = function(app, router, passport) {
     router.post('/api/teams', team.add);
     router.put('/api/teams/:id', team.update);
     router.delete('/api/teams/:id', team.delete);
+    
+    // start new week route
+    router.post('/api/newWeek', team.newWeek);
 
     // temp reset stats route
-    router.get('/api/reset/teams', team.reset);
+    //router.get('/api/reset/teams', team.reset);
     
     // api for players
     router.get('/api/players', player.index);

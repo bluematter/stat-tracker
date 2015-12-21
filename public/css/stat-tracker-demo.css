@@ -4917,6 +4917,29 @@ td.visible-print {
   td.hidden-print {
     display: none !important; } }
 
+.button {
+  border-radius: 0;
+  border: 1px solid;
+  color: #333; }
+
+.btn {
+  color: #fff; }
+
+.newWeek {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
 @font-face {
   font-family: 'themify';
   src: url("../fonts/themify.eot?-fvbane");
@@ -7223,6 +7246,9 @@ button {
   left: 0;
   -webkit-box-shadow: 0 2px 1px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 1px 0px rgba(0, 0, 0, 0.5); }
+  .team-editor .edit .editor.settings-editor {
+    width: 40%;
+    height: 55%; }
   .team-editor .edit .editor .player-addition-actions {
     background-color: #eee; }
     .team-editor .edit .editor .player-addition-actions .player-addition-button {

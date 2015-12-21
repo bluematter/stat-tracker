@@ -4,12 +4,13 @@ var Backbone = require('backbone'),
 module.exports = PlayersCollection = Backbone.Collection.extend({
     model:  PlayerModel,
     url: '/api/players',
-    byPlaying:function(teamID) {
-    	var Playingresults = this.where({ team_id: teamID, bench: false });
+    byPlaying:function(teamID, wid) {
+    	var Playingresults = this.where({ team_id: teamID, week: wid, bench: false });
+        console.log('Playingresults', Playingresults)
         return new PlayersCollection(Playingresults);
     },
     byBench:function(teamID) {
-        var Benchresults = this.where({ team_id: teamID, bench: true });
+        var Benchresults = this.where({ team_id: teamID, week: wid, bench: true });
         return new PlayersCollection(Benchresults);
     },
     byTeam:function(teamID) {
@@ -23,8 +24,7 @@ module.exports = PlayersCollection = Backbone.Collection.extend({
             playingPlayers.push(this.where({ team_id: teamID[i] }));
         }
         var Playingresults = playingPlayers[0].concat(playingPlayers[1]);
-        console.log(Playingresults);
         return new PlayersCollection(Playingresults);
-    },
+    }
 
 });

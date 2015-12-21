@@ -28,7 +28,8 @@ module.exports = {
                     rebounds:     100,
                     steals:       33,
                     blocks:       14,
-                    fouls:        20,  
+                    fouls:        20,
+                    week:         1,
                     feed:        null
                 });
                 newTeam.save(function(err, team) {
@@ -51,6 +52,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -74,6 +76,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -97,6 +100,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -122,7 +126,8 @@ module.exports = {
                     rebounds:     100,
                     steals:       33,
                     blocks:       14,
-                    fouls:        20,  
+                    fouls:        20,
+                    week:         1,
                     feed:        null
                 });
                 newTeam.save(function(err, team) {
@@ -145,6 +150,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -168,6 +174,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -191,6 +198,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -215,7 +223,8 @@ module.exports = {
                     rebounds:     100,
                     steals:       33,
                     blocks:       14,
-                    fouls:        20,  
+                    fouls:        20,
+                    week:         1,
                     feed:        null
                 });
                 newTeam.save(function(err, team) {
@@ -238,6 +247,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -261,6 +271,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {
@@ -284,6 +295,7 @@ module.exports = {
                         blocks:       5,
                         fouls:        3,  
                         feed:         null,
+                        week:         1,
                         facebook_id:  null
                     });
                     newPlayer.save(function(err, player) {

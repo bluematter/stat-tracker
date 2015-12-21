@@ -13,5 +13,12 @@ module.exports = TeamsCollection = Backbone.Collection.extend({
             return team.get('playing') === true;
         });
         return new TeamsCollection(playing);
+    },
+    byWeek:function(wid) {
+        var weekid = wid;
+        playing = this.filter(function(team) {
+            return team.get('playing') === true && team.get('week') === wid;
+        });
+        return new TeamsCollection(playing);
     }
 });
