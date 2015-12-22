@@ -4,6 +4,10 @@
     margin-top: -5px;
 }
 
+.navbar-default {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .nav-flex {
   display: flex;
   align-items: center;
@@ -212,16 +216,27 @@ $button-size : 3rem;
     display: flex;
     align-items: center;
     margin: 0;
-    li.circle-week {
+    li {
       cursor: pointer;
-      width: 11px;
-      height: 11px;
-      border: 2px solid #aaa;
-      margin: 0 11px;
-      border-radius: 100%;
-      transition: .2s border-color ease;
-      &:hover {
-        border-color: #333;
+      margin: 0 7px;
+      .circle-week {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        border: 2px solid #aaa;
+        margin: 0 11px;
+        border-radius: 100%;
+        vertical-align: middle;
+        transition: .2s border-color ease;
+      }
+      .week-text {
+        font-size: 12px;
+        vertical-align: middle;
+      }
+      &:hover, &.active {
+        .circle-week {
+          border-color: #333;
+        }
       }
     }
   }

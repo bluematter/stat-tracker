@@ -20018,28 +20018,42 @@ App.prototype.start = function(){
             
             function weekStuff() {
 
+                // set localstorage state
                 if (localStorage['week']) {
                     App.state.week = localStorage.getItem('week');
                 } else {
                     App.state.week = 1;
                 }
 
+                // set cookie state for server
+                if(document.cookie.indexOf('week') > -1) {
+                    document.cookie = 'week='+App.state.week+';path=/';
+                } else {
+                    document.cookie = 'week=1;path=/';
+                }
+
                 weeks.forEach(function(week) {
-                    $('.choose-week ul').append('<li class="circle-week" data-week="'+week.week+'"><span>'+week.week+'</span></li>')
+                    var classState = (parseInt(week.week) == parseInt(App.state.week)) ? "active":"";
+                    $('.choose-week ul').append('<li class="'+classState+'" data-week="'+week.week+'"><span class="circle-week"></span><span class="week-text">week '+week.week+'</span></li>');
                 });
 
                 // custom weekly navigator
                 $('.choose-week li').on('click', function() {
                     var week = $(this).data('week');
                     localStorage.setItem('week', week);
-                    App.state.week = week;
+                    document.cookie = 'week='+week+';path=/';
                     window.location.href = '/week/'+week;
                 });
 
                 // create new week
-                $('.choose-week li.add-week').on('click', function() {
-                    $.post('/api/newWeek', { week: $(this).prev().data('week')}, function(data) {
-                        console.log(data);
+                $('.choose-week .add-week').on('click', function() {
+                    var lastWeekObj = _.max(weeks, function (obj) {
+                      return obj.week;
+                    });
+                    var lastWeekIndex = weeks.indexOf(lastWeekObj);
+                    $.post('/api/newWeek', { week: parseInt(lastWeekIndex + 1)}, function(data) {
+                        localStorage.setItem('week', data.newWeek);
+                        window.location.href = '/week/'+data.newWeek;
                     });
                 });
             };

@@ -103,7 +103,7 @@ module.exports = {
                         });
 
                         // take teams in loop and create new copy of teams
-                        res.json({creation: 'done'});
+                        res.json({newWeek: parseInt(req.body.week) + 1});
                     }
                 });
             }
