@@ -1,8 +1,7 @@
 module.exports = {
     index: function(req, res) {
     	if(req.user) {
-    		console.log(req.cookies)
-            res.redirect('/week/7');
+            res.redirect('/week/'+req.cookies.week+'/');
         } else {
         	res.redirect('/login');
         }

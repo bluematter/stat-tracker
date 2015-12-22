@@ -205,12 +205,14 @@ $button-size : 3rem;
 }
 
 .choose-week {
+  display: flex;
+  align-items: center;
   ul {
     list-style: none;
     display: flex;
     align-items: center;
     margin: 0;
-    li {
+    li.circle-week {
       cursor: pointer;
       width: 11px;
       height: 11px;
@@ -222,5 +224,12 @@ $button-size : 3rem;
         border-color: #333;
       }
     }
+  }
+  div.add-week {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 11px;
   }
 }

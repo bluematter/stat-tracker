@@ -70,26 +70,62 @@ App.prototype.start = function(){
                 }
             });
         };
-        
-        // grab our applications data the order is important
-        var teams = new TeamsCollection();
-        teams.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
-        teams.fetch({
-            reset: true,
-            success: function(team) {
-                App.data.teams = teams;
 
-                var players = new PlayersCollection();
-                players.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
-                players.fetch({
-                    success: function(player) {
-                        App.data.players = players;
-                        App.core.vent.trigger('app:start');
-                    }
+        // ajax get weeks, then start app
+        $.get('/api/week', function(weeks) {
+            
+            function weekStuff() {
+
+                if (localStorage['week']) {
+                    App.state.week = localStorage.getItem('week');
+                } else {
+                    App.state.week = 1;
+                }
+
+                weeks.forEach(function(week) {
+                    $('.choose-week ul').append('<li class="circle-week" data-week="'+week.week+'"><span>'+week.week+'</span></li>')
                 });
 
-            }
+                // custom weekly navigator
+                $('.choose-week li').on('click', function() {
+                    var week = $(this).data('week');
+                    localStorage.setItem('week', week);
+                    App.state.week = week;
+                    window.location.href = '/week/'+week;
+                });
+
+                // create new week
+                $('.choose-week li.add-week').on('click', function() {
+                    $.post('/api/newWeek', { week: $(this).prev().data('week')}, function(data) {
+                        console.log(data);
+                    });
+                });
+            };
+
+            weekStuff();
+
+            // grab our applications data the order is important
+            var teams = new TeamsCollection();
+            teams.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
+            teams.fetch({
+                reset: true,
+                success: function(team) {
+                    App.data.teams = teams;
+
+                    var players = new PlayersCollection();
+                    players.syncDirtyAndDestroyed(); // sync data tracked offline to live DB
+                    players.fetch({
+                        success: function(player) {
+                            App.data.players = players;
+                            App.core.vent.trigger('app:start');
+                        }
+                    });
+
+                }
+            });
+
         });
+        
         
     });
 

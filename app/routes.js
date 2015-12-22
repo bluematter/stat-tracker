@@ -1,5 +1,6 @@
 var home   = require('../controllers/home'),
     user   = require('../controllers/users'),
+    week   = require('../controllers/weeks'),
     team   = require('../controllers/teams'),
     player = require('../controllers/players');
 
@@ -35,6 +36,9 @@ module.exports.initialize = function(app, router, passport) {
             failureRedirect : '/login'
         })
     );
+    
+    // api for weeks
+    router.get('/api/week', week.index);
 
     // api for teams
     router.get('/', home.index);

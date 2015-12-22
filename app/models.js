@@ -52,7 +52,12 @@ var Player = new Schema({
     week:         { type: Number }
 });
 
+var Week = new Schema({
+    week: { type: String }
+});
+
 module.exports = {
     Team   : mongoose.model('Team', Team),
-    Player : mongoose.model('Player', Player)
+    Player : mongoose.model('Player', Player),
+    Week   : mongoose.model('Week', Week)
 };

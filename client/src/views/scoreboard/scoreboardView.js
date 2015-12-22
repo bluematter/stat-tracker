@@ -120,7 +120,7 @@ module.exports = ScoreboardView = Backbone.Marionette.Layout.extend({
     onRender: function(){
         
         // listen to global collection of playing teams
-        var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byWeekPlaying(1) });
+        var scoreboardScoreView = new ScoreboardScoreView({collection: App.data.teams.byWeekPlaying(App.state.week) });
         this.scores.show(scoreboardScoreView);
 
     }

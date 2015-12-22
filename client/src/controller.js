@@ -1,7 +1,6 @@
 var Marionette = require('backbone.marionette'),
     AppView    = require('./views/appView'),
     StatsView  = require('./views/statsView/statsView'),
-    NextWeekView = require('./views/statsView/nextWeek'),
     TeamsView = require('./views/teamsView/teamsView'),
     PlayersView = require('./views/playersView/playersView');
 
@@ -30,7 +29,6 @@ module.exports = Controller = Marionette.Controller.extend({
     home: function() {
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit, appView showing StatsView.');
         window.App.views.appView.stats.show(new StatsView({ collection: window.App.data.teams }));
-        //window.App.views.appView.stats.show(new NextWeekView({ wid: wid }));
     },
     
     /*
@@ -42,7 +40,7 @@ module.exports = Controller = Marionette.Controller.extend({
     teams: function() {
         App.core.vent.trigger('app:log', 'Controller: "Teams Settings" route hit, appView showing SetTeamsView.');
         window.App.views.appView.stats.show(new TeamsView({ collection: window.App.data.teams }));
-        window.App.router.navigate('/#teams');
+        window.App.router.navigate('#teams');
     },
 
     /*
@@ -54,7 +52,7 @@ module.exports = Controller = Marionette.Controller.extend({
     players: function() {
         App.core.vent.trigger('app:log', 'Controller: "Players Settings" route hit, appView showing PlayersSettingsView.');
         window.App.views.appView.stats.show(new PlayersView({ collection: window.App.data.players }));
-        window.App.router.navigate('/#players');
+        window.App.router.navigate('#players');
     },
 
     /*
